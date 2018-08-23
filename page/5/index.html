@@ -331,238 +331,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/android/android学习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/android/android学习/" itemprop="url">
-                  android学习
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-14 16:12:47" itemprop="dateModified" datetime="2018-08-14T16:12:47+08:00">2018-08-14</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <!--2014、11、12-->
-<h3 id="Android-之-fill-parent-、wrap-content-、match-parent属性"><a href="#Android-之-fill-parent-、wrap-content-、match-parent属性" class="headerlink" title="Android 之 fill_parent 、wrap_content 、match_parent属性"></a>Android 之 fill_parent 、wrap_content 、match_parent属性</h3><p><code>fill_parent</code> 设置一个顶部布局或控件为<br><code>fill_parent</code>将强制性让它布满整个屏幕。<br><code>wrap_content</code> 设置一个视图的尺寸为<br><code>wrap_content</code>将强制性地使视图扩展以显示全部内容</p>
-<h3 id="在程序中输出日志-使用-android-util-Log-类"><a href="#在程序中输出日志-使用-android-util-Log-类" class="headerlink" title="在程序中输出日志, 使用 android.util.Log 类."></a>在程序中输出日志, 使用 android.util.Log 类.</h3><p>该类提供了若干静态方法<br>Log.v(String tag, String msg);<br>Log.d(String tag, String msg);<br>Log.i(String tag, String msg);<br>Log.w(String tag, String msg);<br>Log.e(String tag, String msg);<br>分别对应 Verbose, Debug, Info, Warning,Error.<br>tag是一个标识,可以是任意字符串,通常可以使用类名+方法名, 主要是用来在查看日志时提供一个筛选条件.<br>程序运行后 并不会在 ide的控制台内输出任何信息.<br>如果要后查看日志 请使用<br>adb logcat  </p>
-<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>command + shift + f 格式化代码 ，option + / 提示，option + 上下键 移动某行代码，option + command + 上下键，option + command + s  弹出菜单功能页，Ctrl+1 快速修复(最经典的快捷键,就不用多说了)</p>
-<h3 id="layout文件夹里新建xml命名"><a href="#layout文件夹里新建xml命名" class="headerlink" title="layout文件夹里新建xml命名"></a>layout文件夹里新建xml命名</h3><p>必须都是小写</p>
-<h3 id="完成A跳转到B操作：要在AndroidMainifest-xml的文件里面"><a href="#完成A跳转到B操作：要在AndroidMainifest-xml的文件里面" class="headerlink" title="完成A跳转到B操作：要在AndroidMainifest.xml的文件里面"></a>完成A跳转到B操作：要在AndroidMainifest.xml的文件里面</h3><pre><code class="java">&lt;activity
-           android:name=<span class="string">"com.example.sample1.新加入的类名字”</span>
-<span class="string">           android:label=“页面的标题” &gt;</span>
-<span class="string">&lt;/activity&gt;</span>
-<span class="string"></span>
-</code></pre>
-<p>AndroidManifest.xml是Android应用程序中最重要的文件之一。它是Android程序的全局配置文件，是每个 android程序中必须的文件。它位于我们开发的应用程序的根目录下，描述了package中的全局数据，包括package中暴露的组件 （activities, services, 等等），以及他们各自的实现类，各种能被处理的数据和启动位置等重要信息。</p>
-<!--2014、11、13-->
-<h3 id="布局Layout管理"><a href="#布局Layout管理" class="headerlink" title="布局Layout管理"></a>布局Layout管理</h3><p><a href="http://www.cnblogs.com/mengdd/archive/2012/12/19/2825382.html" target="_blank" rel="noopener">布局</a><br> 　<br> 　　布局即是指Activity中组件的呈现方式，即组件大小、间距和对齐方式等。<br>　　Android提供了两种创建布局的方式：<br>　　　　1.在XML配置文件中声明（推荐）。<br>　　　　2.在程序中通过代码直接实例化布局及其组件。<br>在Android中常见的布局方式：<br>线性布局（LinearLayout）：按照垂直或者水平方向布局组件。<br>　　帧布局（FrameLayout）：组件从屏幕的左上角坐标布局组件。<br>　　表格布局（TableLayout）：按照行列方式布局组件。<br>　　相对布局（RelativeLayout）：相对其他组件的布局方式。<br>　　绝对布局（AbsoluteLayout）：按照绝对坐标来布局组件。（已废）。<br>2、一个ListView通常有两个职责。<br>（1）将数据填充到布局。<br>（2）处理用户的选择点击等操作。<br>第一点很好理解，ListView就是实现这个功能的。第二点也不难做到，在后面的学习中读者会发现，这非常简单。<br>一个ListView的创建需要3个元素。<br>（1）ListView中的每一列的View。<br>（2）填入View的数据或者图片等。<br>（3）连接数据与ListView的适配器。<br>3、关于List<e>的用法<br>List l=new List();<br> 现在这样，如果你想放得是User类，就这样new:<br> List <user> l=new List <user>();<br> 这样编译器就可以帮你监督，如果你往里面放其他类对象，就会报错咯。<br> 当然好处就是你拿出来就是User类对象，不用再强制转换了。比如过去：<br> User u=(User)l.get(1);<br> 现在就可以：<br> User u=l.get(1);<br>4、ArrayList &amp;&amp; HashMap 的使用 </user></user></e></p>
-<pre><code class="java">
-ArrayList&lt;HashMap&lt;String,String&gt;&gt; list=<span class="keyword">new</span> ArrayList&lt;HashMap&lt;String,String&gt;&gt;();  
-   HashMap&lt;String,String&gt; map1= <span class="keyword">new</span> HashMap&lt;String,String&gt;();  
-   HashMap&lt;String,String&gt; map2= <span class="keyword">new</span> HashMap&lt;String,String&gt;();  
-   HashMap&lt;String,String&gt; map3= <span class="keyword">new</span> HashMap&lt;String,String&gt;();  
-
-   map1.put(<span class="string">"user"</span>, <span class="string">"zhang"</span>);  
-   map1.put(<span class="string">"id"</span>, <span class="string">"192.168.0.0"</span>);  
-
-   map2.put(<span class="string">"user"</span>, <span class="string">"wang"</span>);  
-   map2.put(<span class="string">"id"</span>, <span class="string">"192.168.0.1"</span>);  
-
-   list.add(map1);  
-   list.add(map2);  
-   list.add(map3); 
-
-   Log.v(<span class="string">"ArrayList==HashMap===:"</span>, list.toString());
-
-</code></pre>
-<h3 id="AlertDialog-的使用"><a href="#AlertDialog-的使用" class="headerlink" title="AlertDialog 的使用"></a>AlertDialog 的使用</h3><pre><code class="java">
-Builder alertDialog = <span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>);
-alertDialog.setTitle(<span class="string">"标题"</span>);<span class="comment">// 设置标题</span>
-alertDialog.setMessage(<span class="string">"一个消息框"</span>);<span class="comment">// 设置消息</span>
-alertDialog.setPositiveButton(<span class="string">"确定"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() {
-
-    <span class="meta">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>{
-        <span class="comment">// toast 的用法</span>
-        Toast.makeText(getApplicationContext(), <span class="string">"你选择了确定"</span>,
-                Toast.LENGTH_SHORT).show();
-    }
-});
-alertDialog.show();
-
-</code></pre>
-<h3 id="Button-的使用-通过具体的id-找到某个控件"><a href="#Button-的使用-通过具体的id-找到某个控件" class="headerlink" title="Button 的使用: 通过具体的id 找到某个控件"></a>Button 的使用: 通过具体的id 找到某个控件</h3><pre><code class="java"><span class="comment">// 给按钮加上点击事件</span>
-clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListener() {
-    <span class="meta">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>{
-        Log.v(<span class="string">"click"</span>, <span class="string">"=======clickButton======="</span>);
-        <span class="comment">// 跳转到SecondActivity页面</span>
-        Intent intent = <span class="keyword">new</span> Intent();
-        intent.setClass(MainActivity.<span class="keyword">this</span>, SecondActivity.class);
-        startActivity(intent);
-    }
-});
-
-</code></pre>
-<h3 id="dp是虚拟像素，在不同的像素密度的设备上会自动适配，比如"><a href="#dp是虚拟像素，在不同的像素密度的设备上会自动适配，比如" class="headerlink" title="dp是虚拟像素，在不同的像素密度的设备上会自动适配，比如:"></a>dp是虚拟像素，在不同的像素密度的设备上会自动适配，比如:</h3><p>在320x480分辨率，像素密度为160,1dp=1px<br>在480x800分辨率，像素密度为240,1dp=1.5px<br>计算公式:1dp*像素密度/160 = 实际像素数<br>px（像素）：屏幕上的点。<br>dp（与密度无关的像素）：一种基于屏幕密度的抽象单位。在每英寸160点的显示器上，1dp = 1px。<br>尽量使用dp作为空间大小单位，sp作为和文字相关大小单位 </p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/android/android学习2014-11-19/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -919,6 +687,179 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/git 本地仓库 更换远程仓库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/git/git 本地仓库 更换远程仓库/" itemprop="url">
+                  git 本地仓库 更换远程仓库
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-25 12:01:28" itemprop="dateModified" datetime="2018-07-25T12:01:28+08:00">2018-07-25</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a></p>
+<h2 id="git修改远程仓库地址的三种方法"><a href="#git修改远程仓库地址的三种方法" class="headerlink" title="git修改远程仓库地址的三种方法"></a>git修改远程仓库地址的三种方法</h2><h3 id="直接命令修改"><a href="#直接命令修改" class="headerlink" title="直接命令修改"></a>直接命令修改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin [url]</span><br></pre></td></tr></table></figure>
+<h3 id="命令，先删除后设新地址"><a href="#命令，先删除后设新地址" class="headerlink" title="命令，先删除后设新地址"></a>命令，先删除后设新地址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git remote rm origin </span><br><span class="line">git remote add origin [url]</span><br></pre></td></tr></table></figure>
+<h3 id="直接修改配置文件"><a href="#直接修改配置文件" class="headerlink" title="直接修改配置文件"></a>直接修改配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">文件位置：git/config </span><br><span class="line">config</span><br><span class="line"></span><br><span class="line">[core]</span><br><span class="line">    repositoryformatversion = 0</span><br><span class="line">    filemode = false</span><br><span class="line">    bare = false</span><br><span class="line">    logallrefupdates = true</span><br><span class="line">    symlinks = false</span><br><span class="line">    ignorecase = true</span><br><span class="line">[gui]</span><br><span class="line">    wmstate = normal</span><br><span class="line">    geometry = 841x483+225+101 189 218</span><br><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">    url = git@github.com:project.git</span><br><span class="line">    fetch = +refs/heads/*:refs/remotes/origin/*</span><br><span class="line">[branch &quot;master&quot;]</span><br><span class="line">    remote = origin</span><br><span class="line">    merge = refs/heads/master</span><br></pre></td></tr></table></figure>
+<h3 id="补充：如果用sourcetree的话可以直接修改远程仓库地址"><a href="#补充：如果用sourcetree的话可以直接修改远程仓库地址" class="headerlink" title="补充：如果用sourcetree的话可以直接修改远程仓库地址"></a>补充：如果用sourcetree的话可以直接修改远程仓库地址</h3>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/初始化git仓库项目/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1096,7 +1037,7 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/添加忽略文件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/总结的点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -1115,8 +1056,8 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/git/添加忽略文件/" itemprop="url">
-                  git gitignore的设置
+                <a class="post-title-link" href="/2018/06/11/iOS/总结的点/" itemprop="url">
+                  iOS总结的点
                 </a>
               
             
@@ -1159,7 +1100,7 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-26 14:56:17" itemprop="dateModified" datetime="2018-06-26T14:56:17+08:00">2018-06-26</time>
+                <time title="修改时间：2018-08-15 16:46:27" itemprop="dateModified" datetime="2018-08-15T16:46:27+08:00">2018-08-15</time>
               
             
           </span>
@@ -1176,7 +1117,7 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
 
                 
                 
@@ -1212,22 +1153,62 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
       
         
           
-            <h3 id="在项目中添加-gitignore文件"><a href="#在项目中添加-gitignore文件" class="headerlink" title="在项目中添加.gitignore文件"></a>在项目中添加.gitignore文件</h3><blockquote>
-<p>.gitignore文件可以直接从 <a href="https://github.com/github/gitignore" target="_blank" rel="noopener">https://github.com/github/gitignore</a> 上面下载，里面包含了各个语言对应的.gitignore文件</p>
-</blockquote>
-<h3 id="配置添加所需要忽略的文件或者文件类型"><a href="#配置添加所需要忽略的文件或者文件类型" class="headerlink" title="配置添加所需要忽略的文件或者文件类型"></a>配置添加所需要忽略的文件或者文件类型</h3><blockquote>
-<p>使用命令vim .gitignore打开.gitignore文件，回车后 添加和修改要忽略的文件</p>
-</blockquote>
-<h3 id="将-gitignore文件提交到仓库"><a href="#将-gitignore文件提交到仓库" class="headerlink" title="将.gitignore文件提交到仓库"></a>将.gitignore文件提交到仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .gitignore</span><br><span class="line">git commit -m &quot;添加项目忽略文件&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>提交.gitignore文件的目的主要是保证其他开发者提交的时候也会自动筛选掉不需要的文件，因为已提交到仓库的文件再设置.gitignore文件中忽略是无效的，需要先将其移除版本控制后，.gitignore文件才会生效。具体方法见下文。</p>
-</blockquote>
-<h3 id="关于-git-将文件或文件夹移除版本控制"><a href="#关于-git-将文件或文件夹移除版本控制" class="headerlink" title="关于 git 将文件或文件夹移除版本控制"></a>关于 git 将文件或文件夹移除版本控制</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git rm -r -n --cached &quot;bin/&quot; //-n：加上这个参数，执行命令时，是不会删除任何文件，而是展示此命令要删除的文件列表预览。</span><br><span class="line">git rm -r --cached  &quot;bin/&quot;      //最终执行命令. </span><br><span class="line">git commit -m&quot; remove bin folder all file out of control&quot;    //提交</span><br><span class="line">git push    //提交到远程服务器</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果是要忽略一种类型的文件（如.DS_Store文件），将bin/换成*.DS_Store即可。</p>
-</blockquote>
-<h3 id="设置Git全局忽略文件方法"><a href="#设置Git全局忽略文件方法" class="headerlink" title="设置Git全局忽略文件方法"></a>设置Git全局忽略文件方法</h3><p>配置全局忽略文件的我们就不必给每一个项目添加单独的忽略文件<br>1、 进入用户目录下，将第一步中配置好的.gitignore文件拷贝到用户目录下，将这个文件改个名字，名字随意，自己好认就行<br>2、 执行命令git config –global core.excludesfile ~/.gitignore_globalxxxx</p>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>命令git config –global core.excludesfile ~/.gitignore_globalaaaa的效果其实就是修改了在用户目录下的.gitconfig文件</p>
+            <h3 id="UIImage中-imageNamed-和-imageWithContentsOfFile的区别"><a href="#UIImage中-imageNamed-和-imageWithContentsOfFile的区别" class="headerlink" title="UIImage中 imageNamed 和 imageWithContentsOfFile的区别"></a>UIImage中 imageNamed 和 imageWithContentsOfFile的区别</h3><p><code>[UIImage imageNamed:]</code>只适合与UI界面中小的贴图的读取，而一些比较大的资源文件应该尽量避免使用这个接口。<br>直接读取文件路径<code>[UIImage imageWithContentsOfFile]</code>来解决图片的读取问题<br>这两种方式的主要区别在于：<br><code>imageName</code>的方式会在使用的时候系统会cache，程序员是无法处理cache的，这是由系统自动处理的，对于重复加载的图像，速度会提升很多，这样反而用户体验好。所以如果某张图片需要在应用中使用多次，或者重复引用，使用<code>imageName</code>的方式会更好<br><code>imageWithContentsOfFile</code>的方式，在使用完成之后系统会释放，不会缓存下来，所以也就没有这样的问题。一般也不会把所有的图片都会缓存。有些图片在应用中只使用一两次的，就可以用这样的方式，比如新手引导界面的图片等等，就适合这样的方式。没有明显的界限。</p>
+<h3 id="CALayer-和-UIView的区别"><a href="#CALayer-和-UIView的区别" class="headerlink" title="CALayer 和 UIView的区别"></a>CALayer 和 UIView的区别</h3><p><code>CALayer</code>属于<code>Core Animation</code>部分的内容，比较重要而不太好理解。以下是园子中看到的一篇文章的摘录：</p>
+<ol>
+<li><code>UIView</code>是<code>iOS</code>系统中界面元素的基础，所有的界面元素都是继承自它。它本身完全是由   <code>CoreAnimation</code>来实现的。它真正的绘图部分，是由一个<code>CALayer</code>类来管理。<code>UIView</code>本身更像是一个<code>CALayer</code>的管理器，访问它的跟绘图和跟坐标有关的属性，例如<code>frame，bounds</code>等，实际上内部都是在访问它所包含的<code>CALayer</code>的相关属性。</li>
+<li><code>UIView</code>有个重要属性<code>layer</code>，可以返回它的主<code>CALayer</code>实例。</li>
+</ol>
+<h3 id="如何定义一个不规则的button-（还包含一个问题若干个button叠加在一起，苹果如何知道点击的是哪个button，实现原理？）"><a href="#如何定义一个不规则的button-（还包含一个问题若干个button叠加在一起，苹果如何知道点击的是哪个button，实现原理？）" class="headerlink" title="如何定义一个不规则的button （还包含一个问题若干个button叠加在一起，苹果如何知道点击的是哪个button，实现原理？）"></a>如何定义一个不规则的button （还包含一个问题若干个button叠加在一起，苹果如何知道点击的是哪个button，实现原理？）</h3><p>  在<code>iOS</code>中通常使用<code>hit-testing</code>去找到那个被触摸的视图。这个视图叫<code>hit-test view</code>，当<code>iOS</code>找到<code>hit-test view</code>后就把<code>touch event</code>交个那个视图来处理。</p>
+<h3 id="用GCD的方式去实现有n个线程去访问一个属性，只有一个线程去修改属性"><a href="#用GCD的方式去实现有n个线程去访问一个属性，只有一个线程去修改属性" class="headerlink" title="用GCD的方式去实现有n个线程去访问一个属性，只有一个线程去修改属性"></a>用GCD的方式去实现有n个线程去访问一个属性，只有一个线程去修改属性</h3><h3 id="NSRunloop的使用"><a href="#NSRunloop的使用" class="headerlink" title="NSRunloop的使用"></a>NSRunloop的使用</h3><p> 那么具体什么是<code>NSRunLoop</code>呢？其实<code>NSRunLoop</code>的本质是一个消息机制的处理模式。<br> <code>NSRunLoop</code>是一种更加高明的消息处理模式<br> <a href="http://blog.csdn.net/cwq9944/article/details/8555104" target="_blank" rel="noopener">http://blog.csdn.net/cwq9944/article/details/8555104</a></p>
+<h3 id="CoreAnimation-与-UIViewAnimation分别何时会使用"><a href="#CoreAnimation-与-UIViewAnimation分别何时会使用" class="headerlink" title="CoreAnimation 与 UIViewAnimation分别何时会使用"></a>CoreAnimation 与 UIViewAnimation分别何时会使用</h3><h3 id="arc-和-gc-理解"><a href="#arc-和-gc-理解" class="headerlink" title="arc 和 gc 理解"></a>arc 和 gc 理解</h3><p> ARC是iOS 5推出的新功能，全称叫 ARC(Automatic Reference Counting)。简单地说，就是代码中自动加入了retain/release，原先需要手动添加的用来处理内存管理的引用计数的代码可以自动地由编译器完成了。<br> ARC基本规则</p>
+<p>retain, release, autorelease, dealloc由编译器自动插入，不能在代码中调用<br>dealloc虽然可以被重载，但是不能调用[super dealloc]</p>
+<h3 id="如何在ARC代码中混编非ARC代码"><a href="#如何在ARC代码中混编非ARC代码" class="headerlink" title="如何在ARC代码中混编非ARC代码"></a>如何在ARC代码中混编非ARC代码</h3><p> “ios中如果arc和非arc文件混编，可以在build parses中指定compile flags，如果arc文件设为”-fobjc-arc”,非arc文件设为”-fno-objc-arc””  </p>
+<p> 使用了ARC之后如果你想复用以前写过的使用MRC的类， 就会出报错。这时候怎么办？方法比较简单， 只需要做下面的一个步骤就可以解决：<br> 在targets的build phases选项下Compile Sources下选择要不使用arc编译的文件，双击它，输入 -fno-objc-arc 即可</p>
+<p> MRC工程中也可以使用ARC的类。方法如下：<br> 在targets的build phases选项下Compile Sources下选择要使用arc编译的文件，双击它，输入 -fobjc-arc 即可</p>
+<h3 id="NSAutoreleasepool理解"><a href="#NSAutoreleasepool理解" class="headerlink" title="NSAutoreleasepool理解"></a>NSAutoreleasepool理解</h3><p>  iOS的运行时是由一个一个runloop组成的</p>
+<p> 每个runloop中都创建一个Autorelease Pool，并在runloop的末尾进行释放，<br> 所以，一般情况下，每个接受autorelease消息的对象，都会在下个runloop开始前被释放。也就是说，在一段同步的代码中执行过程中，生成的对象接受autorelease消息后，一般是不会在代码段执行完成前释放的。</p>
+<p> 当然也有让autorelease提前生效的办法：自己创建Pool并进行释放</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSAutoreleasePool</span> * pool = [[<span class="built_in">NSAutoreleasePool</span> alloc] init];</span><br><span class="line"><span class="built_in">NSArray</span> * array = [[[<span class="built_in">NSArray</span> alloc] init] autorelease];</span><br><span class="line">[pool drain];</span><br></pre></td></tr></table></figure>
+<h3 id="weak-block"><a href="#weak-block" class="headerlink" title="weak,block"></a><strong>weak,</strong>block</h3><p>   <strong>weak不增加引用，</strong>block增加引用<br>   举例哦，某对象self，self的strong成员变量有blockA，blockA内部引用了self，如果self不经过__weak处理，就会变成：</p>
+<p> self强引用blockA，blockA强引用self。这不就循环引用了嘛</p>
+<h3 id="runtime"><a href="#runtime" class="headerlink" title="runtime"></a>runtime</h3><p>由于runtime是更底层的语言，我们编写的OC代码在运行时，编译器内部会先转为C和C++的代码，然后再执行，因而运用runtime机制，程 序的性能也会更好。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    <span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">NSObject</span></span>&#123;</span><br><span class="line">    <span class="built_in">CGFloat</span> height;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSNumber</span> *age;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="keyword">int</span> no;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>复制代码<br>  然后，我们在其它文件中使用这个类，注意在使用之前，要包含 #import &lt;objc/message.h&gt;</p>
+<p> 下面通过一小段代码来获取到上面这个类中所有的成员变量</p>
+<p>复制代码</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> outCount = <span class="number">0</span>;</span><br><span class="line">    Ivar *vars = class_copyIvarList([Lender <span class="keyword">class</span>], &amp;outCount); </span><br><span class="line">    <span class="comment">// 获取到所有的成员变量列表</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 遍历所有的成员变量</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; outCount; i++) &#123;</span><br><span class="line">        Ivar ivar = vars[i]; <span class="comment">// 取出第i个位置的成员变量</span></span><br><span class="line">       </span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">char</span> *propertyName = ivar_getName(ivar); <span class="comment">// 获取变量名</span></span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">char</span> *propertyType = ivar_getTypeEncoding(ivar); <span class="comment">// 获取变量编码类型</span></span><br><span class="line">        printf(<span class="string">"---%s--%s\n"</span>, propertyName, propertyType);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="什么是GCD？"><a href="#什么是GCD？" class="headerlink" title="什么是GCD？"></a>什么是GCD？</h3><p> Grand Central Dispatch或者GCD，是一套低层API，提供了一种新的方法来进行并发程序编写。从基本功能上讲，<br> GCD有点像NSOperationQueue，他们都允许程序将任务切分为多个单一任务然后提交至工作队列来并发地或者串行地执行。GCD比之NSOpertionQueue更底层更高效，并且它不是Cocoa框架的一部分。<br> GCD的基本概念就是dispatch queue。dispatch queue是一个对象，它可以接受任务，并将任务以先到先执行的顺序来执行。dispatch queue可以是并发的或串行的。并发任务会像NSOperationQueue那样基于系统负载来合适地并发进行，串行队列同一时间只执行单一任务。<br> GCD中有三种队列类型：<br> The main queue: 与主线程功能相同。实际上，提交至main queue的任务会在主线程中执行。main queue可以调用dispatch_get_main_queue()来获得。因为main queue是与主线程相关的，所以这是一个串行队列。<br> Global queues: 全局队列是并发队列，并由整个进程共享。进程中存在三个全局队列：高、中（默认）、低三个优先级队列。可以调用dispatch_get_global_queue函数传入优先级来访问队列。<br> 用户队列: 用户队列 (GCD并不这样称呼这种队列, 但是没有一个特定的名字来形容这种队列，所以我们称其为用户队列) 是用函数 dispatch_queue_create 创建的队列. 这些队列是串行的。正因为如此，它们可以用来完成同步机制, 有点像传统线程中的mutex。  </p>
+<p> 首先，我们要明确NSOperationQueue与GCD之间的关系</p>
+<p> NSOpertaionQueue用GCD构建封装的，是GCD的高级抽象。</p>
+<p> 其次，我们要区别两者的不同</p>
+<p> GCD仅仅支持FIFO队列，而NSOperationQueue中的队列可以被重新设置优先级，从而实现不同操作的执行顺序调整</p>
+<p>   <a href="http://www.dreamingwish.com/frontui/article/default/ios-multithread-program-runloop-the.html" target="_blank" rel="noopener">http://www.dreamingwish.com/frontui/article/default/ios-multithread-program-runloop-the.html</a></p>
+<h3 id="xcode：关于Other-Linker-Flags"><a href="#xcode：关于Other-Linker-Flags" class="headerlink" title="xcode：关于Other Linker Flags"></a>xcode：关于Other Linker Flags</h3><p> 关于Other Linker Flags</p>
+<p> xcode中，在“Targets”选项下有Other Linker Flags选项，在这里可以填写xcode链接器的参数，如：-ObjC、-all_load、-force_load等。<br> 主要参数</p>
+<p> 这里要说的主要参数是ld工具的参数，也是在Other Linker Flags里常用到的参数。</p>
+<p> 1.-ObjC</p>
+<p> 当使用ObjC写的静态类别库（Objective-C static library that contains categories），在程序编译链接时，如果不在Other Linker Flags中填写-ObjC，往往会报错，出现”selector not recognized”。博主无力，原因看不太懂。具体原因请查阅xcode帮助文档。</p>
+<p> -ObjC的作用是加载用ObjC实现的类、类别等所有成员。</p>
+<p> 2.-all_load</p>
+<p> 强制链接器加载所有包含非ObjC的目标文档。</p>
+<ol start="3">
+<li><p>-force_load</p>
+<p>加载指定的目标文档。-force_load后面需要文档路径</p>
+</li>
+</ol>
+<h3 id="strong：会retain（强引用）"><a href="#strong：会retain（强引用）" class="headerlink" title="__strong：会retain（强引用）"></a>__strong：会retain（强引用）</h3><p>__weak NSObject *obj;和assign类似，多一个功能：对象销毁后置为nil</p>
+<p>__autoreleasing：使对象延迟释放</p>
+<p>__bridge:忽略所有的内存管理细节</p>
+<p>Core Foundation需要使用桥接，    </p>
+<h3 id="Objective-C运行时定义了几种重要的类型。"><a href="#Objective-C运行时定义了几种重要的类型。" class="headerlink" title="Objective-C运行时定义了几种重要的类型。"></a>Objective-C运行时定义了几种重要的类型。</h3><p> Class：定义Objective-C类<br> Ivar：定义对象的实例变量，包括类型和名字。<br> Protocol：定义正式协议。<br> objc_property_t：定义属性。叫这个名字可能是为了防止和Objective-C 1.0中的用户类型冲突，那时候还没有属性。<br> Method：定义对象方法或类方法。这个类型提供了方法的名字（就是<strong>选择器</strong>）、参数数量和类型，以及返回值（这些信息合起来称为方法的<strong>签名</strong>），还有一个指向代码的函数指针（也就是方法的<strong>实现</strong>）。<br> SEL：定义选择器。选择器是方法名的唯一标识符。<br> IMP：定义方法实现。这只是一个指向某个函数的指针，该函数接受一个对象、一个选择器和一个可变长参数列表（varargs），返回一个对象  </p>
+<h3 id="Objective-C-Method-Swizzling-IOS-中方法重组"><a href="#Objective-C-Method-Swizzling-IOS-中方法重组" class="headerlink" title="Objective-C Method Swizzling IOS 中方法重组"></a>Objective-C Method Swizzling IOS 中方法重组</h3><p>相关常用方法，都在包内：</p>
+<p>//向类中添加Method<br><code>BOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types)</code></p>
+<p>//修改类的Method IMP<br><code>class_replaceMethod(Class cls, SEL name, IMP imp, const char *types)</code></p>
+<p>//交换2个方法中的IMP<br><code>void method_exchangeImplementations(Method m1, Method m2)</code></p>
+<p>//获取类的某个实例方法<br><code>Method class_getInstanceMethod(Class aClass, SEL aSelector);</code><br>底层原理</p>
+<p>在运行时，<code>oc</code> 的方法被称为一种叫 <code>Method</code> 的结构体，这种 <code>objc_method</code> 类型的结构体定义为：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> objc_method &#123;</span><br><span class="line">   SEL method_name         OBJC2_UNAVAILABLE;</span><br><span class="line">   <span class="keyword">char</span> *method_types      OBJC2_UNAVAILABLE;</span><br><span class="line">   IMP method_imp          OBJC2_UNAVAILABLE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1960,7 +1941,7 @@ npm config get registry
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/19/python/python学习/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/19/python/python搜索并替换/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -1979,8 +1960,8 @@ npm config get registry
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/05/19/python/python学习/" itemprop="url">
-                  python学习
+                <a class="post-title-link" href="/2017/05/19/python/python搜索并替换/" itemprop="url">
+                  搜索并替换
                 </a>
               
             
@@ -2023,7 +2004,7 @@ npm config get registry
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-07-02 16:24:53" itemprop="dateModified" datetime="2018-07-02T16:24:53+08:00">2018-07-02</time>
+                <time title="修改时间：2018-07-10 17:49:49" itemprop="dateModified" datetime="2018-07-10T17:49:49+08:00">2018-07-10</time>
               
             
           </span>
@@ -2076,17 +2057,7 @@ npm config get registry
       
         
           
-            <h1 id="Python基础知识总结"><a href="#Python基础知识总结" class="headerlink" title="Python基础知识总结"></a>Python基础知识总结</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">--&gt;首先python是用缩进来解读程序的，所以缩进很重要</span><br><span class="line">--&gt;%d %s 分别表示打印整数和字符串</span><br><span class="line">--&gt;print 直接打印</span><br><span class="line">--&gt;def 方法名:  声明方法</span><br><span class="line">--&gt;if __name__ == &apos;__main__&apos;: 这个感觉想是主方法</span><br><span class="line">--&gt;r或R 字符串前缀加上r或R表示自然字符串</span><br><span class="line">    打印输出一下就明白意思了</span><br><span class="line">    print &quot;============Newlines are indicated by \n&quot;</span><br><span class="line">    print r&quot;============Newlines are indicated by \n&quot;</span><br><span class="line">--&gt;列表</span><br><span class="line">    空列表：a=[]</span><br><span class="line">    函数方法：a.append(3)     　　&gt;&gt;&gt;[3]</span><br><span class="line">          a.extend([3,4,5])     　　&gt;&gt;&gt;[3,3,4,5]    添加一个列表序列</span><br><span class="line">          a.insert(1,&apos;hello&apos;)    　　  &gt;&gt;&gt;[3,&apos;hello&apos;,3,4,5]</span><br><span class="line">          a.remove(3)        　　　  &gt;&gt;&gt;[&apos;hello&apos;,3,4,5] 删除第一个出现的3，没有3则报错</span><br><span class="line">          a.pop()        　　　　　　&gt;&gt;&gt;[&apos;hello&apos;,3,4]</span><br><span class="line">          a.pop(0)        　　　　　　&gt;&gt;&gt;[3,4]</span><br><span class="line">          a.index(4)       　　 &gt;&gt;&gt;1    返回出现的第一个4的下标</span><br><span class="line">          a.count(3)        　　&gt;&gt;&gt;1    列表中元素3的个数</span><br><span class="line">          a.sort        &gt;&gt;&gt;[3,4]    排序</span><br><span class="line">          a.reverse()        &gt;&gt;&gt;[4,3]    反序</span><br><span class="line">    删除元素的方法</span><br><span class="line">        a.remove(3)    通过值删除元素，删除第一个为参数值得元素</span><br><span class="line">        a.pop()       通过下标删除元素，默认删除列表最后一个值，带参数则删除下标为参数值的元素</span><br><span class="line">        del a[0]       通过下标删除元素，</span><br><span class="line">            del a[2:4] 删除a表下标为2,3的元素</span><br><span class="line">        del a[:]   删除a列表所有元素</span><br><span class="line">        del a       删除列表</span><br><span class="line">--&gt;元组</span><br><span class="line">    空元组：t = ()</span><br><span class="line">    元组赋值： t = (123,345)</span><br><span class="line">           t[0]         &gt;&gt;&gt;123</span><br><span class="line"></span><br><span class="line">--&gt;字典</span><br><span class="line">    d = &#123;&apos;Jack&apos;:&apos;jack@mail.com&apos;,&apos;Tom&apos;:&apos;Tom@main.com&apos;&#125;</span><br><span class="line">    d[&apos;Jack&apos;]    　　　　　　　　&gt;&gt;&gt;&apos;jack@mail.com</span><br><span class="line">    d[&apos;Jim&apos;] = &apos;Jim@sin.com&apos;    &gt;&gt;&gt;&#123;&apos;Jim&apos;: &apos;Jim@sin.com&apos;, &apos;Jack&apos;: &apos;jack@mail.com&apos;, &apos;Tom&apos;: &apos;Tom@main.com&apos;&#125;</span><br><span class="line"></span><br><span class="line">　 del d[&apos;Jim&apos;]    &gt;&gt;&gt;&#123;&apos;Jack&apos;: &apos;jack@mail.com&apos;, &apos;Tom&apos;: &apos;Tom@main.com&apos;&#125;</span><br><span class="line">    list(d.keys())    将返回一个字典中所有关键字组成的无序列表</span><br><span class="line">    sorted(d.keys()) 将返回一个字典中所有关键字组成的排序列表</span><br><span class="line">    dict()    构造函数可以直接从key-value对中创建字典</span><br><span class="line">    dict([(&apos;Tim&apos;,123),(&apos;Tiny&apos;,234)])    &gt;&gt;&gt;&#123;&apos;Tiny&apos;: 234, &apos;Tim&apos;: 123&#125;</span><br><span class="line"></span><br><span class="line">--&gt;字符串相关知识</span><br><span class="line">    addressStr = &quot;%s%s%s&quot; %(village_name,village_period,build_number)</span><br><span class="line"></span><br><span class="line">    特殊字符的删除</span><br><span class="line">    identify = string.maketrans(&apos;&apos;, &apos;&apos;)</span><br><span class="line">    delEStr = string.punctuation + &apos; &apos; + string.digits  #ASCII 标点符号，空格和数字</span><br><span class="line"></span><br><span class="line">    s = s.translate(identify, delEStr) #去掉ASCII 标点符号和空格</span><br></pre></td></tr></table></figure>
-<h1 id="4种类型的数"><a href="#4种类型的数" class="headerlink" title="4种类型的数"></a>4种类型的数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1、在Python中有4种类型的数——整数、长整数、浮点数和复数。</span><br><span class="line"></span><br><span class="line">2是一个整数的例子。</span><br><span class="line">长整数不过是大一些的整数。</span><br><span class="line">3.23和52.3E-4是浮点数的例子。E标记表示10的幂。在这里，52.3E-4表示52.3 * 10-4。</span><br><span class="line">(-5+4j)和(2.3-4.6j)是复数的例子。</span><br></pre></td></tr></table></figure>
-<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">字符串是 字符的序列 。字符串基本上就是一组单词。</span><br><span class="line"></span><br><span class="line">我几乎可以保证你在每个Python程序中都要用到字符串，所以请特别留心下面这部分的内容。下面告诉你如何在Python中使用字符串。</span><br><span class="line"></span><br><span class="line">使用单引号（&apos;）</span><br><span class="line">你可以用单引号指示字符串，就如同&apos;Quote me on this&apos;这样。所有的空白，即空格和制表符都照原样保留。</span><br><span class="line"></span><br><span class="line">使用双引号（&quot;）</span><br><span class="line">在双引号中的字符串与单引号中的字符串的使用完全相同，例如&quot;What&apos;s your name?&quot;。</span><br><span class="line"></span><br><span class="line">使用三引号（&apos;&apos;&apos;或&quot;&quot;&quot;）</span><br><span class="line">利用三引号，你可以指示一个多行的字符串。你可以在三引号中自由的使用单引号和双引号。例如：</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;This is a multi-line string. This is the first line.</span><br><span class="line">This is the second line.</span><br><span class="line">&quot;What&apos;s your name?,&quot; I asked.</span><br><span class="line">He said &quot;Bond, James Bond.&quot;</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">转义符</span><br><span class="line">假设你想要在一个字符串中包含一个单引号（&apos;），那么你该怎么指示这个字符串？例如，这个字符串是What&apos;s your name?。你肯定不会用&apos;What&apos;s your name?&apos;来指示它，因为Python会弄不明白这个字符串从何处开始，何处结束。所以，你需要指明单引号而不是字符串的结尾。可以通过 转义符 来完成这个任务。你用\&apos;来指示单引号——注意这个反斜杠。现在你可以把字符串表示为&apos;What\&apos;s your name?&apos;。</span><br><span class="line"></span><br><span class="line">另一个表示这个特别的字符串的方法是&quot;What&apos;s your name?&quot;，即用双引号。类似地，要在双引号字符串中使用双引号本身的时候，也可以借助于转义符。另外，你可以用转义符\\来指示反斜杠本身。</span><br><span class="line"></span><br><span class="line">值得注意的一件事是，在一个字符串中，行末的单独一个反斜杠表示字符串在下一行继续，而不是开始一个新的行。例如：</span><br><span class="line"></span><br><span class="line">&quot;This is the first sentence.\</span><br><span class="line">This is the second sentence.&quot;</span><br><span class="line">等价于&quot;This is the first sentence. This is the second sentence.&quot;</span><br><span class="line"></span><br><span class="line">自然字符串</span><br><span class="line">如果你想要指示某些不需要如转义符那样的特别处理的字符串，那么你需要指定一个自然字符串。自然字符串通过给字符串加上前缀r或R来指定。例如r&quot;Newlines are indicated by \n&quot;。</span><br><span class="line"></span><br><span class="line">Unicode字符串</span><br><span class="line">Unicode是书写国际文本的标准方法。如果你想要用你的母语如北印度语或阿拉伯语写文本，那么你需要有一个支持Unicode的编辑器。类似地，Python允许你处理Unicode文本——你只需要在字符串前加上前缀u或U。例如，u&quot;This is a Unicode string.&quot;。</span><br><span class="line"></span><br><span class="line">记住，在你处理文本文件的时候使用Unicode字符串，特别是当你知道这个文件含有用非英语的语言写的文本。</span><br><span class="line"></span><br><span class="line">字符串是不可变的</span><br><span class="line">这意味着一旦你创造了一个字符串，你就不能再改变它了。虽然这看起来像是一件坏事，但实际上它不是。我们将会在后面的程序中看到为什么我们说它不是一个缺点。</span><br><span class="line"></span><br><span class="line">按字面意义级连字符串</span><br><span class="line">如果你把两个字符串按字面意义相邻放着，他们会被Python自动级连。例如，&apos;What\&apos;s&apos; &apos;your name?&apos;会被自动转为&quot;What&apos;s your name?&quot;。</span><br></pre></td></tr></table></figure>
-<h1 id="标识符的命名"><a href="#标识符的命名" class="headerlink" title="标识符的命名"></a>标识符的命名</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">变量是标识符的例子。 标识符 是用来标识 某样东西 的名字。在命名标识符的时候，你要遵循这些规则：</span><br><span class="line"></span><br><span class="line">标识符的第一个字符必须是字母表中的字母（大写或小写）或者一个下划线（‘ _ ’）。</span><br><span class="line"></span><br><span class="line">标识符名称的其他部分可以由字母（大写或小写）、下划线（‘ _ ’）或数字（0-9）组成。</span><br><span class="line"></span><br><span class="line">标识符名称是对大小写敏感的。例如，myname和myName不是一个标识符。注意前者中的小写n和后者中的大写N。</span><br><span class="line"></span><br><span class="line">有效 标识符名称的例子有i、__my_name、name_23和a1b2_c3。</span><br><span class="line"></span><br><span class="line">无效 标识符名称的例子有2things、this is spaced out和my-name。</span><br></pre></td></tr></table></figure>
-<h1 id="关于模块主方法的使用"><a href="#关于模块主方法的使用" class="headerlink" title="关于模块主方法的使用"></a>关于模块主方法的使用</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">模块的__name__</span><br><span class="line"></span><br><span class="line">每个模块都有一个名称，在模块中可以通过语句来找出模块的名称。这在一个场合特别有用——就如前面所提到的，当一个模块被第一次输入的时候，这个模块的主块将被运行。假如我们只想在程序本身被使用的时候运行主块，而在它被别的模块输入的时候不运行主块，我们该怎么做呢？这可以通过模块的__name__属性完成。</span><br><span class="line"></span><br><span class="line">使用模块的__name__</span><br><span class="line"></span><br><span class="line">例8.2 使用模块的__name__</span><br></pre></td></tr></table></figure>
-<h1 id="usr-bin-python-Filename-using-name-py"><a href="#usr-bin-python-Filename-using-name-py" class="headerlink" title="!/usr/bin/python Filename: using_name.py"></a>!/usr/bin/python Filename: using_name.py</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    print &apos;This program is being run by itself&apos;</span><br><span class="line">else:</span><br><span class="line">    print &apos;I am being imported from another module&apos;</span><br></pre></td></tr></table></figure>
-<h1 id="python中切片的学习"><a href="#python中切片的学习" class="headerlink" title="python中切片的学习"></a>python中切片的学习</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">切片操作符是序列名后跟一个方括号，方括号中有一对可选的数字，并用冒号分割。注意这与你使用的索引操作符十分相似。记住数是可选的，而冒号是必须的。</span><br><span class="line"></span><br><span class="line">切片操作符中的第一个数（冒号之前）表示切片开始的位置，第二个数（冒号之后）表示切片到哪里结束。如果不指定第一个数，Python就从序列首开始。如果没有指定第二个数，则Python会停止在序列尾。注意，返回的序列从开始位置 开始 ，刚好在 结束 位置之前结束。即开始位置是包含在序列切片中的，而结束位置被排斥在切片外。</span><br></pre></td></tr></table></figure>
-<h1 id="正则表达式的学习"><a href="#正则表达式的学习" class="headerlink" title="正则表达式的学习"></a>正则表达式的学习</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">正则表达式的学习 http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html</span><br><span class="line">  ①一般字符：</span><br><span class="line">   . 匹配任意除换行符“\n”外的字符 例如：a.c -&gt; abc,acc,adc...等与之匹配</span><br><span class="line">   \ 转义字符，使后一个字符改变原来的意思 例如：a\.c,a\\c 与之匹配的则是a.c,a\c</span><br><span class="line">   [...] 字符集（字符类） 对应的位置可以是字符集中任意字符，字符集中得字符可以逐个列出，也可以给出范围，如</span><br><span class="line">          [abc]或[a-c],第一个字符如果是^ 则表示取反，如[^abc]表示不是abc的其他字符，所有的特殊字符在字符集中都</span><br><span class="line">          失去其原有的特殊含义。</span><br><span class="line">  ②预定义字符集 -&gt; 在字符集表示方式</span><br><span class="line">    \d  -&gt; 表示数字：[0-9]</span><br><span class="line">    \D  -&gt; 表示非数字：[^\d]</span><br><span class="line">    \s  -&gt; 表示空白字符：[&lt;空格&gt;\t\r\n\f\v]</span><br><span class="line">    \S  -&gt; 表示非空白符：[^\s]</span><br><span class="line">    \w  -&gt; 表示单词字符: [A-Za-z0-9_]</span><br><span class="line">    \W  -&gt; 表示非单词字符：[^\w]</span><br><span class="line">  ③数量词（用在字符或（...）之后）</span><br><span class="line">     * -&gt; 表示：匹配前一个字符0或无限次 例如：abc* 表示ab、abcccccc等</span><br><span class="line">     + -&gt; 表示：匹配前一个字符一次或无限次 例如 abc+ 表示abc、abcccccc等</span><br><span class="line">     ？ -&gt; 表示：匹配前一个字符0次或一次。例如：abc？ 表示ab、abc</span><br><span class="line">     &#123;m&#125; -&gt; 表示：匹配前一个字符m次。 例如：ab&#123;2&#125;c 表示abbc</span><br><span class="line">     &#123;m,n&#125; -&gt; 表示：匹配前一个字符m至n次。m和n可以省略：若省略m则匹配0至n次，反之则匹配m至无限次。例如：ab&#123;1,2&#125; 表示abb、ab</span><br><span class="line">  ④边界匹配（不消耗待匹配字符串中得字符）</span><br><span class="line">     ^ -&gt; 表示：匹配字符串开头。在多行模式中匹配每一行的开头 例如：^abc 表示abc</span><br><span class="line">     $ -&gt; 表示：匹配字符串末尾。在多行模式中匹配每一行的末尾 例如：abc$ 表示abc</span><br><span class="line">     \A -&gt; 表示：仅匹配字符串开头。例如：\Aabc 表示abc</span><br><span class="line">     \Z -&gt; 表示：仅匹配字符串末尾。例如：\Zabc 表示abc</span><br><span class="line">     \b -&gt; 表示：匹配\w和\W之间。例如：a\b!bc 表示a!bc</span><br><span class="line">     \B -&gt; 表示：[^\b]。例如：a\Bbc 表示abc</span><br><span class="line">  ⑤逻辑、分组</span><br><span class="line">     | -&gt; 表示左右表达式任意匹配一个。它总是先尝试匹配左边的表达式，一旦成功匹配则跳过匹配右边的表达式。如果|没有别包括在（）中，则它的范围是整个正则表达式 例如：abc|def</span><br><span class="line">     (...) -&gt; 被括起来的表达式将作为分组，从表达式的左边开始每遇到一个分组的左括号‘（’，编号+1. 另外，分组表达式作为一个整体，可以后接数量词。表达式|仅在该组中有效：（abc）&#123;2&#125; abcabc</span><br><span class="line">     (?P&lt;name&gt;...) -&gt; 分组，除了原有的编号外在指定一个额外的别名。 例如：(?P&lt;id&gt;abc)&#123;2&#125;   abcabc</span><br><span class="line">     \&lt;number&gt; -&gt; 表示 引用编号为&lt;number&gt;的分组匹配到得字符串。例如：(\d)abc\1 则可表：2abc2、4abc4</span><br><span class="line">     (?P=name) -&gt; 表示 引用别名为&lt;name&gt;的分组匹配到得字符串。(?P&lt;id&gt;\d)abc(?P=id) 则可表：2abc2、4abc4</span><br><span class="line">  ⑥特殊构造（不作为分组）</span><br><span class="line">     (?:...) -&gt; 表（...）的不分组版本，用于使用‘|’或后接数量词。 例如：(?:abc)&#123;2&#125;  abcabc</span><br><span class="line">     (?:iLmsux) -&gt; 表 iLmsux的每一个字符代表一个匹配模式，只能用在正则表达式的开头，可选多个。 例如：(?iabc)  Abc</span><br><span class="line">     (?#...) -&gt; 表 #后的内容将作为注释被忽略。 例如：abc(?#comment)123  abc123</span><br><span class="line">     (?=...) -&gt; 表 之后的字符串内容需要匹配表达式才能成功匹配。不消耗字符串内容 例如：a(?=\d) 后面是数字的a</span><br><span class="line">     (?!...) -&gt; 表 之后的字符串内容需要不匹配表达式才能成功匹配。不消耗字符串内容 例如：a(?!\d) 后面不是数字的a</span><br><span class="line">     (?&lt;=...) -&gt; 表 之前的字符串内容需要匹配表达式才能成功匹配。不消耗字符串内容 例如：(&lt;=\d)a 前面是数字的a</span><br><span class="line">     (?&lt;!...) -&gt; 表 之前的字符串内容需要不匹配表达式才能成功匹配。不消耗字符串内容 例如：(&lt;=\d)a 前面不是数字的a</span><br></pre></td></tr></table></figure>
-<h1 id="grep的使用"><a href="#grep的使用" class="headerlink" title="grep的使用"></a>grep的使用</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">grep的使用：</span><br><span class="line">  1、使用正则表达式的一个多用途文本搜索工具.</span><br><span class="line">  2,grep的选项</span><br><span class="line">  -c 只输出匹配行的计数</span><br><span class="line">  -i 不区分大小写（用于单字符）</span><br><span class="line">  -n 显示匹配的行号</span><br><span class="line">  -v 不显示不包含匹配文本的所以有行</span><br><span class="line">  -s 不显示错误信息</span><br><span class="line">  -E 使用扩展正则表达式</span><br><span class="line">  更多的选项请查看：man grep</span><br><span class="line"></span><br><span class="line">  3,常用grep实例</span><br><span class="line"></span><br><span class="line">  (1)多个文件查询</span><br><span class="line">      grep &quot;sort&quot; *.doc       #见文件名的匹配</span><br><span class="line"></span><br><span class="line">  (2)行匹配:输出匹配行的计数</span><br><span class="line">      grep -c &quot;48&quot; data.doc   #输出文档中含有48字符的行数</span><br><span class="line"></span><br><span class="line">  (3)显示匹配行和行数</span><br><span class="line">      grep -n &quot;48&quot; data.doc       #显示所有匹配48的行和行号</span><br><span class="line"></span><br><span class="line">  (4)显示非匹配的行</span><br><span class="line">      grep -vn &quot;48&quot; data.doc      #输出所有不包含48的行</span><br><span class="line"></span><br><span class="line">  (4)显示非匹配的行</span><br><span class="line">      grep -vn &quot;48&quot; data.doc      #输出所有不包含48的行</span><br><span class="line"></span><br><span class="line">  (5)大小写敏感</span><br><span class="line">      grep -i &quot;ab&quot; data.doc       #输出所有含有ab或Ab的字符串的行</span><br><span class="line"></span><br><span class="line">  4, 正则表达式的应用</span><br><span class="line"></span><br><span class="line">  (1)正则表达式的应用 (注意：最好把正则表达式用单引号括起来)</span><br><span class="line">      grep &apos;[239].&apos; data.doc      #输出所有含有以2,3或9开头的，并且是两个数字的行</span><br><span class="line"></span><br><span class="line">  (2)不匹配测试</span><br><span class="line">      grep &apos;^[^48]&apos; data.doc      #不匹配行首是48的行</span><br><span class="line"></span><br><span class="line">  (3)使用扩展模式匹配</span><br><span class="line">      grep -E &apos;219|216&apos; data.doc</span><br><span class="line"></span><br><span class="line">  (4) ...</span><br><span class="line">      这需要在实践中不断应用和总结，熟练掌握正则表达式。</span><br><span class="line"></span><br><span class="line">  5, 使用类名</span><br><span class="line">  可以使用国际模式匹配的类名：</span><br><span class="line">  [[:upper:]]   [A-Z]</span><br><span class="line">  [[:lower:]]   [a-z]</span><br><span class="line">  [[:digit:]]   [0-9]</span><br><span class="line">  [[:alnum:]]   [0-9a-zA-Z]</span><br><span class="line">  [[:space:]]   空格或tab</span><br><span class="line">  [[:alpha:]]   [a-zA-Z]</span><br><span class="line"></span><br><span class="line">  (1)使用</span><br><span class="line">      grep &apos;5[[:upper:]][[:upper:]]&apos; data.doc     #查询以5开头以两个大写字母结尾的行</span><br></pre></td></tr></table></figure>
-<h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line">vim的使用：</span><br><span class="line">      vim在保存之前不会对文件做实际的修改，只是加载到缓冲区中，对文件的编辑其实是对缓冲区的编辑，直到:w时才会存入物理文件。</span><br><span class="line">       ( 按 i 进入 insert 状态 即插入模式 ,按 Esc 退出插入模式</span><br><span class="line">               在非插入模式下按 dd 删除光标当前行,按 x 删除当前字,</span><br><span class="line">               按 j,n,l移动光标 )</span><br><span class="line"></span><br><span class="line">     :e file     把file加载到新的缓冲区中</span><br><span class="line">     :bn     跳转到下一个缓冲区</span><br><span class="line">     :bd     删除缓冲区(关闭文件)</span><br><span class="line">     :sp fn     分割窗口，并将fn加载到新的窗口中</span><br><span class="line"></span><br><span class="line">   退出编辑器</span><br><span class="line">     :w     将缓冲区写入文件，即保存修改</span><br><span class="line">     :wq     保存修改并退出</span><br><span class="line"></span><br><span class="line">     :x     保存修改并退出</span><br><span class="line"></span><br><span class="line">     :q     退出，如果对缓冲区进行过修改，则会提示</span><br><span class="line"></span><br><span class="line">     :q!     强制退出，放弃修改</span><br><span class="line"></span><br><span class="line">移动的使用：mv [选项] 源文件或目录 目标目录</span><br><span class="line">拷贝的使用： cp [选项] 源文件或目录 目标文件或目录</span><br><span class="line">删除的使用： rm</span><br><span class="line">           rm -r vv</span><br><span class="line">         但是这样会询问你是否真的要删除vv目录  输入y 确认删除</span><br><span class="line">         为了不让系统询问，可以强制删除 rm之后加上f就行了</span><br><span class="line">         rm -rf vv</span><br><span class="line">         这样就强制删除目录vv  如果目录下还有其他文佳 也一同删除了</span><br><span class="line"></span><br><span class="line">cat的使用：（concatenate）</span><br><span class="line">    cat主要有三大功能：</span><br><span class="line">     1.一次显示整个文件。$ cat filename</span><br><span class="line">     2.从键盘创建一个文件。$ cat &gt; filename</span><br><span class="line">        只能创建新文件,不能编辑已有文件.</span><br><span class="line">         1、键入cat &gt; filename.txt 后回车</span><br><span class="line">         2、录入文本内容；</span><br><span class="line">         3、键入回车；</span><br><span class="line">         4、在键盘上按下Ctrl+D (或者键入Control－D)。</span><br><span class="line">         5、 文本被存盘，shell提示符重新出现</span><br><span class="line"></span><br><span class="line">     3.将几个文件合并为一个文件： $cat file1 file2 &gt; file</span><br><span class="line">     参数：</span><br><span class="line">     -n 或 --number 由 1 开始对所有输出的行数编号</span><br><span class="line">     -b 或 --number-nonblank 和 -n 相似，只不过对于空白行不编号</span><br><span class="line">     -s 或 --squeeze-blank 当遇到有连续两行以上的空白行，就代换为一行的空白行</span><br><span class="line">     -v 或 --show-nonprinting</span><br><span class="line">     例：</span><br><span class="line">     把 textfile1 的档案内容加上行号后输入 textfile2 这个档案里</span><br><span class="line">     cat -n textfile1 &gt; textfile2</span><br><span class="line"></span><br><span class="line">     把 textfile1 和 textfile2 的档案内容加上行号（空白行不加）之后将内容附加到 textfile3 里。</span><br><span class="line">     cat -b textfile1 textfile2 &gt;&gt; textfile3</span><br><span class="line"></span><br><span class="line">     cat /dev/null &gt; /etc/test.txt  把test.txt文件扔进垃圾箱</span><br><span class="line"></span><br><span class="line"> mkdir的使用:</span><br><span class="line">     linux mkdir 命令用来创建指定的名称的目录，要求创建目录的用户在当前目录中具有写权限，并且指定的目录名不能是当前目录中已有的目录。</span><br><span class="line">     1．命令格式：</span><br><span class="line">     mkdir [选项] 目录...</span><br><span class="line">     2．命令功能：</span><br><span class="line">     通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。</span><br><span class="line">     并且，所创建的文件夹(目录)不能与其父目录(即父文件夹)中的文件名重名，即同一个目录下不能有同名的(区分大小写)。</span><br><span class="line">     3．命令参数：</span><br><span class="line">       -m, --mode=模式，设定权限&lt;模式&gt; (类似 chmod)，而不是 rwxrwxrwx 减 umask</span><br><span class="line">       -p, --parents  可以是一个路径名称。此时若路径中的某些目录尚不存在,加上此选项后,系统将自动建立好那些尚不存在的目录,即一次可以建立多个目录;</span><br><span class="line">       -v, --verbose  每次创建新目录都显示信息</span><br><span class="line">           --help   显示此帮助信息并退出</span><br><span class="line">           --version  输出版本信息并退出</span><br><span class="line"></span><br><span class="line"> rmdir的使用:</span><br><span class="line">     rmdir是一个与mkdir相对应的命令。mkdir是建立目录，而rmdir是删除命令。rm命令可以同时删除文件或目录</span><br><span class="line">     rmdir命令介绍</span><br><span class="line">     1.名称：rmdir</span><br><span class="line">     2.适用对象：具有当前目录操作权限的所有使用者</span><br><span class="line">     3.命令格式：rmdir [-p -v] [dirName]</span><br><span class="line">     4.作用：删除空目录</span><br><span class="line">     5.参数详解：</span><br><span class="line">     -p 当子目录被删除后如果父目录也变成空目录的话，就连带父目录一起删除。</span><br><span class="line">     -v 上次讲过，这里不再叙述，具体参见</span><br><span class="line"></span><br><span class="line"> chmod的使用:</span><br><span class="line"></span><br><span class="line">     指令名称 : chmod</span><br><span class="line">     使用权限 : 所有使用者</span><br><span class="line">     使用方式 : chmod [-cfvR] [--help] [--version] mode file...</span><br><span class="line">     说明 : Linux/Unix 的档案调用权限分为三级 : 档案拥有者、群组、其他。利用 chmod 可以藉以控制档案如何被他人所调用。</span><br><span class="line">     参数 :</span><br><span class="line">     mode : 权限设定字串，格式如下 : [ugoa...][[+-=][rwxX]...][,...]，其中</span><br><span class="line">     u 表示该档案的拥有者，g 表示与该档案的拥有者属于同一个群体(group)者，o 表示其他以外的人，a 表示这三者皆是。</span><br><span class="line">     + 表示增加权限、- 表示取消权限、= 表示唯一设定权限。</span><br><span class="line">     r 表示可读取，w 表示可写入，x 表示可执行，X 表示只有当该档案是个子目录或者该档案已经被设定过为可执行。</span><br><span class="line">     -c : 若该档案权限确实已经更改，才显示其更改动作</span><br><span class="line">     -f : 若该档案权限无法被更改也不要显示错误讯息</span><br><span class="line">     -v : 显示权限变更的详细资料</span><br><span class="line">     -R : 对目前目录下的所有档案与子目录进行相同的权限变更(即以递回的方式逐个变更)</span><br><span class="line">     --help : 显示辅助说明</span><br><span class="line">     --version : 显示版本</span><br><span class="line"></span><br><span class="line">     例子： chmod 755 a.txt</span><br><span class="line"></span><br><span class="line">     (你必须是文件a.txt的拥有者才能运行此命令。或者以$sudo chmod 755 a.txt的方式，以超级用户的身份运行该命令。)</span><br><span class="line"></span><br><span class="line">     change mode 改变a.txt的读、写以及执行权限。还记得每个文件都有九位的读写执行权限(参看 Linux文件管理背景知识)，</span><br><span class="line">     分为三组，分别对应拥有者(owner)，拥有组(owner group)中的用户和所有其他用户(other)。在这里，我们也有三个数字，755，对应三个组。</span><br><span class="line">     7被分配给拥有者，5被分配给拥有组，最后一个5分配给其它用户。Linux规定: 4为有读取的权利，2为有写入的权利，</span><br><span class="line">     1为有执行的权利。我们看到的7实际上是4 + 2 + 1，表示拥有者有读、写、执行三项权利。</span><br><span class="line"></span><br><span class="line">  ln的使用:</span><br><span class="line">         ln是linux中又一个非常重要命令，它的功能是为某一个文件在另外一个位置建立一个同不的链接，这个命令最常用的参数是-s，具体用法是：ln –s 源文件 目标文件。</span><br><span class="line">         　　当我们需要在不同的目录，用到相同的文件时，我们不需要在每一个需要的目录下都放一个必须相同的文件，我们只要在某个固定的目录，放上该文件，然后在 其它的目录下用ln命令链接（link）它就可以，不必重复的占用磁盘空间。例如：ln –s /bin/less /usr/local/bin/less</span><br><span class="line">         　　-s 是代号（symbolic）的意思。</span><br><span class="line">         　　这里有两点要注意：第一，ln命令会保持每一处链接文件的同步性，也就是说，不论你改动了哪一处，其它的文件都会发生相同的变化；第二，ln的链接又 软链接和硬链接两种，</span><br><span class="line">         软链接就是ln –s ** **，它只会在你选定的位置上生成一个文件的镜像，</span><br><span class="line">         不会占用磁盘空间，硬链接ln ** **，没有参数-s， 它会在你选定的位置上生成一个和源文件大小相同的文件，无论是软链接还是硬链接，文件都保持同步变化。</span><br><span class="line"></span><br><span class="line">  ping的使用：（control + c  停止ping）</span><br><span class="line">  惯用的关机指令：shutdown  ,shutdown -h now</span><br><span class="line"></span><br><span class="line">  重新开机，关机：reboot, halt, poweroff</span><br><span class="line">  clear的使用：清空终端信息</span><br><span class="line">  history的使用：查看输入的历史命令</span><br><span class="line"></span><br><span class="line">  touch的使用:</span><br><span class="line">   touch a.txt</span><br><span class="line"></span><br><span class="line">   如果a.txt不存在，生成一个新的空文档a.txt。如果a.txt存在，那么只更改该文档的时间信息。(这个命令实际上用得并不广泛，但可以帮我们创建一个空文件</span><br></pre></td></tr></table></figure>
-
+            <h2 id="搜索并替换"><a href="#搜索并替换" class="headerlink" title="搜索并替换"></a>搜索并替换</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> imghdr</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">suffix_list = [<span class="string">'m'</span>, <span class="string">'h'</span>]</span><br><span class="line">g_totalCount = <span class="number">0</span></span><br><span class="line">image_name = <span class="string">''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">replace_in_path</span><span class="params">(filepath)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> g_totalCount, image_name</span><br><span class="line">    <span class="comment"># print("Operation with : " + filepath)</span></span><br><span class="line">    <span class="comment"># open_file = open(filepath, 'r+') #用此种打开读写方式无效</span></span><br><span class="line">    <span class="keyword">with</span> open(filepath, <span class="string">'r'</span>) <span class="keyword">as</span> r:</span><br><span class="line">        lines = r.readlines()</span><br><span class="line">    <span class="keyword">with</span> open(filepath, <span class="string">'w'</span>) <span class="keyword">as</span> w:</span><br><span class="line">        <span class="keyword">for</span> l <span class="keyword">in</span> lines:</span><br><span class="line">            r_pattern = <span class="string">r"\[\[Resources sharedResources\] getImageWithImageName:(.+?)\]"</span></span><br><span class="line">            <span class="comment"># if re.search(r_pattern, l):</span></span><br><span class="line">            <span class="keyword">print</span> <span class="string">'*******find*******'</span></span><br><span class="line">            image_name_list = re.findall(r_pattern, l)</span><br><span class="line">            <span class="keyword">if</span> len(image_name_list):</span><br><span class="line">                image_name = image_name_list[<span class="number">0</span>]</span><br><span class="line">                print(<span class="string">"image_name:%s"</span> % image_name)</span><br><span class="line">            <span class="comment">#</span></span><br><span class="line">            replace_reg = re.compile(r_pattern)</span><br><span class="line">            new_str = <span class="string">"JDImg(%s)"</span> % image_name</span><br><span class="line">            have_replace_string = replace_reg.sub(new_str, l)</span><br><span class="line">            <span class="comment">#</span></span><br><span class="line">            w.write(have_replace_string)</span><br><span class="line">    w.close()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_file_from_dir</span><span class="params">(dir)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> g_totalCount</span><br><span class="line">    <span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(dir):</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> files:</span><br><span class="line">            filepath = os.path.join(root, item)</span><br><span class="line">            <span class="comment"># print 'filepath------%s' % filepath</span></span><br><span class="line">            extension = os.path.splitext(filepath)[<span class="number">1</span>][<span class="number">1</span>:]</span><br><span class="line">            <span class="keyword">if</span> extension <span class="keyword">in</span> suffix_list:</span><br><span class="line">                replace_in_path(filepath)</span><br><span class="line">                <span class="keyword">print</span> <span class="string">'找到了------后缀为：[h or m]'</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'###############结束##############'</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"当前目录:%s"</span> % os.getcwd()</span><br><span class="line">    <span class="comment"># 递归遍历目录下所有文件</span></span><br><span class="line">    get_file_from_dir(<span class="string">'/Users/wenyongjun/JD/JDiPad_git/JDiPad'</span>)</span><br></pre></td></tr></table></figure>
           
         
       
