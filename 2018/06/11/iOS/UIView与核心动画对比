@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="追梦机器人的博客">
 <meta property="og:description" content="动画核心动画 UIView渐变动画 iOS核心动画高级技巧">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-15T07:24:43.992Z">
+<meta property="og:updated_time" content="2018-08-15T07:24:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UIView与核心动画对比?">
 <meta name="twitter:description" content="动画核心动画 UIView渐变动画 iOS核心动画高级技巧">
@@ -488,8 +488,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/11/iOS/ 如何判断代码运行在DEBUG还是RELEASE模式下/" rel="prev" title="如何判断代码运行在DEBUG还是RELEASE模式下？">
-                如何判断代码运行在DEBUG还是RELEASE模式下？ <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/11/iOS/Xcode中和symbols有关的几个设置/" rel="prev" title="Xcode中和symbols有关的几个设置">
+                Xcode中和symbols有关的几个设置 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -568,7 +568,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">54</span>
+                    <span class="site-state-item-count">57</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -670,7 +670,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

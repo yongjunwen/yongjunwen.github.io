@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="常用 Git 命令清单 git修改远程仓库地址的三种方法直接命令修改1git remote set-url origin [url] 命令，先删除后设新地址123git remote rm origin git remote add origin [url] 直接修改配置文件12345678910111213141516171819文件位置：git/config config[core]    r">
-<meta name="keywords" content="更换远程仓库">
+  <meta name="description" content="列出提交个数   主要用来设置项目build号1git rev-list --count HEAD 获得两个版本间所有变更的文件列表12git diff 6962e097c87bcbd937eb59d94f9f79b9a709455d   c02e20f5ad5eb1a675b6b3d30fed5b66f309871c --stat &amp;gt; log.txt -p 查看某个文件的修改历史git l">
+<meta name="keywords" content="git删除缓存远程分支">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git 本地仓库 更换远程仓库">
-<meta property="og:url" content="http://yoursite.com/2018/06/11/git/git 本地仓库 更换远程仓库/index.html">
+<meta property="og:title" content="git项目中的常用功能">
+<meta property="og:url" content="http://yoursite.com/2018/06/11/git/git 常用功能/index.html">
 <meta property="og:site_name" content="追梦机器人的博客">
-<meta property="og:description" content="常用 Git 命令清单 git修改远程仓库地址的三种方法直接命令修改1git remote set-url origin [url] 命令，先删除后设新地址123git remote rm origin git remote add origin [url] 直接修改配置文件12345678910111213141516171819文件位置：git/config config[core]    r">
+<meta property="og:description" content="列出提交个数   主要用来设置项目build号1git rev-list --count HEAD 获得两个版本间所有变更的文件列表12git diff 6962e097c87bcbd937eb59d94f9f79b9a709455d   c02e20f5ad5eb1a675b6b3d30fed5b66f309871c --stat &amp;gt; log.txt -p 查看某个文件的修改历史git l">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-28T07:22:59.883Z">
+<meta property="og:updated_time" content="2018-08-28T08:00:27.391Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git 本地仓库 更换远程仓库">
-<meta name="twitter:description" content="常用 Git 命令清单 git修改远程仓库地址的三种方法直接命令修改1git remote set-url origin [url] 命令，先删除后设新地址123git remote rm origin git remote add origin [url] 直接修改配置文件12345678910111213141516171819文件位置：git/config config[core]    r">
+<meta name="twitter:title" content="git项目中的常用功能">
+<meta name="twitter:description" content="列出提交个数   主要用来设置项目build号1git rev-list --count HEAD 获得两个版本间所有变更的文件列表12git diff 6962e097c87bcbd937eb59d94f9f79b9a709455d   c02e20f5ad5eb1a675b6b3d30fed5b66f309871c --stat &amp;gt; log.txt -p 查看某个文件的修改历史git l">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/11/git/git 本地仓库 更换远程仓库/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/11/git/git 常用功能/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>git 本地仓库 更换远程仓库 | 追梦机器人的博客</title>
+  <title>git项目中的常用功能 | 追梦机器人的博客</title>
   
 
 
@@ -332,7 +332,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/git 本地仓库 更换远程仓库/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/git 常用功能/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -349,7 +349,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git 本地仓库 更换远程仓库
+          <h1 class="post-title" itemprop="name headline">git项目中的常用功能
               
             
           </h1>
@@ -391,7 +391,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-28 15:22:59" itemprop="dateModified" datetime="2018-08-28T15:22:59+08:00">2018-08-28</time>
+                <time title="修改时间：2018-08-28 16:00:27" itemprop="dateModified" datetime="2018-08-28T16:00:27+08:00">2018-08-28</time>
               
             
           </span>
@@ -442,11 +442,20 @@
       
 
       
-        <p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a></p>
-<h2 id="git修改远程仓库地址的三种方法"><a href="#git修改远程仓库地址的三种方法" class="headerlink" title="git修改远程仓库地址的三种方法"></a>git修改远程仓库地址的三种方法</h2><h3 id="直接命令修改"><a href="#直接命令修改" class="headerlink" title="直接命令修改"></a>直接命令修改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin [url]</span><br></pre></td></tr></table></figure>
-<h3 id="命令，先删除后设新地址"><a href="#命令，先删除后设新地址" class="headerlink" title="命令，先删除后设新地址"></a>命令，先删除后设新地址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git remote rm origin </span><br><span class="line">git remote add origin [url]</span><br></pre></td></tr></table></figure>
-<h3 id="直接修改配置文件"><a href="#直接修改配置文件" class="headerlink" title="直接修改配置文件"></a>直接修改配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">文件位置：git/config </span><br><span class="line">config</span><br><span class="line"></span><br><span class="line">[core]</span><br><span class="line">    repositoryformatversion = 0</span><br><span class="line">    filemode = false</span><br><span class="line">    bare = false</span><br><span class="line">    logallrefupdates = true</span><br><span class="line">    symlinks = false</span><br><span class="line">    ignorecase = true</span><br><span class="line">[gui]</span><br><span class="line">    wmstate = normal</span><br><span class="line">    geometry = 841x483+225+101 189 218</span><br><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">    url = git@github.com:project.git</span><br><span class="line">    fetch = +refs/heads/*:refs/remotes/origin/*</span><br><span class="line">[branch &quot;master&quot;]</span><br><span class="line">    remote = origin</span><br><span class="line">    merge = refs/heads/master</span><br></pre></td></tr></table></figure>
-<h3 id="补充：如果用sourcetree的话可以直接修改远程仓库地址"><a href="#补充：如果用sourcetree的话可以直接修改远程仓库地址" class="headerlink" title="补充：如果用sourcetree的话可以直接修改远程仓库地址"></a>补充：如果用sourcetree的话可以直接修改远程仓库地址</h3>
+        <h3 id="列出提交个数-主要用来设置项目build号"><a href="#列出提交个数-主要用来设置项目build号" class="headerlink" title="列出提交个数   主要用来设置项目build号"></a>列出提交个数   主要用来设置项目build号</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rev-list --count HEAD</span><br></pre></td></tr></table></figure>
+<h3 id="获得两个版本间所有变更的文件列表"><a href="#获得两个版本间所有变更的文件列表" class="headerlink" title="获得两个版本间所有变更的文件列表"></a>获得两个版本间所有变更的文件列表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git diff 6962e097c87bcbd937eb59d94f9f79b9a709455d   </span><br><span class="line">c02e20f5ad5eb1a675b6b3d30fed5b66f309871c --stat &gt; log.txt -p</span><br></pre></td></tr></table></figure>
+<h3 id="查看某个文件的修改历史"><a href="#查看某个文件的修改历史" class="headerlink" title="查看某个文件的修改历史"></a>查看某个文件的修改历史</h3><p><code>git log -p filePath/fileName.m</code></p>
+<h3 id="使用-pull-rebase-操作替代-merge"><a href="#使用-pull-rebase-操作替代-merge" class="headerlink" title="使用 pull rebase 操作替代 merge"></a>使用 pull rebase 操作替代 merge</h3><p>　　如果你工作的团队正工作在同一个分支，那么你所要做的获取/合并或经常拉取。分支合并的 git 记录与合并提交时提示功能分支被并入主干。但在多个团队成员工作的同一分支的情况下，经常合并导致在日志中多个合并的消息引起混乱。所以你可以使用 pull rebase，以保持历史信息清除了无用合并的消息。</p>
+<p><code>git config branch.BRANCH_NAME_HERE.rebase true</code></p>
+<p>　　此外，您可以配置一个特定的分支总是衍合：</p>
+<p><code>git pull --rebase</code></p>
+<h3 id="gc-命令"><a href="#gc-命令" class="headerlink" title="gc 命令"></a>gc 命令</h3><p>“垃圾回收”是一个很亲切的功能。让我们开始吧：<br><code>$ git gc --prune=now</code><br>现在，重新检视一下仓库的大小，发现确实有效啊：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ find .git/objects -type f</span><br><span class="line">.git/objects/info/packs</span><br><span class="line">.git/objects/pack/pack-9d75315485cb7bfbf51ce5c94a4535da99b58dbb.idx</span><br><span class="line">.git/objects/pack/pack-9d75315485cb7bfbf51ce5c94a4535da99b58dbb.pack</span><br><span class="line">$</span><br><span class="line">$ du -ah    # 此处略去了无关输出</span><br><span class="line">4.0K    ./.git/objects/pack/pack-9d75315485cb7bfbf51ce5c94a4535da99b58dbb.idx</span><br><span class="line"> 52M    ./.git/objects/pack/pack-9d75315485cb7bfbf51ce5c94a4535da99b58dbb.pack</span><br><span class="line"> 77M    ./bigfile</span><br><span class="line">130M    .</span><br></pre></td></tr></table></figure>
+<h3 id="cherry-pick用法"><a href="#cherry-pick用法" class="headerlink" title="cherry-pick用法"></a>cherry-pick用法</h3><p>使用场景：在branch1开发，进行多个提交，这是切换到branch2，想把之前branch1分支提交的commit都复制过来。</p>
+<p>单个<code>commit</code>只需要<code>git cherry-pick commitid</code></p>
+<p>多个<code>commit</code> 只需要<code>git cherry-pick commitid1..commitid100</code></p>
+<p>注意，不包含第一个<code>commitid</code> ， 即  <code>git cherry-pick (commitid1..commitid100]</code></p>
+
       
     </div>
 
@@ -466,7 +475,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/更换远程仓库/" rel="tag"># 更换远程仓库</a>
+            <a href="/tags/git删除缓存远程分支/" rel="tag"># git删除缓存远程分支</a>
           
         </div>
       
@@ -479,8 +488,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/04/node.js/npm更换镜像/" rel="next" title="npm更换镜像">
-                <i class="fa fa-chevron-left"></i> npm更换镜像
+              <a href="/2018/06/11/iOS/Xcode中和symbols有关的几个设置/" rel="next" title="Xcode中和symbols有关的几个设置">
+                <i class="fa fa-chevron-left"></i> Xcode中和symbols有关的几个设置
               </a>
             
           </div>
@@ -489,8 +498,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/11/git/git 如何删除缓存的远程分支列表/" rel="prev" title="git 如何删除缓存的远程分支列表.md">
-                git 如何删除缓存的远程分支列表.md <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/11/iOS/ 如何判断代码运行在DEBUG还是RELEASE模式下/" rel="prev" title="如何判断代码运行在DEBUG还是RELEASE模式下？">
+                如何判断代码运行在DEBUG还是RELEASE模式下？ <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -709,7 +718,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git修改远程仓库地址的三种方法"><span class="nav-number">1.</span> <span class="nav-text">git修改远程仓库地址的三种方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#直接命令修改"><span class="nav-number">1.1.</span> <span class="nav-text">直接命令修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令，先删除后设新地址"><span class="nav-number">1.2.</span> <span class="nav-text">命令，先删除后设新地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接修改配置文件"><span class="nav-number">1.3.</span> <span class="nav-text">直接修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充：如果用sourcetree的话可以直接修改远程仓库地址"><span class="nav-number">1.4.</span> <span class="nav-text">补充：如果用sourcetree的话可以直接修改远程仓库地址</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#列出提交个数-主要用来设置项目build号"><span class="nav-number">1.</span> <span class="nav-text">列出提交个数   主要用来设置项目build号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得两个版本间所有变更的文件列表"><span class="nav-number">2.</span> <span class="nav-text">获得两个版本间所有变更的文件列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看某个文件的修改历史"><span class="nav-number">3.</span> <span class="nav-text">查看某个文件的修改历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-pull-rebase-操作替代-merge"><span class="nav-number">4.</span> <span class="nav-text">使用 pull rebase 操作替代 merge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gc-命令"><span class="nav-number">5.</span> <span class="nav-text">gc 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cherry-pick用法"><span class="nav-number">6.</span> <span class="nav-text">cherry-pick用法</span></a></li></ol></div>
             
 
           </div>

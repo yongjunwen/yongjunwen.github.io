@@ -331,6 +331,785 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/前端/MVC，MVP 和 MVVM /">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/前端/MVC，MVP 和 MVVM /" itemprop="url">
+                  MVC，MVP 和 MVVM
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-23 17:50:29" itemprop="dateModified" datetime="2018-08-23T17:50:29+08:00">2018-08-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>复杂的软件必须有清晰合理的架构，否则无法开发和维护。<br>MVC（Model-View-Controller）是最常见的软件架构之一，业界有着广泛应用。它本身很容易理解，但是要讲清楚，它与衍生的 MVP 和 MVVM 架构的区别就不容易了。<br>昨天晚上，我读了《Scaling Isomorphic Javascript Code》，突然意识到，它们的区别非常简单。我用几段话，就可以说清。</p>
+<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>MVC模式的意思是，软件可以分成三个部分。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020104.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* 视图（View）：用户界面。</span><br><span class="line">* 控制器（Controller）：业务逻辑</span><br><span class="line">* 模型（Model）：数据保存</span><br></pre></td></tr></table></figure>
+<p>各部分之间的通信方式如下。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020105.png" alt=""></p>
+<ol>
+<li>View 传送指令到 Controller</li>
+<li>Controller 完成业务逻辑后，要求 Model 改变状态</li>
+<li>Model 将新的数据发送到 View，用户得到反馈<br>所有通信都是单向的。<h2 id="互动模式"><a href="#互动模式" class="headerlink" title="互动模式"></a>互动模式</h2></li>
+</ol>
+<p>接受用户指令时，MVC 可以分成两种方式。一种是通过 View 接受指令，传递给 Controller。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020106.png" alt=""></p>
+<p>另一种是直接通过controller接受指令。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020107.png" alt=""></p>
+<h2 id="实例：Backbone"><a href="#实例：Backbone" class="headerlink" title="实例：Backbone"></a>实例：Backbone</h2><p>实际项目往往采用更灵活的方式，以 Backbone.js 为例。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020108.png" alt=""></p>
+<ol>
+<li>用户可以向 View 发送指令（DOM 事件），再由 View 直接要求 Model 改变状态。</li>
+<li>用户也可以直接向 Controller 发送指令（改变 URL 触发 hashChange 事件），再由 Controller 发送给 View。</li>
+<li>Controller 非常薄，只起到路由的作用，而 View 非常厚，业务逻辑都部署在 View。所以，Backbone 索性取消了 Controller，只保留一个 Router（路由器） 。<h2 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h2></li>
+</ol>
+<p>MVP 模式将 Controller 改名为 Presenter，同时改变了通信方向。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020109.png" alt=""></p>
+<ol>
+<li>各部分之间的通信，都是双向的。</li>
+<li>View 与 Model 不发生联系，都通过 Presenter 传递。</li>
+<li>View 非常薄，不部署任何业务逻辑，称为”被动视图”（Passive View），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里。<h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2></li>
+</ol>
+<p>MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020110.png" alt=""></p>
+<p>唯一的区别是，它采用双向绑定（data-binding）：View的变动，自动反映在 ViewModel，反之亦然。<a href="https://angularjs.org/" target="_blank" rel="noopener">Angular</a> 和 <a href="http://emberjs.com/" target="_blank" rel="noopener">Ember</a> 都采用这种模式。<br><a href="http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html" target="_blank" rel="noopener">来自</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/Hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/other/Hexo/" itemprop="url">
+                  Hexo 博客框架
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-26 10:35:26" itemprop="dateModified" datetime="2018-06-26T10:35:26+08:00">2018-06-26</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="什么是-Hexo？"><a href="#什么是-Hexo？" class="headerlink" title="什么是 Hexo？"></a>什么是 Hexo？</h3><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>新建完成后，指定文件夹的目录如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+<h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p>应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package.json</span><br><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;hexo-site&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;0.0.0&quot;,</span><br><span class="line">  &quot;private&quot;: true,</span><br><span class="line">  &quot;hexo&quot;: &#123;</span><br><span class="line">    &quot;version&quot;: &quot;&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;dependencies&quot;: &#123;</span><br><span class="line">    &quot;hexo&quot;: &quot;^3.0.0&quot;,</span><br><span class="line">    &quot;hexo-generator-archive&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-generator-category&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-generator-index&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-generator-tag&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-ejs&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-stylus&quot;: &quot;^0.2.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-marked&quot;: &quot;^0.2.4&quot;,</span><br><span class="line">    &quot;hexo-server&quot;: &quot;^0.1.2&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h3><p>网站的 <a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">配置</a> 信息，您可以在此配置大部分的参数。</p>
+<h3 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h3><p> 主题 文件夹。Hexo 会根据主题来生成静态页面。</p>
+<h3 id="source"><a href="#source" class="headerlink" title="source"></a>source</h3><p>资源文件夹是存放用户资源的地方。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
+<h3 id="重要的几个指令"><a href="#重要的几个指令" class="headerlink" title="重要的几个指令"></a>重要的几个指令</h3><p>了解更多 详见<a href="https://hexo.io/zh-cn/docs/commands.html#deploy" target="_blank" rel="noopener">指令</a> 信息</p>
+<blockquote>
+<p>初始化新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init [folder]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>server 启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/。" target="_blank" rel="noopener">http://localhost:4000/。</a></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>generate 生成静态文件。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>deploy 部署网站。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>clean 清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+<h3 id="资源文件夹"><a href="#资源文件夹" class="headerlink" title="资源文件夹"></a>资源文件夹</h3><blockquote>
+<p>资源（Asset）代表 source 文件夹中除了文章以外的所有文件，例如图片、CSS、JS 文件等。比方说，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 source/images 文件夹中。然后通过类似于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](/images/image.jpg)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>的方法访问它们。</p>
+</blockquote>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><blockquote>
+<p>Hexo 提供了快速方便的一键部署功能，让您只需一条命令就能将网站部署到服务器上。详见<a href="https://hexo.io/zh-cn/docs/deployment.html" target="_blank" rel="noopener">网站</a> 信息</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/Hexo主题添加搜索/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/other/Hexo主题添加搜索/" itemprop="url">
+                  Hexo 博客框架添加搜索
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-22 17:24:28" itemprop="dateModified" datetime="2018-08-22T17:24:28+08:00">2018-08-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>用Hexo提供的<code>Local Search</code>,原理是通过<code>hexo-generator-search</code>插件在本地生成一个<code>search.xml</code>文件，搜索的时候从这个文件中根据关键字检索出相应的链接。</p>
+<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><h5 id="安装-hexo-generator-search"><a href="#安装-hexo-generator-search" class="headerlink" title="安装 hexo-generator-search"></a>安装 hexo-generator-search</h5><p>在站点的根目录下执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
+<h5 id="安装-hexo-generator-searchdb"><a href="#安装-hexo-generator-searchdb" class="headerlink" title="安装 hexo-generator-searchdb"></a>安装 hexo-generator-searchdb</h5><p>在站点的根目录下执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+<p>启用搜索</p>
+<p>编辑 站点配置文件<code>_config.yml</code>，新增以下内容到任意位置：</p>
+<pre><code>search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+</code></pre><p>修改主题配置文件</p>
+<p>我的路径：<code>/blog/themes/next</code>下的<code>_config.yml</code>文件，进行编辑。</p>
+<pre><code>local_search:
+    enable: true
+</code></pre><p>最后部署到github、coding，打开网页就可以看到搜索功能了。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/Mac本地服务器搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/other/Mac本地服务器搭建/" itemprop="url">
+                  Mac端本地服务搭建
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-26 10:07:03" itemprop="dateModified" datetime="2018-06-26T10:07:03+08:00">2018-06-26</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="方案名称"><a href="#方案名称" class="headerlink" title="方案名称"></a>方案名称</h3><p>Mac 系统 - 启用 Mac 本地 Web 服务器<br>关键字</p>
+<p>Mac 系统 \ Web 服务器</p>
+<h3 id="需求场景"><a href="#需求场景" class="headerlink" title="需求场景"></a>需求场景</h3><ol>
+<li><p>局域网搭建 Web 服务器测试环境<br>参考链接</p>
+</li>
+<li><p>简书 - Mac OS X 启用 Web 服务器(推荐)<br>详细内容 <a href="https://www.jianshu.com/p/d006a34a343f" target="_blank" rel="noopener">https://www.jianshu.com/p/d006a34a343f</a></p>
+</li>
+</ol>
+<h3 id="启动-Apache"><a href="#启动-Apache" class="headerlink" title="启动 Apache"></a>启动 Apache</h3><p>终端输入<br>$ sudo apachectl start<br>可启动 Apache，打开浏览器，输入 <a href="http://localhost/" target="_blank" rel="noopener">http://localhost/</a> 看到如下页面证明本地 Web 服务器启动成功</p>
+<p>可启动 Apache，默认站点的根目录为系统级根目录<br>/Library/WebServer/Documents<br>更多信息，可参考 简书 - Mac OS X 启用 Web 服务器(推荐)</p>
+<ul>
+<li>创建用户级根目录</li>
+<li>启动 PHP</li>
+<li>安装 MySQL</li>
+<li>开启 HTTPS</li>
+</ul>
+<p><a href="https://github.com/viktyz/iosnotebook/blob/master/Notes/Note_00222_20170601.md" target="_blank" rel="noopener">https://github.com/viktyz/iosnotebook/blob/master/Notes/Note_00222_20170601.md</a></p>
+<h3 id="关闭和重启"><a href="#关闭和重启" class="headerlink" title="关闭和重启"></a>关闭和重启</h3><p>Mac OS 终端起动、关闭、重启apache的方</p>
+<p>Mac OS 终端起动、关闭、重启apache的方法</p>
+<p>打开终端<br>重启apache：sudo /usr/sbin/apachectl restart<br>关闭apache：sudo /usr/sbin/apachectl stop<br>开启apache：sudo /usr/sbin/apachectl start</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/Markdown/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -681,6 +1460,188 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/终极 Shell/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/other/终极 Shell/" itemprop="url">
+                  终极 Shell
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-26 10:07:10" itemprop="dateModified" datetime="2018-06-26T10:07:10+08:00">2018-06-26</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="方案名称"><a href="#方案名称" class="headerlink" title="方案名称"></a>方案名称</h3><p>在开始今天的 MacTalk 之前，先问两个问题吧：<br>来自：<a href="https://zhuanlan.zhihu.com/p/19556676?columnSlug=mactalk" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/19556676?columnSlug=mactalk</a></p>
+<blockquote>
+<p>相对于其他系统，Mac 的主要优势是什么？<br>你们平时用哪种 Shell？</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">……</span><br><span class="line">第一个童靴可以坐下了，Mac 的最大优势是 GUI 和命令行的完美结合，不要把所有注意力放在 Mac 性感的腰身和明媚的显示屏上好吧，这不是妹纸！第二个童靴你可以出去面壁了，讲了这么多期 MacTalk 你告诉我还在用 Windows 的 cmd， 你让 Mac 君情何以堪？哪怕你就说在用 Linux 的 Bash 我也就原谅你了，踢飞！</span><br><span class="line">上次在「如何学习一门编程语言」里提到了 Shell，也有读者问到 Shell 的问题，所以这次给大家说说 Shell 的事。</span><br><span class="line">我在「趣谈个人建站」里介绍过一点 Shell，自己的东西借用下不丢人，把扯淡的拿掉，干货留下，就是如下内容：</span><br><span class="line">Shell是Linux/Unix的一个外壳，你理解成衣服也行。它负责外界与Linux内核的交互，接收用户或其他应用程序的命令，然后把这些命令转化成内核能理解的语言，传给内核，内核是真正干活的，干完之后再把结果返回用户或应用程序。</span><br><span class="line">Linux/Unix提供了很多种Shell，为毛要这么多Shell？难道用来炒着吃么？那我问你，你同类型的衣服怎么有那么多件？花色，质地还不一样。写程序比买衣服复杂多了，而且程序员往往负责把复杂的事情搞简单，简单的事情搞复杂。牛程序员看到不爽的Shell，就会自己重新写一套，慢慢形成了一些标准，常用的Shell有这么几种，sh、bash、csh等，想知道你的系统有几种shell，可以通过以下命令查看：</span><br><span class="line">cat /etc/shells</span><br><span class="line">显示如下：</span><br><span class="line">/bin/bash</span><br><span class="line">/bin/csh</span><br><span class="line">/bin/ksh</span><br><span class="line">/bin/sh</span><br><span class="line">/bin/tcsh</span><br><span class="line">/bin/zsh</span><br><span class="line">在 Linux 里执行这个命令和 Mac 略有不同，你会发现 Mac 多了一个 zsh，也就是说 OS X 系统预装了个 zsh，这是个神马 Shell 呢？</span><br><span class="line">目前常用的 Linux 系统和 OS X 系统的默认 Shell 都是 bash，但是真正强大的 Shell 是深藏不露的 zsh， 这货绝对是马车中的跑车，跑车中的飞行车，史称『终极 Shell』，但是由于配置过于复杂，所以初期无人问津，很多人跑过来看看 zsh 的配置指南，什么都不说转身就走了。直到有一天，国外有个穷极无聊的程序员开发出了一个能够让你快速上手的zsh项目，叫做「oh my zsh」，Github 网址是：https://github.com/robbyrussell/oh-my-zsh。这玩意就像「X天叫你学会 C++」系列，可以让你神功速成，而且是真的。</span><br><span class="line">好，下面我们看看如何安装、配置和使用 zsh。</span><br><span class="line">安装zsh</span><br><span class="line">如果你用 Mac，就可以直接看下一节</span><br><span class="line">如果你用 Redhat Linux，执行：sudo yum install zsh</span><br><span class="line">如果你用 Ubuntu Linux，执行：sudo apt-get install zsh</span><br><span class="line">如果你用 Windows……去洗洗睡吧。</span><br><span class="line">安装完成后设置当前用户使用 zsh：chsh -s /bin/zsh，根据提示输入当前用户的密码就可以了。</span><br><span class="line">安装oh my zsh</span><br><span class="line">首先安装 git，安装方式同上，把 zsh 换成 git 即可。</span><br><span class="line">安装「oh my zsh」可以自动安装也可以手动安装。</span><br><span class="line">自动安装：</span><br><span class="line">wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</span><br><span class="line">手动安装：</span><br><span class="line">git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</span><br><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</span><br><span class="line">都不复杂，安装完成之后退出当前会话重新打开一个终端窗口，你就可以见到这个彩色的提示了：</span><br><span class="line"></span><br><span class="line">配置</span><br><span class="line">zsh 的配置主要集中在用户当前目录的.zshrc里，用 vim 或你喜欢的其他编辑器打开.zshrc，在最下面会发现这么一行字：</span><br></pre></td></tr></table></figure>
+<h2 id="Customize-to-your-needs…"><a href="#Customize-to-your-needs…" class="headerlink" title="Customize to your needs…"></a>Customize to your needs…</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">可以在此处定义自己的环境变量和别名，当然，oh my zsh 在安装时已经自动读取当前的环境变量并进行了设置，你可以继续追加其他环境变量。</span><br><span class="line">接下来进行别名的设置，我自己的部分配置如下：</span><br><span class="line">alias cls=&apos;clear&apos;</span><br><span class="line">alias ll=&apos;ls -l&apos;</span><br><span class="line">alias la=&apos;ls -a&apos;</span><br><span class="line">alias vi=&apos;vim&apos;</span><br><span class="line">alias javac=&quot;javac -J-Dfile.encoding=utf8&quot;</span><br><span class="line">alias grep=&quot;grep --color=auto&quot;</span><br><span class="line">alias -s html=mate   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开</span><br><span class="line">alias -s rb=mate     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开</span><br><span class="line">alias -s py=vi       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似</span><br><span class="line">alias -s js=vi</span><br><span class="line">alias -s c=vi</span><br><span class="line">alias -s java=vi</span><br><span class="line">alias -s txt=vi</span><br><span class="line">alias -s gz=&apos;tar -xzvf&apos;</span><br><span class="line">alias -s tgz=&apos;tar -xzvf&apos;</span><br><span class="line">alias -s zip=&apos;unzip&apos;</span><br><span class="line">alias -s bz2=&apos;tar -xjvf&apos;</span><br><span class="line">zsh 的牛粪之处在于不仅可以设置通用别名，还能针对文件类型设置对应的打开程序，比如：</span><br><span class="line">alias -s html=mate，意思就是你在命令行输入 hello.html，zsh会为你自动打开 TextMat 并读取 hello.html； alias -s gz=&apos;tar -xzvf&apos;，表示自动解压后缀为 gz 的压缩包。</span><br><span class="line">总之，只有想不到，木有做不到。</span><br><span class="line">设置完环境变量和别名之后，基本上就可以用了，如果你是个主题控，还可以玩玩 zsh 的主题。在 .zshrc 里找到ZSH_THEME，就可以设置主题了，默认主题是：</span><br><span class="line">ZSH_THEME=”robbyrussell”</span><br><span class="line">oh my zsh 提供了数十种主题，相关文件在~/.oh-my-zsh/themes目录下，你可以随意选择，也可以编辑主题满足自己的变态需求，我采用了默认主题robbyrussell，不过做了一点小小的改动：</span><br><span class="line">PROMPT=&apos;%&#123;$fg_bold[red]%&#125;➜ %&#123;$fg_bold[green]%&#125;%p%&#123;$fg[cyan]%&#125;%d %&#123;$fg_bold[blue]%&#125;$(git_prompt_info)%&#123;$fg_bold[blue]%&#125;% %&#123;$reset_color%&#125;&gt;&apos;</span><br><span class="line">#PROMPT=&apos;%&#123;$fg_bold[red]%&#125;➜ %&#123;$fg_bold[green]%&#125;%p %&#123;$fg[cyan]%&#125;%c %&#123;$fg_bold[blue]%&#125;$(git_prompt_info)%&#123;$fg_bold[blue]%&#125; % %&#123;$reset_color%&#125;&apos;</span><br><span class="line">对照原来的版本，我把 c 改为 d，c 表示当前目录，d 表示绝对路径，另外在末尾增加了一个「 &gt; 」，改完之后的效果是这样的：</span><br><span class="line">大家可以尝试进行改造，也算个趣事。</span><br><span class="line">最后我们来说说插件。</span><br></pre></td></tr></table></figure>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p>oh my zsh 项目提供了完善的插件体系，相关的文件在~/.oh-my-zsh/plugins目录下，默认提供了100多种，大家可以根据自己的实际学习和工作环境采用，想了解每个插件的功能，只要打开相关目录下的 zsh 文件看一下就知道了。插件也是在.zshrc里配置，找到plugins关键字，你就可以加载自己的插件了，系统默认加载 git ，你可以在后面追加内容，如下：<br>plugins=(git textmate ruby autojump osx mvn gradle)<br>下面简单介绍几个：</p>
+<ol><br><li>git：当你处于一个 git 受控的目录下时，Shell 会明确显示 「git」和 branch，如上图所示，另外对 git 很多命令进行了简化，例如 gco=’git checkout’、gd=’git diff’、gst=’git status’、g=’git’等等，熟练使用可以大大减少 git 的命令长度，命令内容可以参考~/.oh-my-zsh/plugins/git/git.plugin.zsh</li><br><li>textmate：mr可以创建 ruby 的框架项目，tm finename 可以用 textmate 打开指定文件。</li><br><li>osx：tab 增强，quick-look filename 可以直接预览文件，man-preview grep 可以生成 grep手册 的pdf 版本等。</li><br><li>autojump：zsh 和 autojump 的组合形成了 zsh 下最强悍的插件，今天我们主要说说这货。</li><br></ol>
+
+<p>首先安装autojump，如果你用 Mac，可以使用 brew 安装：<br>brew install autojump<br>如果是 Linux，去下载 autojump 的最新版本，比如：<br>wget <a href="https://github.com/downloads/joelthelion/autojump/autojump_v21.1.2.tar.gz" target="_blank" rel="noopener">https://github.com/downloads/joelthelion/autojump/autojump_v21.1.2.tar.gz</a><br>解压缩后进入目录，执行<br>./install.sh<br>最后把以下代码加入.zshrc：<br>[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] &amp;&amp; . ~/.autojump/etc/profile.d/autojump.sh<br>至此，安装、配置、插件三位一体，终极 Shell 全面登场。退出终端会话重新登录，开始感受 zsh 的训疾如风！</p>
+<h2 id="使用-zsh"><a href="#使用-zsh" class="headerlink" title="使用 zsh"></a>使用 zsh</h2><ol><br><li>兼容 bash，原来使用 bash 的兄弟切换过来毫无压力，该咋用咋用。</li><br><li>强大的历史纪录功能，输入 grep 然后用上下箭头可以翻阅你执行的所有 grep 命令。</li><br><li>智能拼写纠正，输入gtep mactalk <em> -R，系统会提示：zsh: correct ‘gtep’ to ‘grep’ [nyae]? 比妹纸贴心吧，她们向来都是让你猜的……</em></li><br><li>各种补全：路径补全、命令补全，命令参数补全，插件内容补全等等。触发补全只需要按一下或两下 tab 键，补全项可以使用 ctrl+n/p/f/b上下左右切换。比如你想杀掉 java 的进程，只需要输入 kill java + tab键，如果只有一个 java 进程，zsh 会自动替换为进程的 pid，如果有多个则会出现选择项供你选择。ssh + 空格 + 两个tab键，zsh会列出所有访问过的主机和用户名进行补全</li><br><li>智能跳转，安装了autojump之后，zsh 会自动记录你访问过的目录，通过 j + 目录名 可以直接进行目录跳转，而且目录名支持模糊匹配和自动补全，例如你访问过hadoop-1.0.0目录，输入j hado 即可正确跳转。j –stat 可以看你的历史路径库。</li><br><li>目录浏览和跳转：输入 d，即可列出你在这个会话里访问的目录列表，输入列表前的序号，即可直接跳转。</li><br><li>在当前目录下输入 .. 或 … ，或直接输入当前目录名都可以跳转，你甚至不再需要输入 cd 命令了。</li><br><li>通配符搜索：ls -l **/.sh，可以递归显示当前目录下的 shell 文件，文件少时可以代替 find，文件太多就歇菜了。</li><br><li>更强的别名：请参考配置一节。</li><br><li>插件支持：请参考插件一节。</li><br></ol>
+
+<p>看完这篇文章，你就知道，zsh一出，无人再与争锋！终极二字不是盖的。<br>如果你是个正在使用 shell程序员，如果你依然准备使用 bash，那就去面壁和忏悔吧，别说你订阅过 MacTalk！<br>感谢那位开发了 oh my zsh 的无聊程序员，他可能没有因此收获物质上的利益，但是他的代码提升了无数程序员的效率，节省了大量的时间，我们说，程序员改变世界！<br>MacTalk 写的多了，朋友和家人都不太理解，这玩意赚不了钱争不了名，写来何用？我想，能够学习、编码、写作，并做出一点帮助别人的东西，总好过炒股炒房的价值吧……</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/vue & weex/weex 坑点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -851,7 +1812,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/终极 Shell/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/我的日常兴趣/商丘历史变迁/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -870,8 +1831,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/other/终极 Shell/" itemprop="url">
-                  终极 Shell
+                <a class="post-title-link" href="/2018/06/11/我的日常兴趣/商丘历史变迁/" itemprop="url">
+                  商丘历史变迁
                 </a>
               
             
@@ -914,7 +1875,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-26 10:07:10" itemprop="dateModified" datetime="2018-06-26T10:07:10+08:00">2018-06-26</time>
+                <time title="修改时间：2018-08-06 18:37:16" itemprop="dateModified" datetime="2018-08-06T18:37:16+08:00">2018-08-06</time>
               
             
           </span>
@@ -931,7 +1892,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其他/" itemprop="url" rel="index"><span itemprop="name">其他</span></a></span>
 
                 
                 
@@ -967,19 +1928,8 @@
       
         
           
-            <h3 id="方案名称"><a href="#方案名称" class="headerlink" title="方案名称"></a>方案名称</h3><p>在开始今天的 MacTalk 之前，先问两个问题吧：<br>来自：<a href="https://zhuanlan.zhihu.com/p/19556676?columnSlug=mactalk" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/19556676?columnSlug=mactalk</a></p>
-<blockquote>
-<p>相对于其他系统，Mac 的主要优势是什么？<br>你们平时用哪种 Shell？</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">……</span><br><span class="line">第一个童靴可以坐下了，Mac 的最大优势是 GUI 和命令行的完美结合，不要把所有注意力放在 Mac 性感的腰身和明媚的显示屏上好吧，这不是妹纸！第二个童靴你可以出去面壁了，讲了这么多期 MacTalk 你告诉我还在用 Windows 的 cmd， 你让 Mac 君情何以堪？哪怕你就说在用 Linux 的 Bash 我也就原谅你了，踢飞！</span><br><span class="line">上次在「如何学习一门编程语言」里提到了 Shell，也有读者问到 Shell 的问题，所以这次给大家说说 Shell 的事。</span><br><span class="line">我在「趣谈个人建站」里介绍过一点 Shell，自己的东西借用下不丢人，把扯淡的拿掉，干货留下，就是如下内容：</span><br><span class="line">Shell是Linux/Unix的一个外壳，你理解成衣服也行。它负责外界与Linux内核的交互，接收用户或其他应用程序的命令，然后把这些命令转化成内核能理解的语言，传给内核，内核是真正干活的，干完之后再把结果返回用户或应用程序。</span><br><span class="line">Linux/Unix提供了很多种Shell，为毛要这么多Shell？难道用来炒着吃么？那我问你，你同类型的衣服怎么有那么多件？花色，质地还不一样。写程序比买衣服复杂多了，而且程序员往往负责把复杂的事情搞简单，简单的事情搞复杂。牛程序员看到不爽的Shell，就会自己重新写一套，慢慢形成了一些标准，常用的Shell有这么几种，sh、bash、csh等，想知道你的系统有几种shell，可以通过以下命令查看：</span><br><span class="line">cat /etc/shells</span><br><span class="line">显示如下：</span><br><span class="line">/bin/bash</span><br><span class="line">/bin/csh</span><br><span class="line">/bin/ksh</span><br><span class="line">/bin/sh</span><br><span class="line">/bin/tcsh</span><br><span class="line">/bin/zsh</span><br><span class="line">在 Linux 里执行这个命令和 Mac 略有不同，你会发现 Mac 多了一个 zsh，也就是说 OS X 系统预装了个 zsh，这是个神马 Shell 呢？</span><br><span class="line">目前常用的 Linux 系统和 OS X 系统的默认 Shell 都是 bash，但是真正强大的 Shell 是深藏不露的 zsh， 这货绝对是马车中的跑车，跑车中的飞行车，史称『终极 Shell』，但是由于配置过于复杂，所以初期无人问津，很多人跑过来看看 zsh 的配置指南，什么都不说转身就走了。直到有一天，国外有个穷极无聊的程序员开发出了一个能够让你快速上手的zsh项目，叫做「oh my zsh」，Github 网址是：https://github.com/robbyrussell/oh-my-zsh。这玩意就像「X天叫你学会 C++」系列，可以让你神功速成，而且是真的。</span><br><span class="line">好，下面我们看看如何安装、配置和使用 zsh。</span><br><span class="line">安装zsh</span><br><span class="line">如果你用 Mac，就可以直接看下一节</span><br><span class="line">如果你用 Redhat Linux，执行：sudo yum install zsh</span><br><span class="line">如果你用 Ubuntu Linux，执行：sudo apt-get install zsh</span><br><span class="line">如果你用 Windows……去洗洗睡吧。</span><br><span class="line">安装完成后设置当前用户使用 zsh：chsh -s /bin/zsh，根据提示输入当前用户的密码就可以了。</span><br><span class="line">安装oh my zsh</span><br><span class="line">首先安装 git，安装方式同上，把 zsh 换成 git 即可。</span><br><span class="line">安装「oh my zsh」可以自动安装也可以手动安装。</span><br><span class="line">自动安装：</span><br><span class="line">wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</span><br><span class="line">手动安装：</span><br><span class="line">git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</span><br><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</span><br><span class="line">都不复杂，安装完成之后退出当前会话重新打开一个终端窗口，你就可以见到这个彩色的提示了：</span><br><span class="line"></span><br><span class="line">配置</span><br><span class="line">zsh 的配置主要集中在用户当前目录的.zshrc里，用 vim 或你喜欢的其他编辑器打开.zshrc，在最下面会发现这么一行字：</span><br></pre></td></tr></table></figure>
-<h2 id="Customize-to-your-needs…"><a href="#Customize-to-your-needs…" class="headerlink" title="Customize to your needs…"></a>Customize to your needs…</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">可以在此处定义自己的环境变量和别名，当然，oh my zsh 在安装时已经自动读取当前的环境变量并进行了设置，你可以继续追加其他环境变量。</span><br><span class="line">接下来进行别名的设置，我自己的部分配置如下：</span><br><span class="line">alias cls=&apos;clear&apos;</span><br><span class="line">alias ll=&apos;ls -l&apos;</span><br><span class="line">alias la=&apos;ls -a&apos;</span><br><span class="line">alias vi=&apos;vim&apos;</span><br><span class="line">alias javac=&quot;javac -J-Dfile.encoding=utf8&quot;</span><br><span class="line">alias grep=&quot;grep --color=auto&quot;</span><br><span class="line">alias -s html=mate   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开</span><br><span class="line">alias -s rb=mate     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开</span><br><span class="line">alias -s py=vi       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似</span><br><span class="line">alias -s js=vi</span><br><span class="line">alias -s c=vi</span><br><span class="line">alias -s java=vi</span><br><span class="line">alias -s txt=vi</span><br><span class="line">alias -s gz=&apos;tar -xzvf&apos;</span><br><span class="line">alias -s tgz=&apos;tar -xzvf&apos;</span><br><span class="line">alias -s zip=&apos;unzip&apos;</span><br><span class="line">alias -s bz2=&apos;tar -xjvf&apos;</span><br><span class="line">zsh 的牛粪之处在于不仅可以设置通用别名，还能针对文件类型设置对应的打开程序，比如：</span><br><span class="line">alias -s html=mate，意思就是你在命令行输入 hello.html，zsh会为你自动打开 TextMat 并读取 hello.html； alias -s gz=&apos;tar -xzvf&apos;，表示自动解压后缀为 gz 的压缩包。</span><br><span class="line">总之，只有想不到，木有做不到。</span><br><span class="line">设置完环境变量和别名之后，基本上就可以用了，如果你是个主题控，还可以玩玩 zsh 的主题。在 .zshrc 里找到ZSH_THEME，就可以设置主题了，默认主题是：</span><br><span class="line">ZSH_THEME=”robbyrussell”</span><br><span class="line">oh my zsh 提供了数十种主题，相关文件在~/.oh-my-zsh/themes目录下，你可以随意选择，也可以编辑主题满足自己的变态需求，我采用了默认主题robbyrussell，不过做了一点小小的改动：</span><br><span class="line">PROMPT=&apos;%&#123;$fg_bold[red]%&#125;➜ %&#123;$fg_bold[green]%&#125;%p%&#123;$fg[cyan]%&#125;%d %&#123;$fg_bold[blue]%&#125;$(git_prompt_info)%&#123;$fg_bold[blue]%&#125;% %&#123;$reset_color%&#125;&gt;&apos;</span><br><span class="line">#PROMPT=&apos;%&#123;$fg_bold[red]%&#125;➜ %&#123;$fg_bold[green]%&#125;%p %&#123;$fg[cyan]%&#125;%c %&#123;$fg_bold[blue]%&#125;$(git_prompt_info)%&#123;$fg_bold[blue]%&#125; % %&#123;$reset_color%&#125;&apos;</span><br><span class="line">对照原来的版本，我把 c 改为 d，c 表示当前目录，d 表示绝对路径，另外在末尾增加了一个「 &gt; 」，改完之后的效果是这样的：</span><br><span class="line">大家可以尝试进行改造，也算个趣事。</span><br><span class="line">最后我们来说说插件。</span><br></pre></td></tr></table></figure>
-<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p>oh my zsh 项目提供了完善的插件体系，相关的文件在~/.oh-my-zsh/plugins目录下，默认提供了100多种，大家可以根据自己的实际学习和工作环境采用，想了解每个插件的功能，只要打开相关目录下的 zsh 文件看一下就知道了。插件也是在.zshrc里配置，找到plugins关键字，你就可以加载自己的插件了，系统默认加载 git ，你可以在后面追加内容，如下：<br>plugins=(git textmate ruby autojump osx mvn gradle)<br>下面简单介绍几个：</p>
-<ol><br><li>git：当你处于一个 git 受控的目录下时，Shell 会明确显示 「git」和 branch，如上图所示，另外对 git 很多命令进行了简化，例如 gco=’git checkout’、gd=’git diff’、gst=’git status’、g=’git’等等，熟练使用可以大大减少 git 的命令长度，命令内容可以参考~/.oh-my-zsh/plugins/git/git.plugin.zsh</li><br><li>textmate：mr可以创建 ruby 的框架项目，tm finename 可以用 textmate 打开指定文件。</li><br><li>osx：tab 增强，quick-look filename 可以直接预览文件，man-preview grep 可以生成 grep手册 的pdf 版本等。</li><br><li>autojump：zsh 和 autojump 的组合形成了 zsh 下最强悍的插件，今天我们主要说说这货。</li><br></ol>
-
-<p>首先安装autojump，如果你用 Mac，可以使用 brew 安装：<br>brew install autojump<br>如果是 Linux，去下载 autojump 的最新版本，比如：<br>wget <a href="https://github.com/downloads/joelthelion/autojump/autojump_v21.1.2.tar.gz" target="_blank" rel="noopener">https://github.com/downloads/joelthelion/autojump/autojump_v21.1.2.tar.gz</a><br>解压缩后进入目录，执行<br>./install.sh<br>最后把以下代码加入.zshrc：<br>[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] &amp;&amp; . ~/.autojump/etc/profile.d/autojump.sh<br>至此，安装、配置、插件三位一体，终极 Shell 全面登场。退出终端会话重新登录，开始感受 zsh 的训疾如风！</p>
-<h2 id="使用-zsh"><a href="#使用-zsh" class="headerlink" title="使用 zsh"></a>使用 zsh</h2><ol><br><li>兼容 bash，原来使用 bash 的兄弟切换过来毫无压力，该咋用咋用。</li><br><li>强大的历史纪录功能，输入 grep 然后用上下箭头可以翻阅你执行的所有 grep 命令。</li><br><li>智能拼写纠正，输入gtep mactalk <em> -R，系统会提示：zsh: correct ‘gtep’ to ‘grep’ [nyae]? 比妹纸贴心吧，她们向来都是让你猜的……</em></li><br><li>各种补全：路径补全、命令补全，命令参数补全，插件内容补全等等。触发补全只需要按一下或两下 tab 键，补全项可以使用 ctrl+n/p/f/b上下左右切换。比如你想杀掉 java 的进程，只需要输入 kill java + tab键，如果只有一个 java 进程，zsh 会自动替换为进程的 pid，如果有多个则会出现选择项供你选择。ssh + 空格 + 两个tab键，zsh会列出所有访问过的主机和用户名进行补全</li><br><li>智能跳转，安装了autojump之后，zsh 会自动记录你访问过的目录，通过 j + 目录名 可以直接进行目录跳转，而且目录名支持模糊匹配和自动补全，例如你访问过hadoop-1.0.0目录，输入j hado 即可正确跳转。j –stat 可以看你的历史路径库。</li><br><li>目录浏览和跳转：输入 d，即可列出你在这个会话里访问的目录列表，输入列表前的序号，即可直接跳转。</li><br><li>在当前目录下输入 .. 或 … ，或直接输入当前目录名都可以跳转，你甚至不再需要输入 cd 命令了。</li><br><li>通配符搜索：ls -l **/.sh，可以递归显示当前目录下的 shell 文件，文件少时可以代替 find，文件太多就歇菜了。</li><br><li>更强的别名：请参考配置一节。</li><br><li>插件支持：请参考插件一节。</li><br></ol>
-
-<p>看完这篇文章，你就知道，zsh一出，无人再与争锋！终极二字不是盖的。<br>如果你是个正在使用 shell程序员，如果你依然准备使用 bash，那就去面壁和忏悔吧，别说你订阅过 MacTalk！<br>感谢那位开发了 oh my zsh 的无聊程序员，他可能没有因此收获物质上的利益，但是他的代码提升了无数程序员的效率，节省了大量的时间，我们说，程序员改变世界！<br>MacTalk 写的多了，朋友和家人都不太理解，这玩意赚不了钱争不了名，写来何用？我想，能够学习、编码、写作，并做出一点帮助别人的东西，总好过炒股炒房的价值吧……</p>
+            <h2 id="三皇五帝时期"><a href="#三皇五帝时期" class="headerlink" title="三皇五帝时期"></a>三皇五帝时期</h2><p><img src="https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=ed322f188194a4c21e2eef796f9d70b0/4e4a20a4462309f7abe86305740e0cf3d7cad626.jpg" alt="燧皇陵中的天皇燧人氏青铜像"></p>
+<p>旧石器时代，三皇之首的燧人氏出生于商丘并在这一带建立燧明国<br>8500年前，栗陆氏建都于栗（今商丘夏邑县）<br>6000年前，炎帝朱襄氏建都于朱（今商丘柘城县）。<br>葛天氏建都于葛（今商丘宁陵县）。<br>4500年前，颛顼由穷桑迁都于商丘（今商丘睢阳区）。<br>帝喾高辛氏出生并封于高辛（今商丘高辛镇），成为天下共主后，定都亳（今商丘谷熟镇）。<br>帝喾死后，长子帝挚受禅接帝位，在位九年，因未能妥善管理国家，挚禅位于唐尧，帝尧封挚于高辛。<br>帝尧时代，商丘为后羿的封地。<br>帝舜时代，帝喾之<br>（睢阳区）帝喾陵<br>（睢阳区）帝喾陵<br>子契（阏伯）辅佐禹治水有功，被虞舜封于商（今睢阳区）做火正，为商族人的始祖，<br>深受人民的爱戴，故人们尊他为“火神”<br>阏伯死后葬于封地，由于阏伯的封号为“商”，他的墓冢被称为“商丘”</p>
 
           
         
@@ -1200,1022 +2150,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/前端/MVC，MVP 和 MVVM /">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/前端/MVC，MVP 和 MVVM /" itemprop="url">
-                  MVC，MVP 和 MVVM
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-23 17:50:29" itemprop="dateModified" datetime="2018-08-23T17:50:29+08:00">2018-08-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>复杂的软件必须有清晰合理的架构，否则无法开发和维护。<br>MVC（Model-View-Controller）是最常见的软件架构之一，业界有着广泛应用。它本身很容易理解，但是要讲清楚，它与衍生的 MVP 和 MVVM 架构的区别就不容易了。<br>昨天晚上，我读了《Scaling Isomorphic Javascript Code》，突然意识到，它们的区别非常简单。我用几段话，就可以说清。</p>
-<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>MVC模式的意思是，软件可以分成三个部分。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020104.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* 视图（View）：用户界面。</span><br><span class="line">* 控制器（Controller）：业务逻辑</span><br><span class="line">* 模型（Model）：数据保存</span><br></pre></td></tr></table></figure>
-<p>各部分之间的通信方式如下。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020105.png" alt=""></p>
-<ol>
-<li>View 传送指令到 Controller</li>
-<li>Controller 完成业务逻辑后，要求 Model 改变状态</li>
-<li>Model 将新的数据发送到 View，用户得到反馈<br>所有通信都是单向的。<h2 id="互动模式"><a href="#互动模式" class="headerlink" title="互动模式"></a>互动模式</h2></li>
-</ol>
-<p>接受用户指令时，MVC 可以分成两种方式。一种是通过 View 接受指令，传递给 Controller。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020106.png" alt=""></p>
-<p>另一种是直接通过controller接受指令。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020107.png" alt=""></p>
-<h2 id="实例：Backbone"><a href="#实例：Backbone" class="headerlink" title="实例：Backbone"></a>实例：Backbone</h2><p>实际项目往往采用更灵活的方式，以 Backbone.js 为例。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020108.png" alt=""></p>
-<ol>
-<li>用户可以向 View 发送指令（DOM 事件），再由 View 直接要求 Model 改变状态。</li>
-<li>用户也可以直接向 Controller 发送指令（改变 URL 触发 hashChange 事件），再由 Controller 发送给 View。</li>
-<li>Controller 非常薄，只起到路由的作用，而 View 非常厚，业务逻辑都部署在 View。所以，Backbone 索性取消了 Controller，只保留一个 Router（路由器） 。<h2 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h2></li>
-</ol>
-<p>MVP 模式将 Controller 改名为 Presenter，同时改变了通信方向。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020109.png" alt=""></p>
-<ol>
-<li>各部分之间的通信，都是双向的。</li>
-<li>View 与 Model 不发生联系，都通过 Presenter 传递。</li>
-<li>View 非常薄，不部署任何业务逻辑，称为”被动视图”（Passive View），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里。<h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2></li>
-</ol>
-<p>MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020110.png" alt=""></p>
-<p>唯一的区别是，它采用双向绑定（data-binding）：View的变动，自动反映在 ViewModel，反之亦然。<a href="https://angularjs.org/" target="_blank" rel="noopener">Angular</a> 和 <a href="http://emberjs.com/" target="_blank" rel="noopener">Ember</a> 都采用这种模式。<br><a href="http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html" target="_blank" rel="noopener">来自</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-vue" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/vue & weex/weex compile + 访问/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/vue & weex/weex compile + 访问/" itemprop="url">
-                  weex compile + 访问
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-10 15:27:02" itemprop="dateModified" datetime="2018-07-10T15:27:02+08:00">2018-07-10</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/weex/" itemprop="url" rel="index"><span itemprop="name">weex</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="本地启的服务测试（访问地址）："><a href="#本地启的服务测试（访问地址）：" class="headerlink" title="本地启的服务测试（访问地址）："></a>本地启的服务测试（访问地址）：</h2><p><a href="http://xxxx/jsTest/PromotionHome.js" target="_blank" rel="noopener">http://xxxx/jsTest/PromotionHome.js</a></p>
-<blockquote>
-<p>xxxx/jsTest 本地服务地址 + 存放js的目录</p>
-</blockquote>
-<h2 id="vue到js文件编译拷贝两步骤："><a href="#vue到js文件编译拷贝两步骤：" class="headerlink" title="vue到js文件编译拷贝两步骤："></a>vue到js文件编译拷贝两步骤：</h2><p>weex compile PromotionHome.vue PromotionHome.js<br>cp PromotionHome.js /Library/WebServer/Documents/jsTest</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/我的日常兴趣/中国节气/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/我的日常兴趣/中国节气/" itemprop="url">
-                  二十四节气
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-07 10:38:55" itemprop="dateModified" datetime="2018-08-07T10:38:55+08:00">2018-08-07</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其他/" itemprop="url" rel="index"><span itemprop="name">其他</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="二十四节气"><a href="#二十四节气" class="headerlink" title="二十四节气"></a>二十四节气</h2><p><img src="https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=5157a451be096b63951456026d5aec21/b03533fa828ba61ef3c2ab514134970a304e599b.jpg" alt="二十四节气"></p>
-<p>二十四节气是根据地球在黄道（即地球绕太阳公转的轨道）上的位置来划分的。视太阳从春分点（黄经零度，此刻太阳垂直照射赤道）出发，每前进15度为一个节气；运行一周又回到春分点，为一回归年，合360度，因此分为24个节气。</p>
-<h2 id="节与气"><a href="#节与气" class="headerlink" title="节与气"></a>节与气</h2><p>一年有二十四个节气，计十二个节和十二个气。即一个月之内有一节一气，每两节气相距，平均约三十天又十分之四，而阴历每月之日数．则为二十九天半，故约每三十四个月，必遇有两月仅有节而无气、及有气而无节者。有节无气之月，即农历之闰月，有气无节之月不为闰月，兹将节气与农历月份关系表列于后：</p>
-<h3 id="季月节气表"><a href="#季月节气表" class="headerlink" title="季月节气表"></a>季月节气表</h3><table log-set-param="table_view" data-sort="sortDisabled"><tbody><tr><th height="37">季</th><th height="37" colspan="3"><div class="para" label-module="para">春</div><br></th><th height="37" colspan="3">夏</th><th height="37" colspan="3">秋</th><th height="37" colspan="3"><div class="para" label-module="para">冬</div><br></th></tr><tr><td valign="top">月</td><td valign="top">正月</td><td valign="top">二月</td><td valign="top">三月</td><td valign="top">四月</td><td valign="top">五月</td><td valign="top">六月</td><td valign="top">七月</td><td valign="top">八月</td><td valign="top">九月</td><td valign="top">十月</td><td valign="top">冬月</td><td valign="top">腊月</td></tr><tr><td valign="top">节</td><td valign="top">立春</td><td valign="top">惊蛰</td><td valign="top">清明</td><td valign="top">立夏</td><td valign="top">芒种</td><td valign="top">小暑</td><td valign="top">立秋</td><td valign="top">白露</td><td valign="top">寒露</td><td valign="top">立冬</td><td valign="top">大雪</td><td valign="top">小寒</td></tr><tr><td valign="top">气</td><td valign="top">雨水</td><td valign="top">春分</td><td valign="top">谷雨</td><td valign="top">小满</td><td valign="top">夏至</td><td valign="top">大暑</td><td valign="top">处暑</td><td valign="top">秋分</td><td valign="top">霜降</td><td valign="top">小雪</td><td valign="top">冬至</td><td valign="top">大寒</td></tr></tbody></table>
-
-<h2 id="二十四节气歌"><a href="#二十四节气歌" class="headerlink" title="二十四节气歌"></a>二十四节气歌</h2><p>春雨惊春清谷天，夏满芒夏暑相连。<br>秋处露秋寒霜降，冬雪雪冬小大寒。<br>上半年逢六廿一，下半年逢八廿三。<br>每月两节不变更，最多相差一两天。</p>
-<h2 id="九九歌"><a href="#九九歌" class="headerlink" title="九九歌"></a>九九歌</h2><p>一九二九不出手；<br>三九四九冰上走； 五九六九沿河看柳；<br>七九河开八九燕来； 九九加一九，耕牛遍地走；  </p>
-<p>我国阴历有“九九”的说法，用来计算时令。计算的方法是从冬天的冬至日算起，第一个九天叫“一九”。第二个九天叫“二九”，依此类推，一直到“九九”。即第九个九天，这时冬天已过完，春天来到了。</p>
-<h2 id="三伏"><a href="#三伏" class="headerlink" title="三伏"></a>三伏</h2><p>伏日宜吃面，北方有句俚语，叫做“头伏饺子二伏面，三伏烙饼摊鸡蛋”。<br><a href="https://baike.baidu.com/item/%E5%A4%B4%E4%BC%8F%E9%A5%BA%E5%AD%90%E4%BA%8C%E4%BC%8F%E9%9D%A2/1113695?fr=aladdin" target="_blank" rel="noopener">头伏饺子二伏面百科</a>  </p>
-<p><a href="https://baike.baidu.com/item/%E4%BA%8C%E5%8D%81%E5%9B%9B%E8%8A%82%E6%B0%94/191597" target="_blank" rel="noopener">二十四节气百科</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/android/android学习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/android/android学习/" itemprop="url">
-                  android学习
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-14 16:12:47" itemprop="dateModified" datetime="2018-08-14T16:12:47+08:00">2018-08-14</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <!--2014、11、12-->
-<h3 id="Android-之-fill-parent-、wrap-content-、match-parent属性"><a href="#Android-之-fill-parent-、wrap-content-、match-parent属性" class="headerlink" title="Android 之 fill_parent 、wrap_content 、match_parent属性"></a>Android 之 fill_parent 、wrap_content 、match_parent属性</h3><p><code>fill_parent</code> 设置一个顶部布局或控件为<br><code>fill_parent</code>将强制性让它布满整个屏幕。<br><code>wrap_content</code> 设置一个视图的尺寸为<br><code>wrap_content</code>将强制性地使视图扩展以显示全部内容</p>
-<h3 id="在程序中输出日志-使用-android-util-Log-类"><a href="#在程序中输出日志-使用-android-util-Log-类" class="headerlink" title="在程序中输出日志, 使用 android.util.Log 类."></a>在程序中输出日志, 使用 android.util.Log 类.</h3><p>该类提供了若干静态方法<br>Log.v(String tag, String msg);<br>Log.d(String tag, String msg);<br>Log.i(String tag, String msg);<br>Log.w(String tag, String msg);<br>Log.e(String tag, String msg);<br>分别对应 Verbose, Debug, Info, Warning,Error.<br>tag是一个标识,可以是任意字符串,通常可以使用类名+方法名, 主要是用来在查看日志时提供一个筛选条件.<br>程序运行后 并不会在 ide的控制台内输出任何信息.<br>如果要后查看日志 请使用<br>adb logcat  </p>
-<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>command + shift + f 格式化代码 ，option + / 提示，option + 上下键 移动某行代码，option + command + 上下键，option + command + s  弹出菜单功能页，Ctrl+1 快速修复(最经典的快捷键,就不用多说了)</p>
-<h3 id="layout文件夹里新建xml命名"><a href="#layout文件夹里新建xml命名" class="headerlink" title="layout文件夹里新建xml命名"></a>layout文件夹里新建xml命名</h3><p>必须都是小写</p>
-<h3 id="完成A跳转到B操作：要在AndroidMainifest-xml的文件里面"><a href="#完成A跳转到B操作：要在AndroidMainifest-xml的文件里面" class="headerlink" title="完成A跳转到B操作：要在AndroidMainifest.xml的文件里面"></a>完成A跳转到B操作：要在AndroidMainifest.xml的文件里面</h3><pre><code class="java">&lt;activity
-           android:name=<span class="string">"com.example.sample1.新加入的类名字”</span>
-<span class="string">           android:label=“页面的标题” &gt;</span>
-<span class="string">&lt;/activity&gt;</span>
-<span class="string"></span>
-</code></pre>
-<p>AndroidManifest.xml是Android应用程序中最重要的文件之一。它是Android程序的全局配置文件，是每个 android程序中必须的文件。它位于我们开发的应用程序的根目录下，描述了package中的全局数据，包括package中暴露的组件 （activities, services, 等等），以及他们各自的实现类，各种能被处理的数据和启动位置等重要信息。</p>
-<!--2014、11、13-->
-<h3 id="布局Layout管理"><a href="#布局Layout管理" class="headerlink" title="布局Layout管理"></a>布局Layout管理</h3><p><a href="http://www.cnblogs.com/mengdd/archive/2012/12/19/2825382.html" target="_blank" rel="noopener">布局</a><br> 　<br> 　　布局即是指Activity中组件的呈现方式，即组件大小、间距和对齐方式等。<br>　　Android提供了两种创建布局的方式：<br>　　　　1.在XML配置文件中声明（推荐）。<br>　　　　2.在程序中通过代码直接实例化布局及其组件。<br>在Android中常见的布局方式：<br>线性布局（LinearLayout）：按照垂直或者水平方向布局组件。<br>　　帧布局（FrameLayout）：组件从屏幕的左上角坐标布局组件。<br>　　表格布局（TableLayout）：按照行列方式布局组件。<br>　　相对布局（RelativeLayout）：相对其他组件的布局方式。<br>　　绝对布局（AbsoluteLayout）：按照绝对坐标来布局组件。（已废）。<br>2、一个ListView通常有两个职责。<br>（1）将数据填充到布局。<br>（2）处理用户的选择点击等操作。<br>第一点很好理解，ListView就是实现这个功能的。第二点也不难做到，在后面的学习中读者会发现，这非常简单。<br>一个ListView的创建需要3个元素。<br>（1）ListView中的每一列的View。<br>（2）填入View的数据或者图片等。<br>（3）连接数据与ListView的适配器。<br>3、关于List<e>的用法<br>List l=new List();<br> 现在这样，如果你想放得是User类，就这样new:<br> List <user> l=new List <user>();<br> 这样编译器就可以帮你监督，如果你往里面放其他类对象，就会报错咯。<br> 当然好处就是你拿出来就是User类对象，不用再强制转换了。比如过去：<br> User u=(User)l.get(1);<br> 现在就可以：<br> User u=l.get(1);<br>4、ArrayList &amp;&amp; HashMap 的使用 </user></user></e></p>
-<pre><code class="java">
-ArrayList&lt;HashMap&lt;String,String&gt;&gt; list=<span class="keyword">new</span> ArrayList&lt;HashMap&lt;String,String&gt;&gt;();  
-   HashMap&lt;String,String&gt; map1= <span class="keyword">new</span> HashMap&lt;String,String&gt;();  
-   HashMap&lt;String,String&gt; map2= <span class="keyword">new</span> HashMap&lt;String,String&gt;();  
-   HashMap&lt;String,String&gt; map3= <span class="keyword">new</span> HashMap&lt;String,String&gt;();  
-
-   map1.put(<span class="string">"user"</span>, <span class="string">"zhang"</span>);  
-   map1.put(<span class="string">"id"</span>, <span class="string">"192.168.0.0"</span>);  
-
-   map2.put(<span class="string">"user"</span>, <span class="string">"wang"</span>);  
-   map2.put(<span class="string">"id"</span>, <span class="string">"192.168.0.1"</span>);  
-
-   list.add(map1);  
-   list.add(map2);  
-   list.add(map3); 
-
-   Log.v(<span class="string">"ArrayList==HashMap===:"</span>, list.toString());
-
-</code></pre>
-<h3 id="AlertDialog-的使用"><a href="#AlertDialog-的使用" class="headerlink" title="AlertDialog 的使用"></a>AlertDialog 的使用</h3><pre><code class="java">
-Builder alertDialog = <span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>);
-alertDialog.setTitle(<span class="string">"标题"</span>);<span class="comment">// 设置标题</span>
-alertDialog.setMessage(<span class="string">"一个消息框"</span>);<span class="comment">// 设置消息</span>
-alertDialog.setPositiveButton(<span class="string">"确定"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() {
-
-    <span class="meta">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>{
-        <span class="comment">// toast 的用法</span>
-        Toast.makeText(getApplicationContext(), <span class="string">"你选择了确定"</span>,
-                Toast.LENGTH_SHORT).show();
-    }
-});
-alertDialog.show();
-
-</code></pre>
-<h3 id="Button-的使用-通过具体的id-找到某个控件"><a href="#Button-的使用-通过具体的id-找到某个控件" class="headerlink" title="Button 的使用: 通过具体的id 找到某个控件"></a>Button 的使用: 通过具体的id 找到某个控件</h3><pre><code class="java"><span class="comment">// 给按钮加上点击事件</span>
-clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListener() {
-    <span class="meta">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>{
-        Log.v(<span class="string">"click"</span>, <span class="string">"=======clickButton======="</span>);
-        <span class="comment">// 跳转到SecondActivity页面</span>
-        Intent intent = <span class="keyword">new</span> Intent();
-        intent.setClass(MainActivity.<span class="keyword">this</span>, SecondActivity.class);
-        startActivity(intent);
-    }
-});
-
-</code></pre>
-<h3 id="dp是虚拟像素，在不同的像素密度的设备上会自动适配，比如"><a href="#dp是虚拟像素，在不同的像素密度的设备上会自动适配，比如" class="headerlink" title="dp是虚拟像素，在不同的像素密度的设备上会自动适配，比如:"></a>dp是虚拟像素，在不同的像素密度的设备上会自动适配，比如:</h3><p>在320x480分辨率，像素密度为160,1dp=1px<br>在480x800分辨率，像素密度为240,1dp=1.5px<br>计算公式:1dp*像素密度/160 = 实际像素数<br>px（像素）：屏幕上的点。<br>dp（与密度无关的像素）：一种基于屏幕密度的抽象单位。在每英寸160点的显示器上，1dp = 1px。<br>尽量使用dp作为空间大小单位，sp作为和文字相关大小单位 </p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/android/android学习(2014-11-17)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/android/android学习(2014-11-17)/" itemprop="url">
-                  android学习(2014、11、17)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-14 16:10:04" itemprop="dateModified" datetime="2018-08-14T16:10:04+08:00">2018-08-14</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <!--2014、11、17-->
-<p>1、<a href="http://www.blogjava.net/action/articles/17339.html" target="_blank" rel="noopener">http://www.blogjava.net/action/articles/17339.html</a> 快捷键大全<br>2、dp、sp和px的区别<br>看到有很多网友不太理解dp、sp和px的区别：现在这里介绍一下dp和sp。dp也就是dip。这个和sp基本类似。如果设置表示长度、高度等属性时可 以使用dp 或sp。但如果设置字体，需要使用sp。dp是与密度无关，sp除了与密度无关外，还与scale无关。如果屏幕密度为160，这时dp和sp和px是一 样的。1dp=1sp=1px，但如果使用px作单位，如果屏幕大小不变（假设还是3.2寸），而屏幕密度变成了320。那么原来TextView的宽度 设成160px，在密度为320的3.2寸屏幕里看要比在密度为160的3.2寸屏幕上看短了一半。但如果设置成160dp或160sp的话。系统会自动 将width属性值设置成320px的。也就是160 * 320 / 160。其中320 / 160可称为密度比例因子。也就是说，如果使用dp和sp，系统会根据屏幕密度的变化自动进行转换。</p>
-<h3 id="checkBox的使用"><a href="#checkBox的使用" class="headerlink" title="checkBox的使用"></a>checkBox的使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CheckBox checkBox1 = (CheckBox)findViewById(R.id.checkBox1);</span><br><span class="line">checkBox1.setOnCheckedChangeListener(<span class="keyword">new</span> CompoundButton.OnCheckedChangeListener() &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCheckedChanged</span><span class="params">(CompoundButton buttonView, <span class="keyword">boolean</span> isChecked)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        <span class="keyword">if</span>(isChecked)&#123;</span><br><span class="line">            Log.v(<span class="string">"CheckBox"</span>,<span class="string">"你选择了-"</span> + buttonView.getText());</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            Log.v(<span class="string">"CheckBox"</span>,<span class="string">"你取消选择了-"</span>+ buttonView.getText());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="RadioGroup的使用"><a href="#RadioGroup的使用" class="headerlink" title="RadioGroup的使用"></a>RadioGroup的使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);</span><br><span class="line">radioGroup.setOnCheckedChangeListener(<span class="keyword">new</span> OnCheckedChangeListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCheckedChanged</span><span class="params">(RadioGroup group, <span class="keyword">int</span> checkedId)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> radioButtonId = group.getCheckedRadioButtonId();</span><br><span class="line">        Log.v(<span class="string">"RadioGroup"</span>, <span class="string">"onCheckedChanged==id="</span> + checkedId</span><br><span class="line">                + radioButtonId);</span><br><span class="line">        <span class="comment">// 根据ID获取RadioButton的实例</span></span><br><span class="line">        RadioButton rb = (RadioButton) SecondActivity.<span class="keyword">this</span></span><br><span class="line">                .findViewById(radioButtonId);</span><br><span class="line">        <span class="comment">// 更新文本内容，以符合选中项</span></span><br><span class="line">        textView1.setText(<span class="string">"您的性别是："</span> + rb.getText());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="Bundle的使用"><a href="#Bundle的使用" class="headerlink" title="Bundle的使用"></a>Bundle的使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">        Bundle bundle = <span class="keyword">new</span> Bundle();</span><br><span class="line">        bundle.putString(<span class="string">"city"</span>, <span class="string">"上海"</span>);</span><br><span class="line">        bundle.putString(<span class="string">"name"</span>, <span class="string">"狗子"</span>);</span><br><span class="line">        bundle.putString(<span class="string">"age"</span>, <span class="string">"12"</span>);</span><br><span class="line">        bundle.putString(<span class="string">"gender"</span>, <span class="string">"男"</span>);</span><br><span class="line">        String name = bundle.getString(<span class="string">"name"</span>);</span><br><span class="line">        Log.v(<span class="string">"Bundle"</span>,<span class="string">"bundle.string="</span>+ bundle.toString()+<span class="string">"名字："</span>+name);</span><br><span class="line"><span class="comment">//bundle.string=Bundle[&#123;gender=男, age=12, city=上海, name=狗子&#125;]名字：狗子</span></span><br></pre></td></tr></table></figure>
-<h3 id="Android-RelativeLayout-属性"><a href="#Android-RelativeLayout-属性" class="headerlink" title="Android RelativeLayout 属性"></a>Android RelativeLayout 属性</h3><p>// 相对于给定ID控件<br>android:layout_above 将该控件的底部置于给定ID的控件之上;<br>android:layout_below 将该控件的底部置于给定ID的控件之下;<br>android:layout_toLeftOf    将该控件的右边缘与给定ID的控件左边缘对齐;<br>android:layout_toRightOf  将该控件的左边缘与给定ID的控件右边缘对齐;</p>
-<p>android:layout_alignBaseline  将该控件的baseline与给定ID的baseline对齐;<br>android:layout_alignTop        将该控件的顶部边缘与给定ID的顶部边缘对齐;<br>android:layout_alignBottom   将该控件的底部边缘与给定ID的底部边缘对齐;<br>android:layout_alignLeft        将该控件的左边缘与给定ID的左边缘对齐;<br>android:layout_alignRight      将该控件的右边缘与给定ID的右边缘对齐;<br>// 相对于父组件<br>android:layout_alignParentTop      如果为true,将该控件的顶部与其父控件的顶部对齐;<br>android:layout_alignParentBottom 如果为true,将该控件的底部与其父控件的底部对齐;<br>android:layout_alignParentLeft      如果为true,将该控件的左部与其父控件的左部对齐;<br>android:layout_alignParentRight    如果为true,将该控件的右部与其父控件的右部对齐;<br>// 居中<br>android:layout_centerHorizontal 如果为true,将该控件的置于水平居中;<br>android:layout_centerVertical     如果为true,将该控件的置于垂直居中;<br>android:layout_centerInParent   如果为true,将该控件的置于父控件的中央;<br>// 指定移动像素<br>android:layout_marginTop      上偏移的值;<br>android:layout_marginBottom 下偏移的值;<br>android:layout_marginLeft 　　左偏移的值;<br>android:layout_marginRight 　 右偏移的值;</p>
-<!--2014、11、18-->  
-<h3 id="下拉列表框-Spinner的使用"><a href="#下拉列表框-Spinner的使用" class="headerlink" title="下拉列表框 Spinner的使用"></a>下拉列表框 Spinner的使用</h3><pre><code class="java">myTextView = (TextView) findViewById(R.id.TextView_city);
-        mySpinner = (Spinner) findViewById(R.id.Spinner_city);
-        adapter = <span class="keyword">new</span> ArrayAdapter&lt;String&gt;(<span class="keyword">this</span>,
-                android.R.layout.simple_spinner_item, citys);
-        <span class="comment">// 为适配器设置下拉列表下拉时的菜单样式。</span>
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        <span class="comment">// 将适配器添加到下拉列表上</span>
-        mySpinner.setAdapter(adapter);
-        mySpinner.setOnItemSelectedListener(<span class="keyword">new</span> OnItemSelectedListener() {
-            <span class="meta">@Override</span>
-            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemSelected</span><span class="params">(AdapterView&lt;?&gt; parent, View view,</span></span>
-<span class="function"><span class="params">                    <span class="keyword">int</span> position, <span class="keyword">long</span> id)</span> </span>{
-                <span class="comment">// TODO Auto-generated method stub</span>
-                myTextView.setText(<span class="string">"您的选择是："</span> + adapter.getItem(position));
-            }
-            <span class="meta">@Override</span>
-            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNothingSelected</span><span class="params">(AdapterView&lt;?&gt; parent)</span> </span>{
-                <span class="comment">// TODO Auto-generated method stub</span>
-                <span class="comment">// myTextView.setText("NONE");</span>
-                <span class="comment">// parent.setVisibility(View.VISIBLE);</span>
-            }
-        });
-</code></pre>
-<h3 id="类名-this-的使用"><a href="#类名-this-的使用" class="headerlink" title="类名.this 的使用"></a>类名.this 的使用</h3><p>我们会用到一些内部类和匿名类。当在匿名类中用this时，这个this则指的是匿名类或内部类本身。这时如果我们要使用外部类的方法和变量的话，则应该加上外部类的类名。</p>
-<h3 id="GridView-使用方式"><a href="#GridView-使用方式" class="headerlink" title="GridView 使用方式"></a>GridView 使用方式</h3><pre><code class="java">GridView gridView = (GridView) findViewById(R.id.gridview);
-        gridView.setAdapter(<span class="keyword">new</span> ImageAdapter(<span class="keyword">this</span>));
-        gridView.setOnItemClickListener(<span class="keyword">new</span> OnItemClickListener() {
-            <span class="meta">@Override</span>
-            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(AdapterView&lt;?&gt; parent, View view,</span></span>
-<span class="function"><span class="params">                    <span class="keyword">int</span> position, <span class="keyword">long</span> id)</span> </span>{
-                <span class="comment">// TODO Auto-generated method stub</span>
-                Toast.makeText(GridViewActivity.<span class="keyword">this</span>, mThumbIds[position], Toast.LENGTH_LONG).show();
-            }
-        });
-</code></pre>
-<h3 id="代码法设置背景颜色"><a href="#代码法设置背景颜色" class="headerlink" title="代码法设置背景颜色"></a>代码法设置背景颜色</h3><p>ImageView设置背景颜色<br>ImageView.setBackgroundColor(android.graphics.Color.parseColor(“#ffffff”));<br>ImageView.setBackgroundColor(Color.RED);<br>ImageView.setBackgroundColor(Color.rgb(255, 0, 0));</p>
-<h3 id="Android广播机制"><a href="#Android广播机制" class="headerlink" title="Android广播机制"></a>Android广播机制</h3><p>BroadcastReceiver用于接收程序（包括用户开发的程序和系统内建的程序）所发出的Broadcast Intent，与应用程序启动Activity、Service相同的是，程序启动BroadcastReceiver也只需要两步。<br>1）创建需要启动的BroadcastReceiver的Intent。<br>2）调用Context的sendBroadcast()或sendOrderedBroadcast()方法来启动指定BroadcastReceiver。<br>内部类的方式</p>
-<h4 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h4><pre><code class="java">{
-    myBroadCast = <span class="keyword">new</span> MyBroadCast();
-        IntentFilter filter = <span class="keyword">new</span> IntentFilter();
-        filter.addAction(ACTION_INTENT_TEST);
-        registerReceiver(myBroadCast, filter);
-}
-
-</code></pre>
-<h4 id="内部类实现"><a href="#内部类实现" class="headerlink" title="内部类实现"></a>内部类实现</h4><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBroadCast</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>{
-        <span class="function"><span class="keyword">public</span> <span class="title">MyBroadCast</span><span class="params">()</span> </span>{
-            Log.v(<span class="string">"BROADCAST_TAG"</span>, <span class="string">"myBroadCast"</span>);
-        }
-        <span class="meta">@Override</span>
-        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>{
-            <span class="comment">// TODO 处理接收到得广播</span>
-            Log.v(<span class="string">"BROADCAST_TAG"</span>, <span class="string">"onReceive===1111111"</span>);
-        }
-    }
-</code></pre>
-<h4 id="发送广播"><a href="#发送广播" class="headerlink" title="发送广播"></a>发送广播</h4><pre><code class="java">Intent intent = <span class="keyword">new</span> Intent(ThirdActivity.ACTION_INTENT_TEST);
-                   sendBroadcast(intent);
-</code></pre>
-<h4 id="取消注册"><a href="#取消注册" class="headerlink" title="取消注册"></a>取消注册</h4><p> java<br>    @Override<br>    protected void onDestroy() {<br>        super.onDestroy();<br>        unregisterReceiver(myBroadCast);<br>    }</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2267,7 +2201,7 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">54</span>
+                    <span class="site-state-item-count">57</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2369,7 +2303,9 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
