@@ -331,6 +331,555 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/iOS打包Framework真机和模拟器兼容合并版本/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/iOS/iOS打包Framework真机和模拟器兼容合并版本/" itemprop="url">
+                  iOS打包Framework真机和模拟器兼容合并版本
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-03 17:21:38" itemprop="dateModified" datetime="2018-07-03T17:21:38+08:00">2018-07-03</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="查询framework支持哪些架构，命令为："><a href="#查询framework支持哪些架构，命令为：" class="headerlink" title="查询framework支持哪些架构，命令为："></a>查询framework支持哪些架构，命令为：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -info XXXX.framework/XXXX</span><br></pre></td></tr></table></figure>
+<h3 id="合并包"><a href="#合并包" class="headerlink" title="合并包"></a>合并包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> lipo -create XXXX.framework/XXXX-armv7 XXXX.framework/XXXX-arm64 -output XXXX.framework/XXXX</span><br><span class="line"></span><br><span class="line">lipo -create 【模拟器打包path】 【真机打包path】 -output 【导出兼容版本path】</span><br></pre></td></tr></table></figure>
+<h3 id="一键打包shell脚本"><a href="#一键打包shell脚本" class="headerlink" title="一键打包shell脚本"></a>一键打包shell脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 使用方法 ###</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># bash get_framework.sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 填写要生成的包的名字</span></span><br><span class="line">FrameWorkName=<span class="string">"JDViewKit"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置输出包的文件路径</span></span><br><span class="line">OutputDir=<span class="variable">$&#123;SRCROOT&#125;</span>/VKOutput</span><br><span class="line"><span class="comment"># Working dir will be deleted after the framework creation.</span></span><br><span class="line">buildDir=build</span><br><span class="line">DEVICE_DIR=<span class="variable">$&#123;buildDir&#125;</span>/Release-iphoneos</span><br><span class="line">SIMULATOR_DIR=<span class="variable">$&#123;buildDir&#125;</span>/Release-iphonesimulator/<span class="variable">$&#123;FrameWorkName&#125;</span>.framework</span><br><span class="line"></span><br><span class="line"><span class="comment">#编译真机和模拟器的两种架构</span></span><br><span class="line"><span class="comment"># -configuration $&#123;CONFIGURATION&#125;</span></span><br><span class="line"><span class="comment"># Clean and Building both architectures.</span></span><br><span class="line"></span><br><span class="line">xcodebuild -configuration <span class="string">"Release"</span> -target <span class="string">"<span class="variable">$&#123;FrameWorkName&#125;</span>"</span> -sdk iphoneos clean build</span><br><span class="line">xcodebuild -configuration <span class="string">"Release"</span> -target <span class="string">"<span class="variable">$&#123;FrameWorkName&#125;</span>"</span> -sdk iphonesimulator clean build</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 把旧的输出文件包删除掉</span></span><br><span class="line"><span class="keyword">if</span> [ -d <span class="string">"<span class="variable">$&#123;OutputDir&#125;</span>"</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">sudo rm -rf <span class="string">"<span class="variable">$&#123;OutputDir&#125;</span>"</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建输出包</span></span><br><span class="line">sudo mkdir -p <span class="string">"<span class="variable">$&#123;OutputDir&#125;</span>"</span></span><br><span class="line">sudo cp -R <span class="string">"<span class="variable">$&#123;DEVICE_DIR&#125;</span>/"</span> <span class="string">"<span class="variable">$&#123;OutputDir&#125;</span>/"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 lipo工具合并通用包（(i386 + armv6/armv7)）</span></span><br><span class="line">sudo lipo -create <span class="string">"<span class="variable">$&#123;DEVICE_DIR&#125;</span>/<span class="variable">$&#123;FrameWorkName&#125;</span>.framework/<span class="variable">$&#123;FrameWorkName&#125;</span>"</span> <span class="string">"<span class="variable">$&#123;SIMULATOR_DIR&#125;</span>/<span class="variable">$&#123;FrameWorkName&#125;</span>"</span> -output <span class="string">"<span class="variable">$&#123;OutputDir&#125;</span>/<span class="variable">$&#123;FrameWorkName&#125;</span>.framework/<span class="variable">$&#123;FrameWorkName&#125;</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除build包  打开输出包文件夹</span></span><br><span class="line">sudo rm -r <span class="string">"<span class="variable">$&#123;buildDir&#125;</span>"</span></span><br><span class="line">open <span class="string">"<span class="variable">$&#123;OutputDir&#125;</span>"</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/iOS开发之位移枚举和按位或按位与运算/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/iOS/iOS开发之位移枚举和按位或按位与运算/" itemprop="url">
+                  iOS开发之位移枚举和按位或按位与运算
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-15 14:27:01" itemprop="dateModified" datetime="2018-08-15T14:27:01+08:00">2018-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>位移枚举(可复选的枚举) 使用位移实现选项变量</p>
+</blockquote>
+<h3 id="Autoresizing-的系统枚举UIViewAutoresizing-讲述"><a href="#Autoresizing-的系统枚举UIViewAutoresizing-讲述" class="headerlink" title="Autoresizing 的系统枚举UIViewAutoresizing 讲述"></a>Autoresizing 的系统枚举UIViewAutoresizing 讲述</h3><p>以下位移已经计算提前计算出来了二进制与十进制值为了方便下文使用</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_OPTIONS</span>(<span class="built_in">NSUInteger</span>,<span class="built_in">UIViewAutoresizing</span>)&#123;    二进制值    十进制</span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIViewAutoresizingNone</span>                 =<span class="number">0</span>,         <span class="number">00000000</span>  <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIViewAutoresizingFlexibleLeftMargin</span>   =<span class="number">1</span>&lt;&lt;<span class="number">0</span>,    <span class="number">00000001</span>  <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIViewAutoresizingFlexibleWidth</span>        =<span class="number">1</span>&lt;&lt;<span class="number">1</span>,    <span class="number">00000010</span>  <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIViewAutoresizingFlexibleRightMargin</span>  =<span class="number">1</span>&lt;&lt;<span class="number">2</span>,    <span class="number">00000100</span>  <span class="number">4</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIViewAutoresizingFlexibleTopMargin</span>    =<span class="number">1</span>&lt;&lt;<span class="number">3</span>,    <span class="number">00001000</span>  <span class="number">8</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIViewAutoresizingFlexibleHeight</span>       =<span class="number">1</span>&lt;&lt;<span class="number">4</span>,    <span class="number">00010000</span>  <span class="number">16</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIViewAutoresizingFlexibleBottomMargin</span>=<span class="number">1</span>&lt;&lt;<span class="number">5</span>     <span class="number">00100000</span>  <span class="number">32</span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>使用枚举定义选项,每个选项均可启用或禁用，使用上述方式来定义枚举值,每个枚举值所对应的二进制表示中，只有1个二进制位的值是1。用“按位或操作符”可组合多个选项</p>
+<p>用 | 来隔开</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">aView.autoresizingMask=<span class="built_in">UIViewAutoresizingFlexibleTopMargin</span>|</span><br><span class="line">  <span class="built_in">UIViewAutoresizingFlexibleLeftMargin</span>|  </span><br><span class="line">  <span class="built_in">UIViewAutoresizingFlexibleBottomMargin</span>|  </span><br><span class="line">  <span class="built_in">UIViewAutoresizingFlexibleRightMargin</span>;</span><br></pre></td></tr></table></figure>
+<p>而且每一个枚举对应的逻辑都会覆盖到</p>
+<p>实例</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)todo:(<span class="built_in">UIViewAutoresizing</span>)type&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(type==<span class="number">0</span>)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"UIViewAutoresizingNone"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//更严谨的写法</span></span><br><span class="line">    <span class="keyword">if</span>(type&amp;<span class="built_in">UIViewAutoresizingFlexibleLeftMargin</span> ==   </span><br><span class="line">    <span class="built_in">UIViewAutoresizingFlexibleLeftMargin</span>)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"UIViewAutoresizingFlexibleLeftMargin"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(type&amp;<span class="built_in">UIViewAutoresizingFlexibleWidth</span>)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"UIViewAutoresizingFlexibleWidth"</span>);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(type&amp;<span class="built_in">UIViewAutoresizingFlexibleRightMargin</span>)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"UIViewAutoresizingFlexibleRightMargin"</span>);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(type&amp;<span class="built_in">UIViewAutoresizingFlexibleTopMargin</span>)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"UIViewAutoresizingFlexibleTopMargin"</span>);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(type&amp;<span class="built_in">UIViewAutoresizingFlexibleHeight</span>)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"UIViewAutoresizingFlexibleHeight"</span>);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(type&amp;<span class="built_in">UIViewAutoresizingFlexibleBottomMargin</span>)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"UIViewAutoresizingFlexibleBottomMargin"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>)viewDidLoad&#123;</span><br><span class="line"></span><br><span class="line">    [superviewDidLoad];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view, typically from a nib.</span></span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span> todo:<span class="built_in">UIViewAutoresizingFlexibleLeftMargin</span>|  </span><br><span class="line">    <span class="built_in">UIViewAutoresizingFlexibleRightMargin</span>|  </span><br><span class="line">    <span class="built_in">UIViewAutoresizingFlexibleHeight</span>];  </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果输出</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIViewAutoresizingFlexibleLeftMargin</span>  </span><br><span class="line"><span class="built_in">UIViewAutoresizingFlexibleRightMargin</span>  </span><br><span class="line"><span class="built_in">UIViewAutoresizingFlexibleHeight</span></span><br></pre></td></tr></table></figure>
+<h3 id="二进制转十进制"><a href="#二进制转十进制" class="headerlink" title="二进制转十进制"></a>二进制转十进制</h3><p><code>1101（2）=1*2^0+0*2^1+1*2^2+1*2^3=1+0+4+8=13</code>转化成十进制要从右到左用二进制的每个数去乘以2的相应次方不过次方要从0开始</p>
+<h4 id="位移位运算"><a href="#位移位运算" class="headerlink" title="位移位运算"></a>位移位运算</h4><p>如 <code>UIViewAutoresizingFlexibleHeight  = 1 &lt;&lt; 4</code>,</p>
+<p>1.左移运算 1 &lt;&lt; 4<br>将一个运算对象的各二进制位全部左移若干位（左边的二进制位丢弃，右边补0）。</p>
+<p>1 转化为二进制为 :0000 0001</p>
+<p>左移四位就为     :0001 0000</p>
+<p>0001 0000 转化为十进制等于16</p>
+<p>2.右移运算 90&gt;&gt;4<br>将一个数的各二进制位全部右移若干位，正数左补0，负数左补1，右边丢弃。操作数每右移一位，相当于该数除以2。</p>
+<p>90转化为二进制为 :01011010</p>
+<p>右移4位就是          :00000101</p>
+<p>00000101  转化为十进制等于5</p>
+<h4 id="按位或运算符（-）"><a href="#按位或运算符（-）" class="headerlink" title="按位或运算符（|）"></a>按位或运算符（|）</h4><p>运算规则：0|0=0；   0|1=1；   1|0=1；    1|1=1；即 ：参加运算的两个二进制对应数位只要有一个为1，其值为1。</p>
+<p>例如</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span> todo:<span class="built_in">UIViewAutoresizingFlexibleLeftMargin</span>|</span><br><span class="line"><span class="built_in">UIViewAutoresizingFlexibleRightMargin</span>|  </span><br><span class="line"><span class="built_in">UIViewAutoresizingFlexibleHeight</span>];</span><br></pre></td></tr></table></figure>
+<p>1.十进制1|4|16 转为二进制0000 0001 | 0000 0100 | 0001 0000  =  0001 0101,因此，1|4|16的十进制值得21</p>
+<h4 id="按位与运算符（-amp-）"><a href="#按位与运算符（-amp-）" class="headerlink" title="按位与运算符（&amp;）"></a>按位与运算符（&amp;）</h4><p>参加运算的两个数据，按二进制位进行“与”运算。运算规则：0&amp;0=0;   0&amp;1=0;    1&amp;0=0;     1&amp;1=1;即：两对应数位同时为“1”，结果才为“1”，否则为0</p>
+<p>1.十进制3&amp;5  转为二进制 0000 0011 &amp; 0000 0101 = 0000 0001   因此，3&amp;5的值得1</p>
+<p>2.iOS在方法中的应用</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)todo:(<span class="built_in">UIViewAutoresizing</span>)type&#123;<span class="keyword">if</span> (type &amp; </span><br><span class="line"><span class="built_in">UIViewAutoresizingFlexibleLeftMargin</span> )</span><br><span class="line"> &#123;<span class="built_in">NSLog</span>(<span class="string">@"UIViewAutoresizingFlexibleLeftMargin"</span>);&#125;&#125;</span><br><span class="line"></span><br><span class="line">入参数type 为 <span class="built_in">UIViewAutoresizingFlexibleLeftMargin</span>|</span><br><span class="line"><span class="built_in">UIViewAutoresizingFlexibleRightMargin</span>|</span><br><span class="line"><span class="built_in">UIViewAutoresizingFlexibleHeight</span></span><br></pre></td></tr></table></figure>
+<p>上文知道结果是 0001 0101,十进制值得21 <code>UIViewAutoresizingFlexibleRightMargin为4</code></p>
+<p>0001 0101 &amp;  <code>UIViewAutoresizingFlexibleRightMargin</code> =  0001 0101 &amp; 0000 0100  =21&amp;4 = 4 根据计算结果还是<code>UIViewAutoresizingFlexibleRightMargin</code>这个枚举</p>
+<h3 id="在iOS中的总结"><a href="#在iOS中的总结" class="headerlink" title="在iOS中的总结"></a>在iOS中的总结</h3><p>如果把传递给某个方法的选项表示为枚举类型，而多个选项又可同时使用，那么就将各选项值定义为2的幂，以便通过按位或操作将其组合起来。</p>
+<p>用<code>NS_ENUM</code>与<code>NS_OPTIONS</code>宏来定义枚举类型，并指明其底层数据类型。这样做可以确保枚举是用开发者所选的底层数据类型实现出来的，而不会采用编译器所选的类型。</p>
+<p>在处理枚举类型的<code>switch</code>语句中不要实现<code>default</code>分支。这样的话，加入新枚举之后，编译器就会提示开发者：<code>switch</code>语句并未处理所有枚举。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/数据结构算法/堆栈/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/数据结构算法/堆栈/" itemprop="url">
+                  堆栈
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-12 18:10:35" itemprop="dateModified" datetime="2018-09-12T18:10:35+08:00">2018-09-12</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在计算机领域，堆栈是一个不容忽视的概念，堆栈是两种数据结构。堆栈都是一种数据项按序排列的数据结构，只能在一端(称为栈顶(top))对数据项进行插入和删除。在单片机应用中，堆栈是个特殊的存储区，主要功能是暂时存放数据和地址，通常用来保护断点和现场。要点：堆，队列优先,先进先出（FIFO—first in first out） 。栈，先进后出(FILO—First-In/Last-Out)。</p>
+<h3 id="堆栈空间分配"><a href="#堆栈空间分配" class="headerlink" title="堆栈空间分配"></a>堆栈空间分配</h3><p>栈（操作系统）：由操作系统自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。<br>堆（操作系统）： 一般由程序员分配释放， 若程序员不释放，程序结束时可能由OS回收，分配方式倒是类似于链表。</p>
+<h3 id="堆栈缓存方式"><a href="#堆栈缓存方式" class="headerlink" title="堆栈缓存方式"></a>堆栈缓存方式</h3><p>栈使用的是一级缓存， 他们通常都是被调用时处于存储空间中，调用完毕立即释放。<br>堆则是存放在二级缓存中，生命周期由虚拟机的垃圾回收算法来决定（并不是一旦成为孤儿对象就能被回收）。所以调用这些对象的速度要相对来得低一些。</p>
+<h3 id="堆栈数据结构区别"><a href="#堆栈数据结构区别" class="headerlink" title="堆栈数据结构区别"></a>堆栈数据结构区别</h3><p>堆（数据结构）：堆可以被看成是一棵树，如：堆排序。<br>栈（数据结构）：一种先进后出的数据结构。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/ios-ARC和垃圾回收机制的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -450,529 +999,6 @@
             <p>在<code>java</code>中有个垃圾回收器，什么是垃圾回收器，就是在程序运行的期间，垃圾回收器会不断的去扫描堆中的对象是否无人使用。如果无人使用就会回收了。</p>
 <p><code>ARC</code>在编译的时候就会在合适的地方插入<code>retain,release,autorelease</code>,在运行的时候没有东西去进行实时检查，它插入的代码可以在对象没有人用的时候，引用计数器就会变为0.一旦变为0就会被销毁了。</p>
 <p>如果在java中有一段代码是<code>Person * p=[Person new]; p=nil</code>，这个对象什么时候被回收？不一定，因为这要看垃圾回收器有没有扫描到这里。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/我的日常兴趣/中国节气/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/我的日常兴趣/中国节气/" itemprop="url">
-                  二十四节气
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-07 10:38:55" itemprop="dateModified" datetime="2018-08-07T10:38:55+08:00">2018-08-07</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其他/" itemprop="url" rel="index"><span itemprop="name">其他</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="二十四节气"><a href="#二十四节气" class="headerlink" title="二十四节气"></a>二十四节气</h2><p><img src="https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=5157a451be096b63951456026d5aec21/b03533fa828ba61ef3c2ab514134970a304e599b.jpg" alt="二十四节气"></p>
-<p>二十四节气是根据地球在黄道（即地球绕太阳公转的轨道）上的位置来划分的。视太阳从春分点（黄经零度，此刻太阳垂直照射赤道）出发，每前进15度为一个节气；运行一周又回到春分点，为一回归年，合360度，因此分为24个节气。</p>
-<h2 id="节与气"><a href="#节与气" class="headerlink" title="节与气"></a>节与气</h2><p>一年有二十四个节气，计十二个节和十二个气。即一个月之内有一节一气，每两节气相距，平均约三十天又十分之四，而阴历每月之日数．则为二十九天半，故约每三十四个月，必遇有两月仅有节而无气、及有气而无节者。有节无气之月，即农历之闰月，有气无节之月不为闰月，兹将节气与农历月份关系表列于后：</p>
-<h3 id="季月节气表"><a href="#季月节气表" class="headerlink" title="季月节气表"></a>季月节气表</h3><table log-set-param="table_view" data-sort="sortDisabled"><tbody><tr><th height="37">季</th><th height="37" colspan="3"><div class="para" label-module="para">春</div><br></th><th height="37" colspan="3">夏</th><th height="37" colspan="3">秋</th><th height="37" colspan="3"><div class="para" label-module="para">冬</div><br></th></tr><tr><td valign="top">月</td><td valign="top">正月</td><td valign="top">二月</td><td valign="top">三月</td><td valign="top">四月</td><td valign="top">五月</td><td valign="top">六月</td><td valign="top">七月</td><td valign="top">八月</td><td valign="top">九月</td><td valign="top">十月</td><td valign="top">冬月</td><td valign="top">腊月</td></tr><tr><td valign="top">节</td><td valign="top">立春</td><td valign="top">惊蛰</td><td valign="top">清明</td><td valign="top">立夏</td><td valign="top">芒种</td><td valign="top">小暑</td><td valign="top">立秋</td><td valign="top">白露</td><td valign="top">寒露</td><td valign="top">立冬</td><td valign="top">大雪</td><td valign="top">小寒</td></tr><tr><td valign="top">气</td><td valign="top">雨水</td><td valign="top">春分</td><td valign="top">谷雨</td><td valign="top">小满</td><td valign="top">夏至</td><td valign="top">大暑</td><td valign="top">处暑</td><td valign="top">秋分</td><td valign="top">霜降</td><td valign="top">小雪</td><td valign="top">冬至</td><td valign="top">大寒</td></tr></tbody></table>
-
-<h2 id="二十四节气歌"><a href="#二十四节气歌" class="headerlink" title="二十四节气歌"></a>二十四节气歌</h2><p>春雨惊春清谷天，夏满芒夏暑相连。<br>秋处露秋寒霜降，冬雪雪冬小大寒。<br>上半年逢六廿一，下半年逢八廿三。<br>每月两节不变更，最多相差一两天。</p>
-<h2 id="九九歌"><a href="#九九歌" class="headerlink" title="九九歌"></a>九九歌</h2><p>一九二九不出手；<br>三九四九冰上走； 五九六九沿河看柳；<br>七九河开八九燕来； 九九加一九，耕牛遍地走；  </p>
-<p>我国阴历有“九九”的说法，用来计算时令。计算的方法是从冬天的冬至日算起，第一个九天叫“一九”。第二个九天叫“二九”，依此类推，一直到“九九”。即第九个九天，这时冬天已过完，春天来到了。</p>
-<h2 id="三伏"><a href="#三伏" class="headerlink" title="三伏"></a>三伏</h2><p>伏日宜吃面，北方有句俚语，叫做“头伏饺子二伏面，三伏烙饼摊鸡蛋”。<br><a href="https://baike.baidu.com/item/%E5%A4%B4%E4%BC%8F%E9%A5%BA%E5%AD%90%E4%BA%8C%E4%BC%8F%E9%9D%A2/1113695?fr=aladdin" target="_blank" rel="noopener">头伏饺子二伏面百科</a>  </p>
-<p><a href="https://baike.baidu.com/item/%E4%BA%8C%E5%8D%81%E5%9B%9B%E8%8A%82%E6%B0%94/191597" target="_blank" rel="noopener">二十四节气百科</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/runtime相关/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/iOS/runtime相关/" itemprop="url">
-                  iOS runtime
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-25 12:10:25" itemprop="dateModified" datetime="2018-07-25T12:10:25+08:00">2018-07-25</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="仓库地址"><a href="#仓库地址" class="headerlink" title="仓库地址"></a>仓库地址</h1><p><a href="https://coding.net/u/dream001/p/iOS_runtime/git/tree/master" target="_blank" rel="noopener">仓库地址</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/前端/用于在safari跳转到APP的web页面/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/前端/用于在safari跳转到APP的web页面/" itemprop="url">
-                  web页面打开APP
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-04 18:08:39" itemprop="dateModified" datetime="2018-07-04T18:08:39+08:00">2018-07-04</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="在WXApp上设置一个URL-Schemes"><a href="#在WXApp上设置一个URL-Schemes" class="headerlink" title="在WXApp上设置一个URL Schemes"></a>在WXApp上设置一个URL Schemes</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">为了能让别的App(包括我们刚才创建的MyApp)能够打开 OpenTest，</span><br><span class="line">我们需要为app添加一个URL Schemes。</span><br><span class="line">步骤：选中app工程-&gt;Info-&gt;URL Types-&gt;点击“+”-&gt;在URL Schemes栏填上 OpenTest</span><br></pre></td></tr></table></figure>
-<h3 id="打开APP-xxx-html"><a href="#打开APP-xxx-html" class="headerlink" title="打开APP  xxx.html"></a>打开APP  xxx.html</h3><blockquote>
-<p>可以保存一下页面为.html 放在本地服务Document目录下 快速启动</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf-8"</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"HandheldFriendly"</span> <span class="attr">content</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1, user-scalable=no"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">open_win</span>(<span class="params"></span>) </span></span></span><br><span class="line"><span class="undefined">		&#123;</span></span><br><span class="line"><span class="javascript">		<span class="built_in">window</span>.open(<span class="string">"OpenTest"</span>)</span></span><br><span class="line"><span class="javascript">		<span class="comment">// window.open("http://www.baidu.com")</span></span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">		</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width:100%;height: 100%;background: white; position: absolute;"</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 方法一 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">"margin-top:200px; width:100%;color:#666; font-size:32px; text-align: center ;display:inline-block;"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">href</span>=<span class="string">"OpenTest"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>打开OpenTest App页面<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">&lt;!-- OpenTest --&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">&lt;!-- 方法二跳转有点问题 --&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- &lt;input type=button </span></span><br><span class="line"><span class="comment">		style="width:250px; height=200px;"</span></span><br><span class="line"><span class="comment">		size="60"</span></span><br><span class="line"><span class="comment">		value="dsl open 打开" onclick="open_win()" /&gt; --&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -1251,6 +1277,712 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/runtime相关/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/iOS/runtime相关/" itemprop="url">
+                  iOS runtime
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-05 19:35:39" itemprop="dateModified" datetime="2018-09-05T19:35:39+08:00">2018-09-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="仓库地址"><a href="#仓库地址" class="headerlink" title="仓库地址"></a>仓库地址</h1><p><a href="https://coding.net/u/dream001/p/iOS_runtime/git/tree/master" target="_blank" rel="noopener">dream001 demo仓库地址</a><br><a href="https://opensource.apple.com/source/objc4/" target="_blank" rel="noopener">苹果官网开源代码</a><br><a href="https://developer.apple.com/documentation/objectivec/objective_c_runtime#//apple_ref/doc/uid/TP40001418-CH1g-126286" target="_blank" rel="noopener">官方api</a></p>
+<p><a href="https://juejin.im/post/5ac0a6116fb9a028de44d717" target="_blank" rel="noopener">掘金runtime实战总结</a><br><a href="https://maxwellqi.github.io/ios-primary-main/" target="_blank" rel="noopener">IOS程序在main函数前所做的事情</a>  <a href="http://blog.sunnyxx.com/2014/08/30/objc-pre-main/" target="_blank" rel="noopener">main</a><br><a href="http://blog.devtang.com/2014/09/09/ios-weekly-24/" target="_blank" rel="noopener">devtang</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/我的日常兴趣/商丘历史变迁/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/我的日常兴趣/商丘历史变迁/" itemprop="url">
+                  商丘历史变迁
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-06 18:37:16" itemprop="dateModified" datetime="2018-08-06T18:37:16+08:00">2018-08-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其他/" itemprop="url" rel="index"><span itemprop="name">其他</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="三皇五帝时期"><a href="#三皇五帝时期" class="headerlink" title="三皇五帝时期"></a>三皇五帝时期</h2><p><img src="https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=ed322f188194a4c21e2eef796f9d70b0/4e4a20a4462309f7abe86305740e0cf3d7cad626.jpg" alt="燧皇陵中的天皇燧人氏青铜像"></p>
+<p>旧石器时代，三皇之首的燧人氏出生于商丘并在这一带建立燧明国<br>8500年前，栗陆氏建都于栗（今商丘夏邑县）<br>6000年前，炎帝朱襄氏建都于朱（今商丘柘城县）。<br>葛天氏建都于葛（今商丘宁陵县）。<br>4500年前，颛顼由穷桑迁都于商丘（今商丘睢阳区）。<br>帝喾高辛氏出生并封于高辛（今商丘高辛镇），成为天下共主后，定都亳（今商丘谷熟镇）。<br>帝喾死后，长子帝挚受禅接帝位，在位九年，因未能妥善管理国家，挚禅位于唐尧，帝尧封挚于高辛。<br>帝尧时代，商丘为后羿的封地。<br>帝舜时代，帝喾之<br>（睢阳区）帝喾陵<br>（睢阳区）帝喾陵<br>子契（阏伯）辅佐禹治水有功，被虞舜封于商（今睢阳区）做火正，为商族人的始祖，<br>深受人民的爱戴，故人们尊他为“火神”<br>阏伯死后葬于封地，由于阏伯的封号为“商”，他的墓冢被称为“商丘”</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/《Effective-Objective-C 2.0》/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/iOS/《Effective-Objective-C 2.0》/" itemprop="url">
+                  《Effective-Objective-C 2.0》
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-30 17:19:34" itemprop="dateModified" datetime="2018-08-30T17:19:34+08:00">2018-08-30</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>图片原地址：<a href="https://upload-images.jianshu.io/upload_images/1457495-debf9e0c37687e51.png" target="_blank" rel="noopener">https://upload-images.jianshu.io/upload_images/1457495-debf9e0c37687e51.png</a><br><img src="https://upload-images.jianshu.io/upload_images/1457495-debf9e0c37687e51.png" alt="图片"><br><a href="https://www.jianshu.com/p/862b064e82e0" target="_blank" rel="noopener">对应简书总结</a><br><a href="https://github.com/aozhimin/awesome-iOS-resource/blob/master/Books/Effective%20Objective-C%202.0%20%20%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8FiOS%E4%B8%8EOS%20X%E4%BB%A3%E7%A0%81%E7%9A%8452%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95.pdf" target="_blank" rel="noopener">Effective-Objective-C 2.0.pdf</a><br><a href="https://github.com/aozhimin/awesome-iOS-resource/tree/master/Books" target="_blank" rel="noopener">iOS相关书籍汇总</a></p>
+<hr>
+<p><em>分界线</em></p>
+<hr>
+<blockquote>
+<p>说明：以下内容 均来自与jatstar的汇总 只做引用学习 没有商业用途 <a href="https://jatstar.cn/2016/07/10/Effective-Objective-C-2-0/" target="_blank" rel="noopener">Effective-Objective-C 2.0</a></p>
+</blockquote>
+<h3 id="熟悉Objective-C"><a href="#熟悉Objective-C" class="headerlink" title="熟悉Objective-C"></a>熟悉Objective-C</h3><ul>
+<li>起源<ol>
+<li>由消息型语言鼻祖Smalltalk演化而来。是C语言的超集。</li>
+<li>与函数式语言关键区别：消息结构的语言，运行时所执行的代码由运行环境决定(动态绑定)；函数调用的语言，由编译器决定。</li>
+<li>NSString <em>someString 中 someString为指向NSString 的指针。Type </em> 声明的对象总是被分配的堆区(heap space) 中，而绝不可能分配的栈区(stack)。</li>
+<li>如果只需保存int float double char 等非对象类型（nonoobject type） ，使用C结构体(如CGRect)比使用OC对象性能更优，因为创建OC对象需要分配及释放堆区内存等额外开销。 </li>
+</ol>
+</li>
+<li>在类的头文件中尽量少引入其他头文件<ol>
+<li>头文件在类的头文件中，少引入头文件，使用@Class 向前声明即可。 然后在实现文件中再引入那些类的头文件。这样可以降低类之间的耦合。</li>
+<li>无法使用向前声明的情况，如果 引入当前类遵守的某一项协议，此时把协议单独放下一个头文件中，再将其引入。</li>
+</ol>
+</li>
+<li>多用字面量语法，少用与之等价的方法。</li>
+</ul>
+<ol>
+<li>举个🌰:</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSNumber</span> *intNumber = @<span class="number">1</span>;</span><br><span class="line"><span class="built_in">NSNumber</span> *floatNumber = @<span class="number">2.5</span>f;</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSArray</span> *namesArray = @[<span class="string">@"Jat"</span>,<span class="string">@"Jay"</span>,<span class="string">@"Vae"</span>];</span><br><span class="line"><span class="built_in">NSString</span> *myName = namesArray[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSDictionary</span> *personData = @&#123;<span class="string">@"ChineseName"</span>:<span class="string">@"张建宇"</span>,</span><br><span class="line"><span class="string">@"EnglishName"</span>:<span class="string">@"Jat"</span>,</span><br><span class="line"><span class="string">@"age"</span>:<span class="string">@"23"</span>&#125;</span><br><span class="line">Number *myAge = personData[<span class="string">@"age"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过字面量创建的数组或者字典 ，如果值中有nil，会抛出异常。</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>多用类型常量，少用＃define 预处理指令。  <ol>
+<li>＃define定义的出来的常量，不包含类型信息，编译器需要再编译前执行查找替换，会增加编译时间。  </li>
+<li>只在当前类使用的常量，可以使用 static const 在.m中定义。  </li>
+<li>在头文件中使用extern来声明全局变量,并在相关实现文件中定义其值。命名时，通常使用于是相关的类名最为前缀。如  UITextFieldTextDidBeginEditingNotification 。  </li>
+<li>《iOS开发中 const,static,extern用法总结》  </li>
+</ol>
+</li>
+<li><p>使用枚举来表示状态，选项，状态码  </p>
+<ol>
+<li>易懂的枚举名可以提高代码的可读性。  </li>
+<li>选项为多选时，使用二进制表示枚举值，以便通过按位或将其组合起来。🌰：  UIInterfaceOrientationMask。  </li>
+<li>switch语句中，不要实现default分支。这样加入新的枚举之后，编译器会提示：switch语句没有处理所有枚举值。  <h3 id="消息／对象／运行时"><a href="#消息／对象／运行时" class="headerlink" title="消息／对象／运行时"></a>消息／对象／运行时</h3></li>
+</ol>
+</li>
+<li><p>理解“属性” 这一概念 Objective-C语法@property详解</p>
+</li>
+<li>在对象内部尽量直接访问实例变量。<ol>
+<li>直接访问实例变量不经过方法派发，比点语法快。</li>
+<li>⚠️直接访问copy修饰的属性，不会掉用setter方法，所以不会拷贝该属性。</li>
+<li>⚠️不会触发KVO通知。是否会产生问题，视情况而定。</li>
+<li>初始化方法和dealloc方法中，总是应该直接访问。</li>
+<li>⚠️注意考虑懒加载的情况下，要使用点语法。</li>
+</ol>
+</li>
+<li>理解“对象等同性”这一概念。<ol>
+<li>==比较的是指针地址是否一样。</li>
+<li>特有的等同性判断方法，如isEqualToString比isEqual快一些。</li>
+<li>相同的对象必须具有相同的哈希码，但是哈希码相同的对象未必相同。</li>
+<li>不必逐条比较每个属性的哈希码，依情况，使用速度快，碰撞率低的算法。</li>
+</ol>
+</li>
+<li>以“类族模式”隐藏实现细节<ol>
+<li>例如UIButton 中的 + (instancetype)buttonWithType:(UIButtonType)buttonType.</li>
+<li>可以把实现细节隐藏在一个公共的接口后面。</li>
+</ol>
+</li>
+<li>在既有类中使用关联对象存放自定义数据</li>
+<li>理解objc_msgSend 的作用<ol>
+<li>Objective-c “动态绑定(dynamic binding)” 的特性使得所要调用的函数直到运行时才能确定。通过动态消息派发系统(dynamic message dicpatch system)来查出对应的方法并执行。</li>
+<li>消息由接收者(receiver)，选择子(selecter)，以及参数构成。调用方法实际上相当于在给对象发送消息。</li>
+</ol>
+</li>
+<li>理解消息转发机制 //TODO： 待续</li>
+<li>用方法调配技术调试黑盒方法 </li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Category</span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"NSString+Test.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;objc runtime.h=""&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSString</span> (<span class="title">Test</span>)</span></span><br><span class="line">- (<span class="built_in">NSString</span>*)eoc_myLowercaseString &#123;</span><br><span class="line">    <span class="built_in">NSString</span> *lowercase = [<span class="keyword">self</span> eoc_myLowercaseString];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@ =&gt; %@"</span>, <span class="keyword">self</span>, lowercase);</span><br><span class="line">    <span class="keyword">return</span> lowercase;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 不会死循环，因为eoc_myLowercaseString与lowercaseString方法互换了，运行时期间eoc_myLowercaseString选择子实际上对应的原有的lowercaseString方法实现。</span></span><br><span class="line">+ (<span class="keyword">void</span>)load&#123;</span><br><span class="line">    Method originalMethod = class_getInstanceMethod([<span class="built_in">NSString</span> <span class="keyword">class</span>],<span class="keyword">@selector</span>(lowercaseString));</span><br><span class="line">    Method swappedMethod = class_getInstanceMethod([<span class="built_in">NSString</span> <span class="keyword">class</span>],<span class="keyword">@selector</span>(eoc_myLowercaseString));</span><br><span class="line">    method_exchangeImplementations(originalMethod, swappedMethod);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span> </span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">测试一下：</span></span><br><span class="line"><span class="comment">NSString *string = @"Hello World";</span></span><br><span class="line"><span class="comment">NSString *textString = [string lowercaseString];</span></span><br><span class="line"><span class="comment">Output:</span></span><br><span class="line"><span class="comment">Hello World =&gt; hello world</span></span><br><span class="line">*/&lt;/objc&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>理解类对象的用意 //TODO: 待续</p>
+<h3 id="接口与API设计"><a href="#接口与API设计" class="headerlink" title="接口与API设计"></a>接口与API设计</h3></li>
+<li><p>使用前缀避免命名空间冲突。</p>
+</li>
+<li>提供全能初始化方法<ol>
+<li>提供一个全能初始化方法，并与文档中指明，其他初始化方法均调用此方法。</li>
+<li>全能初始化方法与超类不同时，应该重写，冲突时，应该加上抛异常机制提示。</li>
+</ol>
+</li>
+<li>实现description方法<ol>
+<li>自定义类，覆写description方法，返回的字符串，NSLog时的显示该字符串；</li>
+<li>重写debugDescription，改变调试控制台输出信息，默认为description方法的返回值。</li>
+</ol>
+</li>
+<li>尽量使用不可变对象。</li>
+<li>使用清晰而且协调的命名方式</li>
+<li>为私有方法名加前缀<ol>
+<li>给私有方法名加上前缀(虽然我感觉没必要～也没见过知名开源项目有加；但是爱老婆说按规范要加)</li>
+<li>不要使用下划线做私有方法的前缀，因为这种做法是预留给苹果的。</li>
+</ol>
+</li>
+<li>理解Objective-C错误模型<ol>
+<li>只有发生使整个应用崩溃的严重错误时，才之用异常。</li>
+<li>不那么严重的错误，可以指派委托方法来处理错误，也可以把错误信息放在NSError里，由NSLog输出。 </li>
+</ol>
+</li>
+<li>理解NSCoding协议。<ol>
+<li>想令对象具有拷贝功能，需实现NSCoying协议；如果对象有可变版本，还需要实现NSMutableCopying协议。</li>
+<li>浅拷贝之后的内容与原始内容指针地址相同，深拷贝之后的内容指向原始内容相关对象的一份拷贝。(深拷贝会逐个元素发送Copy消息，用拷贝得到元素创建Set);</li>
+</ol>
+</li>
+<li>通过委托与数据源协议进行对象间的通信。<ol>
+<li>@property(nonatomic,weak)id<classnamedelegate> delegate</classnamedelegate> 用weak修饰，，防止循环引用(retain cycle);</li>
+</ol>
+</li>
+<li>将类的实现代码分散到便于管理的数个分类之中。//易于管理</li>
+<li>总是为第三方类的分类名称增加前缀。</li>
+<li>勿在分类中声明属性。<ol>
+<li>封装数据所用的全部属性都定义在主接口里。</li>
+<li>关联对象可以解决分类不能合成实例变量的问题。//本书作者认为此方法内存管理上容易出错，不是很推荐。</li>
+</ol>
+</li>
+<li>使用“class-continuation”分类 隐藏实现细节 //就是Extension吧，匿名的分类。</li>
+<li><p>通过协议提供匿名对象。 //隐藏返回值类型</p>
+<h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3></li>
+<li><p>理解引用计数</p>
+</li>
+<li>以ARC简化引用计数</li>
+<li>在dealloc方法中只释放引用并移除监听(KVO和Notifications)</li>
+<li>编写 “异常安全代码”时留意内存管理问题(即：使用@try...@catch语法时)</li>
+<li>以弱引用避免保留环(retain cycle :循环引用)</li>
+<li>以“自动释放池块”降低内存峰值。</li>
+<li>用“僵尸对象”调试内存管理问题。<ol>
+<li>系统在回收对象时，可以不将其真正回收，而是把它转化为僵尸对象。</li>
+<li>系统会修改对象的isa指针，令其指向特殊的僵尸类。僵尸类能够响应所有的选择子，打印一条包含消息内容以及接收者的消息，然后终止程序。</li>
+</ol>
+</li>
+<li>不要使用retainCount。(ARC模式下，此方法废弃了)。<h3 id="block与GCD"><a href="#block与GCD" class="headerlink" title="block与GCD"></a>block与GCD</h3></li>
+</ul>
+<p>//翻译成 块与大中枢派发也是醉了。。。</p>
+<ul>
+<li>理解block这一概念。<ol>
+<li>语法结构： return_type (^block_name)(parameters)</li>
+<li>默认情况下block外的变量需要在block中修改的，需要在声明时加__block修饰，但block修改其所在的类的成员变量时不需要加。</li>
+<li>定义block时，它是分配在栈区的，所以。只在其作用域范围有效。调用copy拷贝到堆区之后可以和OC对象一样具备引用计数。由ARC去管理。</li>
+</ol>
+</li>
+<li>为常见的block类型创建typedef</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span>(^SomeBlock)(<span class="built_in">BOOL</span> flag,<span class="keyword">int</span> value);</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用：</span></span><br><span class="line">SomeBlock block = ^ (<span class="built_in">BOOL</span> flag,<span class="keyword">int</span> value)&#123;</span><br><span class="line">    <span class="keyword">if</span>(flag)&#123;</span><br><span class="line">        <span class="keyword">return</span> value * <span class="number">5</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value *<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用handler block降低代码的分散程度。//如AFN中的网络请求回调</li>
+<li>用block引用其所属对象时不要出现循环引用。</li>
+<li>多用派发队列，少用同步锁。<ol>
+<li>派发队列可以用来表述同步语义(synchornization semantic),比使用@synchronized块和NSLock对象更简单。</li>
+<li>使用同步和异步派发结合起来，可以实现与普通加锁一样的同步行为，而且不会阻塞执行异步派发的线程。</li>
+<li>使用同步队列和栅栏块，可以让同步锁更加高效。</li>
+</ol>
+</li>
+<li>多用GCD,少用｀performSelector｀系列方法。</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SEL selector;</span><br><span class="line"><span class="keyword">if</span>(<span class="comment">/* some condition */</span>)&#123;</span><br><span class="line">    selector = <span class="keyword">@selector</span>(foo);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="comment">/* some other condition */</span>)&#123;</span><br><span class="line">    selector = <span class="keyword">@selector</span>(bar);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    selector = @selecter(baz)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>/<em><br>运行时才能确定调用列哪个方法，<br>编译器没有办法在编译时按ARC的内存管理原则判定返回值是不是该释放，<br>编译器没有添加释放操作。<br>这将又可能导致内存泄漏
+</em>/</p>
+<ul>
+<li>掌握GCD和NSOperationQueue的使用时机。<ol>
+<li>运行任务之前，可以用在NSOperation对象上调用cancel取消该任务。</li>
+<li>可以指定任务间的依赖关系。</li>
+<li>可以通过KVO监听NSOperation的属性。例如isFinished,isCancelled。</li>
+<li>指定操作的优先级。</li>
+<li>重用NSOperation对象。</li>
+</ol>
+</li>
+<li>通过Dispathtch Group机制，根据系统资源状况来执行任务。</li>
+<li>使用dispatch_once来执行只需运行一次的线程安全代码。</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+(<span class="keyword">id</span>)sharedInstance&#123;</span><br><span class="line">    <span class="keyword">static</span> SomeClass *sharedInstance = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line">    <span class="built_in">dispatch_once</span>(@onceToken,^&#123;</span><br><span class="line">        sharedInstance = [[<span class="keyword">self</span> alloc]init];</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> sharedInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>不要使用dispatch_get_current_queue(void);//调试还是可以用下的</p>
+<h3 id="系统框架"><a href="#系统框架" class="headerlink" title="系统框架"></a>系统框架</h3></li>
+<li><p>熟悉系统框架。</p>
+<ol>
+<li>CFNetWork:提供C语言级别的网络通信能力，将BSDsocket抽象成易于使用的接口。</li>
+<li>CoreAudio:提供的C语言API可用来操作设备上的音频硬件。</li>
+<li>AVFoundation:处理音频视频的录制，回放。</li>
+<li>CoreData:用于实现数据持久化。</li>
+<li>CoreText:提供C语言接口，用于执行文字排版以及渲染操作。</li>
+</ol>
+</li>
+<li>多用block枚举，少用for循环。//block枚举本身通过GCD并发执行遍历，更高效。</li>
+<li>对自定义其内存管理语义的cellection使用无缝桥接。</li>
+<li>构建缓存时选用NSCache而非NSDictionary.// low memory时 NSCache会自动删减缓存</li>
+<li>精简initalize和load的实现代码。<ol>
+<li>iOS平台上，当类或者分类载入系统时，会先调用+(void) load;同时实现时，先调类里面的，再调用分类里面的。</li>
+<li>无法判断各个类载入的顺序，所以在load方法使用第三方类比较危险。</li>
+<li>load方法会阻塞线程，所以要尽量精简里面的代码。</li>
+<li>首次使用某个类是，会调用该类的+(void) initalize方法，可以覆写该方法做一些与类相关的初始化操作。但是同load一样，也应该尽量精简。</li>
+</ol>
+</li>
+<li>别忘了NSTimer会保留目标对象。//weakSelf大法打破循环就好了。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/画边角弧度/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1368,180 +2100,6 @@
         
           
             <h3 id="UIBezierPath"><a href="#UIBezierPath" class="headerlink" title="UIBezierPath"></a>UIBezierPath</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIBezierPath</span> *maskPath = [<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:m_newsIV.bounds</span><br><span class="line">                                                     byRoundingCorners:<span class="built_in">UIRectCornerTopLeft</span> | <span class="built_in">UIRectCornerTopRight</span></span><br><span class="line">                                                           cornerRadii:<span class="built_in">CGSizeMake</span>(<span class="number">10.0</span>, <span class="number">10.0</span>)];</span><br><span class="line">      <span class="comment">// Create the shape layer and set its path</span></span><br><span class="line">      <span class="built_in">CAShapeLayer</span> *maskLayer = [<span class="built_in">CAShapeLayer</span> layer];</span><br><span class="line">      maskLayer.frame = m_newsIV.bounds;</span><br><span class="line">      maskLayer.path = maskPath.CGPath;</span><br><span class="line">      <span class="comment">// Set the newly created shape layer as the mask for the image view's layer</span></span><br><span class="line">      m_newsIV.layer.mask = maskLayer;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/java/java-spring/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/java/java-spring/" itemprop="url">
-                  java-spring
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-25 16:16:49" itemprop="dateModified" datetime="2018-07-25T16:16:49+08:00">2018-07-25</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="spring框架"><a href="#spring框架" class="headerlink" title="spring框架"></a>spring框架</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Spring是一个开放源代码的设计层面框架，他解决的是业务逻辑层和其他各层的松耦合问题，</span><br><span class="line">因此它将面向接口的编程思想贯穿整个系统应用。</span><br><span class="line">Spring是于2003 年兴起的一个轻量级的Java 开发框架，由Rod Johnson创建。</span><br><span class="line">简单来说，Spring是一个分层的JavaSE/EE full-stack(一站式) 轻量级开源框架。</span><br></pre></td></tr></table></figure>
-<h2 id="下载和安装Spring请按如下步骤进行。"><a href="#下载和安装Spring请按如下步骤进行。" class="headerlink" title="下载和安装Spring请按如下步骤进行。"></a>下载和安装Spring请按如下步骤进行。</h2><p>（1）登录站点，下载Spring的最新稳定版本。最新版本为spring-framework-5.0.建议下载spring-framework-spring-framework-4.0.0.M2-dist这个压缩包不仅包含Spring的开发包，而且包含Spring编译和运行所依赖的第三方类库。<br>解压缩下载到的压缩包，解压缩后的文件夹应用如下几个文件夹。<br>dist：该文件夹下放Spring的jar包，通常只需要Spring.jar文件即可。该文件夹下还有一些类似spring－Xxx.jar的压缩包， 这些压缩包是spring.jar压缩包的子模块压缩包。除非确定整个J2EE应用只需要使用Spring的某一方面时，才考虑使用这种分模块压缩包。通常建议使用Spring.jar<br>docs：该文件夹下包含spring的相关文档、开发指南及API参考文档。<br>lib：该文件夹下包含spring编译和运行所依赖的第三方类库，该路径下的类库并不是  spring必需的，但如果需要使用第三方类库的支持，这里的类库就是必需要的。<br>samples：该文件夹下包含Spring的几个简单例子，可作为Spring入门学习的案例。<br>src：该文件夹下包含Spring的全部源文件，如果开发过程中有地方无法把握，可以参考该源文件，了解底层实现。<br>spring<br>spring<br>test：该文件夹下包含Spring的测试示例。<br>tiger：该路径下存放关于JDK的相关内容<br>解压缩后的文件夹下，还包含一些关于Spring的License和项目相关文件<br>（2）将spring.jar复制到项目的CLASSPATH路径下，对于Web应用，将spring.jar文件复制到WEB-INF/lib路径下，该应用即可以利用Spring框架了。<br>（3）通常Spring的框架还依赖于其他一些jar文件，因此还须将lib下对应的包复制到WEB-INF/lib路径下，具体要复制哪些jar文件，取决于应用所需要使用的项目。通常需要复制cglib，dom4j，jakarta-commons，log4j等文件夹下的jar文件。<br>（4）为了编译java文件，可以找到Spring的基础类，将Spring.jar文件的路径添加到环境变量CLASSPATH中。当然，也可以使用ANT工具，但无须添加环境变量。如果使用Eclipse或者NetBeans等IDE时，也不需要设置环境变量。  </p>
-<h2 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h2><p>传统的web架构的view 表现层使用struts作为表现层。但是如果试用下spring自带的MVC，会发现spring 在一般场合完全可以取代struts。从某些角度来说，spring的mvc设计的更加合理，有兴趣的话不妨尝试下单个的spring的MVC。</p>
-<p><a href="https://www.w3cschool.cn/wkspring/" target="_blank" rel="noopener">w3Cschool-spring学习</a></p>
-<h2 id="Spring-Boot-是什么？"><a href="#Spring-Boot-是什么？" class="headerlink" title="Spring Boot 是什么？"></a>Spring Boot 是什么？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot 的目的是提供一组工具，以便快速构建容易配置的 Spring 应用程序。</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1797,362 +2355,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/android/Android Studio平台下无线调试/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/android/Android Studio平台下无线调试/" itemprop="url">
-                  Android Studio平台下无线调试
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-14 16:15:30" itemprop="dateModified" datetime="2018-08-14T16:15:30+08:00">2018-08-14</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://blog.csdn.net/JJ583500596/article/details/75081462" target="_blank" rel="noopener">Android Studio平台下无线调试</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/java/spring注解/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/java/spring注解/" itemprop="url">
-                  spring注解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-25 16:43:17" itemprop="dateModified" datetime="2018-07-25T16:43:17+08:00">2018-07-25</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、大量的XML让开发者厌恶,因此Spring提供了许多注解来完成各种功能。</span><br><span class="line">2、大量的注解让开发者厌恶 ,因此Spring提供了组合注解来完成各种功能。</span><br></pre></td></tr></table></figure>
-<h2 id="Spring-Boot-注解的意义以及作用"><a href="#Spring-Boot-注解的意义以及作用" class="headerlink" title="Spring Boot 注解的意义以及作用"></a>Spring Boot 注解的意义以及作用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">利用注解：隐式配置，例如：@Autowired、@Bean、@Component等，通过注解来简化xml文件。</span><br><span class="line"></span><br><span class="line">利用Java文件：显示配置，比xml配置的优势是具备类型安全。</span><br><span class="line"></span><br><span class="line">利用传统的xml配置文件。</span><br></pre></td></tr></table></figure>
-<p>注解(annotations)列表</p>
-<p>@ResponseBody </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用该注解修饰的函数，会将结果直接填充到HTTP的响应体中，一般用于构建RESTful的api；</span><br></pre></td></tr></table></figure>
-<p>@Controller</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用于定义控制器类，在spring 项目中由控制器负责将用户发来的URL请求转发到对应的服务接口（service层）。</span><br></pre></td></tr></table></figure>
-<p>@RestController</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@ResponseBody和@Controller的合集</span><br></pre></td></tr></table></figure>
-<p>@RequestMapping</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">提供路由信息，负责URL到Controller中的具体函数的映射。</span><br></pre></td></tr></table></figure>
-<p><a href="https://blog.csdn.net/m0_37995707/article/details/77447764" target="_blank" rel="noopener">更多注解详看</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2199,7 +2406,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-count">61</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2234,7 +2441,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2303,7 +2512,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
