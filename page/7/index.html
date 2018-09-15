@@ -331,6 +331,387 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/19/python/python 写入json文件中文乱码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/19/python/python 写入json文件中文乱码/" itemprop="url">
+                  把json写入本地文件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-05-19 16:17:22" itemprop="dateCreated datePublished" datetime="2017-05-19T16:17:22+08:00">2017-05-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-03 17:31:01" itemprop="dateModified" datetime="2018-07-03T17:31:01+08:00">2018-07-03</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="json中文ASCII乱码问题的解决"><a href="#json中文ASCII乱码问题的解决" class="headerlink" title="json中文ASCII乱码问题的解决"></a>json中文ASCII乱码问题的解决</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* json中文ASCII乱码问题的解决</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding( <span class="string">"utf-8"</span> )</span><br></pre></td></tr></table></figure>
+<h2 id="判断路径是否存在-存在-True-不存在-False"><a href="#判断路径是否存在-存在-True-不存在-False" class="headerlink" title="判断路径是否存在(存在:True,不存在:False)"></a>判断路径是否存在(存在:True,不存在:False)</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_dir</span><span class="params">(path)</span>:</span></span><br><span class="line">    <span class="comment"># 去除首位空格</span></span><br><span class="line">    path = path.strip()</span><br><span class="line">    <span class="comment"># 去除尾部 \ 符号</span></span><br><span class="line">    path = path.rstrip(<span class="string">"\\"</span>)</span><br><span class="line">    isExists = os.path.exists(path)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> isExists:</span><br><span class="line">        os.makedirs(path)</span><br><span class="line">        <span class="keyword">print</span> path + <span class="string">' good 创建成功'</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">print</span> path + <span class="string">' 该目录已存在拉'</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">del_file</span><span class="params">(path)</span>:</span></span><br><span class="line">    isExists = os.path.exists(path)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> isExists:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    ls = os.listdir(path)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> ls:</span><br><span class="line">        c_path = os.path.join(path, i)</span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(c_path):</span><br><span class="line">            del_file(c_path)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            os.remove(c_path)</span><br><span class="line"></span><br><span class="line">    shutil.rmtree(path)</span><br></pre></td></tr></table></figure>
+<h2 id="将数据转换成字符串"><a href="#将数据转换成字符串" class="headerlink" title="将数据转换成字符串"></a>将数据转换成字符串</h2><pre><code class="py"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span>
+    test_dict = {<span class="string">'one'</span>: [<span class="string">'你好'</span>, {<span class="number">1</span>: [[<span class="string">'jd'</span>, <span class="string">'hello'</span>], [<span class="string">'cmo'</span>, <span class="string">'china'</span>], [<span class="string">'shanghai'</span>, <span class="string">'mjgc'</span>]]}]}
+    print(test_dict)
+    print(type(test_dict))
+    <span class="comment"># dumps 将数据转换成字符串</span>
+    json_str = json.dumps(test_dict)
+    print(json_str)
+    print(type(json_str))
+</code></pre>
+<h2 id="os模块popen方法"><a href="#os模块popen方法" class="headerlink" title="os模块popen方法"></a>os模块popen方法</h2><blockquote>
+<p>可以直接使用终端的命令 例如：# 打开目录 open_path = ‘open ‘ + output_dir_name<br>    os.popen(open_path)<br><a href="https://www.cnblogs.com/yangykaifa/p/7127776.html" target="_blank" rel="noopener">python调用shell命令</a>    </p>
+</blockquote>
+<pre><code class="py">popen方法可以得到shell命令的返回值。os.popen(cmd)后，
+须要再调用read()或者readlines()这两个命令。输出结果。
+
+ os.popen(<span class="string">"ls"</span>)  
+</code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/11/iOS/什么是CocoaPods/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/06/11/iOS/什么是CocoaPods/" itemprop="url">
+                  什么是cocoapods
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2016-06-11T16:17:22+08:00">2016-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-25 11:18:10" itemprop="dateModified" datetime="2018-07-25T11:18:10+08:00">2018-07-25</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="产生背景"><a href="#产生背景" class="headerlink" title="产生背景"></a>产生背景</h2><h3 id="什么是CocoaPods"><a href="#什么是CocoaPods" class="headerlink" title="什么是CocoaPods"></a>什么是CocoaPods</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CocoaPods是一个用来帮助我们管理第三方依赖库的工具。</span><br><span class="line">它可以解决库与库之间的依赖关系，下载库的源代码，</span><br><span class="line">同时通过创建一个Xcode的workspace来将这些第三方库和我们的工程连接起来，</span><br><span class="line">供我们开发使用。</span><br><span class="line">使用CocoaPods的目的是让我们能自动化的、集中的、直观的管理第三方开源库。</span><br></pre></td></tr></table></figure>
+<h3 id="为什么需要CocoaPods"><a href="#为什么需要CocoaPods" class="headerlink" title="为什么需要CocoaPods"></a>为什么需要CocoaPods</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   在进行iOS开发的时候，总免不了使用第三方的开源库，</span><br><span class="line">比如SBJson、AFNetworking、Reachability等等。使用这些库的时候通常需要：</span><br><span class="line">   下载开源库的源代码并引入工程</span><br><span class="line">   向工程中添加开源库使用到的framework</span><br><span class="line">   解决开源库和开源库以及开源库和工程之间的依赖关系、</span><br><span class="line">   检查重复添加的framework等问题</span><br><span class="line">	如果开源库有更新的时候，还需要将工程中使用的开源库删除，</span><br><span class="line">重新执行前面的三个步骤</span><br></pre></td></tr></table></figure>
+<h3 id="CocoaPods的安装"><a href="#CocoaPods的安装" class="headerlink" title="CocoaPods的安装"></a>CocoaPods的安装</h3><pre><code>    1、安装
+    CocoaPods是用Ruby实现的，要想使用它首先需要有Ruby的环境。
+    幸运的是OS X系统默认的已经可以运行Ruby了，因此我们只需要执行以下命令：
+     $ sudo gem install cocoapods  
+    CocoaPods是以Ruby gem包的形式被安装的。在安装执行的过程中，
+    可能会问我们是不是更新rake，输入y即可。这是因为rake gem包会在安装的过程中检查更细，
+    如果有可用的新版本就会出现刚才的选项。
+    在安装进程结束的时候，执行命令：
+        $ pod setup  
+
+        2、安装过程中可能遇到的问题
+          执行完install命令半天没反应  ---被墙了
+          gem版本过老 ---- sudo gem update --system  
+          安装完成后，执行pod setup命令时报错：rvm use ruby-1.9.3-p448  
+     3、升级CocoaPods
+         sudo gem install cocoapods  
+CocoaPods的使用：
+    1、创建Podfile  cd到项目目录 touch Podfile
+    2、编辑Podfile 
+    3、开始安装 pod install
+</code></pre><p>安装完成后就可以使用了</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/11/iOS/iOS编程习惯与风格/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -555,7 +936,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">61</span>
+                    <span class="site-state-item-count">63</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -667,7 +1048,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
