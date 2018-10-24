@@ -331,7 +331,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/java/Java Web应用程序的推荐目录结构/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/总结的点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -350,8 +350,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/java/Java Web应用程序的推荐目录结构/" itemprop="url">
-                  Java Web应用程序的推荐目录结构
+                <a class="post-title-link" href="/2018/06/11/iOS/总结的点/" itemprop="url">
+                  iOS总结的点
                 </a>
               
             
@@ -394,7 +394,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-14 18:08:07" itemprop="dateModified" datetime="2018-09-14T18:08:07+08:00">2018-09-14</time>
+                <time title="修改时间：2018-08-15 16:46:27" itemprop="dateModified" datetime="2018-08-15T16:46:27+08:00">2018-08-15</time>
               
             
           </span>
@@ -411,7 +411,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
 
                 
                 
@@ -447,8 +447,1223 @@
       
         
           
-            <h2 id="Java-Web应用程序的推荐目录结构"><a href="#Java-Web应用程序的推荐目录结构" class="headerlink" title="Java Web应用程序的推荐目录结构"></a>Java Web应用程序的推荐目录结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">├── pom.xml</span><br><span class="line">└── src</span><br><span class="line">    ├── main</span><br><span class="line">    │   ├── java</span><br><span class="line">    │   │   └── mygroup</span><br><span class="line">    │   │       ├── controller</span><br><span class="line">    │   │       │   ├── HomeController.java</span><br><span class="line">    │   │       │   └── PersonController.java</span><br><span class="line">    │   │       ├── dao</span><br><span class="line">    │   │       │   └── PersonDao.java</span><br><span class="line">    │   │       └── model</span><br><span class="line">    │   │           └── Person.java</span><br><span class="line">    │   ├── resources</span><br><span class="line">    │   │   ├── db.properties</span><br><span class="line">    │   │   ├── log4j.xml</span><br><span class="line">    │   │   └── META-INF</span><br><span class="line">    │   │       └── persistence.xml</span><br><span class="line">    │   └── webapp</span><br><span class="line">    │       ├── index.html</span><br><span class="line">    │       ├── META-INF</span><br><span class="line">    │       │   ├── context.xml</span><br><span class="line">    │       │   └── MANIFEST.MF</span><br><span class="line">    │       ├── resources</span><br><span class="line">    │       │   └── css</span><br><span class="line">    │       │       └── screen.css</span><br><span class="line">    │       └── WEB-INF</span><br><span class="line">    │           ├── spring</span><br><span class="line">    │           │   ├── app</span><br><span class="line">    │           │   │   ├── controllers.xml</span><br><span class="line">    │           │   │   └── servlet-context.xml</span><br><span class="line">    │           │   ├── db.xml</span><br><span class="line">    │           │   └── root-context.xml</span><br><span class="line">    │           ├── views</span><br><span class="line">    │           │   ├── edit.jsp</span><br><span class="line">    │           │   ├── home.jsp</span><br><span class="line">    │           │   └── list.jsp</span><br><span class="line">    │           └── web.xml</span><br><span class="line">    └── test</span><br><span class="line">        ├── java</span><br><span class="line">        │   └── mygroup</span><br><span class="line">        │       ├── controller</span><br><span class="line">        │       │   ├── DataInitializer.java</span><br><span class="line">        │       │   ├── HomeControllerTest.java</span><br><span class="line">        │       │   └── PersonControllerTest.java</span><br><span class="line">        │       └── dao</span><br><span class="line">        │           └── PersonDaoTest.java</span><br><span class="line">        └── resources</span><br><span class="line">            ├── db.properties</span><br><span class="line">            ├── log4j.xml</span><br><span class="line">            ├── test-context.xml</span><br><span class="line">            └── test-db.xml</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.cnblogs.com/yudy/archive/2012/06/26/2563638.html" target="_blank" rel="noopener">Java Web应用程序的推荐目录结构</a><br><a href="https://www.cnblogs.com/scown/p/5561677.html" target="_blank" rel="noopener">Java Web 项目目录规范</a></p>
+            <h3 id="UIImage中-imageNamed-和-imageWithContentsOfFile的区别"><a href="#UIImage中-imageNamed-和-imageWithContentsOfFile的区别" class="headerlink" title="UIImage中 imageNamed 和 imageWithContentsOfFile的区别"></a>UIImage中 imageNamed 和 imageWithContentsOfFile的区别</h3><p><code>[UIImage imageNamed:]</code>只适合与UI界面中小的贴图的读取，而一些比较大的资源文件应该尽量避免使用这个接口。<br>直接读取文件路径<code>[UIImage imageWithContentsOfFile]</code>来解决图片的读取问题<br>这两种方式的主要区别在于：<br><code>imageName</code>的方式会在使用的时候系统会cache，程序员是无法处理cache的，这是由系统自动处理的，对于重复加载的图像，速度会提升很多，这样反而用户体验好。所以如果某张图片需要在应用中使用多次，或者重复引用，使用<code>imageName</code>的方式会更好<br><code>imageWithContentsOfFile</code>的方式，在使用完成之后系统会释放，不会缓存下来，所以也就没有这样的问题。一般也不会把所有的图片都会缓存。有些图片在应用中只使用一两次的，就可以用这样的方式，比如新手引导界面的图片等等，就适合这样的方式。没有明显的界限。</p>
+<h3 id="CALayer-和-UIView的区别"><a href="#CALayer-和-UIView的区别" class="headerlink" title="CALayer 和 UIView的区别"></a>CALayer 和 UIView的区别</h3><p><code>CALayer</code>属于<code>Core Animation</code>部分的内容，比较重要而不太好理解。以下是园子中看到的一篇文章的摘录：</p>
+<ol>
+<li><code>UIView</code>是<code>iOS</code>系统中界面元素的基础，所有的界面元素都是继承自它。它本身完全是由   <code>CoreAnimation</code>来实现的。它真正的绘图部分，是由一个<code>CALayer</code>类来管理。<code>UIView</code>本身更像是一个<code>CALayer</code>的管理器，访问它的跟绘图和跟坐标有关的属性，例如<code>frame，bounds</code>等，实际上内部都是在访问它所包含的<code>CALayer</code>的相关属性。</li>
+<li><code>UIView</code>有个重要属性<code>layer</code>，可以返回它的主<code>CALayer</code>实例。</li>
+</ol>
+<h3 id="如何定义一个不规则的button-（还包含一个问题若干个button叠加在一起，苹果如何知道点击的是哪个button，实现原理？）"><a href="#如何定义一个不规则的button-（还包含一个问题若干个button叠加在一起，苹果如何知道点击的是哪个button，实现原理？）" class="headerlink" title="如何定义一个不规则的button （还包含一个问题若干个button叠加在一起，苹果如何知道点击的是哪个button，实现原理？）"></a>如何定义一个不规则的button （还包含一个问题若干个button叠加在一起，苹果如何知道点击的是哪个button，实现原理？）</h3><p>  在<code>iOS</code>中通常使用<code>hit-testing</code>去找到那个被触摸的视图。这个视图叫<code>hit-test view</code>，当<code>iOS</code>找到<code>hit-test view</code>后就把<code>touch event</code>交个那个视图来处理。</p>
+<h3 id="用GCD的方式去实现有n个线程去访问一个属性，只有一个线程去修改属性"><a href="#用GCD的方式去实现有n个线程去访问一个属性，只有一个线程去修改属性" class="headerlink" title="用GCD的方式去实现有n个线程去访问一个属性，只有一个线程去修改属性"></a>用GCD的方式去实现有n个线程去访问一个属性，只有一个线程去修改属性</h3><h3 id="NSRunloop的使用"><a href="#NSRunloop的使用" class="headerlink" title="NSRunloop的使用"></a>NSRunloop的使用</h3><p> 那么具体什么是<code>NSRunLoop</code>呢？其实<code>NSRunLoop</code>的本质是一个消息机制的处理模式。<br> <code>NSRunLoop</code>是一种更加高明的消息处理模式<br> <a href="http://blog.csdn.net/cwq9944/article/details/8555104" target="_blank" rel="noopener">http://blog.csdn.net/cwq9944/article/details/8555104</a></p>
+<h3 id="CoreAnimation-与-UIViewAnimation分别何时会使用"><a href="#CoreAnimation-与-UIViewAnimation分别何时会使用" class="headerlink" title="CoreAnimation 与 UIViewAnimation分别何时会使用"></a>CoreAnimation 与 UIViewAnimation分别何时会使用</h3><h3 id="arc-和-gc-理解"><a href="#arc-和-gc-理解" class="headerlink" title="arc 和 gc 理解"></a>arc 和 gc 理解</h3><p> ARC是iOS 5推出的新功能，全称叫 ARC(Automatic Reference Counting)。简单地说，就是代码中自动加入了retain/release，原先需要手动添加的用来处理内存管理的引用计数的代码可以自动地由编译器完成了。<br> ARC基本规则</p>
+<p>retain, release, autorelease, dealloc由编译器自动插入，不能在代码中调用<br>dealloc虽然可以被重载，但是不能调用[super dealloc]</p>
+<h3 id="如何在ARC代码中混编非ARC代码"><a href="#如何在ARC代码中混编非ARC代码" class="headerlink" title="如何在ARC代码中混编非ARC代码"></a>如何在ARC代码中混编非ARC代码</h3><p> “ios中如果arc和非arc文件混编，可以在build parses中指定compile flags，如果arc文件设为”-fobjc-arc”,非arc文件设为”-fno-objc-arc””  </p>
+<p> 使用了ARC之后如果你想复用以前写过的使用MRC的类， 就会出报错。这时候怎么办？方法比较简单， 只需要做下面的一个步骤就可以解决：<br> 在targets的build phases选项下Compile Sources下选择要不使用arc编译的文件，双击它，输入 -fno-objc-arc 即可</p>
+<p> MRC工程中也可以使用ARC的类。方法如下：<br> 在targets的build phases选项下Compile Sources下选择要使用arc编译的文件，双击它，输入 -fobjc-arc 即可</p>
+<h3 id="NSAutoreleasepool理解"><a href="#NSAutoreleasepool理解" class="headerlink" title="NSAutoreleasepool理解"></a>NSAutoreleasepool理解</h3><p>  iOS的运行时是由一个一个runloop组成的</p>
+<p> 每个runloop中都创建一个Autorelease Pool，并在runloop的末尾进行释放，<br> 所以，一般情况下，每个接受autorelease消息的对象，都会在下个runloop开始前被释放。也就是说，在一段同步的代码中执行过程中，生成的对象接受autorelease消息后，一般是不会在代码段执行完成前释放的。</p>
+<p> 当然也有让autorelease提前生效的办法：自己创建Pool并进行释放</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSAutoreleasePool</span> * pool = [[<span class="built_in">NSAutoreleasePool</span> alloc] init];</span><br><span class="line"><span class="built_in">NSArray</span> * array = [[[<span class="built_in">NSArray</span> alloc] init] autorelease];</span><br><span class="line">[pool drain];</span><br></pre></td></tr></table></figure>
+<h3 id="weak-block"><a href="#weak-block" class="headerlink" title="weak,block"></a><strong>weak,</strong>block</h3><p>   <strong>weak不增加引用，</strong>block增加引用<br>   举例哦，某对象self，self的strong成员变量有blockA，blockA内部引用了self，如果self不经过__weak处理，就会变成：</p>
+<p> self强引用blockA，blockA强引用self。这不就循环引用了嘛</p>
+<h3 id="runtime"><a href="#runtime" class="headerlink" title="runtime"></a>runtime</h3><p>由于runtime是更底层的语言，我们编写的OC代码在运行时，编译器内部会先转为C和C++的代码，然后再执行，因而运用runtime机制，程 序的性能也会更好。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    <span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">NSObject</span></span>&#123;</span><br><span class="line">    <span class="built_in">CGFloat</span> height;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSNumber</span> *age;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="keyword">int</span> no;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>复制代码<br>  然后，我们在其它文件中使用这个类，注意在使用之前，要包含 #import &lt;objc/message.h&gt;</p>
+<p> 下面通过一小段代码来获取到上面这个类中所有的成员变量</p>
+<p>复制代码</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> outCount = <span class="number">0</span>;</span><br><span class="line">    Ivar *vars = class_copyIvarList([Lender <span class="keyword">class</span>], &amp;outCount); </span><br><span class="line">    <span class="comment">// 获取到所有的成员变量列表</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 遍历所有的成员变量</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; outCount; i++) &#123;</span><br><span class="line">        Ivar ivar = vars[i]; <span class="comment">// 取出第i个位置的成员变量</span></span><br><span class="line">       </span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">char</span> *propertyName = ivar_getName(ivar); <span class="comment">// 获取变量名</span></span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">char</span> *propertyType = ivar_getTypeEncoding(ivar); <span class="comment">// 获取变量编码类型</span></span><br><span class="line">        printf(<span class="string">"---%s--%s\n"</span>, propertyName, propertyType);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="什么是GCD？"><a href="#什么是GCD？" class="headerlink" title="什么是GCD？"></a>什么是GCD？</h3><p> Grand Central Dispatch或者GCD，是一套低层API，提供了一种新的方法来进行并发程序编写。从基本功能上讲，<br> GCD有点像NSOperationQueue，他们都允许程序将任务切分为多个单一任务然后提交至工作队列来并发地或者串行地执行。GCD比之NSOpertionQueue更底层更高效，并且它不是Cocoa框架的一部分。<br> GCD的基本概念就是dispatch queue。dispatch queue是一个对象，它可以接受任务，并将任务以先到先执行的顺序来执行。dispatch queue可以是并发的或串行的。并发任务会像NSOperationQueue那样基于系统负载来合适地并发进行，串行队列同一时间只执行单一任务。<br> GCD中有三种队列类型：<br> The main queue: 与主线程功能相同。实际上，提交至main queue的任务会在主线程中执行。main queue可以调用dispatch_get_main_queue()来获得。因为main queue是与主线程相关的，所以这是一个串行队列。<br> Global queues: 全局队列是并发队列，并由整个进程共享。进程中存在三个全局队列：高、中（默认）、低三个优先级队列。可以调用dispatch_get_global_queue函数传入优先级来访问队列。<br> 用户队列: 用户队列 (GCD并不这样称呼这种队列, 但是没有一个特定的名字来形容这种队列，所以我们称其为用户队列) 是用函数 dispatch_queue_create 创建的队列. 这些队列是串行的。正因为如此，它们可以用来完成同步机制, 有点像传统线程中的mutex。  </p>
+<p> 首先，我们要明确NSOperationQueue与GCD之间的关系</p>
+<p> NSOpertaionQueue用GCD构建封装的，是GCD的高级抽象。</p>
+<p> 其次，我们要区别两者的不同</p>
+<p> GCD仅仅支持FIFO队列，而NSOperationQueue中的队列可以被重新设置优先级，从而实现不同操作的执行顺序调整</p>
+<p>   <a href="http://www.dreamingwish.com/frontui/article/default/ios-multithread-program-runloop-the.html" target="_blank" rel="noopener">http://www.dreamingwish.com/frontui/article/default/ios-multithread-program-runloop-the.html</a></p>
+<h3 id="xcode：关于Other-Linker-Flags"><a href="#xcode：关于Other-Linker-Flags" class="headerlink" title="xcode：关于Other Linker Flags"></a>xcode：关于Other Linker Flags</h3><p> 关于Other Linker Flags</p>
+<p> xcode中，在“Targets”选项下有Other Linker Flags选项，在这里可以填写xcode链接器的参数，如：-ObjC、-all_load、-force_load等。<br> 主要参数</p>
+<p> 这里要说的主要参数是ld工具的参数，也是在Other Linker Flags里常用到的参数。</p>
+<p> 1.-ObjC</p>
+<p> 当使用ObjC写的静态类别库（Objective-C static library that contains categories），在程序编译链接时，如果不在Other Linker Flags中填写-ObjC，往往会报错，出现”selector not recognized”。博主无力，原因看不太懂。具体原因请查阅xcode帮助文档。</p>
+<p> -ObjC的作用是加载用ObjC实现的类、类别等所有成员。</p>
+<p> 2.-all_load</p>
+<p> 强制链接器加载所有包含非ObjC的目标文档。</p>
+<ol start="3">
+<li><p>-force_load</p>
+<p>加载指定的目标文档。-force_load后面需要文档路径</p>
+</li>
+</ol>
+<h3 id="strong：会retain（强引用）"><a href="#strong：会retain（强引用）" class="headerlink" title="__strong：会retain（强引用）"></a>__strong：会retain（强引用）</h3><p>__weak NSObject *obj;和assign类似，多一个功能：对象销毁后置为nil</p>
+<p>__autoreleasing：使对象延迟释放</p>
+<p>__bridge:忽略所有的内存管理细节</p>
+<p>Core Foundation需要使用桥接，    </p>
+<h3 id="Objective-C运行时定义了几种重要的类型。"><a href="#Objective-C运行时定义了几种重要的类型。" class="headerlink" title="Objective-C运行时定义了几种重要的类型。"></a>Objective-C运行时定义了几种重要的类型。</h3><p> Class：定义Objective-C类<br> Ivar：定义对象的实例变量，包括类型和名字。<br> Protocol：定义正式协议。<br> objc_property_t：定义属性。叫这个名字可能是为了防止和Objective-C 1.0中的用户类型冲突，那时候还没有属性。<br> Method：定义对象方法或类方法。这个类型提供了方法的名字（就是<strong>选择器</strong>）、参数数量和类型，以及返回值（这些信息合起来称为方法的<strong>签名</strong>），还有一个指向代码的函数指针（也就是方法的<strong>实现</strong>）。<br> SEL：定义选择器。选择器是方法名的唯一标识符。<br> IMP：定义方法实现。这只是一个指向某个函数的指针，该函数接受一个对象、一个选择器和一个可变长参数列表（varargs），返回一个对象  </p>
+<h3 id="Objective-C-Method-Swizzling-IOS-中方法重组"><a href="#Objective-C-Method-Swizzling-IOS-中方法重组" class="headerlink" title="Objective-C Method Swizzling IOS 中方法重组"></a>Objective-C Method Swizzling IOS 中方法重组</h3><p>相关常用方法，都在包内：</p>
+<p>//向类中添加Method<br><code>BOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types)</code></p>
+<p>//修改类的Method IMP<br><code>class_replaceMethod(Class cls, SEL name, IMP imp, const char *types)</code></p>
+<p>//交换2个方法中的IMP<br><code>void method_exchangeImplementations(Method m1, Method m2)</code></p>
+<p>//获取类的某个实例方法<br><code>Method class_getInstanceMethod(Class aClass, SEL aSelector);</code><br>底层原理</p>
+<p>在运行时，<code>oc</code> 的方法被称为一种叫 <code>Method</code> 的结构体，这种 <code>objc_method</code> 类型的结构体定义为：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> objc_method &#123;</span><br><span class="line">   SEL method_name         OBJC2_UNAVAILABLE;</span><br><span class="line">   <span class="keyword">char</span> *method_types      OBJC2_UNAVAILABLE;</span><br><span class="line">   IMP method_imp          OBJC2_UNAVAILABLE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/《Effective-Objective-C 2.0》/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/iOS/《Effective-Objective-C 2.0》/" itemprop="url">
+                  《Effective-Objective-C 2.0》
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-30 17:19:34" itemprop="dateModified" datetime="2018-08-30T17:19:34+08:00">2018-08-30</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>图片原地址：<a href="https://upload-images.jianshu.io/upload_images/1457495-debf9e0c37687e51.png" target="_blank" rel="noopener">https://upload-images.jianshu.io/upload_images/1457495-debf9e0c37687e51.png</a><br><img src="https://upload-images.jianshu.io/upload_images/1457495-debf9e0c37687e51.png" alt="图片"><br><a href="https://www.jianshu.com/p/862b064e82e0" target="_blank" rel="noopener">对应简书总结</a><br><a href="https://github.com/aozhimin/awesome-iOS-resource/blob/master/Books/Effective%20Objective-C%202.0%20%20%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8FiOS%E4%B8%8EOS%20X%E4%BB%A3%E7%A0%81%E7%9A%8452%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95.pdf" target="_blank" rel="noopener">Effective-Objective-C 2.0.pdf</a><br><a href="https://github.com/aozhimin/awesome-iOS-resource/tree/master/Books" target="_blank" rel="noopener">iOS相关书籍汇总</a></p>
+<hr>
+<p><em>分界线</em></p>
+<hr>
+<blockquote>
+<p>说明：以下内容 均来自与jatstar的汇总 只做引用学习 没有商业用途 <a href="https://jatstar.cn/2016/07/10/Effective-Objective-C-2-0/" target="_blank" rel="noopener">Effective-Objective-C 2.0</a></p>
+</blockquote>
+<h3 id="熟悉Objective-C"><a href="#熟悉Objective-C" class="headerlink" title="熟悉Objective-C"></a>熟悉Objective-C</h3><ul>
+<li>起源<ol>
+<li>由消息型语言鼻祖Smalltalk演化而来。是C语言的超集。</li>
+<li>与函数式语言关键区别：消息结构的语言，运行时所执行的代码由运行环境决定(动态绑定)；函数调用的语言，由编译器决定。</li>
+<li>NSString <em>someString 中 someString为指向NSString 的指针。Type </em> 声明的对象总是被分配的堆区(heap space) 中，而绝不可能分配的栈区(stack)。</li>
+<li>如果只需保存int float double char 等非对象类型（nonoobject type） ，使用C结构体(如CGRect)比使用OC对象性能更优，因为创建OC对象需要分配及释放堆区内存等额外开销。 </li>
+</ol>
+</li>
+<li>在类的头文件中尽量少引入其他头文件<ol>
+<li>头文件在类的头文件中，少引入头文件，使用@Class 向前声明即可。 然后在实现文件中再引入那些类的头文件。这样可以降低类之间的耦合。</li>
+<li>无法使用向前声明的情况，如果 引入当前类遵守的某一项协议，此时把协议单独放下一个头文件中，再将其引入。</li>
+</ol>
+</li>
+<li>多用字面量语法，少用与之等价的方法。</li>
+</ul>
+<ol>
+<li>举个🌰:</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSNumber</span> *intNumber = @<span class="number">1</span>;</span><br><span class="line"><span class="built_in">NSNumber</span> *floatNumber = @<span class="number">2.5</span>f;</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSArray</span> *namesArray = @[<span class="string">@"Jat"</span>,<span class="string">@"Jay"</span>,<span class="string">@"Vae"</span>];</span><br><span class="line"><span class="built_in">NSString</span> *myName = namesArray[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSDictionary</span> *personData = @&#123;<span class="string">@"ChineseName"</span>:<span class="string">@"张建宇"</span>,</span><br><span class="line"><span class="string">@"EnglishName"</span>:<span class="string">@"Jat"</span>,</span><br><span class="line"><span class="string">@"age"</span>:<span class="string">@"23"</span>&#125;</span><br><span class="line">Number *myAge = personData[<span class="string">@"age"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过字面量创建的数组或者字典 ，如果值中有nil，会抛出异常。</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>多用类型常量，少用＃define 预处理指令。  <ol>
+<li>＃define定义的出来的常量，不包含类型信息，编译器需要再编译前执行查找替换，会增加编译时间。  </li>
+<li>只在当前类使用的常量，可以使用 static const 在.m中定义。  </li>
+<li>在头文件中使用extern来声明全局变量,并在相关实现文件中定义其值。命名时，通常使用于是相关的类名最为前缀。如  UITextFieldTextDidBeginEditingNotification 。  </li>
+<li>《iOS开发中 const,static,extern用法总结》  </li>
+</ol>
+</li>
+<li><p>使用枚举来表示状态，选项，状态码  </p>
+<ol>
+<li>易懂的枚举名可以提高代码的可读性。  </li>
+<li>选项为多选时，使用二进制表示枚举值，以便通过按位或将其组合起来。🌰：  UIInterfaceOrientationMask。  </li>
+<li>switch语句中，不要实现default分支。这样加入新的枚举之后，编译器会提示：switch语句没有处理所有枚举值。  <h3 id="消息／对象／运行时"><a href="#消息／对象／运行时" class="headerlink" title="消息／对象／运行时"></a>消息／对象／运行时</h3></li>
+</ol>
+</li>
+<li><p>理解“属性” 这一概念 Objective-C语法@property详解</p>
+</li>
+<li>在对象内部尽量直接访问实例变量。<ol>
+<li>直接访问实例变量不经过方法派发，比点语法快。</li>
+<li>⚠️直接访问copy修饰的属性，不会掉用setter方法，所以不会拷贝该属性。</li>
+<li>⚠️不会触发KVO通知。是否会产生问题，视情况而定。</li>
+<li>初始化方法和dealloc方法中，总是应该直接访问。</li>
+<li>⚠️注意考虑懒加载的情况下，要使用点语法。</li>
+</ol>
+</li>
+<li>理解“对象等同性”这一概念。<ol>
+<li>==比较的是指针地址是否一样。</li>
+<li>特有的等同性判断方法，如isEqualToString比isEqual快一些。</li>
+<li>相同的对象必须具有相同的哈希码，但是哈希码相同的对象未必相同。</li>
+<li>不必逐条比较每个属性的哈希码，依情况，使用速度快，碰撞率低的算法。</li>
+</ol>
+</li>
+<li>以“类族模式”隐藏实现细节<ol>
+<li>例如UIButton 中的 + (instancetype)buttonWithType:(UIButtonType)buttonType.</li>
+<li>可以把实现细节隐藏在一个公共的接口后面。</li>
+</ol>
+</li>
+<li>在既有类中使用关联对象存放自定义数据</li>
+<li>理解objc_msgSend 的作用<ol>
+<li>Objective-c “动态绑定(dynamic binding)” 的特性使得所要调用的函数直到运行时才能确定。通过动态消息派发系统(dynamic message dicpatch system)来查出对应的方法并执行。</li>
+<li>消息由接收者(receiver)，选择子(selecter)，以及参数构成。调用方法实际上相当于在给对象发送消息。</li>
+</ol>
+</li>
+<li>理解消息转发机制 //TODO： 待续</li>
+<li>用方法调配技术调试黑盒方法 </li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Category</span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"NSString+Test.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;objc runtime.h=""&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSString</span> (<span class="title">Test</span>)</span></span><br><span class="line">- (<span class="built_in">NSString</span>*)eoc_myLowercaseString &#123;</span><br><span class="line">    <span class="built_in">NSString</span> *lowercase = [<span class="keyword">self</span> eoc_myLowercaseString];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@ =&gt; %@"</span>, <span class="keyword">self</span>, lowercase);</span><br><span class="line">    <span class="keyword">return</span> lowercase;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 不会死循环，因为eoc_myLowercaseString与lowercaseString方法互换了，运行时期间eoc_myLowercaseString选择子实际上对应的原有的lowercaseString方法实现。</span></span><br><span class="line">+ (<span class="keyword">void</span>)load&#123;</span><br><span class="line">    Method originalMethod = class_getInstanceMethod([<span class="built_in">NSString</span> <span class="keyword">class</span>],<span class="keyword">@selector</span>(lowercaseString));</span><br><span class="line">    Method swappedMethod = class_getInstanceMethod([<span class="built_in">NSString</span> <span class="keyword">class</span>],<span class="keyword">@selector</span>(eoc_myLowercaseString));</span><br><span class="line">    method_exchangeImplementations(originalMethod, swappedMethod);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span> </span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">测试一下：</span></span><br><span class="line"><span class="comment">NSString *string = @"Hello World";</span></span><br><span class="line"><span class="comment">NSString *textString = [string lowercaseString];</span></span><br><span class="line"><span class="comment">Output:</span></span><br><span class="line"><span class="comment">Hello World =&gt; hello world</span></span><br><span class="line">*/&lt;/objc&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>理解类对象的用意 //TODO: 待续</p>
+<h3 id="接口与API设计"><a href="#接口与API设计" class="headerlink" title="接口与API设计"></a>接口与API设计</h3></li>
+<li><p>使用前缀避免命名空间冲突。</p>
+</li>
+<li>提供全能初始化方法<ol>
+<li>提供一个全能初始化方法，并与文档中指明，其他初始化方法均调用此方法。</li>
+<li>全能初始化方法与超类不同时，应该重写，冲突时，应该加上抛异常机制提示。</li>
+</ol>
+</li>
+<li>实现description方法<ol>
+<li>自定义类，覆写description方法，返回的字符串，NSLog时的显示该字符串；</li>
+<li>重写debugDescription，改变调试控制台输出信息，默认为description方法的返回值。</li>
+</ol>
+</li>
+<li>尽量使用不可变对象。</li>
+<li>使用清晰而且协调的命名方式</li>
+<li>为私有方法名加前缀<ol>
+<li>给私有方法名加上前缀(虽然我感觉没必要～也没见过知名开源项目有加；但是爱老婆说按规范要加)</li>
+<li>不要使用下划线做私有方法的前缀，因为这种做法是预留给苹果的。</li>
+</ol>
+</li>
+<li>理解Objective-C错误模型<ol>
+<li>只有发生使整个应用崩溃的严重错误时，才之用异常。</li>
+<li>不那么严重的错误，可以指派委托方法来处理错误，也可以把错误信息放在NSError里，由NSLog输出。 </li>
+</ol>
+</li>
+<li>理解NSCoding协议。<ol>
+<li>想令对象具有拷贝功能，需实现NSCoying协议；如果对象有可变版本，还需要实现NSMutableCopying协议。</li>
+<li>浅拷贝之后的内容与原始内容指针地址相同，深拷贝之后的内容指向原始内容相关对象的一份拷贝。(深拷贝会逐个元素发送Copy消息，用拷贝得到元素创建Set);</li>
+</ol>
+</li>
+<li>通过委托与数据源协议进行对象间的通信。<ol>
+<li>@property(nonatomic,weak)id<classnamedelegate> delegate</classnamedelegate> 用weak修饰，，防止循环引用(retain cycle);</li>
+</ol>
+</li>
+<li>将类的实现代码分散到便于管理的数个分类之中。//易于管理</li>
+<li>总是为第三方类的分类名称增加前缀。</li>
+<li>勿在分类中声明属性。<ol>
+<li>封装数据所用的全部属性都定义在主接口里。</li>
+<li>关联对象可以解决分类不能合成实例变量的问题。//本书作者认为此方法内存管理上容易出错，不是很推荐。</li>
+</ol>
+</li>
+<li>使用“class-continuation”分类 隐藏实现细节 //就是Extension吧，匿名的分类。</li>
+<li><p>通过协议提供匿名对象。 //隐藏返回值类型</p>
+<h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3></li>
+<li><p>理解引用计数</p>
+</li>
+<li>以ARC简化引用计数</li>
+<li>在dealloc方法中只释放引用并移除监听(KVO和Notifications)</li>
+<li>编写 “异常安全代码”时留意内存管理问题(即：使用@try...@catch语法时)</li>
+<li>以弱引用避免保留环(retain cycle :循环引用)</li>
+<li>以“自动释放池块”降低内存峰值。</li>
+<li>用“僵尸对象”调试内存管理问题。<ol>
+<li>系统在回收对象时，可以不将其真正回收，而是把它转化为僵尸对象。</li>
+<li>系统会修改对象的isa指针，令其指向特殊的僵尸类。僵尸类能够响应所有的选择子，打印一条包含消息内容以及接收者的消息，然后终止程序。</li>
+</ol>
+</li>
+<li>不要使用retainCount。(ARC模式下，此方法废弃了)。<h3 id="block与GCD"><a href="#block与GCD" class="headerlink" title="block与GCD"></a>block与GCD</h3></li>
+</ul>
+<p>//翻译成 块与大中枢派发也是醉了。。。</p>
+<ul>
+<li>理解block这一概念。<ol>
+<li>语法结构： return_type (^block_name)(parameters)</li>
+<li>默认情况下block外的变量需要在block中修改的，需要在声明时加__block修饰，但block修改其所在的类的成员变量时不需要加。</li>
+<li>定义block时，它是分配在栈区的，所以。只在其作用域范围有效。调用copy拷贝到堆区之后可以和OC对象一样具备引用计数。由ARC去管理。</li>
+</ol>
+</li>
+<li>为常见的block类型创建typedef</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span>(^SomeBlock)(<span class="built_in">BOOL</span> flag,<span class="keyword">int</span> value);</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用：</span></span><br><span class="line">SomeBlock block = ^ (<span class="built_in">BOOL</span> flag,<span class="keyword">int</span> value)&#123;</span><br><span class="line">    <span class="keyword">if</span>(flag)&#123;</span><br><span class="line">        <span class="keyword">return</span> value * <span class="number">5</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value *<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用handler block降低代码的分散程度。//如AFN中的网络请求回调</li>
+<li>用block引用其所属对象时不要出现循环引用。</li>
+<li>多用派发队列，少用同步锁。<ol>
+<li>派发队列可以用来表述同步语义(synchornization semantic),比使用@synchronized块和NSLock对象更简单。</li>
+<li>使用同步和异步派发结合起来，可以实现与普通加锁一样的同步行为，而且不会阻塞执行异步派发的线程。</li>
+<li>使用同步队列和栅栏块，可以让同步锁更加高效。</li>
+</ol>
+</li>
+<li>多用GCD,少用｀performSelector｀系列方法。</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SEL selector;</span><br><span class="line"><span class="keyword">if</span>(<span class="comment">/* some condition */</span>)&#123;</span><br><span class="line">    selector = <span class="keyword">@selector</span>(foo);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="comment">/* some other condition */</span>)&#123;</span><br><span class="line">    selector = <span class="keyword">@selector</span>(bar);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    selector = @selecter(baz)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>/<em><br>运行时才能确定调用列哪个方法，<br>编译器没有办法在编译时按ARC的内存管理原则判定返回值是不是该释放，<br>编译器没有添加释放操作。<br>这将又可能导致内存泄漏
+</em>/</p>
+<ul>
+<li>掌握GCD和NSOperationQueue的使用时机。<ol>
+<li>运行任务之前，可以用在NSOperation对象上调用cancel取消该任务。</li>
+<li>可以指定任务间的依赖关系。</li>
+<li>可以通过KVO监听NSOperation的属性。例如isFinished,isCancelled。</li>
+<li>指定操作的优先级。</li>
+<li>重用NSOperation对象。</li>
+</ol>
+</li>
+<li>通过Dispathtch Group机制，根据系统资源状况来执行任务。</li>
+<li>使用dispatch_once来执行只需运行一次的线程安全代码。</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+(<span class="keyword">id</span>)sharedInstance&#123;</span><br><span class="line">    <span class="keyword">static</span> SomeClass *sharedInstance = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line">    <span class="built_in">dispatch_once</span>(@onceToken,^&#123;</span><br><span class="line">        sharedInstance = [[<span class="keyword">self</span> alloc]init];</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> sharedInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>不要使用dispatch_get_current_queue(void);//调试还是可以用下的</p>
+<h3 id="系统框架"><a href="#系统框架" class="headerlink" title="系统框架"></a>系统框架</h3></li>
+<li><p>熟悉系统框架。</p>
+<ol>
+<li>CFNetWork:提供C语言级别的网络通信能力，将BSDsocket抽象成易于使用的接口。</li>
+<li>CoreAudio:提供的C语言API可用来操作设备上的音频硬件。</li>
+<li>AVFoundation:处理音频视频的录制，回放。</li>
+<li>CoreData:用于实现数据持久化。</li>
+<li>CoreText:提供C语言接口，用于执行文字排版以及渲染操作。</li>
+</ol>
+</li>
+<li>多用block枚举，少用for循环。//block枚举本身通过GCD并发执行遍历，更高效。</li>
+<li>对自定义其内存管理语义的cellection使用无缝桥接。</li>
+<li>构建缓存时选用NSCache而非NSDictionary.// low memory时 NSCache会自动删减缓存</li>
+<li>精简initalize和load的实现代码。<ol>
+<li>iOS平台上，当类或者分类载入系统时，会先调用+(void) load;同时实现时，先调类里面的，再调用分类里面的。</li>
+<li>无法判断各个类载入的顺序，所以在load方法使用第三方类比较危险。</li>
+<li>load方法会阻塞线程，所以要尽量精简里面的代码。</li>
+<li>首次使用某个类是，会调用该类的+(void) initalize方法，可以覆写该方法做一些与类相关的初始化操作。但是同load一样，也应该尽量精简。</li>
+</ol>
+</li>
+<li>别忘了NSTimer会保留目标对象。//weakSelf大法打破循环就好了。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/画边角弧度/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/iOS/画边角弧度/" itemprop="url">
+                  UIBezierPath画边角弧度
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-15 14:23:20" itemprop="dateModified" datetime="2018-08-15T14:23:20+08:00">2018-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="UIBezierPath"><a href="#UIBezierPath" class="headerlink" title="UIBezierPath"></a>UIBezierPath</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIBezierPath</span> *maskPath = [<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:m_newsIV.bounds</span><br><span class="line">                                                     byRoundingCorners:<span class="built_in">UIRectCornerTopLeft</span> | <span class="built_in">UIRectCornerTopRight</span></span><br><span class="line">                                                           cornerRadii:<span class="built_in">CGSizeMake</span>(<span class="number">10.0</span>, <span class="number">10.0</span>)];</span><br><span class="line">      <span class="comment">// Create the shape layer and set its path</span></span><br><span class="line">      <span class="built_in">CAShapeLayer</span> *maskLayer = [<span class="built_in">CAShapeLayer</span> layer];</span><br><span class="line">      maskLayer.frame = m_newsIV.bounds;</span><br><span class="line">      maskLayer.path = maskPath.CGPath;</span><br><span class="line">      <span class="comment">// Set the newly created shape layer as the mask for the image view's layer</span></span><br><span class="line">      m_newsIV.layer.mask = maskLayer;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/面试题目/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/iOS/面试题目/" itemprop="url">
+                  iOS面试题库
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-16 10:49:55" itemprop="dateModified" datetime="2018-08-16T10:49:55+08:00">2018-08-16</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="简单的做下自我介绍"><a href="#简单的做下自我介绍" class="headerlink" title="简单的做下自我介绍"></a>简单的做下自我介绍</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关注点：考察下介绍和简历是否一致，现场的把控和语言表达能力。</span><br></pre></td></tr></table></figure>
+<h2 id="控制器的生命周期"><a href="#控制器的生命周期" class="headerlink" title="控制器的生命周期"></a>控制器的生命周期</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">参考答案：</span><br><span class="line">1、 alloc                                   创建对象，分配空间</span><br><span class="line">2、init (initWithNibName) 初始化对象，初始化数据</span><br><span class="line">3、loadView                          从nib载入视图 ，通常这一步不需要去干涉。除非你没有使用xib文件创建视图</span><br><span class="line">4、viewDidLoad                   载入完成，可以进行自定义数据以及动态创建其他控件</span><br><span class="line">5、viewWillAppear              视图将出现在屏幕之前，马上这个视图就会被展现在屏幕上了</span><br><span class="line">6、viewDidAppear               视图已在屏幕上渲染完成</span><br><span class="line">7、dealloc 销毁 （通过该方法内还可以检测什么？ 答案：返回后看时候回调该函数 来判断是否有内存泄露）</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">要求：对生命周期要熟悉精通，中间可以根据情况自己把握 讨论具体某个函数</span><br></pre></td></tr></table></figure>
+<h2 id="如何使UILabel显示多行？"><a href="#如何使UILabel显示多行？" class="headerlink" title="如何使UILabel显示多行？"></a>如何使UILabel显示多行？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参考答案：numberOfLines = 0</span><br></pre></td></tr></table></figure>
+<h2 id="frame和bounds有什么不同？"><a href="#frame和bounds有什么不同？" class="headerlink" title="frame和bounds有什么不同？"></a>frame和bounds有什么不同？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参考答案：相对父 与 自身</span><br></pre></td></tr></table></figure>
+<h2 id="assign、retain、copy、strong、weak什么时候用？区别？"><a href="#assign、retain、copy、strong、weak什么时候用？区别？" class="headerlink" title="assign、retain、copy、strong、weak什么时候用？区别？"></a>assign、retain、copy、strong、weak什么时候用？区别？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">参考答案：</span><br><span class="line">assign 基本数据类型与代理使用</span><br><span class="line">retain 引用计数在用来的基础上加1</span><br><span class="line">copy 开辟个新的内存空间</span><br><span class="line">strong 相当于老版本的retain,而且可以不再需要做release操作了</span><br><span class="line">weak 相当于老版本的assign。但是只适应于对象</span><br></pre></td></tr></table></figure>
+<h2 id="imageName与imageContentOfFile的区别"><a href="#imageName与imageContentOfFile的区别" class="headerlink" title="imageName与imageContentOfFile的区别"></a>imageName与imageContentOfFile的区别</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">参考答案：</span><br><span class="line">后者没有缓存 适用于只需要一次使用  减少对系统内存的耗用情况</span><br></pre></td></tr></table></figure>
+<h2 id="对于单元格重用的理解？"><a href="#对于单元格重用的理解？" class="headerlink" title="对于单元格重用的理解？"></a>对于单元格重用的理解？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">参考答案：</span><br><span class="line">1、当屏幕上滑出屏幕时，系统会把这个单元格添加到重用队列中，等待被重用。</span><br><span class="line">2、当有新单元从屏幕外滑入屏幕内时，从重用队列中找看有没有可以重用的单元格，</span><br><span class="line">若有，就直接用，没有就重新创建一个。</span><br></pre></td></tr></table></figure>
+<h2 id="Category的优缺点"><a href="#Category的优缺点" class="headerlink" title="Category的优缺点"></a>Category的优缺点</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">参考答案：</span><br><span class="line">优点：可以不创建子类的前提下扩展方法、可以对比较胖的类进行拆分。</span><br><span class="line">缺点：如果和类的方法起的重名会覆盖类中的方法、不能添加实例变量。</span><br></pre></td></tr></table></figure>
+<h2 id="Delegate、Notification、Block区别与使用场景"><a href="#Delegate、Notification、Block区别与使用场景" class="headerlink" title="Delegate、Notification、Block区别与使用场景"></a>Delegate、Notification、Block区别与使用场景</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">参考答案：</span><br><span class="line">Delegate是一对一的回调机制</span><br><span class="line">Notification是一对多的对所有添加观察者的通知</span><br><span class="line">Block代码比较简洁不需要像代理一样定义协议方法</span><br></pre></td></tr></table></figure>
+<p>delegate针对one-to-one关系，并且reciever可以返回值给sender，notification 可以针对one-to-one/many/none,reciever无法返回值给sender.所以，delegate用于sender希望接受到reciever的某个功能反馈值，notification用于通知多个object某个事件。</p>
+<h2 id="GCD中队列都是哪几种？"><a href="#GCD中队列都是哪几种？" class="headerlink" title="GCD中队列都是哪几种？"></a>GCD中队列都是哪几种？</h2><p>参考答案：以下四种队列</p>
+<table>
+<thead>
+<tr>
+<th>串行队列</th>
+<th>并行队列</th>
+<th>全局队列</th>
+<th>主队列</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DISPATCH_QUEUE_SERIAL</td>
+<td>DISPATCH_QUEUE_CONCURRENT</td>
+<td>dispatch_get_global_queue</td>
+<td>dispatch_get_main_queue</td>
+</tr>
+<tr>
+<td>队列中的任务只会顺序执行</td>
+<td>队列中的任务通常会并发执行</td>
+<td>是系统的</td>
+<td>在多线程开发中，使用主队列更新UI</td>
+</tr>
+</tbody>
+</table>
+<h2 id="有A、B-2个异步请求，如何判断A、B都完成执行？如果需要A、B顺序执行，该如何实现？"><a href="#有A、B-2个异步请求，如何判断A、B都完成执行？如果需要A、B顺序执行，该如何实现？" class="headerlink" title="有A、B 2个异步请求，如何判断A、B都完成执行？如果需要A、B顺序执行，该如何实现？"></a>有A、B 2个异步请求，如何判断A、B都完成执行？如果需要A、B顺序执行，该如何实现？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">参考答案：能说出group和group_notify即可</span><br><span class="line">dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);</span><br><span class="line">dispatch_group_t group = dispatch_group_create();</span><br><span class="line">dispatch_group_async(group, queue, ^&#123; /*任务A */ &#125;);</span><br><span class="line">dispatch_group_async(group, queue, ^&#123; /*任务B */ &#125;);</span><br><span class="line">dispatch_group_notify(group,dispatch_get_main_queue(), ^&#123;</span><br><span class="line"> // 在A、B异步执行完成后，会回调这里</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">第二问：能说出把用串行队列即可</span><br></pre></td></tr></table></figure>
+<h2 id="自动布局之autoresizingMask-UIViewAutoresizingFlexibleWidth-UIViewAutoresizingFlexibleBottomMargin含义和内部原理是怎么样的？"><a href="#自动布局之autoresizingMask-UIViewAutoresizingFlexibleWidth-UIViewAutoresizingFlexibleBottomMargin含义和内部原理是怎么样的？" class="headerlink" title="自动布局之autoresizingMask UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin含义和内部原理是怎么样的？"></a>自动布局之autoresizingMask UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin含义和内部原理是怎么样的？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">参考答案：</span><br><span class="line">知道这段代码的表面含义：左右间距不变自动调整宽度 和 顶部间距不变</span><br><span class="line">其次知道枚举的状态和选项模式 </span><br><span class="line">外部通过按位或 </span><br><span class="line">内部实现是通过位与操作运算实现的（可要求拿笔书写大致内部实现代码流程）</span><br></pre></td></tr></table></figure>
+<h2 id="什么是-RunLoop？"><a href="#什么是-RunLoop？" class="headerlink" title="什么是 RunLoop？"></a>什么是 RunLoop？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">参考答案：</span><br><span class="line">从字面上讲就是运行循环，它内部就是do-while循环，在这个循环内部不断地处理各种任务。</span><br><span class="line">一个线程对应一个RunLoop，基本作用就是保持程序的持续运行，处理app中的各种事件。通过runloop，有事运行，没事就休息，可以节省cpu资源，提高程序性能。</span><br><span class="line"></span><br><span class="line">主线程的run loop默认是启动的。iOS的应用程序里面，程序启动后会有一个如下的main()函数</span><br><span class="line">int main(int argc, char * argv[]) &#123;</span><br><span class="line">	@autoreleasepool &#123;</span><br><span class="line">    	return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">然后顺势承接下一题</span><br></pre></td></tr></table></figure>
+<h2 id="滑动tableview的时候-定时器不执行的原因？解决办法？"><a href="#滑动tableview的时候-定时器不执行的原因？解决办法？" class="headerlink" title="滑动tableview的时候 定时器不执行的原因？解决办法？"></a>滑动tableview的时候 定时器不执行的原因？解决办法？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">和上一题做承接</span><br><span class="line">参考答案：</span><br><span class="line">首先：将NSTimer添加到主线程NSRunLoop的默认模式下，只有主线程是默认模式下才能执行NSTimer</span><br><span class="line">（滚动scrollView，RunLoop默认进入Tracking模式，所以NSTimer不会有效果）。</span><br><span class="line">其次：只要将 timer 添加到 Common 占位模式下，timer就可以在Default和UITrackingRunLoopMode模式下都能运行（Common是一个表示，它是将NSDefaultRunLoopMode 和 UITrackingRunLoopMode标记为了Common）</span><br></pre></td></tr></table></figure>
+<h2 id="哪些情况下会造成内存泄露？"><a href="#哪些情况下会造成内存泄露？" class="headerlink" title="哪些情况下会造成内存泄露？"></a>哪些情况下会造成内存泄露？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">参考答案：</span><br><span class="line">A、B对象进行强引用、代理强引用、block循环引用、timer、N次循环造成的内存上涨(autoReleasePool添加) 、用到Core Foundation对象（CFRelease）等。</span><br></pre></td></tr></table></figure>
+<h2 id="Runtime实现的机制是什么，一般用于什么场景？"><a href="#Runtime实现的机制是什么，一般用于什么场景？" class="headerlink" title="Runtime实现的机制是什么，一般用于什么场景？"></a>Runtime实现的机制是什么，一般用于什么场景？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">参考答案：</span><br><span class="line">1). 使用时需要导入的头文件 &lt;objc/message.h&gt; &lt;objc/runtime.h&gt;</span><br><span class="line">2). Runtime 运行时机制，它是一套C语言库。</span><br><span class="line">3). 实际上我们编写的所有OC代码，最终都是转成了runtime库的东西。</span><br><span class="line"></span><br><span class="line">应用场景：</span><br><span class="line">    （1）获取类里面的所有成员变量。</span><br><span class="line">    （2）为类动态添加成员变量。</span><br><span class="line">    （3）动态改变类的方法实现。</span><br><span class="line">    （4）为类动态添加新的方法等。</span><br><span class="line">用于模型抽象</span><br></pre></td></tr></table></figure>
+<h2 id="什么是-Method-Swizzle？"><a href="#什么是-Method-Swizzle？" class="headerlink" title="什么是 Method Swizzle？"></a>什么是 Method Swizzle？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">参考答案：</span><br><span class="line">1). 在没有一个类的实现源码的情况下，想改变其中一个方法的实现，除了继承它重写、和借助类别重名方法暴力抢先之外，还有更加灵活的方法 Method Swizzle。</span><br><span class="line">2). Method Swizzle 指的是改变一个已存在的选择器对应的实现的过程。OC中方法的调用能够在运行时通过改变，通过改变类的调度表中选择器到最终函数间的映射关系。</span><br><span class="line">3). 在OC中调用一个方法，其实是向一个对象发送消息，查找消息的唯一依据是selector的名字。利用OC的动态特性，可以实现在运行时偷换selector对应的方法实现。</span><br><span class="line">4). 每个类都有一个方法列表，存放着selector的名字和方法实现的映射关系。IMP有点类似函数指针，指向具体的方法实现。</span><br><span class="line">5). 我们可以利用 method_exchangeImplementations 来交换2个方法中的IMP。</span><br><span class="line">6). 我们可以利用 class_replaceMethod 来修改类。</span><br><span class="line">7). 我们可以利用 method_setImplementation 来直接设置某个方法的IMP。</span><br><span class="line">8). 归根结底，都是偷换了selector的IMP。</span><br></pre></td></tr></table></figure>
+<h2 id="通过简历中开发过的项目，了解下项目分工和面试者负责的模块，怎么进行开发、维护的？"><a href="#通过简历中开发过的项目，了解下项目分工和面试者负责的模块，怎么进行开发、维护的？" class="headerlink" title="通过简历中开发过的项目，了解下项目分工和面试者负责的模块，怎么进行开发、维护的？"></a>通过简历中开发过的项目，了解下项目分工和面试者负责的模块，怎么进行开发、维护的？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参考答案：对负责的模块应该有清晰的思路</span><br></pre></td></tr></table></figure>
+<h2 id="在iOS中业务模块的编程风格是怎样的？"><a href="#在iOS中业务模块的编程风格是怎样的？" class="headerlink" title="在iOS中业务模块的编程风格是怎样的？"></a>在iOS中业务模块的编程风格是怎样的？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">参考答案：</span><br><span class="line">MVC、业务逻辑与用户界面分离、代码按区区域划分、多用组合、</span><br><span class="line">用类别防止类过胖保持易维护易扩展等等</span><br><span class="line">（只要编程习惯保证代码的简洁性、可阅读下皆可）  良好的编程风格可减少内存泄露和其它bug的出现。</span><br></pre></td></tr></table></figure>
+<h2 id="最近在技术方面最有成就感的事？或者说最有成就感的项目是哪个？"><a href="#最近在技术方面最有成就感的事？或者说最有成就感的项目是哪个？" class="headerlink" title="最近在技术方面最有成就感的事？或者说最有成就感的项目是哪个？"></a>最近在技术方面最有成就感的事？或者说最有成就感的项目是哪个？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">参考答案：</span><br><span class="line">一般为攻破了某个技术难题。可以针对面试者开发的项目 多聊聊 了解下面试者的思路。</span><br></pre></td></tr></table></figure>
+<h2 id="上面的技术难题怎么攻破的？"><a href="#上面的技术难题怎么攻破的？" class="headerlink" title="上面的技术难题怎么攻破的？"></a>上面的技术难题怎么攻破的？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">参考答案：</span><br><span class="line">了解该面试者解决问题的方式、渠道。</span><br></pre></td></tr></table></figure>
+<h2 id="未来几年的职业规划？"><a href="#未来几年的职业规划？" class="headerlink" title="未来几年的职业规划？"></a>未来几年的职业规划？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">参考答案：</span><br><span class="line">暂无具体  （多聊聊 感受下性格以及与人相处，</span><br><span class="line">至于职业规划只要符合部门的需要即可）</span><br></pre></td></tr></table></figure>
+<h2 id="问下面试者他想了解哪些？"><a href="#问下面试者他想了解哪些？" class="headerlink" title="问下面试者他想了解哪些？"></a>问下面试者他想了解哪些？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">目的：了解下面试者的诉求、看他对公司是否有兴趣、看性格和表达能力</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/详解KVO底层实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/iOS/详解KVO底层实现/" itemprop="url">
+                  详解KVO底层实现
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-18 16:15:56" itemprop="dateModified" datetime="2018-10-18T16:15:56+08:00">2018-10-18</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="一、KVO-Key-Value-Observing"><a href="#一、KVO-Key-Value-Observing" class="headerlink" title="一、KVO (Key-Value Observing)"></a>一、KVO (Key-Value Observing)</h3><p>KVO 是 Objective-C 对观察者模式（Observer Pattern）的实现。也是 Cocoa Binding 的基础。当被观察对象的某个属性发生更改时，观察者对象会获得通知。</p>
+<p>有意思的是，你不需要给被观察的对象添加任何额外代码，就能使用 KVO 。这是怎么做到的？</p>
+<h3 id="二、-KVO内部实现原理"><a href="#二、-KVO内部实现原理" class="headerlink" title="二、 KVO内部实现原理"></a>二、 KVO内部实现原理</h3><p>KVO是基于runtime机制实现的<br>当某个类的属性对象第一次被观察时，系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类中任何被观察属性的setter 方法。派生类在被重写的setter方法内实现真正的通知机制<br>如果原类为Person，那么生成的派生类名为NSKVONotifying_Person<br>每个类对象中都有一个isa指针指向当前类，当一个类对象的第一次被观察，那么系统会偷偷将isa指针指向动态生成的派生类，从而在给被监控属性赋值时执行的是派生类的setter方法<br>键值观察通知依赖于NSObject 的两个方法: willChangeValueForKey: 和 didChangevlueForKey:；在一个被观察属性发生改变之前， willChangeValueForKey:一定会被调用，这就 会记录旧的值。而当改变发生后，didChangeValueForKey:会被调用，继而 observeValueForKey:ofObject:change:context: 也会被调用。<br>补充：KVO的这套实现机制中苹果还偷偷重写了class方法，让我们误认为还是使用的当前类，从而达到隐藏生成的派生类</p>
+<h3 id="三、补充：-如何关闭默认的KVO的默认实现，并进入自定义的KVO实现？（看链接）"><a href="#三、补充：-如何关闭默认的KVO的默认实现，并进入自定义的KVO实现？（看链接）" class="headerlink" title="三、补充： 如何关闭默认的KVO的默认实现，并进入自定义的KVO实现？（看链接）"></a>三、补充： 如何关闭默认的KVO的默认实现，并进入自定义的KVO实现？（看链接）</h3><p><a href="https://tech.glowing.com/cn/implement-kvo/" target="_blank" rel="noopener">如何自己动手实现 KVO</a></p>
+<h3 id="四、附注-KVC底层实现原理-如下"><a href="#四、附注-KVC底层实现原理-如下" class="headerlink" title="四、附注: KVC底层实现原理(如下)"></a>四、附注: KVC底层实现原理(如下)</h3><p>KVC运用了一个isa-swizzling技术. isa-swizzling就是类型混合指针机制, 将2个对象的isa指针互相调换, 就是俗称的黑魔法.<br>KVC主要通过isa-swizzling, 来实现其内部查找定位的. 默认的实现方法�由NSOject提供isa指针, 如其名称所指,(就是is a kind of的意思), 指向分发表对象的类. 该分发表实际上包含了指向实现类中的方法的指针, 和其它数据。</p>
+<p>具体主要分为三大步<br>第一步：寻找该属性有没有setsetter方法？有，就直接赋值<br>第二步：寻找有没有该属性带下划线的成员属性？有，就直接赋值<br>第三步：寻找有没有该属性的成员属性？有，就直接赋值<br>或者这么说<br>1、首先搜索setKey:方法.(key指成员变量名, 首字母大写)<br>2、上面的setter方法没找到, 如果类方法accessInstanceVariablesDirectly返回YES. 那么按 _key, _isKey，key, iskey的顺序搜索成员名.(NSKeyValueCodingCatogery中实现的类方法, 默认实现为返回YES)<br>3、如果没有找到成员变量, 调用setValue:forUnderfinedKey:<br>比如说如下的一行KVC的代码：</p>
+<p>举个🌰e.g:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[object setValue:<span class="string">@"13123"</span> forKey:<span class="string">@"uuid"</span>];</span><br><span class="line"> </span><br><span class="line">就会被编译器处理成:</span><br><span class="line"><span class="comment">// 首先找到对应sel</span></span><br><span class="line">SEL sel = sel_get_ uuid(<span class="string">"setValue:forKey:"</span>);</span><br><span class="line"><span class="comment">// 根据object-&gt;isa找到sel对应的IMP实现指针</span></span><br><span class="line">IMP method = objc_msg_lookup (object-&gt;isa,sel);</span><br><span class="line"><span class="comment">// 调用指针完成KVC赋值</span></span><br><span class="line">method(object, sel, <span class="string">@"13123"</span>, <span class="string">@"uuid"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="如何为一个实例动态替换方法"><a href="#如何为一个实例动态替换方法" class="headerlink" title="如何为一个实例动态替换方法"></a>如何为一个实例动态替换方法</h3><p><a href="http://ios.jobbole.com/93080/" target="_blank" rel="noopener">资料</a><br>根据kvo的实现原理：派生个实例方法所在类的子类，创建hook函数，然后修改isa指针<code>object_setClass(instance, newClass);</code>，实现替换的方法实现。</p>
+<p><a href="https://www.cnblogs.com/oc-bowen/p/5884768.html" target="_blank" rel="noopener">详解KVO底层实现</a><br><a href="https://coding.net/u/dream001/p/CustomKVO/git/tree/master" target="_blank" rel="noopener">代码实现仓库地址</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/深入理解iOS App的启动过程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/iOS/深入理解iOS App的启动过程/" itemprop="url">
+                  深入理解iOS App的启动过程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-18 17:41:37" itemprop="dateModified" datetime="2018-10-18T17:41:37+08:00">2018-10-18</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://blog.csdn.net/Hello_Hwc/article/details/78317863?locationNum=9&amp;fps=1" target="_blank" rel="noopener">深入理解iOS App的启动过程</a></p>
+<h2 id="准备知识-知道概念"><a href="#准备知识-知道概念" class="headerlink" title="准备知识 知道概念"></a>准备知识 知道概念</h2><h3 id="Mach-O"><a href="#Mach-O" class="headerlink" title="Mach-O"></a>Mach-O</h3><p>哪些名词指的是Mach-o ?</p>
+<ul>
+<li>Executable 可执行文件</li>
+<li>Dylib 动态库</li>
+<li>Bundle 无法被连接的动态库，只能通过dlopen()加载</li>
+<li>Image 指的是Executable，Dylib或者Bundle的一种，文中会多次使用Image这个名词。</li>
+<li>Framework 动态库和对应的头文件和资源文件的集合</li>
+</ul>
+<p>Apple出品的操作系统的可执行文件格式几乎都是mach-o，iOS当然也不例外。<br>mach-o可以大致的分为三部分：</p>
+<ul>
+<li>Header 头部，包含可以执行的CPU架构，比如x86,arm64</li>
+<li>Load commands 加载命令，包含文件的组织架构和在虚拟内存中的布局方式</li>
+<li>Data，数据，包含load commands中需要的各个段(segment)的数据，每一个Segment都得大小是Page的整数倍。</li>
+</ul>
+<p>那么Data部分又包含哪些segment呢？绝大多数mach-o包括以下三个段（支持用户自定义Segment，但是很少使用）</p>
+<ul>
+<li><code>__TEXT</code> 代码段，只读，包括函数，和只读的字符串，上图中类似<code>__TEXT</code>,__text的都是代码段</li>
+<li><code>__DATA</code>数据段，读写，包括可读写的全局变量等，上图类似中的<code>__DATA</code>,<code>__data</code>都是数据段</li>
+<li><code>__LINKEDIT</code> <code>__LINKEDIT</code>包含了方法和变量的元数据（位置，偏移量），以及代码签名等信息。</li>
+</ul>
+<h3 id="dyld"><a href="#dyld" class="headerlink" title="dyld"></a>dyld</h3><blockquote>
+<p>dyld的全称是dynamic loader，它的作用是加载一个进程所需要的image，dyld是开源的。</p>
+</blockquote>
+<h3 id="Virtual-Memory"><a href="#Virtual-Memory" class="headerlink" title="Virtual Memory"></a>Virtual Memory</h3><blockquote>
+<p>虚拟内存是在物理内存上建立的一个逻辑地址空间，它向上（应用）提供了一个连续的逻辑地址空间，向下隐藏了物理内存的细节。<br>虚拟内存使得逻辑地址可以没有实际的物理地址，也可以让多个逻辑地址对应到一个物理地址。<br>虚拟内存被划分为一个个大小相同的Page（64位系统上是16KB），提高管理和读写的效率。 Page又分为只读和读写的Page。</p>
+</blockquote>
+<p>虚拟内存是建立在物理内存和进程之间的中间层。在iOS上，当内存不足的时候，会尝试释放那些只读的Page，因为只读的Page在下次被访问的时候，可以再从磁盘读取。如果没有可用内存，会通知在后台的App（也就是在这个时候收到了memory warning），如果在这之后仍然没有可用内存，则会杀死在后台的App。</p>
+<h3 id="Page-fault"><a href="#Page-fault" class="headerlink" title="Page fault"></a>Page fault</h3><blockquote>
+<p>在应用执行的时候，它被分配的逻辑地址空间都是可以访问的，当应用访问一个逻辑Page，而在对应的物理内存中并不存在的时候，这时候就发生了一次Page fault。当Page fault发生的时候，会中断当前的程序，在物理内存中寻找一个可用的Page，然后从磁盘中读取数据到物理内存，接着继续执行当前程序。</p>
+</blockquote>
+<h3 id="Dirty-Page-amp-Clean-Page"><a href="#Dirty-Page-amp-Clean-Page" class="headerlink" title="Dirty Page &amp; Clean Page"></a>Dirty Page &amp; Clean Page</h3><p>1、如果一个Page可以从磁盘上重新生成，那么这个Page称为Clean Page<br>2、如果一个Page包含了进程相关信息，那么这个Page称为Dirty Page<br>像代码段这种只读的Page就是Clean Page。而像数据段(_DATA)这种读写的Page，当写数据发生的时候，会触发COW(Copy on write)，也就是写时复制，Page会被标记成Dirty，同时会被复制。</p>
+<h2 id="启动过程"><a href="#启动过程" class="headerlink" title="启动过程"></a>启动过程</h2><p><img src="/images/app_start.jpg" alt=""></p>
+<h3 id="加载动态库"><a href="#加载动态库" class="headerlink" title="加载动态库"></a>加载动态库</h3><blockquote>
+<p>dyld会首先读取mach-o文件的Header和load commands。<br>接着就知道了这个可执行文件依赖的动态库。例如加载动态库A到内存，接着检查A所依赖的动态库，就这样的递归加载，直到所有的动态库加载完毕。通常一个App所依赖的动态库在100-400个左右，其中大多数都是系统的动态库，它们会被缓存到dyld shared cache，这样读取的效率会很高。</p>
+</blockquote>
+<h3 id="Rebase-amp-amp-Bind"><a href="#Rebase-amp-amp-Bind" class="headerlink" title="Rebase &amp;&amp; Bind"></a>Rebase &amp;&amp; Bind</h3><p>为什么要Rebase？</p>
+<p>有两种主要的技术来保证应用的安全：ASLR和Code Sign。</p>
+<p>ASLR的全称是Address space layout randomization，翻译过来就是“地址空间布局随机化”。App被启动的时候，程序会被影射到逻辑的地址空间，这个逻辑的地址空间有一个起始地址，而ASLR技术使得这个起始地址是随机的。如果是固定的，那么黑客很容易就可以由起始地址+偏移量找到函数的地址。</p>
+<ul>
+<li>Rebase 修正内部(指向当前mach-o文件)的指针指向</li>
+<li>Bind 修正外部指针指向</li>
+</ul>
+<h3 id="Objective-C"><a href="#Objective-C" class="headerlink" title="Objective C"></a>Objective C</h3><p>Objective C是动态语言，所以在执行main函数之前，需要把类的信息注册到一个全局的Table中。同时，Objective C支持Category，在初始化的时候，也会把Category中的方法注册到对应的类中，同时会唯一Selector，这也是为什么当你的Cagegory实现了类中同名的方法后，类中的方法会被覆盖。</p>
+<p>另外，由于iOS开发时基于Cocoa Touch的，所以绝大多数的类起始都是系统类，所以大多数的Runtime初始化起始在Rebase和Bind中已经完成。</p>
+<h3 id="Initializers"><a href="#Initializers" class="headerlink" title="Initializers"></a>Initializers</h3><p>接下来就是必要的初始化部分了，主要包括几部分：</p>
+<p>+load方法。<br>C／C++静态初始化对象和标记为<strong>attribute</strong>(constructor)的方法<br>这里要提一点的就是，+load方法已经被弃用了，如果你用Swift开发，你会发现根本无法去写这样一个方法，官方的建议是实用initialize。区别就是，load是在类装载的时候执行，而initialize是在类第一次收到message前调用。</p>
+<h3 id="Main函数之后"><a href="#Main函数之后" class="headerlink" title="Main函数之后"></a>Main函数之后</h3><p>从main函数开始执行，到你的第一个界面显示，这期间一般会做哪些事情。</p>
+<ul>
+<li>执行AppDelegate的代理方法，主要是didFinishLaunchingWithOptions</li>
+<li>初始化Window，初始化基础的ViewController结构(一般是UINavigationController+UITabViewController)</li>
+<li>获取数据(Local DB／Network)，展示给用户。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>不同的App在启动的时候做的事情往往不同，但是优化起来的核心思想无非就两个：</p>
+<p>能延迟执行的就延迟执行。比如SDK的初始化，界面的创建。<br>不能延迟执行的，尽量放到后台执行。比如数据读取，原始JSON数据转对象，日志发送。<br>Main函数之前</p>
+<p>Main函数之前是iOS系统的工作，所以这部分的优化往往更具有通用性。</p>
+<h3 id="dylibs"><a href="#dylibs" class="headerlink" title="dylibs"></a>dylibs</h3><p>启动的第一步是加载动态库，加载系统的动态库使很快的，因为可以缓存，而加载内嵌的动态库速度较慢。所以，提高这一步的效率的关键是：减少动态库的数量。</p>
+<p>合并动态库，比如公司内部由私有Pod建立了如下动态库：XXTableView, XXHUD, XXLabel，强烈建议合并成一个XXUIKit来提高加载速度。</p>
+<h3 id="Rebase-amp-Bind-amp-Objective-C-Runtime"><a href="#Rebase-amp-Bind-amp-Objective-C-Runtime" class="headerlink" title="Rebase &amp; Bind &amp; Objective C Runtime"></a>Rebase &amp; Bind &amp; Objective C Runtime</h3><p>Rebase和Bind都是为了解决指针引用的问题。对于Objective C开发来说，主要的时间消耗在Class/Method的符号加载上，所以常见的优化方案是：</p>
+<p>减少__DATA段中的指针数量。<br>合并Category和功能类似的类。比如：UIView+Frame,UIView+AutoLayout…合并为一个<br>删除无用的方法和类。<br>多用Swift Structs，因为Swfit Structs是静态分发的。感兴趣的同学可以看看我之前这篇文章：《Swift进阶之内存模型和方法调度》</p>
+<h3 id="Initializers-1"><a href="#Initializers-1" class="headerlink" title="Initializers"></a>Initializers</h3><p>通常，我们会在+load方法中进行method-swizzling，这也是Nshipster推荐的方式。</p>
+<p>用initialize替代load。不少同学喜欢用method-swizzling来实现AOP去做日志统计等内容，强烈建议改为在initialize进行初始化。<br>减少<strong>atribute</strong>((constructor))的使用，而是在第一次访问的时候才用dispatch_once等方式初始化。<br>不要创建线程<br>使用Swfit重写代码。</p>
 
           
         
@@ -672,7 +1887,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/java/spring注解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/java/java-spring/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -691,8 +1906,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/java/spring注解/" itemprop="url">
-                  spring注解
+                <a class="post-title-link" href="/2018/06/11/java/java-spring/" itemprop="url">
+                  java-spring
                 </a>
               
             
@@ -735,7 +1950,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-07-25 16:43:17" itemprop="dateModified" datetime="2018-07-25T16:43:17+08:00">2018-07-25</time>
+                <time title="修改时间：2018-07-25 16:16:49" itemprop="dateModified" datetime="2018-07-25T16:16:49+08:00">2018-07-25</time>
               
             
           </span>
@@ -788,18 +2003,11 @@
       
         
           
-            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、大量的XML让开发者厌恶,因此Spring提供了许多注解来完成各种功能。</span><br><span class="line">2、大量的注解让开发者厌恶 ,因此Spring提供了组合注解来完成各种功能。</span><br></pre></td></tr></table></figure>
-<h2 id="Spring-Boot-注解的意义以及作用"><a href="#Spring-Boot-注解的意义以及作用" class="headerlink" title="Spring Boot 注解的意义以及作用"></a>Spring Boot 注解的意义以及作用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">利用注解：隐式配置，例如：@Autowired、@Bean、@Component等，通过注解来简化xml文件。</span><br><span class="line"></span><br><span class="line">利用Java文件：显示配置，比xml配置的优势是具备类型安全。</span><br><span class="line"></span><br><span class="line">利用传统的xml配置文件。</span><br></pre></td></tr></table></figure>
-<p>注解(annotations)列表</p>
-<p>@ResponseBody </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用该注解修饰的函数，会将结果直接填充到HTTP的响应体中，一般用于构建RESTful的api；</span><br></pre></td></tr></table></figure>
-<p>@Controller</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用于定义控制器类，在spring 项目中由控制器负责将用户发来的URL请求转发到对应的服务接口（service层）。</span><br></pre></td></tr></table></figure>
-<p>@RestController</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@ResponseBody和@Controller的合集</span><br></pre></td></tr></table></figure>
-<p>@RequestMapping</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">提供路由信息，负责URL到Controller中的具体函数的映射。</span><br></pre></td></tr></table></figure>
-<p><a href="https://blog.csdn.net/m0_37995707/article/details/77447764" target="_blank" rel="noopener">更多注解详看</a></p>
+            <h2 id="spring框架"><a href="#spring框架" class="headerlink" title="spring框架"></a>spring框架</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Spring是一个开放源代码的设计层面框架，他解决的是业务逻辑层和其他各层的松耦合问题，</span><br><span class="line">因此它将面向接口的编程思想贯穿整个系统应用。</span><br><span class="line">Spring是于2003 年兴起的一个轻量级的Java 开发框架，由Rod Johnson创建。</span><br><span class="line">简单来说，Spring是一个分层的JavaSE/EE full-stack(一站式) 轻量级开源框架。</span><br></pre></td></tr></table></figure>
+<h2 id="下载和安装Spring请按如下步骤进行。"><a href="#下载和安装Spring请按如下步骤进行。" class="headerlink" title="下载和安装Spring请按如下步骤进行。"></a>下载和安装Spring请按如下步骤进行。</h2><p>（1）登录站点，下载Spring的最新稳定版本。最新版本为spring-framework-5.0.建议下载spring-framework-spring-framework-4.0.0.M2-dist这个压缩包不仅包含Spring的开发包，而且包含Spring编译和运行所依赖的第三方类库。<br>解压缩下载到的压缩包，解压缩后的文件夹应用如下几个文件夹。<br>dist：该文件夹下放Spring的jar包，通常只需要Spring.jar文件即可。该文件夹下还有一些类似spring－Xxx.jar的压缩包， 这些压缩包是spring.jar压缩包的子模块压缩包。除非确定整个J2EE应用只需要使用Spring的某一方面时，才考虑使用这种分模块压缩包。通常建议使用Spring.jar<br>docs：该文件夹下包含spring的相关文档、开发指南及API参考文档。<br>lib：该文件夹下包含spring编译和运行所依赖的第三方类库，该路径下的类库并不是  spring必需的，但如果需要使用第三方类库的支持，这里的类库就是必需要的。<br>samples：该文件夹下包含Spring的几个简单例子，可作为Spring入门学习的案例。<br>src：该文件夹下包含Spring的全部源文件，如果开发过程中有地方无法把握，可以参考该源文件，了解底层实现。<br>spring<br>spring<br>test：该文件夹下包含Spring的测试示例。<br>tiger：该路径下存放关于JDK的相关内容<br>解压缩后的文件夹下，还包含一些关于Spring的License和项目相关文件<br>（2）将spring.jar复制到项目的CLASSPATH路径下，对于Web应用，将spring.jar文件复制到WEB-INF/lib路径下，该应用即可以利用Spring框架了。<br>（3）通常Spring的框架还依赖于其他一些jar文件，因此还须将lib下对应的包复制到WEB-INF/lib路径下，具体要复制哪些jar文件，取决于应用所需要使用的项目。通常需要复制cglib，dom4j，jakarta-commons，log4j等文件夹下的jar文件。<br>（4）为了编译java文件，可以找到Spring的基础类，将Spring.jar文件的路径添加到环境变量CLASSPATH中。当然，也可以使用ANT工具，但无须添加环境变量。如果使用Eclipse或者NetBeans等IDE时，也不需要设置环境变量。  </p>
+<h2 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h2><p>传统的web架构的view 表现层使用struts作为表现层。但是如果试用下spring自带的MVC，会发现spring 在一般场合完全可以取代struts。从某些角度来说，spring的mvc设计的更加合理，有兴趣的话不妨尝试下单个的spring的MVC。</p>
+<p><a href="https://www.w3cschool.cn/wkspring/" target="_blank" rel="noopener">w3Cschool-spring学习</a></p>
+<h2 id="Spring-Boot-是什么？"><a href="#Spring-Boot-是什么？" class="headerlink" title="Spring Boot 是什么？"></a>Spring Boot 是什么？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot 的目的是提供一组工具，以便快速构建容易配置的 Spring 应用程序。</span><br></pre></td></tr></table></figure>
 
           
         
@@ -853,7 +2061,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/我的日常兴趣/中国节气/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/java/Java Web应用程序的推荐目录结构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -872,8 +2080,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/我的日常兴趣/中国节气/" itemprop="url">
-                  二十四节气
+                <a class="post-title-link" href="/2018/06/11/java/Java Web应用程序的推荐目录结构/" itemprop="url">
+                  Java Web应用程序的推荐目录结构
                 </a>
               
             
@@ -916,7 +2124,178 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-07 10:38:55" itemprop="dateModified" datetime="2018-08-07T10:38:55+08:00">2018-08-07</time>
+                <time title="修改时间：2018-09-17 11:24:07" itemprop="dateModified" datetime="2018-09-17T11:24:07+08:00">2018-09-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Java-Web应用程序的推荐目录结构"><a href="#Java-Web应用程序的推荐目录结构" class="headerlink" title="Java Web应用程序的推荐目录结构"></a>Java Web应用程序的推荐目录结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">├── pom.xml</span><br><span class="line">└── src</span><br><span class="line">    ├── main</span><br><span class="line">    │   ├── java</span><br><span class="line">    │   │   └── mygroup</span><br><span class="line">    │   │       ├── controller</span><br><span class="line">    │   │       │   ├── HomeController.java</span><br><span class="line">    │   │       │   └── PersonController.java</span><br><span class="line">    │   │       ├── dao</span><br><span class="line">    │   │       │   └── PersonDao.java</span><br><span class="line">    │   │       └── model</span><br><span class="line">    │   │           └── Person.java</span><br><span class="line">    │   ├── resources</span><br><span class="line">    │   │   ├── db.properties</span><br><span class="line">    │   │   ├── log4j.xml</span><br><span class="line">    │   │   └── META-INF</span><br><span class="line">    │   │       └── persistence.xml</span><br><span class="line">    │   └── webapp</span><br><span class="line">    │       ├── index.html</span><br><span class="line">    │       ├── META-INF</span><br><span class="line">    │       │   ├── context.xml</span><br><span class="line">    │       │   └── MANIFEST.MF</span><br><span class="line">    │       ├── resources</span><br><span class="line">    │       │   └── css</span><br><span class="line">    │       │       └── screen.css</span><br><span class="line">    │       └── WEB-INF</span><br><span class="line">    │           ├── spring</span><br><span class="line">    │           │   ├── app</span><br><span class="line">    │           │   │   ├── controllers.xml</span><br><span class="line">    │           │   │   └── servlet-context.xml</span><br><span class="line">    │           │   ├── db.xml</span><br><span class="line">    │           │   └── root-context.xml</span><br><span class="line">    │           ├── views</span><br><span class="line">    │           │   ├── edit.jsp</span><br><span class="line">    │           │   ├── home.jsp</span><br><span class="line">    │           │   └── list.jsp</span><br><span class="line">    │           └── web.xml</span><br><span class="line">    └── test</span><br><span class="line">        ├── java</span><br><span class="line">        │   └── mygroup</span><br><span class="line">        │       ├── controller</span><br><span class="line">        │       │   ├── DataInitializer.java</span><br><span class="line">        │       │   ├── HomeControllerTest.java</span><br><span class="line">        │       │   └── PersonControllerTest.java</span><br><span class="line">        │       └── dao</span><br><span class="line">        │           └── PersonDaoTest.java</span><br><span class="line">        └── resources</span><br><span class="line">            ├── db.properties</span><br><span class="line">            ├── log4j.xml</span><br><span class="line">            ├── test-context.xml</span><br><span class="line">            └── test-db.xml</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.cnblogs.com/yudy/archive/2012/06/26/2563638.html" target="_blank" rel="noopener">Java Web应用程序的推荐目录结构</a><br><a href="https://www.cnblogs.com/scown/p/5561677.html" target="_blank" rel="noopener">Java Web 项目目录规范</a><br><a href="https://blog.csdn.net/qq_28018283/article/details/79398661" target="_blank" rel="noopener">用IntelliJ idea 创建 springMVC 的Maven 项目</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/我的日常兴趣/商丘历史变迁/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/我的日常兴趣/商丘历史变迁/" itemprop="url">
+                  商丘历史变迁
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-06 18:37:16" itemprop="dateModified" datetime="2018-08-06T18:37:16+08:00">2018-08-06</time>
               
             
           </span>
@@ -969,1135 +2348,8 @@
       
         
           
-            <h2 id="二十四节气"><a href="#二十四节气" class="headerlink" title="二十四节气"></a>二十四节气</h2><p><img src="https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=5157a451be096b63951456026d5aec21/b03533fa828ba61ef3c2ab514134970a304e599b.jpg" alt="二十四节气"></p>
-<p>二十四节气是根据地球在黄道（即地球绕太阳公转的轨道）上的位置来划分的。视太阳从春分点（黄经零度，此刻太阳垂直照射赤道）出发，每前进15度为一个节气；运行一周又回到春分点，为一回归年，合360度，因此分为24个节气。</p>
-<h2 id="节与气"><a href="#节与气" class="headerlink" title="节与气"></a>节与气</h2><p>一年有二十四个节气，计十二个节和十二个气。即一个月之内有一节一气，每两节气相距，平均约三十天又十分之四，而阴历每月之日数．则为二十九天半，故约每三十四个月，必遇有两月仅有节而无气、及有气而无节者。有节无气之月，即农历之闰月，有气无节之月不为闰月，兹将节气与农历月份关系表列于后：</p>
-<h3 id="季月节气表"><a href="#季月节气表" class="headerlink" title="季月节气表"></a>季月节气表</h3><table log-set-param="table_view" data-sort="sortDisabled"><tbody><tr><th height="37">季</th><th height="37" colspan="3"><div class="para" label-module="para">春</div><br></th><th height="37" colspan="3">夏</th><th height="37" colspan="3">秋</th><th height="37" colspan="3"><div class="para" label-module="para">冬</div><br></th></tr><tr><td valign="top">月</td><td valign="top">正月</td><td valign="top">二月</td><td valign="top">三月</td><td valign="top">四月</td><td valign="top">五月</td><td valign="top">六月</td><td valign="top">七月</td><td valign="top">八月</td><td valign="top">九月</td><td valign="top">十月</td><td valign="top">冬月</td><td valign="top">腊月</td></tr><tr><td valign="top">节</td><td valign="top">立春</td><td valign="top">惊蛰</td><td valign="top">清明</td><td valign="top">立夏</td><td valign="top">芒种</td><td valign="top">小暑</td><td valign="top">立秋</td><td valign="top">白露</td><td valign="top">寒露</td><td valign="top">立冬</td><td valign="top">大雪</td><td valign="top">小寒</td></tr><tr><td valign="top">气</td><td valign="top">雨水</td><td valign="top">春分</td><td valign="top">谷雨</td><td valign="top">小满</td><td valign="top">夏至</td><td valign="top">大暑</td><td valign="top">处暑</td><td valign="top">秋分</td><td valign="top">霜降</td><td valign="top">小雪</td><td valign="top">冬至</td><td valign="top">大寒</td></tr></tbody></table>
-
-<h2 id="二十四节气歌"><a href="#二十四节气歌" class="headerlink" title="二十四节气歌"></a>二十四节气歌</h2><p>春雨惊春清谷天，夏满芒夏暑相连。<br>秋处露秋寒霜降，冬雪雪冬小大寒。<br>上半年逢六廿一，下半年逢八廿三。<br>每月两节不变更，最多相差一两天。</p>
-<h2 id="九九歌"><a href="#九九歌" class="headerlink" title="九九歌"></a>九九歌</h2><p>一九二九不出手；<br>三九四九冰上走； 五九六九沿河看柳；<br>七九河开八九燕来； 九九加一九，耕牛遍地走；  </p>
-<p>我国阴历有“九九”的说法，用来计算时令。计算的方法是从冬天的冬至日算起，第一个九天叫“一九”。第二个九天叫“二九”，依此类推，一直到“九九”。即第九个九天，这时冬天已过完，春天来到了。</p>
-<h2 id="三伏"><a href="#三伏" class="headerlink" title="三伏"></a>三伏</h2><p>伏日宜吃面，北方有句俚语，叫做“头伏饺子二伏面，三伏烙饼摊鸡蛋”。<br><a href="https://baike.baidu.com/item/%E5%A4%B4%E4%BC%8F%E9%A5%BA%E5%AD%90%E4%BA%8C%E4%BC%8F%E9%9D%A2/1113695?fr=aladdin" target="_blank" rel="noopener">头伏饺子二伏面百科</a>  </p>
-<p><a href="https://baike.baidu.com/item/%E4%BA%8C%E5%8D%81%E5%9B%9B%E8%8A%82%E6%B0%94/191597" target="_blank" rel="noopener">二十四节气百科</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/Hexo主题添加搜索/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/other/Hexo主题添加搜索/" itemprop="url">
-                  Hexo 博客框架添加搜索
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-22 17:24:28" itemprop="dateModified" datetime="2018-08-22T17:24:28+08:00">2018-08-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>用Hexo提供的<code>Local Search</code>,原理是通过<code>hexo-generator-search</code>插件在本地生成一个<code>search.xml</code>文件，搜索的时候从这个文件中根据关键字检索出相应的链接。</p>
-<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><h5 id="安装-hexo-generator-search"><a href="#安装-hexo-generator-search" class="headerlink" title="安装 hexo-generator-search"></a>安装 hexo-generator-search</h5><p>在站点的根目录下执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
-<h5 id="安装-hexo-generator-searchdb"><a href="#安装-hexo-generator-searchdb" class="headerlink" title="安装 hexo-generator-searchdb"></a>安装 hexo-generator-searchdb</h5><p>在站点的根目录下执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-<p>启用搜索</p>
-<p>编辑 站点配置文件<code>_config.yml</code>，新增以下内容到任意位置：</p>
-<pre><code>search:
-  path: search.xml
-  field: post
-  format: html
-  limit: 10000
-</code></pre><p>修改主题配置文件</p>
-<p>我的路径：<code>/blog/themes/next</code>下的<code>_config.yml</code>文件，进行编辑。</p>
-<pre><code>local_search:
-    enable: true
-</code></pre><p>最后部署到github、coding，打开网页就可以看到搜索功能了。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/Hexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/other/Hexo/" itemprop="url">
-                  Hexo 博客框架
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-26 10:35:26" itemprop="dateModified" datetime="2018-06-26T10:35:26+08:00">2018-06-26</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="什么是-Hexo？"><a href="#什么是-Hexo？" class="headerlink" title="什么是 Hexo？"></a>什么是 Hexo？</h3><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<p>新建完成后，指定文件夹的目录如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
-<h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p>应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package.json</span><br><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;hexo-site&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;0.0.0&quot;,</span><br><span class="line">  &quot;private&quot;: true,</span><br><span class="line">  &quot;hexo&quot;: &#123;</span><br><span class="line">    &quot;version&quot;: &quot;&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;dependencies&quot;: &#123;</span><br><span class="line">    &quot;hexo&quot;: &quot;^3.0.0&quot;,</span><br><span class="line">    &quot;hexo-generator-archive&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-generator-category&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-generator-index&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-generator-tag&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-ejs&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-stylus&quot;: &quot;^0.2.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-marked&quot;: &quot;^0.2.4&quot;,</span><br><span class="line">    &quot;hexo-server&quot;: &quot;^0.1.2&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h3><p>网站的 <a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">配置</a> 信息，您可以在此配置大部分的参数。</p>
-<h3 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h3><p> 主题 文件夹。Hexo 会根据主题来生成静态页面。</p>
-<h3 id="source"><a href="#source" class="headerlink" title="source"></a>source</h3><p>资源文件夹是存放用户资源的地方。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
-<h3 id="重要的几个指令"><a href="#重要的几个指令" class="headerlink" title="重要的几个指令"></a>重要的几个指令</h3><p>了解更多 详见<a href="https://hexo.io/zh-cn/docs/commands.html#deploy" target="_blank" rel="noopener">指令</a> 信息</p>
-<blockquote>
-<p>初始化新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init [folder]</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>server 启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/。" target="_blank" rel="noopener">http://localhost:4000/。</a></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>generate 生成静态文件。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>deploy 部署网站。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>clean 清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
-<h3 id="资源文件夹"><a href="#资源文件夹" class="headerlink" title="资源文件夹"></a>资源文件夹</h3><blockquote>
-<p>资源（Asset）代表 source 文件夹中除了文章以外的所有文件，例如图片、CSS、JS 文件等。比方说，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 source/images 文件夹中。然后通过类似于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](/images/image.jpg)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>的方法访问它们。</p>
-</blockquote>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><blockquote>
-<p>Hexo 提供了快速方便的一键部署功能，让您只需一条命令就能将网站部署到服务器上。详见<a href="https://hexo.io/zh-cn/docs/deployment.html" target="_blank" rel="noopener">网站</a> 信息</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/Mac本地服务器搭建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/other/Mac本地服务器搭建/" itemprop="url">
-                  Mac端本地服务搭建
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-13 18:53:10" itemprop="dateModified" datetime="2018-09-13T18:53:10+08:00">2018-09-13</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="方案名称"><a href="#方案名称" class="headerlink" title="方案名称"></a>方案名称</h3><p>Mac 系统 - 启用 Mac 本地 Web 服务器<br>关键字</p>
-<p>Mac 系统 \ Web 服务器</p>
-<h3 id="需求场景"><a href="#需求场景" class="headerlink" title="需求场景"></a>需求场景</h3><ol>
-<li><p>局域网搭建 Web 服务器测试环境<br>参考链接</p>
-</li>
-<li><p>简书 - Mac OS X 启用 Web 服务器(推荐)<br>详细内容 <a href="https://www.jianshu.com/p/d006a34a343f" target="_blank" rel="noopener">https://www.jianshu.com/p/d006a34a343f</a></p>
-</li>
-</ol>
-<h3 id="启动-Apache"><a href="#启动-Apache" class="headerlink" title="启动 Apache"></a>启动 Apache</h3><p>终端输入<br>$ sudo apachectl start<br>可启动 Apache，打开浏览器，输入 <a href="http://localhost/" target="_blank" rel="noopener">http://localhost/</a> 看到如下页面证明本地 Web 服务器启动成功</p>
-<p>可启动 Apache，默认站点的根目录为系统级根目录<br>/Library/WebServer/Documents<br>更多信息，可参考 简书 - Mac OS X 启用 Web 服务器(推荐)</p>
-<ul>
-<li>创建用户级根目录</li>
-<li>启动 PHP</li>
-<li>安装 MySQL</li>
-<li>开启 HTTPS</li>
-</ul>
-<p><a href="https://github.com/viktyz/iosnotebook/blob/master/Notes/Note_00222_20170601.md" target="_blank" rel="noopener">https://github.com/viktyz/iosnotebook/blob/master/Notes/Note_00222_20170601.md</a></p>
-<h3 id="关闭和重启"><a href="#关闭和重启" class="headerlink" title="关闭和重启"></a>关闭和重启</h3><p>Mac OS 终端起动、关闭、重启apache的方</p>
-<p>Mac OS 终端起动、关闭、重启apache的方法</p>
-<p>打开终端<br>重启apache：sudo /usr/sbin/apachectl restart<br>关闭apache：sudo /usr/sbin/apachectl stop<br>开启apache：sudo /usr/sbin/apachectl start</p>
-<h3 id="Mac下如何修改apache根目录"><a href="#Mac下如何修改apache根目录" class="headerlink" title="Mac下如何修改apache根目录"></a>Mac下如何修改apache根目录</h3><p><a href="https://www.cnblogs.com/chuangshaogreat/p/7821407.html" target="_blank" rel="noopener">Mac下如何修改apache根目录</a> </p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/Markdown/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/other/Markdown/" itemprop="url">
-                  Markdown 编辑器语法指南
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-10 17:23:35" itemprop="dateModified" datetime="2018-07-10T17:23:35+08:00">2018-07-10</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://segmentfault.com/markdown/" target="_blank" rel="noopener">Markdown 编辑器语法指南</a></p>
-<p><a href="http://macdown.uranusjr.com/" target="_blank" rel="noopener">MacDown</a></p>
-<h2 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h2><p>如果你只想高亮语句中的某个函数名或关键字，可以使用 <code>function_name()</code> 实现<br>通常编辑器根据代码片段适配合适的高亮方法，但你也可以用 以下方式 包裹一段代码，并指定一种语言</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'hello world'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<blockquote>
-</blockquote>
-<p>支持的语言：1c, abnf, accesslog, actionscript, ada, apache, applescript, arduino, armasm, asciidoc, aspectj, autohotkey, autoit, avrasm, awk, axapta, bash, basic, bnf, brainfuck, cal, capnproto, ceylon, clean, clojure, clojure-repl, cmake, coffeescript, coq, cos, cpp, crmsh, crystal, cs, csp, css, d, dart, delphi, diff, django, dns, dockerfile, dos, dsconfig, dts, dust, ebnf, elixir, elm, erb, erlang, erlang-repl, excel, fix, flix, fortran, fsharp, gams, gauss, gcode, gherkin, glsl, go, golo, gradle, groovy, haml, handlebars, haskell, haxe, hsp, htmlbars, http, hy, inform7, ini, irpf90, java, javascript, json, julia, kotlin, lasso, ldif, leaf, less, lisp, livecodeserver, livescript, llvm, lsl, lua, makefile, markdown, mathematica, matlab, maxima, mel, mercury, mipsasm, mizar, mojolicious, monkey, moonscript, n1ql, nginx, nimrod, nix, nsis, objectivec, ocaml, openscad, oxygene, parser3, perl, pf, php, pony, powershell, processing, profile, prolog, protobuf, puppet, purebasic, python, q, qml, r, rib, roboconf, rsl, ruby, ruleslanguage, rust, scala, scheme, scilab, scss, smali, smalltalk, sml, sqf, sql, stan, stata, step21, stylus, subunit, swift, taggerscript, tap, tcl, tex, thrift, tp, twig, typescript, vala, vbnet, vbscript, vbscript-html, verilog, vhdl, vim, x86asm, xl, xml, xquery, yaml, zephir</p>
-<h2 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;b&gt; Markdown 在此处同样适用，如 <span class="emphasis">*加粗*</span> &lt;/b&gt;</span><br><span class="line"></span><br><span class="line"><span class="bullet">- </span>列表文本前使用 [减号+空格]</span><br><span class="line"><span class="bullet">+ </span>列表文本前使用 [加号+空格]</span><br><span class="line"><span class="bullet">* </span>列表文本前使用 [星号+空格]</span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; 引用文本前使用 [大于号+空格]</span></span><br><span class="line"><span class="quote">&gt; 折行可以不加，新起一行都要加上哦</span></span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; </span></span><br><span class="line"><span class="quote">&gt; &gt; 最外层引用</span></span><br><span class="line"><span class="quote">&gt; &gt; 多一个 &gt; 嵌套一层引用</span></span><br><span class="line"><span class="quote">&gt; &gt; &gt; 可以嵌套很多层</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">![<span class="string">图片名称</span>](<span class="link">http://图片网址</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="分隔符"><a href="#分隔符" class="headerlink" title="分隔符"></a>分隔符</h2><hr>
-<p>如果你有写分割线的习惯，可以新起一行输入三个减号-。前后都有段落时，请空出一行：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">前面的段落</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">后面的段落</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/tomcat使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/other/tomcat使用/" itemprop="url">
-                  tomcat
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-13 18:45:09" itemprop="dateModified" datetime="2018-09-13T18:45:09+08:00">2018-09-13</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://blog.csdn.net/u012661010/article/details/73381599" target="_blank" rel="noopener">Tomcat的目录结构详细介绍</a></p>
-<h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><p>切换到<code>tomcat</code>所在的目录在终端执行如下命令：<br><code>bash bin/startup.sh</code> 用来启动<code>tomcat</code> </p>
-<p>然后直接<code>localhost:8080/</code> 就可以访问了</p>
-<h4 id="文件放置"><a href="#文件放置" class="headerlink" title="文件放置"></a>文件放置</h4><p>webapps目录用来存放应用程序，当tomcat启动时会去加载webapps目录下的应用程序。可以以文件夹、war包、jar包的形式发布应用</p>
-<h4 id="修改http访问端口（默认为8080端口），将8080修改为tomcat不在使用的端口号"><a href="#修改http访问端口（默认为8080端口），将8080修改为tomcat不在使用的端口号" class="headerlink" title="修改http访问端口（默认为8080端口），将8080修改为tomcat不在使用的端口号"></a>修改http访问端口（默认为8080端口），将8080修改为tomcat不在使用的端口号</h4><p>1、安装目录下的<code>conf</code>子目录中的<code>server.xml</code>文件 修改位置如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot;</span><br><span class="line">           connectionTimeout=&quot;20000&quot;</span><br><span class="line">           redirectPort=&quot;8443&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>2、然后在关闭和重启操作</p>
-<p><code>bash bin/shutdown.sh</code> 用来关闭<code>tomcat</code><br><code>bash bin/startup.sh</code> 用来启动<code>tomcat</code> </p>
-<h4 id="启动tomcat-服务报-The-file-is-absent-or-does-not-have-execute-permission"><a href="#启动tomcat-服务报-The-file-is-absent-or-does-not-have-execute-permission" class="headerlink" title="启动tomcat 服务报 The file is absent or does not have execute permission"></a>启动tomcat 服务报 The file is absent or does not have execute permission</h4><p>1、在<code>linu</code>上部署好<code>tomcat</code>后，准备启动时报错：</p>
-<p>Cannot find bin/catalina.sh<br>The file is absent or does not have execute permission </p>
-<p>This file is needed to run this program </p>
-<p>2、解决办法：</p>
-<p>对启动脚本添加执行权限</p>
-<p><code>chmod 777  *.sh</code></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/OmniGraffle 五步绘制流程图/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/other/OmniGraffle 五步绘制流程图/" itemprop="url">
-                  OmniGraffle 五步绘制流程图
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-04 17:09:24" itemprop="dateModified" datetime="2018-07-04T17:09:24+08:00">2018-07-04</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.jianshu.com/p/cca7ce55aee1" target="_blank" rel="noopener">OmniGraffle 五步绘制流程图</a></p>
-<p><a href="https://sspai.com/post/41950" target="_blank" rel="noopener">OmniGraffle 基础入门（一）：从工具栏开始</a></p>
+            <h2 id="三皇五帝时期"><a href="#三皇五帝时期" class="headerlink" title="三皇五帝时期"></a>三皇五帝时期</h2><p><img src="https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=ed322f188194a4c21e2eef796f9d70b0/4e4a20a4462309f7abe86305740e0cf3d7cad626.jpg" alt="燧皇陵中的天皇燧人氏青铜像"></p>
+<p>旧石器时代，三皇之首的燧人氏出生于商丘并在这一带建立燧明国<br>8500年前，栗陆氏建都于栗（今商丘夏邑县）<br>6000年前，炎帝朱襄氏建都于朱（今商丘柘城县）。<br>葛天氏建都于葛（今商丘宁陵县）。<br>4500年前，颛顼由穷桑迁都于商丘（今商丘睢阳区）。<br>帝喾高辛氏出生并封于高辛（今商丘高辛镇），成为天下共主后，定都亳（今商丘谷熟镇）。<br>帝喾死后，长子帝挚受禅接帝位，在位九年，因未能妥善管理国家，挚禅位于唐尧，帝尧封挚于高辛。<br>帝尧时代，商丘为后羿的封地。<br>帝舜时代，帝喾之<br>（睢阳区）帝喾陵<br>（睢阳区）帝喾陵<br>子契（阏伯）辅佐禹治水有功，被虞舜封于商（今睢阳区）做火正，为商族人的始祖，<br>深受人民的爱戴，故人们尊他为“火神”<br>阏伯死后葬于封地，由于阏伯的封号为“商”，他的墓冢被称为“商丘”</p>
 
           
         
@@ -2140,7 +2392,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2187,7 +2439,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">63</span>
+                    <span class="site-state-item-count">72</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2303,7 +2555,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">33</span>
+                      
+                    
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

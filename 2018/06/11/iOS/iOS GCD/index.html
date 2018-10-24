@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="动画核心动画 UIView渐变动画 iOS核心动画高级技巧">
+  <meta name="description" content="多用GCD 少用performSelector系列方法123456789101112131415161718192021222324252627//可以在运行时调用方法- (id)performSelector:(SEL)selector//可带一个参数- (id)performSelector:(SEL)selector withObject:(id)object//可带两个参数- (id)pe">
 <meta name="keywords" content="iOS-WIKI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UIView与核心动画对比?">
-<meta property="og:url" content="http://yoursite.com/2018/06/11/iOS/UIView与核心动画对比">
+<meta property="og:title" content="iOS之GCD">
+<meta property="og:url" content="http://yoursite.com/2018/06/11/iOS/iOS GCD/index.html">
 <meta property="og:site_name" content="追梦机器人的博客">
-<meta property="og:description" content="动画核心动画 UIView渐变动画 iOS核心动画高级技巧">
+<meta property="og:description" content="多用GCD 少用performSelector系列方法123456789101112131415161718192021222324252627//可以在运行时调用方法- (id)performSelector:(SEL)selector//可带一个参数- (id)performSelector:(SEL)selector withObject:(id)object//可带两个参数- (id)pe">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-15T07:24:43.000Z">
+<meta property="og:updated_time" content="2018-09-25T02:41:38.685Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UIView与核心动画对比?">
-<meta name="twitter:description" content="动画核心动画 UIView渐变动画 iOS核心动画高级技巧">
+<meta name="twitter:title" content="iOS之GCD">
+<meta name="twitter:description" content="多用GCD 少用performSelector系列方法123456789101112131415161718192021222324252627//可以在运行时调用方法- (id)performSelector:(SEL)selector//可带一个参数- (id)performSelector:(SEL)selector withObject:(id)object//可带两个参数- (id)pe">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/11/iOS/UIView与核心动画对比"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/11/iOS/iOS GCD/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>UIView与核心动画对比? | 追梦机器人的博客</title>
+  <title>iOS之GCD | 追梦机器人的博客</title>
   
 
 
@@ -332,7 +332,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/UIView与核心动画对比?/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/iOS GCD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -349,7 +349,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">UIView与核心动画对比?
+          <h1 class="post-title" itemprop="name headline">iOS之GCD
               
             
           </h1>
@@ -391,7 +391,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-15 15:24:43" itemprop="dateModified" datetime="2018-08-15T15:24:43+08:00">2018-08-15</time>
+                <time title="修改时间：2018-09-25 10:41:38" itemprop="dateModified" datetime="2018-09-25T10:41:38+08:00">2018-09-25</time>
               
             
           </span>
@@ -442,9 +442,8 @@
       
 
       
-        <h3 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h3><p><a href="https://lianshumin.gitbooks.io/ocnotesii/content/03-UI进阶/11-核心动画.html" target="_blank" rel="noopener">核心动画</a></p>
-<p><a href="https://lianshumin.gitbooks.io/ocnotesii/content/03-UI进阶/iOS动画篇-1-UIView渐变动画.html" target="_blank" rel="noopener">UIView渐变动画</a></p>
-<p><a href="https://www.kancloud.cn/manual/ios/97760" target="_blank" rel="noopener">iOS核心动画高级技巧</a></p>
+        <h3 id="多用GCD-少用performSelector系列方法"><a href="#多用GCD-少用performSelector系列方法" class="headerlink" title="多用GCD 少用performSelector系列方法"></a>多用GCD 少用performSelector系列方法</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可以在运行时调用方法</span></span><br><span class="line">- (<span class="keyword">id</span>)performSelector:(SEL)selector</span><br><span class="line"><span class="comment">//可带一个参数</span></span><br><span class="line">- (<span class="keyword">id</span>)performSelector:(SEL)selector withObject:(<span class="keyword">id</span>)object</span><br><span class="line"><span class="comment">//可带两个参数</span></span><br><span class="line">- (<span class="keyword">id</span>)performSelector:(SEL)selector withObject:(<span class="keyword">id</span>)object withObject:(<span class="keyword">id</span>)object</span><br><span class="line"><span class="comment">//可延时执行方法</span></span><br><span class="line">- (<span class="keyword">void</span>)performSelector:(SEL)selector withObject:(<span class="keyword">id</span>)argument afterDelay:(<span class="built_in">NSTimeInterval</span>)delay</span><br><span class="line"><span class="comment">//可放到另一个线程中执行</span></span><br><span class="line">- (<span class="keyword">void</span>)performSelector:(SEL)selector onThread:(<span class="built_in">NSThread</span> *)thread withObject:(<span class="keyword">id</span>)argument waitUntilDone:(<span class="built_in">BOOL</span>)wait</span><br><span class="line">- (<span class="keyword">void</span>)performSelectorOnMainThread:(SEL)selector withObject:(<span class="keyword">id</span>)argument waitUntilDone:(<span class="built_in">BOOL</span>)wait</span><br><span class="line"> </span><br><span class="line"><span class="comment">//延后执行方法的两种实现方式：</span></span><br><span class="line">[<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(doSomething) withObject:<span class="literal">nil</span> afterDelay:<span class="number">5.0</span>];</span><br><span class="line"> </span><br><span class="line">dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">5.0</span> * <span class="built_in">NSEC_PER_SEC</span>));</span><br><span class="line">dispatch_after(time, dispatch_get_main_queue(), ^(<span class="keyword">void</span>)&#123;</span><br><span class="line">    [<span class="keyword">self</span> doSomething];</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment">//把任务放在主线程执行的两种方式</span></span><br><span class="line">[<span class="keyword">self</span> performSlectorOnMainThread:<span class="keyword">@selector</span>(doSomething) withObject:<span class="literal">nil</span> waitUntilDone:<span class="literal">NO</span>];</span><br><span class="line"> </span><br><span class="line"><span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">    [<span class="keyword">self</span> doSomething];</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>1、</strong>performSelector系列方法在内存管理方面容易有疏失。它无法确定将要执行的选择子具体是什么，因而ARC编译器也就无法插入适当的内存管理方法。<br><strong>2、</strong>performSelector系列方法所能处理的选择子太过局限了，选择子的返回值类型及发送给方法的参数个数都受到限制。<br><strong>3、</strong>如果想把任务放在另一个线程上执行，那么最好不要用performSelector系列方法，而是应该把任务封装到块里，然后调用GCD的相关方法来实现。</p>
 
       
     </div>
@@ -478,8 +477,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/11/iOS/Xcode中和symbols有关的几个设置/" rel="next" title="Xcode中和symbols有关的几个设置">
-                <i class="fa fa-chevron-left"></i> Xcode中和symbols有关的几个设置
+              <a href="/2018/06/11/iOS/iOS 静态库和动态库/" rel="next" title="iOS 静态库和动态库">
+                <i class="fa fa-chevron-left"></i> iOS 静态库和动态库
               </a>
             
           </div>
@@ -488,8 +487,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/11/iOS/ 如何判断代码运行在DEBUG还是RELEASE模式下/" rel="prev" title="如何判断代码运行在DEBUG还是RELEASE模式下？">
-                如何判断代码运行在DEBUG还是RELEASE模式下？ <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/11/iOS/Xcode中和symbols有关的几个设置/" rel="prev" title="Xcode中和symbols有关的几个设置">
+                Xcode中和symbols有关的几个设置 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -568,7 +567,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">63</span>
+                    <span class="site-state-item-count">72</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -684,7 +683,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">33</span>
+                      
+                    
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -720,7 +721,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#动画"><span class="nav-number">1.</span> <span class="nav-text">动画</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#多用GCD-少用performSelector系列方法"><span class="nav-number">1.</span> <span class="nav-text">多用GCD 少用performSelector系列方法</span></a></li></ol></div>
             
 
           </div>

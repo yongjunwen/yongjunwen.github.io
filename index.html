@@ -902,192 +902,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/15/reactnative/ReactNative基础学习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/15/reactnative/ReactNative基础学习/" itemprop="url">
-                  ReactNative基础学习
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-15 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-15T16:17:22+08:00">2018-06-15</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-08 16:28:10" itemprop="dateModified" datetime="2018-08-08T16:28:10+08:00">2018-08-08</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ReactNative/" itemprop="url" rel="index"><span itemprop="name">ReactNative</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h2><p>组件装载，组件在渲染之前，会先调用默认的props，ES6就是，static defaultProps；接下来就是组件初始化，constructor（props）组件的构造方法；接下来是 componentWillMount组件在加载之前的方法；render完成组件的渲染；componentDidMount 组件渲染完成。接下来就进入运行阶段啦。（一次调用）</p>
-<p>组件更新，在运行中，如果组件的属性发生了改变，就会调用 componentWillReceiveProps 会被调用，然后就会调用 shouldComponentUpdate ，询问我们是否要渲染组件，如果返回FALSE的话，就不会渲染；如果是TRUE的话，就会调用componentWillUpdate重新渲染组件，然后render，再后来就完成更新啦componentDidUpdate（多次调用）</p>
-<p>组件卸载，页面关闭的时候，组件会被卸载，componentWillUnmount，可以完成资源的回收与释放啦。（一次调用）</p>
-<h2 id="创建组件的三种方式"><a href="#创建组件的三种方式" class="headerlink" title="创建组件的三种方式"></a>创建组件的三种方式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 方式1 ES6</span></span><br><span class="line"><span class="comment">* */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">NewView</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        <span class="keyword">return</span> &lt;Text style=&#123;styles.container&#125;&gt;hello ES6&lt;/Text&gt; ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 方式2 ES5  需要module.exports</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// var NewView = React.createClass(&#123;</span></span><br><span class="line"><span class="comment">//     render()&#123;</span></span><br><span class="line"><span class="comment">//         return &lt;Text style=&#123;styles.container&#125;&gt;hello ES5&lt;/Text&gt; ;</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;)</span></span><br><span class="line"><span class="comment">// module.exports = NewView;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 方式3 函数式  需要module.exports</span></span><br><span class="line"><span class="comment"> * 无状态，不能使用this，但是可以传入属性</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// function NewView(props) &#123;</span></span><br><span class="line"><span class="comment">//     return &lt;Text style=&#123;styles.container&#125;&gt;hello &#123;props.name&#125;&lt;/Text&gt; ;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// module.exports = NewView;</span></span><br></pre></td></tr></table></figure>
-<h2 id="组件的导入和导出"><a href="#组件的导入和导出" class="headerlink" title="组件的导入和导出"></a>组件的导入和导出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">一、导出组件</span><br><span class="line">三种导出方式，之前学过的ES6, ES5, 函数式三种建立组件方式，里面有提及过如何导出</span><br><span class="line"></span><br><span class="line">使用方式：</span><br><span class="line">import EIComponent from &apos;./EIComponent&apos;</span><br><span class="line"></span><br><span class="line">二、导出变量</span><br><span class="line">方法一：</span><br><span class="line">export var name = &apos;sun&apos;;</span><br><span class="line">export var age = &apos;female&apos;;</span><br><span class="line"></span><br><span class="line">方法二：</span><br><span class="line">var name = &apos;sun&apos;;</span><br><span class="line">var age = &apos;22&apos;;</span><br><span class="line">export &#123;name, age&#125;;</span><br><span class="line"></span><br><span class="line">使用方式：</span><br><span class="line">例如setup.js中加入：</span><br><span class="line">import EIComponent,&#123;name,age&#125; from &apos;./EIComponent&apos;</span><br><span class="line"></span><br><span class="line">三、导出方法</span><br><span class="line">方法前加export</span><br><span class="line">export function sum(a,b)&#123;</span><br><span class="line">    return a+b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">使用方式：</span><br><span class="line">和变量使用方式一致</span><br><span class="line">import EIComponent,&#123;name,age,sum&#125; from &apos;./EIComponent&apos;</span><br></pre></td></tr></table></figure>
-<h2 id="React-Native-props使用详解"><a href="#React-Native-props使用详解" class="headerlink" title="React Native props使用详解"></a>React Native props使用详解</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1、什么是props? 父组件传递给子组件的属性</span><br><span class="line">2、如何使用props?</span><br><span class="line">3、什么是默认属性以及它的作用？ </span><br><span class="line">4、如何对props进行约束和检查？</span><br><span class="line">5、props使用小技巧之延展操作符？</span><br><span class="line">6、props使用小技巧之解构赋值？</span><br><span class="line"></span><br><span class="line">props使用技巧--延展操作符</span><br><span class="line">延展操作符是ES6中的新语法。当我要传递很多个属性时，</span><br><span class="line">let params = &#123;name:&apos;张&apos;，age:18, sex:&apos;女&apos; &#125;；</span><br><span class="line">使用的时候就是 &lt;PropsTest name=&#123;params.name&#125; sex=&#123;params.sex&#125; /&gt;（但这个非常的复杂，代码也会很长）</span><br><span class="line">&lt;PropsTest &#123; ...params &#125; /&gt;（使用 大括号里放三个点 ...，然后接着 params 就可以在下一个页面被使用了。 ）</span><br><span class="line"></span><br><span class="line">props使用技巧--解构赋值</span><br><span class="line">延展操作符是将属性全部进行赋值，但如果只想取出部分来进行赋值，就可以使用解构赋值。</span><br><span class="line">let params = &#123;name:&apos;张&apos;，age:18, sex:&apos;女&apos; &#125;；</span><br><span class="line">let &#123;name,sex&#125;=params;</span><br><span class="line"> &lt;PropsTest name=&#123;name&#125; sex=&#123;sex&#125; /&gt; </span><br><span class="line">它比传统的方式好是它可以从一组属性中获取指定属性，而且，少了一点点代码。</span><br></pre></td></tr></table></figure>
-<h2 id="什么是state"><a href="#什么是state" class="headerlink" title="什么是state"></a>什么是state</h2><blockquote>
-<p>props是不可改变，只读的。为了实现交互，就需要用到组件的state。我们将组件看为状态机，UI是各种各样的状态，并在各种各样的状态之间可以切换，只需要改变组件的state，就会重新渲染UI。<br>state是组件私有的，是没有办法通过其他组件传递过来的。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">state也可以吹气球</span><br><span class="line"></span><br><span class="line">（导入新的资源，都会报错，因此需要将包管理器关掉，再重新启动服务即可。）</span><br><span class="line"></span><br><span class="line">如何控制state的变化呢，在文字上设置方法，</span><br><span class="line">onPress=&#123; ()=&gt; &#123;this.setState (&#123; size:this.state.size+10&#125;); &#125;&#125;</span><br><span class="line"> 改变state的值是用 this.setState&#123;size:90&#125;</span><br><span class="line">&lt;Image </span><br><span class="line">style=&#123;&#123;width:this.state.size,height:this.state.size&#125;&#125;  </span><br><span class="line">source=&#123;require(&apos;./qiqiu.png)&#125;</span><br><span class="line">/&gt;</span><br><span class="line">上述代码就将 Image 的大小给渲染出来啦。(动态化的UI就有啦)</span><br></pre></td></tr></table></figure>
-<h2 id="什么是ref"><a href="#什么是ref" class="headerlink" title="什么是ref"></a>什么是ref</h2><p>ref是什么？<br>ref是组件的特殊属性，组件被渲染后，指向组件的一个引用。可以通过组件的ref属性，来获取真实的组件。<br>因为，组件并不是真正的DOM节点，而是存在于内存中的一种数据结构，称为虚拟的DOM，只有当它真正的插入文档之后，才变为真正的DOM节点。根据React的设计，所以的DOM变动都发生在虚拟DOM上，然后再将实际的部分反映到真实的DOM上–这就是 DOM DIff，它可以提高页面性能。</p>
-<h2 id="类-class"><a href="#类-class" class="headerlink" title="类 class"></a>类 class</h2><p>类<br>ES6中引入了class（类），让javaScript的面向对象编程变得更加简单和易于理解</p>
-<p>一、类的导入<br>和导入普通的组件是一样的<br>import Student from ‘./Student’; </p>
-<p>二、类的实例化<br>可以在setup.js的构造函数中，如下：<br>this.stu= new Student(“晓明”，”男”, 16);</p>
-<p>三、使用类的实例<br>setup.js的render里面</p>
-<p>this.stu.getDescription()//获取实例中的方法或属性等</p>
-<p>四、类的继承<br>构造方法和方法是可以重写的</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/15/reactnative/ReactNative记录问题点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1228,6 +1042,192 @@
 } <span class="keyword">from</span> <span class="string">'@jdreact/jdreact-core-lib'</span>
 
 </code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/15/reactnative/ReactNative基础学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/15/reactnative/ReactNative基础学习/" itemprop="url">
+                  ReactNative基础学习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-15 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-15T16:17:22+08:00">2018-06-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-08 16:28:10" itemprop="dateModified" datetime="2018-08-08T16:28:10+08:00">2018-08-08</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ReactNative/" itemprop="url" rel="index"><span itemprop="name">ReactNative</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h2><p>组件装载，组件在渲染之前，会先调用默认的props，ES6就是，static defaultProps；接下来就是组件初始化，constructor（props）组件的构造方法；接下来是 componentWillMount组件在加载之前的方法；render完成组件的渲染；componentDidMount 组件渲染完成。接下来就进入运行阶段啦。（一次调用）</p>
+<p>组件更新，在运行中，如果组件的属性发生了改变，就会调用 componentWillReceiveProps 会被调用，然后就会调用 shouldComponentUpdate ，询问我们是否要渲染组件，如果返回FALSE的话，就不会渲染；如果是TRUE的话，就会调用componentWillUpdate重新渲染组件，然后render，再后来就完成更新啦componentDidUpdate（多次调用）</p>
+<p>组件卸载，页面关闭的时候，组件会被卸载，componentWillUnmount，可以完成资源的回收与释放啦。（一次调用）</p>
+<h2 id="创建组件的三种方式"><a href="#创建组件的三种方式" class="headerlink" title="创建组件的三种方式"></a>创建组件的三种方式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 方式1 ES6</span></span><br><span class="line"><span class="comment">* */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">NewView</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        <span class="keyword">return</span> &lt;Text style=&#123;styles.container&#125;&gt;hello ES6&lt;/Text&gt; ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 方式2 ES5  需要module.exports</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// var NewView = React.createClass(&#123;</span></span><br><span class="line"><span class="comment">//     render()&#123;</span></span><br><span class="line"><span class="comment">//         return &lt;Text style=&#123;styles.container&#125;&gt;hello ES5&lt;/Text&gt; ;</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;)</span></span><br><span class="line"><span class="comment">// module.exports = NewView;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 方式3 函数式  需要module.exports</span></span><br><span class="line"><span class="comment"> * 无状态，不能使用this，但是可以传入属性</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// function NewView(props) &#123;</span></span><br><span class="line"><span class="comment">//     return &lt;Text style=&#123;styles.container&#125;&gt;hello &#123;props.name&#125;&lt;/Text&gt; ;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// module.exports = NewView;</span></span><br></pre></td></tr></table></figure>
+<h2 id="组件的导入和导出"><a href="#组件的导入和导出" class="headerlink" title="组件的导入和导出"></a>组件的导入和导出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">一、导出组件</span><br><span class="line">三种导出方式，之前学过的ES6, ES5, 函数式三种建立组件方式，里面有提及过如何导出</span><br><span class="line"></span><br><span class="line">使用方式：</span><br><span class="line">import EIComponent from &apos;./EIComponent&apos;</span><br><span class="line"></span><br><span class="line">二、导出变量</span><br><span class="line">方法一：</span><br><span class="line">export var name = &apos;sun&apos;;</span><br><span class="line">export var age = &apos;female&apos;;</span><br><span class="line"></span><br><span class="line">方法二：</span><br><span class="line">var name = &apos;sun&apos;;</span><br><span class="line">var age = &apos;22&apos;;</span><br><span class="line">export &#123;name, age&#125;;</span><br><span class="line"></span><br><span class="line">使用方式：</span><br><span class="line">例如setup.js中加入：</span><br><span class="line">import EIComponent,&#123;name,age&#125; from &apos;./EIComponent&apos;</span><br><span class="line"></span><br><span class="line">三、导出方法</span><br><span class="line">方法前加export</span><br><span class="line">export function sum(a,b)&#123;</span><br><span class="line">    return a+b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">使用方式：</span><br><span class="line">和变量使用方式一致</span><br><span class="line">import EIComponent,&#123;name,age,sum&#125; from &apos;./EIComponent&apos;</span><br></pre></td></tr></table></figure>
+<h2 id="React-Native-props使用详解"><a href="#React-Native-props使用详解" class="headerlink" title="React Native props使用详解"></a>React Native props使用详解</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1、什么是props? 父组件传递给子组件的属性</span><br><span class="line">2、如何使用props?</span><br><span class="line">3、什么是默认属性以及它的作用？ </span><br><span class="line">4、如何对props进行约束和检查？</span><br><span class="line">5、props使用小技巧之延展操作符？</span><br><span class="line">6、props使用小技巧之解构赋值？</span><br><span class="line"></span><br><span class="line">props使用技巧--延展操作符</span><br><span class="line">延展操作符是ES6中的新语法。当我要传递很多个属性时，</span><br><span class="line">let params = &#123;name:&apos;张&apos;，age:18, sex:&apos;女&apos; &#125;；</span><br><span class="line">使用的时候就是 &lt;PropsTest name=&#123;params.name&#125; sex=&#123;params.sex&#125; /&gt;（但这个非常的复杂，代码也会很长）</span><br><span class="line">&lt;PropsTest &#123; ...params &#125; /&gt;（使用 大括号里放三个点 ...，然后接着 params 就可以在下一个页面被使用了。 ）</span><br><span class="line"></span><br><span class="line">props使用技巧--解构赋值</span><br><span class="line">延展操作符是将属性全部进行赋值，但如果只想取出部分来进行赋值，就可以使用解构赋值。</span><br><span class="line">let params = &#123;name:&apos;张&apos;，age:18, sex:&apos;女&apos; &#125;；</span><br><span class="line">let &#123;name,sex&#125;=params;</span><br><span class="line"> &lt;PropsTest name=&#123;name&#125; sex=&#123;sex&#125; /&gt; </span><br><span class="line">它比传统的方式好是它可以从一组属性中获取指定属性，而且，少了一点点代码。</span><br></pre></td></tr></table></figure>
+<h2 id="什么是state"><a href="#什么是state" class="headerlink" title="什么是state"></a>什么是state</h2><blockquote>
+<p>props是不可改变，只读的。为了实现交互，就需要用到组件的state。我们将组件看为状态机，UI是各种各样的状态，并在各种各样的状态之间可以切换，只需要改变组件的state，就会重新渲染UI。<br>state是组件私有的，是没有办法通过其他组件传递过来的。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">state也可以吹气球</span><br><span class="line"></span><br><span class="line">（导入新的资源，都会报错，因此需要将包管理器关掉，再重新启动服务即可。）</span><br><span class="line"></span><br><span class="line">如何控制state的变化呢，在文字上设置方法，</span><br><span class="line">onPress=&#123; ()=&gt; &#123;this.setState (&#123; size:this.state.size+10&#125;); &#125;&#125;</span><br><span class="line"> 改变state的值是用 this.setState&#123;size:90&#125;</span><br><span class="line">&lt;Image </span><br><span class="line">style=&#123;&#123;width:this.state.size,height:this.state.size&#125;&#125;  </span><br><span class="line">source=&#123;require(&apos;./qiqiu.png)&#125;</span><br><span class="line">/&gt;</span><br><span class="line">上述代码就将 Image 的大小给渲染出来啦。(动态化的UI就有啦)</span><br></pre></td></tr></table></figure>
+<h2 id="什么是ref"><a href="#什么是ref" class="headerlink" title="什么是ref"></a>什么是ref</h2><p>ref是什么？<br>ref是组件的特殊属性，组件被渲染后，指向组件的一个引用。可以通过组件的ref属性，来获取真实的组件。<br>因为，组件并不是真正的DOM节点，而是存在于内存中的一种数据结构，称为虚拟的DOM，只有当它真正的插入文档之后，才变为真正的DOM节点。根据React的设计，所以的DOM变动都发生在虚拟DOM上，然后再将实际的部分反映到真实的DOM上–这就是 DOM DIff，它可以提高页面性能。</p>
+<h2 id="类-class"><a href="#类-class" class="headerlink" title="类 class"></a>类 class</h2><p>类<br>ES6中引入了class（类），让javaScript的面向对象编程变得更加简单和易于理解</p>
+<p>一、类的导入<br>和导入普通的组件是一样的<br>import Student from ‘./Student’; </p>
+<p>二、类的实例化<br>可以在setup.js的构造函数中，如下：<br>this.stu= new Student(“晓明”，”男”, 16);</p>
+<p>三、使用类的实例<br>setup.js的render里面</p>
+<p>this.stu.getDescription()//获取实例中的方法或属性等</p>
+<p>四、类的继承<br>构造方法和方法是可以重写的</p>
 
           
         
@@ -1816,7 +1816,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/java/java-spring/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/java/spring注解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -1835,8 +1835,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/java/java-spring/" itemprop="url">
-                  java-spring
+                <a class="post-title-link" href="/2018/06/11/java/spring注解/" itemprop="url">
+                  spring注解
                 </a>
               
             
@@ -1879,7 +1879,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-07-25 16:16:49" itemprop="dateModified" datetime="2018-07-25T16:16:49+08:00">2018-07-25</time>
+                <time title="修改时间：2018-07-25 16:43:17" itemprop="dateModified" datetime="2018-07-25T16:43:17+08:00">2018-07-25</time>
               
             
           </span>
@@ -1932,11 +1932,18 @@
       
         
           
-            <h2 id="spring框架"><a href="#spring框架" class="headerlink" title="spring框架"></a>spring框架</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Spring是一个开放源代码的设计层面框架，他解决的是业务逻辑层和其他各层的松耦合问题，</span><br><span class="line">因此它将面向接口的编程思想贯穿整个系统应用。</span><br><span class="line">Spring是于2003 年兴起的一个轻量级的Java 开发框架，由Rod Johnson创建。</span><br><span class="line">简单来说，Spring是一个分层的JavaSE/EE full-stack(一站式) 轻量级开源框架。</span><br></pre></td></tr></table></figure>
-<h2 id="下载和安装Spring请按如下步骤进行。"><a href="#下载和安装Spring请按如下步骤进行。" class="headerlink" title="下载和安装Spring请按如下步骤进行。"></a>下载和安装Spring请按如下步骤进行。</h2><p>（1）登录站点，下载Spring的最新稳定版本。最新版本为spring-framework-5.0.建议下载spring-framework-spring-framework-4.0.0.M2-dist这个压缩包不仅包含Spring的开发包，而且包含Spring编译和运行所依赖的第三方类库。<br>解压缩下载到的压缩包，解压缩后的文件夹应用如下几个文件夹。<br>dist：该文件夹下放Spring的jar包，通常只需要Spring.jar文件即可。该文件夹下还有一些类似spring－Xxx.jar的压缩包， 这些压缩包是spring.jar压缩包的子模块压缩包。除非确定整个J2EE应用只需要使用Spring的某一方面时，才考虑使用这种分模块压缩包。通常建议使用Spring.jar<br>docs：该文件夹下包含spring的相关文档、开发指南及API参考文档。<br>lib：该文件夹下包含spring编译和运行所依赖的第三方类库，该路径下的类库并不是  spring必需的，但如果需要使用第三方类库的支持，这里的类库就是必需要的。<br>samples：该文件夹下包含Spring的几个简单例子，可作为Spring入门学习的案例。<br>src：该文件夹下包含Spring的全部源文件，如果开发过程中有地方无法把握，可以参考该源文件，了解底层实现。<br>spring<br>spring<br>test：该文件夹下包含Spring的测试示例。<br>tiger：该路径下存放关于JDK的相关内容<br>解压缩后的文件夹下，还包含一些关于Spring的License和项目相关文件<br>（2）将spring.jar复制到项目的CLASSPATH路径下，对于Web应用，将spring.jar文件复制到WEB-INF/lib路径下，该应用即可以利用Spring框架了。<br>（3）通常Spring的框架还依赖于其他一些jar文件，因此还须将lib下对应的包复制到WEB-INF/lib路径下，具体要复制哪些jar文件，取决于应用所需要使用的项目。通常需要复制cglib，dom4j，jakarta-commons，log4j等文件夹下的jar文件。<br>（4）为了编译java文件，可以找到Spring的基础类，将Spring.jar文件的路径添加到环境变量CLASSPATH中。当然，也可以使用ANT工具，但无须添加环境变量。如果使用Eclipse或者NetBeans等IDE时，也不需要设置环境变量。  </p>
-<h2 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h2><p>传统的web架构的view 表现层使用struts作为表现层。但是如果试用下spring自带的MVC，会发现spring 在一般场合完全可以取代struts。从某些角度来说，spring的mvc设计的更加合理，有兴趣的话不妨尝试下单个的spring的MVC。</p>
-<p><a href="https://www.w3cschool.cn/wkspring/" target="_blank" rel="noopener">w3Cschool-spring学习</a></p>
-<h2 id="Spring-Boot-是什么？"><a href="#Spring-Boot-是什么？" class="headerlink" title="Spring Boot 是什么？"></a>Spring Boot 是什么？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot 的目的是提供一组工具，以便快速构建容易配置的 Spring 应用程序。</span><br></pre></td></tr></table></figure>
+            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、大量的XML让开发者厌恶,因此Spring提供了许多注解来完成各种功能。</span><br><span class="line">2、大量的注解让开发者厌恶 ,因此Spring提供了组合注解来完成各种功能。</span><br></pre></td></tr></table></figure>
+<h2 id="Spring-Boot-注解的意义以及作用"><a href="#Spring-Boot-注解的意义以及作用" class="headerlink" title="Spring Boot 注解的意义以及作用"></a>Spring Boot 注解的意义以及作用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">利用注解：隐式配置，例如：@Autowired、@Bean、@Component等，通过注解来简化xml文件。</span><br><span class="line"></span><br><span class="line">利用Java文件：显示配置，比xml配置的优势是具备类型安全。</span><br><span class="line"></span><br><span class="line">利用传统的xml配置文件。</span><br></pre></td></tr></table></figure>
+<p>注解(annotations)列表</p>
+<p>@ResponseBody </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用该注解修饰的函数，会将结果直接填充到HTTP的响应体中，一般用于构建RESTful的api；</span><br></pre></td></tr></table></figure>
+<p>@Controller</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用于定义控制器类，在spring 项目中由控制器负责将用户发来的URL请求转发到对应的服务接口（service层）。</span><br></pre></td></tr></table></figure>
+<p>@RestController</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@ResponseBody和@Controller的合集</span><br></pre></td></tr></table></figure>
+<p>@RequestMapping</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">提供路由信息，负责URL到Controller中的具体函数的映射。</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/m0_37995707/article/details/77447764" target="_blank" rel="noopener">更多注解详看</a></p>
 
           
         
@@ -1990,7 +1997,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/git 常用功能/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/git 之 ssh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -2009,8 +2016,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/git/git 常用功能/" itemprop="url">
-                  git项目中的常用功能
+                <a class="post-title-link" href="/2018/06/11/git/git 之 ssh/" itemprop="url">
+                  ssh
                 </a>
               
             
@@ -2053,7 +2060,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-28 16:00:27" itemprop="dateModified" datetime="2018-08-28T16:00:27+08:00">2018-08-28</time>
+                <time title="修改时间：2018-09-12 20:33:50" itemprop="dateModified" datetime="2018-09-12T20:33:50+08:00">2018-09-12</time>
               
             
           </span>
@@ -2106,19 +2113,13 @@
       
         
           
-            <h3 id="列出提交个数-主要用来设置项目build号"><a href="#列出提交个数-主要用来设置项目build号" class="headerlink" title="列出提交个数   主要用来设置项目build号"></a>列出提交个数   主要用来设置项目build号</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rev-list --count HEAD</span><br></pre></td></tr></table></figure>
-<h3 id="获得两个版本间所有变更的文件列表"><a href="#获得两个版本间所有变更的文件列表" class="headerlink" title="获得两个版本间所有变更的文件列表"></a>获得两个版本间所有变更的文件列表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git diff 6962e097c87bcbd937eb59d94f9f79b9a709455d   </span><br><span class="line">c02e20f5ad5eb1a675b6b3d30fed5b66f309871c --stat &gt; log.txt -p</span><br></pre></td></tr></table></figure>
-<h3 id="查看某个文件的修改历史"><a href="#查看某个文件的修改历史" class="headerlink" title="查看某个文件的修改历史"></a>查看某个文件的修改历史</h3><p><code>git log -p filePath/fileName.m</code></p>
-<h3 id="使用-pull-rebase-操作替代-merge"><a href="#使用-pull-rebase-操作替代-merge" class="headerlink" title="使用 pull rebase 操作替代 merge"></a>使用 pull rebase 操作替代 merge</h3><p>　　如果你工作的团队正工作在同一个分支，那么你所要做的获取/合并或经常拉取。分支合并的 git 记录与合并提交时提示功能分支被并入主干。但在多个团队成员工作的同一分支的情况下，经常合并导致在日志中多个合并的消息引起混乱。所以你可以使用 pull rebase，以保持历史信息清除了无用合并的消息。</p>
-<p><code>git config branch.BRANCH_NAME_HERE.rebase true</code></p>
-<p>　　此外，您可以配置一个特定的分支总是衍合：</p>
-<p><code>git pull --rebase</code></p>
-<h3 id="gc-命令"><a href="#gc-命令" class="headerlink" title="gc 命令"></a>gc 命令</h3><p>“垃圾回收”是一个很亲切的功能。让我们开始吧：<br><code>$ git gc --prune=now</code><br>现在，重新检视一下仓库的大小，发现确实有效啊：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ find .git/objects -type f</span><br><span class="line">.git/objects/info/packs</span><br><span class="line">.git/objects/pack/pack-9d75315485cb7bfbf51ce5c94a4535da99b58dbb.idx</span><br><span class="line">.git/objects/pack/pack-9d75315485cb7bfbf51ce5c94a4535da99b58dbb.pack</span><br><span class="line">$</span><br><span class="line">$ du -ah    # 此处略去了无关输出</span><br><span class="line">4.0K    ./.git/objects/pack/pack-9d75315485cb7bfbf51ce5c94a4535da99b58dbb.idx</span><br><span class="line"> 52M    ./.git/objects/pack/pack-9d75315485cb7bfbf51ce5c94a4535da99b58dbb.pack</span><br><span class="line"> 77M    ./bigfile</span><br><span class="line">130M    .</span><br></pre></td></tr></table></figure>
-<h3 id="cherry-pick用法"><a href="#cherry-pick用法" class="headerlink" title="cherry-pick用法"></a>cherry-pick用法</h3><p>使用场景：在branch1开发，进行多个提交，这是切换到branch2，想把之前branch1分支提交的commit都复制过来。</p>
-<p>单个<code>commit</code>只需要<code>git cherry-pick commitid</code></p>
-<p>多个<code>commit</code> 只需要<code>git cherry-pick commitid1..commitid100</code></p>
-<p>注意，不包含第一个<code>commitid</code> ， 即  <code>git cherry-pick (commitid1..commitid100]</code></p>
+            <h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><p>你拥有了一个 GitHub 账号之后，就可以自由的 clone 或者下载其他项目，也可以创建自己的项目，但是你没法提交代码。仔细想想也知道，肯定不可能随意就能提交代码的，如果随意可以提交代码，那么 GitHub 上的项目岂不乱了套了，所以提交代码之前一定是需要某种授权的，而 GitHub 上一般都是基于 SSH 授权的。<br>那么什么是 SSH 呢？ 简单点说，SSH是一种网络协议，用于计算机之间的加密登录。目前是每一台 Linux 电脑的标准配置。而大多数 Git 服务器都会选择使用 SSH 公钥来进行授权，所以想要在 GitHub 提交代码的第一步就是要先添加 SSH key 配置。</p>
+<h3 id="生成SSH-key"><a href="#生成SSH-key" class="headerlink" title="生成SSH key"></a>生成SSH key</h3><p>Linux 与 Mac 都是默认安装了 SSH ，而 Windows 系统安装了 Git Bash 应该也是带了 SSH 的。大家可以在终端（win下在 Git Bash 里）输入 ssh 检测是否已安装。</p>
+<p>紧接着输入 <code>ssh-keygen -t rsa</code> 或者<code>（ssh-keygen -t rsa -C “邮箱名&quot;）</code> ，什么意思呢？就是指定 rsa 算法生成密钥，接着连续三个回车键（不需要输入密码），然后就会生成两个文件 <code>id_rsa</code> 和 <code>id_rsa.pub</code> ，而 <code>id_rsa</code> 是密钥，<code>id_rsa.pub</code> 就是公钥。这两文件默认分别在如下目录里生成：<br><code>Linux/Mac</code> 系统 在<code>~/.ssh</code> 下，win系统在 <code>/c/Documents and Settings/username/.ssh</code> 下，都是隐藏文件，相信你们有办法查看的。<br>接下来要做的是把 <code>id_rsa.pub</code>的内容添加到 GitHub 上，这样你本地的 <code>id_rsa</code> 密钥跟 GitHub 上的 <code>id_rsa.pub</code> 公钥进行配对，授权成功才可以提交代码。</p>
+<h3 id="GitHub-上添加-SSH-key"><a href="#GitHub-上添加-SSH-key" class="headerlink" title="GitHub 上添加 SSH key"></a>GitHub 上添加 SSH key</h3><p>第一步先在 GitHub 上的设置页面，点击最左侧 SSH and GPG keys ：</p>
+<h3 id="怎么查看-id-rsa-pub-文件的内容？"><a href="#怎么查看-id-rsa-pub-文件的内容？" class="headerlink" title="怎么查看 id_rsa.pub 文件的内容？"></a>怎么查看 id_rsa.pub 文件的内容？</h3><p>Linux/Mac 用户执行以下命令：<br>cd ~/.ssh<br>cat id_rsa.pub</p>
+<h3 id="测试是否ok"><a href="#测试是否ok" class="headerlink" title="测试是否ok"></a>测试是否ok</h3><p>SSH key 添加成功之后，输入 ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> 进行测试</p>
+<p><a href="http://stormzhang.com/github/2016/06/04/learn-github-from-zero4/" target="_blank" rel="noopener">ssh向GITHUB 提交代码</a></p>
 
           
         
@@ -2161,7 +2162,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2208,7 +2209,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">63</span>
+                    <span class="site-state-item-count">72</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2324,7 +2325,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">33</span>
+                      
+                    
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
