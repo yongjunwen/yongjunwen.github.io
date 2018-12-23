@@ -331,7 +331,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/添加忽略文件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/15/reactnative/js知识点总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -350,8 +350,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/git/添加忽略文件/" itemprop="url">
-                  git gitignore的设置
+                <a class="post-title-link" href="/2018/06/15/reactnative/js知识点总结/" itemprop="url">
+                  js知识点总结
                 </a>
               
             
@@ -377,7 +377,7 @@
                 
               
 
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+              <time title="创建时间：2018-06-15 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-15T16:17:22+08:00">2018-06-15</time>
             
 
             
@@ -394,7 +394,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-26 14:56:17" itemprop="dateModified" datetime="2018-06-26T14:56:17+08:00">2018-06-26</time>
+                <time title="修改时间：2018-12-06 16:57:11" itemprop="dateModified" datetime="2018-12-06T16:57:11+08:00">2018-12-06</time>
               
             
           </span>
@@ -411,7 +411,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
 
                 
                 
@@ -447,22 +447,221 @@
       
         
           
-            <h3 id="在项目中添加-gitignore文件"><a href="#在项目中添加-gitignore文件" class="headerlink" title="在项目中添加.gitignore文件"></a>在项目中添加.gitignore文件</h3><blockquote>
-<p>.gitignore文件可以直接从 <a href="https://github.com/github/gitignore" target="_blank" rel="noopener">https://github.com/github/gitignore</a> 上面下载，里面包含了各个语言对应的.gitignore文件</p>
-</blockquote>
-<h3 id="配置添加所需要忽略的文件或者文件类型"><a href="#配置添加所需要忽略的文件或者文件类型" class="headerlink" title="配置添加所需要忽略的文件或者文件类型"></a>配置添加所需要忽略的文件或者文件类型</h3><blockquote>
-<p>使用命令vim .gitignore打开.gitignore文件，回车后 添加和修改要忽略的文件</p>
-</blockquote>
-<h3 id="将-gitignore文件提交到仓库"><a href="#将-gitignore文件提交到仓库" class="headerlink" title="将.gitignore文件提交到仓库"></a>将.gitignore文件提交到仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .gitignore</span><br><span class="line">git commit -m &quot;添加项目忽略文件&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>提交.gitignore文件的目的主要是保证其他开发者提交的时候也会自动筛选掉不需要的文件，因为已提交到仓库的文件再设置.gitignore文件中忽略是无效的，需要先将其移除版本控制后，.gitignore文件才会生效。具体方法见下文。</p>
-</blockquote>
-<h3 id="关于-git-将文件或文件夹移除版本控制"><a href="#关于-git-将文件或文件夹移除版本控制" class="headerlink" title="关于 git 将文件或文件夹移除版本控制"></a>关于 git 将文件或文件夹移除版本控制</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git rm -r -n --cached &quot;bin/&quot; //-n：加上这个参数，执行命令时，是不会删除任何文件，而是展示此命令要删除的文件列表预览。</span><br><span class="line">git rm -r --cached  &quot;bin/&quot;      //最终执行命令. </span><br><span class="line">git commit -m&quot; remove bin folder all file out of control&quot;    //提交</span><br><span class="line">git push    //提交到远程服务器</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果是要忽略一种类型的文件（如.DS_Store文件），将bin/换成*.DS_Store即可。</p>
-</blockquote>
-<h3 id="设置Git全局忽略文件方法"><a href="#设置Git全局忽略文件方法" class="headerlink" title="设置Git全局忽略文件方法"></a>设置Git全局忽略文件方法</h3><p>配置全局忽略文件的我们就不必给每一个项目添加单独的忽略文件<br>1、 进入用户目录下，将第一步中配置好的.gitignore文件拷贝到用户目录下，将这个文件改个名字，名字随意，自己好认就行<br>2、 执行命令git config –global core.excludesfile ~/.gitignore_globalxxxx</p>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>命令git config –global core.excludesfile ~/.gitignore_globalaaaa的效果其实就是修改了在用户目录下的.gitconfig文件</p>
+            <h4 id="js中的-和-amp-amp"><a href="#js中的-和-amp-amp" class="headerlink" title="js中的||和&amp;&amp;"></a>js中的||和&amp;&amp;</h4><ul>
+<li><p>逻辑与&amp;&amp;和逻辑或||操作符可以应用于任何类型的操作数，而不仅仅是布尔值。</p>
+</li>
+<li><p>几乎所有语言中||和&amp;&amp;都遵循“短路”原理， 如&amp;&amp;中第一个表达式为假就不会去处理第二个表达式，而||正好相反。js同样也遵循上述原则： 
+　　</p>
+</li>
+<li>当逻辑或||时，找到为true的分项就停止处理，并返回该分项的值，否则执行完，并返回最后分项的值。</li>
+<li>当逻辑与&amp;&amp;时，找到为false的分项就停止处理，并返回该分项的值。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">""</span> || <span class="literal">null</span> || <span class="number">3</span> || <span class="number">4</span>;<span class="comment">//3</span></span><br><span class="line">alert(a);</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">4</span> &amp;&amp; <span class="number">5</span> &amp;&amp; <span class="literal">null</span> &amp;&amp; <span class="string">"0"</span>;<span class="comment">//null</span></span><br><span class="line">alert(b);</span><br></pre></td></tr></table></figure>
+<h4 id="扩展运算符-…-的使用"><a href="#扩展运算符-…-的使用" class="headerlink" title="扩展运算符  … 的使用"></a>扩展运算符  … 的使用</h4><p><a href="https://www.cnblogs.com/chrischjh/p/4848934.html" target="_blank" rel="noopener">妙用ES6解构和扩展运算符让你的代码更优雅</a></p>
+<h4 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h4><p><a href="https://www.cnblogs.com/snandy/p/4403111.html" target="_blank" rel="noopener">ES6箭头函数（Arrow Functions）</a></p>
+<h4 id="字典合并-利用扩展运算符"><a href="#字典合并-利用扩展运算符" class="headerlink" title="字典合并 利用扩展运算符"></a>字典合并 利用扩展运算符</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const obj1 = &#123;&apos;name&apos;: &apos;张三&apos;, &apos;age&apos;: &apos;12&apos;, &apos;salary&apos;: &apos;2332&apos;&#125;;</span><br><span class="line">const obj2 = &#123;&apos;fat&apos;: &apos;true&apos;, &apos;name&apos;: &apos;李四&apos;&#125;;</span><br><span class="line"></span><br><span class="line">const obj3 = &#123;...obj1,...obj2&#125;;</span><br><span class="line">console.log(&apos;obj3=====&apos;, obj3);</span><br></pre></td></tr></table></figure>
+<h4 id="原生JS实现深拷贝"><a href="#原生JS实现深拷贝" class="headerlink" title="原生JS实现深拷贝"></a>原生JS实现深拷贝</h4><p><a href="https://blog.csdn.net/wang839305939/article/details/80819132" target="_blank" rel="noopener">原生JS实现深拷贝</a><br><a href="https://www.css88.com/archives/8319" target="_blank" rel="noopener">JavaScript 中的对象拷贝</a></p>
+<ul>
+<li>使用 <code>Object.assign()</code> 方法用于将从一个或多个源对象中的所有可枚举的属性值复制到目标对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let obj = &#123;</span><br><span class="line">  a: 1,</span><br><span class="line">  b: 2,</span><br><span class="line">&#125;;</span><br><span class="line">let objCopy = Object.assign(&#123;&#125;, obj);</span><br><span class="line">console.log(objCopy);</span><br><span class="line">// Result - &#123; a: 1, b: 2 &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用<code>JSON.parse(JSON.stringify(object))</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let obj = &#123; </span><br><span class="line">  a: 1,</span><br><span class="line">  b: &#123; </span><br><span class="line">    c: 2,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">let newObj = JSON.parse(JSON.stringify(obj));</span><br><span class="line"> </span><br><span class="line">obj.b.c = 20;</span><br><span class="line">console.log(obj); // &#123; a: 1, b: &#123; c: 20 &#125; &#125;</span><br><span class="line">console.log(newObj); // &#123; a: 1, b: &#123; c: 2 &#125; &#125; (一个新的对象)</span><br></pre></td></tr></table></figure>
+<h4 id="Chrome-react调试插件"><a href="#Chrome-react调试插件" class="headerlink" title="Chrome react调试插件"></a>Chrome react调试插件</h4><p><a href="http://www.cnplugins.com/zhuanti/how-to-use-react-tools.html" target="_blank" rel="noopener">React - React Developer Tools开发者工具的安装与使用（Chrome调试插件）</a></p>
+<h4 id="从React15-5起，React-PropTypes被移入到单独的package中"><a href="#从React15-5起，React-PropTypes被移入到单独的package中" class="headerlink" title="从React15.5起，React.PropTypes被移入到单独的package中"></a>从React15.5起，React.PropTypes被移入到单独的package中</h4><p><a href="https://react.docschina.org/docs/typechecking-with-proptypes.html" target="_blank" rel="noopener">使用 PropTypes 进行类型检查</a></p>
+<p><strong>需要我们安装软件包prop-types 安装方法为：</strong></p>
+<ul>
+<li><p>安装prop-types <code>npm install prop-types --save</code>      </p>
+</li>
+<li><p>导入  <code>import { PropTypes} from &#39;prop-types&#39;;</code></p>
+</li>
+<li><p>使用</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  static defaultProps = &#123;</span><br><span class="line">    name: &apos;stranger&apos;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">static propTypes = &#123;</span><br><span class="line">        autoPlay: PropTypes.bool.isRequired,</span><br><span class="line">        maxLoops: PropTypes.number.isRequired,</span><br><span class="line">        posterFrameSrc:PropTypes.string.isRequired,</span><br><span class="line">        videoSrc: PropTypes.string.isRequired,</span><br><span class="line">        nameString: PropTypes.string.isRequired,</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/14/reactnative/ESLint介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/14/reactnative/ESLint介绍/" itemprop="url">
+                  ESLint安装使用流程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-14 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-14T16:17:22+08:00">2018-06-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-03 17:23:59" itemprop="dateModified" datetime="2018-07-03T17:23:59+08:00">2018-07-03</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>ESLint安装使用流程</p>
+<h1 id="京东通天塔项目安装使用流程"><a href="#京东通天塔项目安装使用流程" class="headerlink" title="京东通天塔项目安装使用流程"></a>京东通天塔项目安装使用流程</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; 京东通天塔项目已经添加了相关的配置只需要做以下操作即可使用：</span><br><span class="line">1. npm run install_eslint_packages     安装相关依赖包</span><br><span class="line">2. IDE配置：</span><br><span class="line">  http://139.199.180.74/showdoc/Public/Uploads/2017-12-12/5a2f4a15bfbcd.jpeg</span><br><span class="line">3.输出使用 详见最底部 `ESLint输出报告方式`</span><br></pre></td></tr></table></figure>
+<h1 id="新项目安装使用流程"><a href="#新项目安装使用流程" class="headerlink" title="新项目安装使用流程"></a>新项目安装使用流程</h1><h2 id="ESLint流程梳理"><a href="#ESLint流程梳理" class="headerlink" title="ESLint流程梳理"></a>ESLint流程梳理</h2><h3 id="一、背景介绍"><a href="#一、背景介绍" class="headerlink" title="一、背景介绍"></a>一、背景介绍</h3><h5 id="ESLint是一个用来识别-ECMAScript-并且按照规则给出报告的代码检测工具，使用它可以避免低级错误和统一代码的风格。ESLint被设计为完全可配置的，主要有两种方式来配置ESLint："><a href="#ESLint是一个用来识别-ECMAScript-并且按照规则给出报告的代码检测工具，使用它可以避免低级错误和统一代码的风格。ESLint被设计为完全可配置的，主要有两种方式来配置ESLint：" class="headerlink" title="ESLint是一个用来识别 ECMAScript 并且按照规则给出报告的代码检测工具，使用它可以避免低级错误和统一代码的风格。ESLint被设计为完全可配置的，主要有两种方式来配置ESLint："></a>ESLint是一个用来识别 ECMAScript 并且按照规则给出报告的代码检测工具，使用它可以避免低级错误和统一代码的风格。ESLint被设计为完全可配置的，主要有两种方式来配置ESLint：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">在注释中配置：使用JavaScript注释直接把配置嵌入到JS文件中。</span><br><span class="line">配置文件：使用下面任一的文件来为全部的目录和它的子目录指定配置信息。</span><br><span class="line">javascript：使用.eslintrc.js文件并导出一个包含配置的对象。</span><br><span class="line">YAML：.eslintrc.yaml或者.eslintrc.yml</span><br><span class="line">JSON：.eslintrc.json，并且此文件允许使用JS形式的注释</span><br><span class="line">废弃的用法：.eslintrc，此文件可以是JSON或者YAML</span><br><span class="line">package.json：在package.json文件中创建eslintConfig属性，所有的配置包含在此属性中。</span><br><span class="line">这些文件的优先级则是按照以上出现的顺序</span><br><span class="line">（.eslintrc.js &gt; .eslintrc.yaml &gt; .eslintrc.yml &gt; .eslintrc.json &gt; .eslintrc &gt; package.json）。</span><br><span class="line"></span><br><span class="line">三种方法可以配置ESLint</span><br><span class="line">    &gt; 使用.eslintrc.*文件（ 支持JSON和YAML两种语法）</span><br><span class="line">    &gt; 在package.json中添加eslintConfig配置块</span><br><span class="line">    &gt; 使用JavaScript注释直接把配置嵌入到文件中</span><br><span class="line"></span><br><span class="line">可以被配置的信息主要分为3类：</span><br><span class="line"></span><br><span class="line">Environments：你的 javascript 脚步将要运行在什么环境（如：nodejs，browser，commonjs等）中。</span><br><span class="line">Globals：执行代码时脚步需要访问的额外全局变量。</span><br><span class="line">Rules：开启某些规则，也可以设置规则的等级。</span><br></pre></td></tr></table></figure>
+<h3 id="二、作用"><a href="#二、作用" class="headerlink" title="二、作用"></a>二、作用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">EsLint提供以下几种校验：</span><br><span class="line"></span><br><span class="line">语法错误校验</span><br><span class="line">不重要或丢失的标点符号，如分号</span><br><span class="line">没法运行到的代码块（使用过WebStorm的童鞋应该了解）</span><br><span class="line">未被使用的参数提醒</span><br><span class="line">漏掉的结束符，如&#125;</span><br><span class="line">确保样式的统一规则，如sass或者less</span><br><span class="line">检查变量的命名</span><br></pre></td></tr></table></figure>
+<h3 id="三、安装"><a href="#三、安装" class="headerlink" title="三、安装"></a>三、安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">安装</span><br><span class="line"></span><br><span class="line">全局安装</span><br><span class="line">npm i -g eslint</span><br><span class="line">局部安装（推荐）</span><br><span class="line">npm i -D eslint</span><br><span class="line">安装完毕后，接下来新建一个配置文件.eslintrc.js，</span><br><span class="line">或者使用如下的命令行来自动生成。</span><br><span class="line"></span><br><span class="line">eslint --init</span><br></pre></td></tr></table></figure>
+<h3 id="四、配置"><a href="#四、配置" class="headerlink" title="四、配置"></a>四、配置</h3><h5 id="指定执行环境"><a href="#指定执行环境" class="headerlink" title="指定执行环境"></a>指定执行环境</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">JavaScript 代码可以运行在浏览器或 nodejs 等环境中，</span><br><span class="line">每个环境的全局变量都不尽相同（如 nodejs 中没有 DOM 相关的全局变量）。</span><br><span class="line">在配置文件中可以自由的指定执行环境。</span><br><span class="line"></span><br><span class="line">// .eslintrc.js</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  env: &#123;</span><br><span class="line">    browser: true,</span><br><span class="line">    node: true,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">https://eslint.org/docs/user-guide/configuring#specifying-environments</span><br></pre></td></tr></table></figure>
+<h5 id="指定全局变量"><a href="#指定全局变量" class="headerlink" title="指定全局变量"></a>指定全局变量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">可以在配置文件或注释中指定额外的全局变量，false表明变量只读：</span><br><span class="line"></span><br><span class="line">使用注释来配置：</span><br><span class="line">/* global var1, var2 */</span><br><span class="line">/* global var1:false, var2:false */</span><br><span class="line">使用配置文件来配置：</span><br><span class="line">// .eslintrc.js</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  globals: &#123;</span><br><span class="line">    var1: true,</span><br><span class="line">    var2: true,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="配置Rules"><a href="#配置Rules" class="headerlink" title="配置Rules"></a>配置Rules</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">在配置文件中可以设置一些规则。</span><br><span class="line"></span><br><span class="line">这些规则的等级有三种：</span><br><span class="line"></span><br><span class="line">&quot;off&quot; 或者 0：关闭规则。</span><br><span class="line">&quot;warn&quot; 或者 1：打开规则，并且作为一个警告（不影响exit code）。</span><br><span class="line">&quot;error&quot; 或者 2：打开规则，并且作为一个错误（exit code将会是1）。</span><br><span class="line"></span><br><span class="line">默认校验的地址http://eslint.org/docs/rules/</span><br></pre></td></tr></table></figure>
+<h3 id="五、使用方法"><a href="#五、使用方法" class="headerlink" title="五、使用方法"></a>五、使用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">通过命令行工具来使用 eslint 。</span><br><span class="line">1、列出所有文件命令 eslint .</span><br><span class="line">2、列出具体某个文件</span><br><span class="line">eslint [options] file.js [file.js] [dir]</span><br></pre></td></tr></table></figure>
+<h3 id="六、自动修复"><a href="#六、自动修复" class="headerlink" title="六、自动修复"></a>六、自动修复</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eslint --fix [dir]</span><br></pre></td></tr></table></figure>
+<h3 id="七、相关插件使用"><a href="#七、相关插件使用" class="headerlink" title="七、相关插件使用"></a>七、相关插件使用</h3><h5 id="ESLint输出报告方式"><a href="#ESLint输出报告方式" class="headerlink" title="ESLint输出报告方式"></a>ESLint输出报告方式</h5><p>一、终端直接输出方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eslint .</span><br></pre></td></tr></table></figure></p>
+<p>二、md格式：(到eslint_report目录下查看md格式文件)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eslint run eslint_makdown</span><br></pre></td></tr></table></figure></p>
+<p>三、html格式：（到eslint_report目录下查看html格式文件）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eslint run eslint_html</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -516,7 +715,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/git 本地仓库 更换远程仓库/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/android/android学习(2014-11-14)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -535,8 +734,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/git/git 本地仓库 更换远程仓库/" itemprop="url">
-                  git 本地仓库 更换远程仓库
+                <a class="post-title-link" href="/2018/06/11/android/android学习(2014-11-14)/" itemprop="url">
+                  android学习(2014、11、14)
                 </a>
               
             
@@ -579,7 +778,819 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-28 15:22:59" itemprop="dateModified" datetime="2018-08-28T15:22:59+08:00">2018-08-28</time>
+                <time title="修改时间：2018-08-14 15:43:29" itemprop="dateModified" datetime="2018-08-14T15:43:29+08:00">2018-08-14</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <!--2014、11、14-->
+<h3 id="java中的匿名内部类总结"><a href="#java中的匿名内部类总结" class="headerlink" title="java中的匿名内部类总结"></a>java中的匿名内部类总结</h3><p>匿名内部类也就是没有名字的内部类<br>正因为没有名字，所以匿名内部类只能使用一次，它通常用来简化代码编写<br>但使用匿名内部类还有个前提条件：必须继承一个父类或实现一个接口(只要一个类是抽象的或是一个接口，那么其子类中的方法都可以使用匿名内部类来实现最常用的情况就是在多线程的实现上，因为要实现多线程必须继承Thread类或是继承Runnable接口)</p>
+<pre><code class="java">
+ sample1：Thread t = <span class="keyword">new</span> Thread() {
+            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{
+                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) {
+                    System.out.print(i + <span class="string">" "</span>);
+                }
+            }
+        };
+        t.start();
+sample2：Runnable r = <span class="keyword">new</span> Runnable() {
+            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{
+                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) {
+                    System.out.print(i + <span class="string">" "</span>);
+                }
+            }
+        };
+        Thread t = <span class="keyword">new</span> Thread(r);
+        t.start();
+
+</code></pre>
+<h3 id="Android中常常使用shape来定义控件的一些显示属性-比如：button，cell的backround"><a href="#Android中常常使用shape来定义控件的一些显示属性-比如：button，cell的backround" class="headerlink" title="Android中常常使用shape来定义控件的一些显示属性(比如：button，cell的backround)"></a>Android中常常使用shape来定义控件的一些显示属性(比如：button，cell的backround)</h3><pre><code class="java">
+http:<span class="comment">//kofi1122.blog.51cto.com/2815761/521605</span>
+   &lt;shape&gt;
+            &lt;!-- 实心 --&gt;
+            &lt;solid android:color=<span class="string">"#ff9d77"</span>/&gt;
+            &lt;!-- 渐变 --&gt;
+            &lt;gradient
+                android:startColor=<span class="string">"#ff8c00"</span>
+                android:endColor=<span class="string">"#FFFFFF"</span>
+                android:angle=<span class="string">"270"</span> /&gt;
+            &lt;!-- 描边 --&gt;
+            &lt;stroke
+                android:width=<span class="string">"2dp"</span>
+                android:color=<span class="string">"#dcdcdc"</span> /&gt;
+            &lt;!-- 圆角 --&gt;
+            &lt;corners
+                android:radius=<span class="string">"2dp"</span> /&gt;
+            &lt;padding
+                android:left=<span class="string">"10dp"</span>
+                android:top=<span class="string">"10dp"</span>
+                android:right=<span class="string">"10dp"</span>
+                android:bottom=<span class="string">"10dp"</span> /&gt;
+        &lt;/shape&gt;
+
+</code></pre>
+<p>solid：实心，就是填充的意思<br>android:color指定填充的颜色<br>gradient：渐变<br>android:startColor和android:endColor分别为起始和结束颜色，ndroid:angle是渐变角度，必须为45的整数倍。<br>另外渐变默认的模式为android:type=”linear”，即线性渐变，可以指定渐变为径向渐变，android:type=”radial”，径向渐变需要指定半径  android:gradientRadius=”50”。<br>stroke：描边<br>android:width=”2dp” 描边的宽度，android:color 描边的颜色。<br>我们还可以把描边弄成虚线的形式，设置方式为：<br>android:dashWidth=”5dp”<br>android:dashGap=”3dp”<br>其中android:dashWidth表示’-‘这样一个横线的宽度，android:dashGap表示之间隔开的距离。 </p>
+<h3 id="SharedPreferences的使用"><a href="#SharedPreferences的使用" class="headerlink" title="SharedPreferences的使用"></a>SharedPreferences的使用</h3><p>存：SharedPreferences settings = getSharedPreferences(“SharedInstance”, 0);<br>        settings.edit().putString(“name”, editView.getText().toString()).commit();<br>取：  //获取一个 SharedPreferences 对象<br>        SharedPreferences settings = getSharedPreferences(“SharedInstance”, 0);<br>          //取出保存的NAME，取出改字段名的值，不存在则创建默认为空<br>            String name = settings.getString(“name”, “”); </p>
+<h3 id="corners：圆角"><a href="#corners：圆角" class="headerlink" title="corners：圆角"></a>corners：圆角</h3><p>android:radius为角的弧度，值越大角越圆。<br>我们还可以把四个角设定成不同的角度，方法为：</p>
+<pre><code class="java">
+&lt;corners 
+        android:topRightRadius=<span class="string">"20dp"</span>    右上角
+        android:bottomLeftRadius=<span class="string">"20dp"</span>    右下角
+        android:topLeftRadius=<span class="string">"1dp"</span>    左上角
+        android:bottomRightRadius=<span class="string">"0dp"</span>    左下角
+ /&gt;
+
+</code></pre>
+<p>这里有个地方需要注意，bottomLeftRadius是右下角，而不是左下角，这个有点郁闷，不过不影响使用，记得别搞错了就行。<br>还有网上看到有人说设置成0dp无效，不过我在测试中发现是可以的，我用的是2.2，可能修复了这个问题吧，如果无效的话那就只能设成1dp了。<br>padding：间隔<br>这个就不用多说了，XML布局文件中经常用到。<br>大体的就是这样，以下是一个使用的具体示例：用在Selector中作为Button的背景，分别定义了按钮的一般状态、获得焦点状态和按下时的状态，具体代码如下：<br>使用地方：</p>
+<pre><code class="java">
+&lt;Button
+    android:layout_width=<span class="string">"wrap_content"</span>
+    android:layout_height=<span class="string">"wrap_content"</span>
+    android:text=<span class="string">"TestShapeButton"</span>
+    android:background=<span class="string">"@drawable/button_selector"</span>
+    /&gt;
+
+</code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/android/android学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/android/android学习/" itemprop="url">
+                  android学习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-14 16:12:47" itemprop="dateModified" datetime="2018-08-14T16:12:47+08:00">2018-08-14</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <!--2014、11、12-->
+<h3 id="Android-之-fill-parent-、wrap-content-、match-parent属性"><a href="#Android-之-fill-parent-、wrap-content-、match-parent属性" class="headerlink" title="Android 之 fill_parent 、wrap_content 、match_parent属性"></a>Android 之 fill_parent 、wrap_content 、match_parent属性</h3><p><code>fill_parent</code> 设置一个顶部布局或控件为<br><code>fill_parent</code>将强制性让它布满整个屏幕。<br><code>wrap_content</code> 设置一个视图的尺寸为<br><code>wrap_content</code>将强制性地使视图扩展以显示全部内容</p>
+<h3 id="在程序中输出日志-使用-android-util-Log-类"><a href="#在程序中输出日志-使用-android-util-Log-类" class="headerlink" title="在程序中输出日志, 使用 android.util.Log 类."></a>在程序中输出日志, 使用 android.util.Log 类.</h3><p>该类提供了若干静态方法<br>Log.v(String tag, String msg);<br>Log.d(String tag, String msg);<br>Log.i(String tag, String msg);<br>Log.w(String tag, String msg);<br>Log.e(String tag, String msg);<br>分别对应 Verbose, Debug, Info, Warning,Error.<br>tag是一个标识,可以是任意字符串,通常可以使用类名+方法名, 主要是用来在查看日志时提供一个筛选条件.<br>程序运行后 并不会在 ide的控制台内输出任何信息.<br>如果要后查看日志 请使用<br>adb logcat  </p>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>command + shift + f 格式化代码 ，option + / 提示，option + 上下键 移动某行代码，option + command + 上下键，option + command + s  弹出菜单功能页，Ctrl+1 快速修复(最经典的快捷键,就不用多说了)</p>
+<h3 id="layout文件夹里新建xml命名"><a href="#layout文件夹里新建xml命名" class="headerlink" title="layout文件夹里新建xml命名"></a>layout文件夹里新建xml命名</h3><p>必须都是小写</p>
+<h3 id="完成A跳转到B操作：要在AndroidMainifest-xml的文件里面"><a href="#完成A跳转到B操作：要在AndroidMainifest-xml的文件里面" class="headerlink" title="完成A跳转到B操作：要在AndroidMainifest.xml的文件里面"></a>完成A跳转到B操作：要在AndroidMainifest.xml的文件里面</h3><pre><code class="java">&lt;activity
+           android:name=<span class="string">"com.example.sample1.新加入的类名字”</span>
+<span class="string">           android:label=“页面的标题” &gt;</span>
+<span class="string">&lt;/activity&gt;</span>
+<span class="string"></span>
+</code></pre>
+<p>AndroidManifest.xml是Android应用程序中最重要的文件之一。它是Android程序的全局配置文件，是每个 android程序中必须的文件。它位于我们开发的应用程序的根目录下，描述了package中的全局数据，包括package中暴露的组件 （activities, services, 等等），以及他们各自的实现类，各种能被处理的数据和启动位置等重要信息。</p>
+<!--2014、11、13-->
+<h3 id="布局Layout管理"><a href="#布局Layout管理" class="headerlink" title="布局Layout管理"></a>布局Layout管理</h3><p><a href="http://www.cnblogs.com/mengdd/archive/2012/12/19/2825382.html" target="_blank" rel="noopener">布局</a><br> 　<br> 　　布局即是指Activity中组件的呈现方式，即组件大小、间距和对齐方式等。<br>　　Android提供了两种创建布局的方式：<br>　　　　1.在XML配置文件中声明（推荐）。<br>　　　　2.在程序中通过代码直接实例化布局及其组件。<br>在Android中常见的布局方式：<br>线性布局（LinearLayout）：按照垂直或者水平方向布局组件。<br>　　帧布局（FrameLayout）：组件从屏幕的左上角坐标布局组件。<br>　　表格布局（TableLayout）：按照行列方式布局组件。<br>　　相对布局（RelativeLayout）：相对其他组件的布局方式。<br>　　绝对布局（AbsoluteLayout）：按照绝对坐标来布局组件。（已废）。<br>2、一个ListView通常有两个职责。<br>（1）将数据填充到布局。<br>（2）处理用户的选择点击等操作。<br>第一点很好理解，ListView就是实现这个功能的。第二点也不难做到，在后面的学习中读者会发现，这非常简单。<br>一个ListView的创建需要3个元素。<br>（1）ListView中的每一列的View。<br>（2）填入View的数据或者图片等。<br>（3）连接数据与ListView的适配器。<br>3、关于List<e>的用法<br>List l=new List();<br> 现在这样，如果你想放得是User类，就这样new:<br> List <user> l=new List <user>();<br> 这样编译器就可以帮你监督，如果你往里面放其他类对象，就会报错咯。<br> 当然好处就是你拿出来就是User类对象，不用再强制转换了。比如过去：<br> User u=(User)l.get(1);<br> 现在就可以：<br> User u=l.get(1);<br>4、ArrayList &amp;&amp; HashMap 的使用 </user></user></e></p>
+<pre><code class="java">
+ArrayList&lt;HashMap&lt;String,String&gt;&gt; list=<span class="keyword">new</span> ArrayList&lt;HashMap&lt;String,String&gt;&gt;();  
+   HashMap&lt;String,String&gt; map1= <span class="keyword">new</span> HashMap&lt;String,String&gt;();  
+   HashMap&lt;String,String&gt; map2= <span class="keyword">new</span> HashMap&lt;String,String&gt;();  
+   HashMap&lt;String,String&gt; map3= <span class="keyword">new</span> HashMap&lt;String,String&gt;();  
+
+   map1.put(<span class="string">"user"</span>, <span class="string">"zhang"</span>);  
+   map1.put(<span class="string">"id"</span>, <span class="string">"192.168.0.0"</span>);  
+
+   map2.put(<span class="string">"user"</span>, <span class="string">"wang"</span>);  
+   map2.put(<span class="string">"id"</span>, <span class="string">"192.168.0.1"</span>);  
+
+   list.add(map1);  
+   list.add(map2);  
+   list.add(map3); 
+
+   Log.v(<span class="string">"ArrayList==HashMap===:"</span>, list.toString());
+
+</code></pre>
+<h3 id="AlertDialog-的使用"><a href="#AlertDialog-的使用" class="headerlink" title="AlertDialog 的使用"></a>AlertDialog 的使用</h3><pre><code class="java">
+Builder alertDialog = <span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>);
+alertDialog.setTitle(<span class="string">"标题"</span>);<span class="comment">// 设置标题</span>
+alertDialog.setMessage(<span class="string">"一个消息框"</span>);<span class="comment">// 设置消息</span>
+alertDialog.setPositiveButton(<span class="string">"确定"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() {
+
+    <span class="meta">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>{
+        <span class="comment">// toast 的用法</span>
+        Toast.makeText(getApplicationContext(), <span class="string">"你选择了确定"</span>,
+                Toast.LENGTH_SHORT).show();
+    }
+});
+alertDialog.show();
+
+</code></pre>
+<h3 id="Button-的使用-通过具体的id-找到某个控件"><a href="#Button-的使用-通过具体的id-找到某个控件" class="headerlink" title="Button 的使用: 通过具体的id 找到某个控件"></a>Button 的使用: 通过具体的id 找到某个控件</h3><pre><code class="java"><span class="comment">// 给按钮加上点击事件</span>
+clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListener() {
+    <span class="meta">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>{
+        Log.v(<span class="string">"click"</span>, <span class="string">"=======clickButton======="</span>);
+        <span class="comment">// 跳转到SecondActivity页面</span>
+        Intent intent = <span class="keyword">new</span> Intent();
+        intent.setClass(MainActivity.<span class="keyword">this</span>, SecondActivity.class);
+        startActivity(intent);
+    }
+});
+
+</code></pre>
+<h3 id="dp是虚拟像素，在不同的像素密度的设备上会自动适配，比如"><a href="#dp是虚拟像素，在不同的像素密度的设备上会自动适配，比如" class="headerlink" title="dp是虚拟像素，在不同的像素密度的设备上会自动适配，比如:"></a>dp是虚拟像素，在不同的像素密度的设备上会自动适配，比如:</h3><p>在320x480分辨率，像素密度为160,1dp=1px<br>在480x800分辨率，像素密度为240,1dp=1.5px<br>计算公式:1dp*像素密度/160 = 实际像素数<br>px（像素）：屏幕上的点。<br>dp（与密度无关的像素）：一种基于屏幕密度的抽象单位。在每英寸160点的显示器上，1dp = 1px。<br>尽量使用dp作为空间大小单位，sp作为和文字相关大小单位 </p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/android/android-code-style/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/android/android-code-style/" itemprop="url">
+                  Android编码规范
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-30 16:58:12" itemprop="dateModified" datetime="2018-08-30T16:58:12+08:00">2018-08-30</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://github.com/tianshaojie/android-code-style" target="_blank" rel="noopener">Android编码规范</a></p>
+<p><a href="https://github.com/tianshaojie/AndroidFine" target="_blank" rel="noopener">Android快速开发框架</a></p>
+<p><a href="https://github.com/tianshaojie/android-modularization" target="_blank" rel="noopener">Android组件化设计思路</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/android/Android Studio平台下无线调试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/android/Android Studio平台下无线调试/" itemprop="url">
+                  Android Studio平台下无线调试
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-14 16:15:30" itemprop="dateModified" datetime="2018-08-14T16:15:30+08:00">2018-08-14</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://blog.csdn.net/JJ583500596/article/details/75081462" target="_blank" rel="noopener">Android Studio平台下无线调试</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/git 如何删除缓存的远程分支列表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/git/git 如何删除缓存的远程分支列表/" itemprop="url">
+                  git 如何删除缓存的远程分支列表.md
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-03 18:05:51" itemprop="dateModified" datetime="2018-07-03T18:05:51+08:00">2018-07-03</time>
               
             
           </span>
@@ -633,10 +1644,10 @@
         
           
             <p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a></p>
-<h2 id="git修改远程仓库地址的三种方法"><a href="#git修改远程仓库地址的三种方法" class="headerlink" title="git修改远程仓库地址的三种方法"></a>git修改远程仓库地址的三种方法</h2><h3 id="直接命令修改"><a href="#直接命令修改" class="headerlink" title="直接命令修改"></a>直接命令修改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin [url]</span><br></pre></td></tr></table></figure>
-<h3 id="命令，先删除后设新地址"><a href="#命令，先删除后设新地址" class="headerlink" title="命令，先删除后设新地址"></a>命令，先删除后设新地址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git remote rm origin </span><br><span class="line">git remote add origin [url]</span><br></pre></td></tr></table></figure>
-<h3 id="直接修改配置文件"><a href="#直接修改配置文件" class="headerlink" title="直接修改配置文件"></a>直接修改配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">文件位置：git/config </span><br><span class="line">config</span><br><span class="line"></span><br><span class="line">[core]</span><br><span class="line">    repositoryformatversion = 0</span><br><span class="line">    filemode = false</span><br><span class="line">    bare = false</span><br><span class="line">    logallrefupdates = true</span><br><span class="line">    symlinks = false</span><br><span class="line">    ignorecase = true</span><br><span class="line">[gui]</span><br><span class="line">    wmstate = normal</span><br><span class="line">    geometry = 841x483+225+101 189 218</span><br><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">    url = git@github.com:project.git</span><br><span class="line">    fetch = +refs/heads/*:refs/remotes/origin/*</span><br><span class="line">[branch &quot;master&quot;]</span><br><span class="line">    remote = origin</span><br><span class="line">    merge = refs/heads/master</span><br></pre></td></tr></table></figure>
-<h3 id="补充：如果用sourcetree的话可以直接修改远程仓库地址"><a href="#补充：如果用sourcetree的话可以直接修改远程仓库地址" class="headerlink" title="补充：如果用sourcetree的话可以直接修改远程仓库地址"></a>补充：如果用sourcetree的话可以直接修改远程仓库地址</h3>
+<h2 id="列出远程分支"><a href="#列出远程分支" class="headerlink" title="列出远程分支"></a>列出远程分支</h2><p>使用git 部署代码，<pre> git branch -a </pre> 里面列出的很多远程的分支，其实都是已经被删除了的。</p>
+<h2 id="删除缓存的远程分支列表"><a href="#删除缓存的远程分支列表" class="headerlink" title="删除缓存的远程分支列表"></a>删除缓存的远程分支列表</h2><p>用此命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote prune origin</span><br><span class="line">or</span><br><span class="line">git fetch -p</span><br></pre></td></tr></table></figure></p>
+<p>即可解决</p>
+<h2 id="列出提交个数"><a href="#列出提交个数" class="headerlink" title="列出提交个数"></a>列出提交个数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rev-list --count HEAD</span><br></pre></td></tr></table></figure>
           
         
       
@@ -689,7 +1700,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/ icon生成脚本/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/初始化git仓库项目/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -708,8 +1719,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/iOS/ icon生成脚本/" itemprop="url">
-                  icon生成脚本
+                <a class="post-title-link" href="/2018/06/11/git/初始化git仓库项目/" itemprop="url">
+                  初始化git仓库项目.md
                 </a>
               
             
@@ -752,7 +1763,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-26 10:04:49" itemprop="dateModified" datetime="2018-06-26T10:04:49+08:00">2018-06-26</time>
+                <time title="修改时间：2018-07-25 12:01:48" itemprop="dateModified" datetime="2018-07-25T12:01:48+08:00">2018-07-25</time>
               
             
           </span>
@@ -769,7 +1780,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
 
                 
                 
@@ -805,185 +1816,14 @@
       
         
           
-            <h1 id="autoExportAppIcon"><a href="#autoExportAppIcon" class="headerlink" title="autoExportAppIcon"></a>autoExportAppIcon</h1><h3 id="autoExportAppIcon-1"><a href="#autoExportAppIcon-1" class="headerlink" title="autoExportAppIcon"></a>autoExportAppIcon</h3><h4 id="One-key-to-generate-iOS-app-icon"><a href="#One-key-to-generate-iOS-app-icon" class="headerlink" title="One key to generate iOS app icon  "></a>One key to generate iOS app icon  <br></h4><span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="/image-url" class="full-image" alt="alt" title="title"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
-<blockquote class="blockquote-center"><p>标题</p>
-</blockquote>
-<p><img src="/images/source4.png" alt="">  <br></p>
-<h3 id="Useage"><a href="#Useage" class="headerlink" title="Useage"></a>Useage</h3><p><code>python /path/autoExportAppIcon.py /path/image.jpg</code>  <br><br><img src="/images/source3.png" alt="png">  <br></p>
-<p><img src="/images/source5.png" alt="png">  <br><br>New iOS App Icon  <br><br><img src="/images/source2.png" alt="png">  <br><br>show in finder  <br><br><img src="/images/source1.png" alt="png">  <br></p>
-<p><img src="/images/source0.png" alt="png">  <br><br>replace the files.  <br></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/UIView与核心动画对比/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/iOS/UIView与核心动画对比/" itemprop="url">
-                  UIView与核心动画对比
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-23 16:30:49" itemprop="dateModified" datetime="2018-10-23T16:30:49+08:00">2018-10-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h3><p><a href="https://lianshumin.gitbooks.io/ocnotesii/content/03-UI进阶/11-核心动画.html" target="_blank" rel="noopener">核心动画</a></p>
-<p><a href="https://lianshumin.gitbooks.io/ocnotesii/content/03-UI进阶/iOS动画篇-1-UIView渐变动画.html" target="_blank" rel="noopener">UIView渐变动画</a></p>
-<p><a href="https://www.kancloud.cn/manual/ios/97760" target="_blank" rel="noopener">iOS核心动画高级技巧</a></p>
+            <p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a></p>
+<h1 id="Command-line-instructions-命令行指令"><a href="#Command-line-instructions-命令行指令" class="headerlink" title="Command line instructions 命令行指令"></a>Command line instructions 命令行指令</h1><h2 id="Git-global-setup"><a href="#Git-global-setup" class="headerlink" title="Git global setup"></a>Git global setup</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;xxx&quot;</span><br><span class="line">git config --global user.email &quot;xxx@email.com&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="Create-a-new-repository"><a href="#Create-a-new-repository" class="headerlink" title="Create a new repository"></a>Create a new repository</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git clone git@git.jd.com:xxx/yyy.git</span><br><span class="line">cd JDViewKitDoc</span><br><span class="line">touch README.md</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m &quot;add README&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<h2 id="Existing-folder"><a href="#Existing-folder" class="headerlink" title="Existing folder"></a>Existing folder</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd existing_folder</span><br><span class="line">git init</span><br><span class="line">git remote add origin git@git.jd.com:xxx/yyy.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;Initial commit&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<h2 id="Existing-Git-repository"><a href="#Existing-Git-repository" class="headerlink" title="Existing Git repository"></a>Existing Git repository</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd existing_repo</span><br><span class="line">git remote add origin git@git.jd.com:xxx/yyy.git</span><br><span class="line">git push -u origin --all</span><br><span class="line">git push -u origin --tags</span><br></pre></td></tr></table></figure>
+<h2 id="问题解决方案"><a href="#问题解决方案" class="headerlink" title="问题解决方案"></a>问题解决方案</h2><h3 id="fatal-refusing-to-merge-unrelated-histories-解决方案"><a href="#fatal-refusing-to-merge-unrelated-histories-解决方案" class="headerlink" title="fatal: refusing to merge unrelated histories 解决方案"></a>fatal: refusing to merge unrelated histories 解决方案</h3><h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>可以使用 rebase 的方式来进行合并。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull --rebase origin master</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cd</span><br><span class="line">mkdir rebaseTmp</span><br><span class="line">cd rebaseTmp</span><br><span class="line">echo &quot;hello a line&quot; &gt; tmp.txt</span><br><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;Local first commit&quot;</span><br><span class="line">git remote add origin  https://github.com/HustLion/java_console_log4j.git</span><br><span class="line">git pull --rebase origin master</span><br><span class="line"></span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1037,7 +1877,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/ 如何判断代码运行在DEBUG还是RELEASE模式下/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/git 之 ssh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -1056,8 +1896,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/iOS/ 如何判断代码运行在DEBUG还是RELEASE模式下/" itemprop="url">
-                  如何判断代码运行在DEBUG还是RELEASE模式下？
+                <a class="post-title-link" href="/2018/06/11/git/git 之 ssh/" itemprop="url">
+                  ssh
                 </a>
               
             
@@ -1100,7 +1940,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-07-03 17:26:06" itemprop="dateModified" datetime="2018-07-03T17:26:06+08:00">2018-07-03</time>
+                <time title="修改时间：2018-09-12 20:33:50" itemprop="dateModified" datetime="2018-09-12T20:33:50+08:00">2018-09-12</time>
               
             
           </span>
@@ -1117,7 +1957,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
 
                 
                 
@@ -1153,19 +1993,14 @@
       
         
           
-            <blockquote>
-</blockquote>
-<p>首先确定下项目的 Build Settings 是否已经设置过宏定义 DEBUG，如何看呢？<br>点击 Build Settings ，然后在搜索框里输入‘macros’</p>
-<p><img src="/images/debug.png" alt=""></p>
-<blockquote>
-<p>如果已经设置过，在 Preprocessor Macros 的 Debug 后面会有 DEBUG=1，如果没有，就手动设置下。<br>接下来就可以这样做了</p>
-</blockquote>
- <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#ifdef DEBUG</span></span><br><span class="line">    <span class="comment">//do sth.</span></span><br><span class="line"><span class="meta">#else</span></span><br><span class="line">    <span class="comment">//do sth.</span></span><br><span class="line"><span class="meta">#endif</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><a href="http://stackoverflow.com/a/9063682" target="_blank" rel="noopener">http://stackoverflow.com/a/9063682</a></p>
-<p>一般Apple已经为我们设置好了 DEBUG 的宏定义，所以，我们只要让 NSLog 在 DEBUG 模式下失效就好了，这样能让我们的程序运行起来更加稳定，同时我们也可以继续使用正规的 NSLog。</p>
-</blockquote>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//put this in prefix.pch</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#ifndef DEBUG</span></span><br><span class="line"><span class="meta">#undef NSLog</span></span><br><span class="line"><span class="meta">#define NSLog(args, ...)</span></span><br><span class="line"><span class="meta">#endif</span></span><br></pre></td></tr></table></figure>
+            <h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><p>你拥有了一个 GitHub 账号之后，就可以自由的 clone 或者下载其他项目，也可以创建自己的项目，但是你没法提交代码。仔细想想也知道，肯定不可能随意就能提交代码的，如果随意可以提交代码，那么 GitHub 上的项目岂不乱了套了，所以提交代码之前一定是需要某种授权的，而 GitHub 上一般都是基于 SSH 授权的。<br>那么什么是 SSH 呢？ 简单点说，SSH是一种网络协议，用于计算机之间的加密登录。目前是每一台 Linux 电脑的标准配置。而大多数 Git 服务器都会选择使用 SSH 公钥来进行授权，所以想要在 GitHub 提交代码的第一步就是要先添加 SSH key 配置。</p>
+<h3 id="生成SSH-key"><a href="#生成SSH-key" class="headerlink" title="生成SSH key"></a>生成SSH key</h3><p>Linux 与 Mac 都是默认安装了 SSH ，而 Windows 系统安装了 Git Bash 应该也是带了 SSH 的。大家可以在终端（win下在 Git Bash 里）输入 ssh 检测是否已安装。</p>
+<p>紧接着输入 <code>ssh-keygen -t rsa</code> 或者<code>（ssh-keygen -t rsa -C “邮箱名&quot;）</code> ，什么意思呢？就是指定 rsa 算法生成密钥，接着连续三个回车键（不需要输入密码），然后就会生成两个文件 <code>id_rsa</code> 和 <code>id_rsa.pub</code> ，而 <code>id_rsa</code> 是密钥，<code>id_rsa.pub</code> 就是公钥。这两文件默认分别在如下目录里生成：<br><code>Linux/Mac</code> 系统 在<code>~/.ssh</code> 下，win系统在 <code>/c/Documents and Settings/username/.ssh</code> 下，都是隐藏文件，相信你们有办法查看的。<br>接下来要做的是把 <code>id_rsa.pub</code>的内容添加到 GitHub 上，这样你本地的 <code>id_rsa</code> 密钥跟 GitHub 上的 <code>id_rsa.pub</code> 公钥进行配对，授权成功才可以提交代码。</p>
+<h3 id="GitHub-上添加-SSH-key"><a href="#GitHub-上添加-SSH-key" class="headerlink" title="GitHub 上添加 SSH key"></a>GitHub 上添加 SSH key</h3><p>第一步先在 GitHub 上的设置页面，点击最左侧 SSH and GPG keys ：</p>
+<h3 id="怎么查看-id-rsa-pub-文件的内容？"><a href="#怎么查看-id-rsa-pub-文件的内容？" class="headerlink" title="怎么查看 id_rsa.pub 文件的内容？"></a>怎么查看 id_rsa.pub 文件的内容？</h3><p>Linux/Mac 用户执行以下命令：<br>cd ~/.ssh<br>cat id_rsa.pub</p>
+<h3 id="测试是否ok"><a href="#测试是否ok" class="headerlink" title="测试是否ok"></a>测试是否ok</h3><p>SSH key 添加成功之后，输入 ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> 进行测试</p>
+<p><a href="http://stormzhang.com/github/2016/06/04/learn-github-from-zero4/" target="_blank" rel="noopener">ssh向GITHUB 提交代码</a></p>
+
           
         
       
@@ -1386,725 +2221,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/iOS linkmap统计ipa包/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/iOS/iOS linkmap统计ipa包/" itemprop="url">
-                  iOS linkmap统计ipa包
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-23 15:49:20" itemprop="dateModified" datetime="2018-10-23T15:49:20+08:00">2018-10-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>iOS APP编译后，除了一些<strong>资源文件</strong>，剩下的就是一个<strong>可执行文件</strong>，有时候项目大了，<strong>引入的库多了，可执行文件很大</strong>，想知道这个可执行文件的构成是怎样，里面的内容都是些什么，哪些库占用空间较高，可以用以下方法勘察：  </p>
-<p><strong>1.</strong>XCode开启编译选项<code>Write Link Map File</code><br><code>XCode -&gt; Project -&gt; Build Settings -&gt;</code> 搜<code>map -&gt; 把Write Link Map File</code>选项设为<code>yes</code>，并指定好<code>linkMap</code>的存储位置</p>
-<p><strong>2.</strong>编译后，到编译目录里找到该txt文件，文件名和路径就是上述的<code>Path to Link Map File</code><br>位于<code>~/Library/Developer/Xcode/DerivedData/XXX-eumsvrzbvgfofvbfsoqokmjprvuh/Build/Intermediates/XXX.build/Debug-iphoneos/XXX.build/</code><br>这个<code>LinkMap</code>里展示了整个可执行文件的全貌，列出了编译后的每一个.o目标文件的信息（包括静态链接库.a里的），以及每一个目标文件的代码段，数据段存储详情。</p>
-<h3 id="在LinkMap里首先列出来的是目标文件列表："><a href="#在LinkMap里首先列出来的是目标文件列表：" class="headerlink" title="在LinkMap里首先列出来的是目标文件列表："></a>在LinkMap里首先列出来的是目标文件列表：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Object files:</span><br><span class="line">[ 0] linker synthesized</span><br><span class="line">[ 1] /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/crt1.o</span><br><span class="line">[ 2] /Users/bang/Library/Developer/Xcode/DerivedData/yishu-eyzgphknrrzpevagadjtwpzzeqag/Build/Intermediates/yishu.build/Debug-iphonesimulator/yishu.build/Objects-normal/i386/TKPFileInfo.o</span><br><span class="line">...</span><br><span class="line">[280] /Users/bang/Downloads/yishu/yishu/Classes/lib/UMeng/MobClick/libMobClickLibrary.a(UMANJob.o)</span><br><span class="line">[281] /Users/bang/Downloads/yishu/yishu/Classes/lib/UMeng/MobClick/libMobClickLibrary.a(UMANWorker.o)</span><br><span class="line">[282] /Users/bang/Downloads/yishu/yishu/Classes/lib/UMeng/MobClick/libMobClickLibrary.a(MobClick.o)</span><br><span class="line">[283] /Users/bang/Downloads/yishu/yishu/Classes/lib/UMeng/MobClick/libMobClickLibrary.a(UMANLaunch.o)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>前面中括号里的是这个文件的编号，后面会用到，像项目里引用到静态链接库libMobClickLibrary.a里的目标文件都会在这里列出来。</p>
-<h3 id="接着是一个段表，描述各个段在最后编译成的可执行文件中的偏移位置及大小，包括了代码段（TEXT，保存程序代码段编译后的机器码）和数据段（DATA，保存变量值）"><a href="#接着是一个段表，描述各个段在最后编译成的可执行文件中的偏移位置及大小，包括了代码段（TEXT，保存程序代码段编译后的机器码）和数据段（DATA，保存变量值）" class="headerlink" title="接着是一个段表，描述各个段在最后编译成的可执行文件中的偏移位置及大小，包括了代码段（TEXT，保存程序代码段编译后的机器码）和数据段（DATA，保存变量值）"></a>接着是一个段表，描述各个段在最后编译成的可执行文件中的偏移位置及大小，包括了代码段（<strong>TEXT，保存程序代码段编译后的机器码）和数据段（</strong>DATA，保存变量值）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"># Sections:</span><br><span class="line"># Address   Size     Segment   Section</span><br><span class="line">0x00002740 0x00273890 __TEXT __text</span><br><span class="line">0x00275FD0 0x00000ADA __TEXT __symbol_stub</span><br><span class="line">0x00276AAC 0x00001222 __TEXT __stub_helper</span><br><span class="line">0x00277CCE 0x00019D9E __TEXT __objc_methname</span><br><span class="line">0x00291A70 0x00012847 __TEXT __cstring</span><br><span class="line">0x002A42B7 0x00001FC1 __TEXT __objc_classname</span><br><span class="line">0x002A6278 0x000046A7 __TEXT __objc_methtype</span><br><span class="line">0x002AA920 0x000061CE __TEXT __ustring</span><br><span class="line">0x002B0AF0 0x00000764 __TEXT __const</span><br><span class="line">0x002B1254 0x000028B8 __TEXT __gcc_except_tab</span><br><span class="line">0x002B3B0C 0x00004EBC __TEXT __unwind_info</span><br><span class="line">0x002B89C8 0x0003662C __TEXT __eh_frame</span><br><span class="line">0x002EF000 0x00000014 __DATA __program_vars</span><br><span class="line">0x002EF014 0x00000284 __DATA __nl_symbol_ptr</span><br><span class="line">0x002EF298 0x0000073C __DATA __la_symbol_ptr</span><br><span class="line">0x002EF9E0 0x000030A4 __DATA __const</span><br><span class="line">0x002F2A84 0x00000590 __DATA __objc_classlist</span><br><span class="line">0x002F3014 0x0000000C __DATA __objc_nlclslist</span><br><span class="line">0x002F3020 0x0000006C __DATA __objc_catlist</span><br><span class="line">0x002F308C 0x000000D8 __DATA __objc_protolist</span><br><span class="line">0x002F3164 0x00000008 __DATA __objc_imageinfo</span><br><span class="line">0x002F3170 0x0002BC80 __DATA __objc_const</span><br><span class="line">0x0031EDF0 0x00003A30 __DATA __objc_selrefs</span><br><span class="line">0x00322820 0x00000014 __DATA __objc_protorefs</span><br><span class="line">0x00322834 0x000006B8 __DATA __objc_classrefs</span><br><span class="line">0x00322EEC 0x00000394 __DATA __objc_superrefs</span><br><span class="line">0x00323280 0x000037C8 __DATA __objc_data</span><br><span class="line">0x00326A48 0x000096D0 __DATA __cfstring</span><br><span class="line">0x00330118 0x00001424 __DATA __objc_ivar</span><br><span class="line">0x00331540 0x00006080 __DATA __data</span><br><span class="line">0x003375C0 0x0000001C __DATA __common</span><br><span class="line">0x003375E0 0x000018E8 __DATA __bss</span><br></pre></td></tr></table></figure>
-<p>首列是数据在文件的偏移位置，第二列是这一段占用大小，第三列是段类型，代码段和数据段，第四列是段名称。<br>每一行的数据都紧跟在上一行后面，如第二行<code>__symbol_stub</code>的地址<code>0x00275FD0</code>就是第一行<code>__text</code>的地址<code>0x00002740</code>加上大小<code>0x00273890</code>，整个可执行文件大致数据分布就是这样。<br>这里可以清楚看到各种类型的数据在最终可执行文件里占的比例，例如<code>__text</code>表示编译后的程序执行语句，<code>__data</code>表示已初始化的全局变量和局部静态变量，<code>__bss</code>表示未初始化的全局变量和局部静态变量，<code>__cstring</code>表示代码里的字符串常量，等等。</p>
-<h3 id="接着就是按上表顺序，列出具体的按每个文件列出每个对应字段的位置和占用空间"><a href="#接着就是按上表顺序，列出具体的按每个文件列出每个对应字段的位置和占用空间" class="headerlink" title="接着就是按上表顺序，列出具体的按每个文件列出每个对应字段的位置和占用空间"></a>接着就是按上表顺序，列出具体的按每个文件列出每个对应字段的位置和占用空间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Address Size File Name</span><br><span class="line">0x00002740 0x0000003E [ 1] start</span><br><span class="line">0x00002780 0x00000400 [ 2] +[TKPFileInfo parseWithDictionary:]</span><br><span class="line">0x00002B80 0x00000030 [ 2] -[TKPFileInfo fileID]</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>同样首列是数据在文件的偏移地址，第二列是占用大小，第三列是所属文件序号，对应上述Object files列表，最后是名字。<br>例如第二行代表了文件序号为2（反查上面就是TKPFileInfo.o）的parseWithDictionary方法占用了1000byte大小。</p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>这个文件可以让你了解整个APP编译后的情况，也许从中可以发现一些异常，还可以用这个文件计算静态链接库在项目里占的大小，有时候我们在项目里链了很多第三方库，导致APP体积变大很多，我们想确切知道每个库占用了多大空间，可以给我们优化提供方向。LinkMap里有了每个目标文件每个方法每个数据的占用大小数据，所以只要写个脚本，就可以统计出每个.o最后的大小，属于一个.a静态链接库的.o加起来，就是这个库在APP里占用的空间大小。</p>
-<h3 id="生成的linkmap文件path"><a href="#生成的linkmap文件path" class="headerlink" title="生成的linkmap文件path"></a>生成的linkmap文件path</h3><p>/Users/wenyongjun/Library/Developer/Xcode/DerivedData/JDViewKitProduct-cvqwuevthaoawvbqwonrghbfhnuz/Build/Intermediates.noindex/JDViewKitProduct.build/Debug-iphonesimulator/JDViewKitProduct.build/JDViewKitProduct-LinkMap-normal-x86_64.txt </p>
-<p><a href="https://blog.csdn.net/zgzczzw/article/details/79855660" target="_blank" rel="noopener">基于LinkMap分析iOSAPP各模块体积</a></p>
-<p><a href="http://blog.cnbang.net/tech/2296/" target="_blank" rel="noopener">iOS APP可执行文件的组成</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/Xcode中和symbols有关的几个设置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/iOS/Xcode中和symbols有关的几个设置/" itemprop="url">
-                  Xcode中和symbols有关的几个设置
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-29 10:28:11" itemprop="dateModified" datetime="2018-08-29T10:28:11+08:00">2018-08-29</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在iOS开发中 特别是有framework打包的时候  经常遇到包比较大的问题。下面就来开下Xcode中和symbols有关的几个设置。</p>
-<p><a href="https://www.jianshu.com/p/11710e7ab661" target="_blank" rel="noopener">简书地址</a></p>
-<p>Generate Debug Symbols 修改为NO后 能减少包的大小 但是debug功能就不能使用了</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/iOS GCD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/iOS/iOS GCD/" itemprop="url">
-                  iOS之GCD
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-25 10:41:38" itemprop="dateModified" datetime="2018-09-25T10:41:38+08:00">2018-09-25</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="多用GCD-少用performSelector系列方法"><a href="#多用GCD-少用performSelector系列方法" class="headerlink" title="多用GCD 少用performSelector系列方法"></a>多用GCD 少用performSelector系列方法</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可以在运行时调用方法</span></span><br><span class="line">- (<span class="keyword">id</span>)performSelector:(SEL)selector</span><br><span class="line"><span class="comment">//可带一个参数</span></span><br><span class="line">- (<span class="keyword">id</span>)performSelector:(SEL)selector withObject:(<span class="keyword">id</span>)object</span><br><span class="line"><span class="comment">//可带两个参数</span></span><br><span class="line">- (<span class="keyword">id</span>)performSelector:(SEL)selector withObject:(<span class="keyword">id</span>)object withObject:(<span class="keyword">id</span>)object</span><br><span class="line"><span class="comment">//可延时执行方法</span></span><br><span class="line">- (<span class="keyword">void</span>)performSelector:(SEL)selector withObject:(<span class="keyword">id</span>)argument afterDelay:(<span class="built_in">NSTimeInterval</span>)delay</span><br><span class="line"><span class="comment">//可放到另一个线程中执行</span></span><br><span class="line">- (<span class="keyword">void</span>)performSelector:(SEL)selector onThread:(<span class="built_in">NSThread</span> *)thread withObject:(<span class="keyword">id</span>)argument waitUntilDone:(<span class="built_in">BOOL</span>)wait</span><br><span class="line">- (<span class="keyword">void</span>)performSelectorOnMainThread:(SEL)selector withObject:(<span class="keyword">id</span>)argument waitUntilDone:(<span class="built_in">BOOL</span>)wait</span><br><span class="line"> </span><br><span class="line"><span class="comment">//延后执行方法的两种实现方式：</span></span><br><span class="line">[<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(doSomething) withObject:<span class="literal">nil</span> afterDelay:<span class="number">5.0</span>];</span><br><span class="line"> </span><br><span class="line">dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">5.0</span> * <span class="built_in">NSEC_PER_SEC</span>));</span><br><span class="line">dispatch_after(time, dispatch_get_main_queue(), ^(<span class="keyword">void</span>)&#123;</span><br><span class="line">    [<span class="keyword">self</span> doSomething];</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment">//把任务放在主线程执行的两种方式</span></span><br><span class="line">[<span class="keyword">self</span> performSlectorOnMainThread:<span class="keyword">@selector</span>(doSomething) withObject:<span class="literal">nil</span> waitUntilDone:<span class="literal">NO</span>];</span><br><span class="line"> </span><br><span class="line"><span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">    [<span class="keyword">self</span> doSomething];</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><strong>1、</strong>performSelector系列方法在内存管理方面容易有疏失。它无法确定将要执行的选择子具体是什么，因而ARC编译器也就无法插入适当的内存管理方法。<br><strong>2、</strong>performSelector系列方法所能处理的选择子太过局限了，选择子的返回值类型及发送给方法的参数个数都受到限制。<br><strong>3、</strong>如果想把任务放在另一个线程上执行，那么最好不要用performSelector系列方法，而是应该把任务封装到块里，然后调用GCD的相关方法来实现。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/iOS 静态库和动态库/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/iOS/iOS 静态库和动态库/" itemprop="url">
-                  iOS 静态库和动态库
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-23 15:00:47" itemprop="dateModified" datetime="2018-10-23T15:00:47+08:00">2018-10-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="静态库和动态库的存在的形式"><a href="#静态库和动态库的存在的形式" class="headerlink" title="静态库和动态库的存在的形式"></a>静态库和动态库的存在的形式</h3><ul>
-<li><p>静态库：以.a 和 .framework为文件后缀名。</p>
-</li>
-<li><p>动态库：以.tbd(之前叫.dylib) 和 .framework 为文件后缀名。（系统直接提供给我们的framework都是动态库！）</p>
-</li>
-</ul>
-<p>理解：.a 是一个纯二进制文件，.framework 中除了有二进制文件之外还有资源文件。 .a ，要有 .h 文件以及资源文件配合， .framework 文件可以直接使用。总的来说，.a + .h + sourceFile = .framework。所以创建静态库最好还是用.framework的形式</p>
-<h3 id="静态库和动态库的区别"><a href="#静态库和动态库的区别" class="headerlink" title="静态库和动态库的区别"></a>静态库和动态库的区别</h3><p>　<strong>不同点：</strong> </p>
-<ul>
-<li>静态库在链接时，会被完整的复制到可执行文件中，如果多个App都使用了同一个静态库，那么每个App都会拷贝一份，缺点是浪费内存。类似于定义一个基本变量，使用该基本变量是是新复制了一份数据，而不是原来定义的；</li>
-<li><p>动态库不会复制，只有一份，程序运行时动态加载到内存中，系统只会加载一次，多个程序共用一份，节约了内存。类似于使用变量的内存地址一样，使用的是同一个变量；</p>
-<p><strong>共同点：</strong></p>
-</li>
-<li>静态库和动态库都是闭源库，只能拿来满足某个功能的使用，不会暴露内部具体的代码信息<h3 id="从源代码到app"><a href="#从源代码到app" class="headerlink" title="从源代码到app"></a>从源代码到app</h3></li>
-</ul>
-<blockquote>
-<p>当我们点击了 build 之后，做了什么事情呢？</p>
-</blockquote>
-<ul>
-<li>预处理（Pre-process）：把宏替换，删除注释，展开头文件，产生 .i 文件。</li>
-<li>编译（Compliling）：把之前的 .i 文件转换成汇编语言，产生 .s文件。</li>
-<li>汇编（Asembly）：把汇编语言文件转换为机器码文件，产生 .o 文件。</li>
-<li>链接（Link）：对.o文件中的对于其他的库的引用的地方进行引用，生成最后的可执行文件（同时也包括多个 .o 文件进行 link）。</li>
-</ul>
-<p><a href="https://www.cnblogs.com/junhuawang/p/7598236.html" target="_blank" rel="noopener">引用</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2156,7 +2272,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-count">80</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2193,7 +2309,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2274,7 +2392,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">34</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

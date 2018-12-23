@@ -331,6 +331,560 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/30/reactnative/React项目创建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/30/reactnative/React项目创建/" itemprop="url">
+                  React项目创建 与 redux的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-30 14:17:22" itemprop="dateCreated datePublished" datetime="2018-10-30T14:17:22+08:00">2018-10-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-21 15:16:36" itemprop="dateModified" datetime="2018-12-21T15:16:36+08:00">2018-12-21</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="初始化一个react项目"><a href="#初始化一个react项目" class="headerlink" title="初始化一个react项目"></a>初始化一个react项目</h3><ul>
+<li><code>create-react-app</code>是一个通过<code>npm</code>发布的安装包，在确认<code>Node.js</code>和<code>npm</code>安装好之后，输入下面命令创建。<br>  <code>npm install -g create-react-app</code></li>
+<li>安装结束后，使用下面命令创建应用目录。<br>  <code>create-react-app test-app</code> </li>
+<li>打开目录<br>  <code>cd test-app</code></li>
+<li>运行项目<br>  <code>npm start</code> </li>
+</ul>
+<h3 id="基于create-react-app的再配置"><a href="#基于create-react-app的再配置" class="headerlink" title="基于create-react-app的再配置"></a>基于create-react-app的再配置</h3><p><a href="https://www.cnblogs.com/xiaohuochai/p/8491055.html" target="_blank" rel="noopener">使用react-app-rewired来进行react的再配置</a></p>
+<h3 id="如何优雅地在React项目中使用Redux"><a href="#如何优雅地在React项目中使用Redux" class="headerlink" title="如何优雅地在React项目中使用Redux"></a>如何优雅地在React项目中使用Redux</h3><p><a href="https://www.cnblogs.com/sampapa/p/8134086.html" target="_blank" rel="noopener">使用Redux</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save redux react-redux redux-thunk</span><br><span class="line">npm install --save-dev redux-logger</span><br></pre></td></tr></table></figure>
+<p><strong>相关库说明</strong>  </p>
+<ul>
+<li><strong>React</strong> UI框架</li>
+<li><p><strong>Redux</strong> 状态管理工具，与React没有任何关系，其他UI框架也可以使用Redux</p>
+</li>
+<li><p><strong>react-redux</strong> React插件，作用：方便在React项目中使用Redux</p>
+</li>
+<li><p><strong>react-thunk</strong> 中间件，作用：支持异步action</p>
+</li>
+</ul>
+<p><strong>Redux三大原则</strong>  </p>
+<ul>
+<li>单一数据源<br>整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中</li>
+<li>State 是只读的<br>唯一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象</li>
+<li>使用纯函数来执行修改<br>为了描述 action 如何改变 state tree ，你需要编写 reducers</li>
+</ul>
+<h3 id="外部优秀网站"><a href="#外部优秀网站" class="headerlink" title="外部优秀网站"></a>外部优秀网站</h3><p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">Flex 布局教程：语法篇</a><br><a href="https://www.css88.com/book/css/" target="_blank" rel="noopener">CSS参考手册</a><br><a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="noopener">React 入门 ruanyifeng</a><br><a href="https://segmentfault.com/a/1190000012921279" target="_blank" rel="noopener">React入门篇</a><br><a href="https://react.docschina.org/docs/hello-world.html" target="_blank" rel="noopener">react.docschina.org</a><br><a href="http://nav.react-china.org/" target="_blank" rel="noopener">React 中文索引</a><br><a href="https://github.com/LeuisKen/react-collection" target="_blank" rel="noopener">react-collection</a><br><a href="https://ant.design/docs/react/introduce-cn" target="_blank" rel="noopener">Ant Design of React</a><br><a href="http://react-dnd.github.io/react-dnd/" target="_blank" rel="noopener">Drag and Drop for React</a><br><a href="http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html" target="_blank" rel="noopener">Redux 入门教程</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element#文本内容" target="_blank" rel="noopener">HTML 元素参考
+</a><br><a href="http://www.divcss5.com/" target="_blank" rel="noopener">divcss学习</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/30/reactnative/hashHistory 和 browserHistory 的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/30/reactnative/hashHistory 和 browserHistory 的区别/" itemprop="url">
+                  hashHistory 和 browserHistory 的区别
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-30 14:17:22" itemprop="dateCreated datePublished" datetime="2018-10-30T14:17:22+08:00">2018-10-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-17 19:33:37" itemprop="dateModified" datetime="2018-12-17T19:33:37+08:00">2018-12-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="router的使用"><a href="#router的使用" class="headerlink" title="router的使用"></a>router的使用</h3><ul>
+<li>安装<br><code>npm install react-router-dom --save</code></li>
+<li><p>导入<br><code>import { HashRouter, Route, Switch, withRouter,BrowserRouter } from &#39;react-router-dom&#39;;</code></p>
+</li>
+<li><p>官方推荐使用browserHistory</p>
+</li>
+</ul>
+<p>使用hashHistory,浏览器的url是这样的：/#/user/liuna?_k=adseis<br>使用browserHistory,浏览器的url是这样的：/user/liuna</p>
+<p><a href="https://www.cnblogs.com/liuna/p/6137970.html" target="_blank" rel="noopener">router的使用</a><br><a href="https://www.jianshu.com/p/8954e9fb0c7e" target="_blank" rel="noopener">在React中使用react-router-dom路由</a>   </p>
+<h3 id="使用-withRouter"><a href="#使用-withRouter" class="headerlink" title="使用 withRouter"></a>使用 withRouter</h3><p>引入withRouterimport { withRouter } from “react-router-dom”</p>
+<p>然后用高阶组件withRouter把要导出的组件传入进去<br>最后使用this.props.history.push()把你需要跳转的路由push进去就好了</p>
+<p><a href="https://www.jianshu.com/p/52528ebb771d" target="_blank" rel="noopener">react-router v4 手动控制路由跳转</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/30/reactnative/React DnD 的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/30/reactnative/React DnD 的使用/" itemprop="url">
+                  React DnD 的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-30 14:17:22" itemprop="dateCreated datePublished" datetime="2018-10-30T14:17:22+08:00">2018-10-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-02 14:24:17" itemprop="dateModified" datetime="2018-11-02T14:24:17+08:00">2018-11-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="核心API"><a href="#核心API" class="headerlink" title="核心API"></a>核心API</h3><p>想要灵活使用，就先知道几个核心API</p>
+<ul>
+<li><strong>DragSource</strong> 用于包装你需要拖动的组件，使组件能够被拖拽（make it draggable）</li>
+<li><strong>DropTarget</strong> 用于包装接收拖拽元素的组件，使组件能够放置（dropped on it）</li>
+<li><strong>DragDropContex</strong> 用于包装拖拽根组件，<code>DragSource</code> 和 <code>DropTarget</code> 都需要包裹在<code>DragDropContex</code>内</li>
+<li><strong>DragDropContextProvider</strong> 与 <code>DragDropContex 类似</code>，用 <code>DragDropContextProvider</code> 元素包裹拖拽根组件。</li>
+</ul>
+<h3 id="外部优秀网站"><a href="#外部优秀网站" class="headerlink" title="外部优秀网站"></a>外部优秀网站</h3><p><a href="https://segmentfault.com/a/1190000014723549" target="_blank" rel="noopener">React DnD 的使用</a><br><a href="http://react-dnd.github.io/react-dnd/" target="_blank" rel="noopener">Drag and Drop for React</a>  </p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/15/reactnative/RN原理解析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1619,545 +2173,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/14/reactnative/ESLint介绍/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/14/reactnative/ESLint介绍/" itemprop="url">
-                  ESLint安装使用流程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-14 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-14T16:17:22+08:00">2018-06-14</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-03 17:23:59" itemprop="dateModified" datetime="2018-07-03T17:23:59+08:00">2018-07-03</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>ESLint安装使用流程</p>
-<h1 id="京东通天塔项目安装使用流程"><a href="#京东通天塔项目安装使用流程" class="headerlink" title="京东通天塔项目安装使用流程"></a>京东通天塔项目安装使用流程</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; 京东通天塔项目已经添加了相关的配置只需要做以下操作即可使用：</span><br><span class="line">1. npm run install_eslint_packages     安装相关依赖包</span><br><span class="line">2. IDE配置：</span><br><span class="line">  http://139.199.180.74/showdoc/Public/Uploads/2017-12-12/5a2f4a15bfbcd.jpeg</span><br><span class="line">3.输出使用 详见最底部 `ESLint输出报告方式`</span><br></pre></td></tr></table></figure>
-<h1 id="新项目安装使用流程"><a href="#新项目安装使用流程" class="headerlink" title="新项目安装使用流程"></a>新项目安装使用流程</h1><h2 id="ESLint流程梳理"><a href="#ESLint流程梳理" class="headerlink" title="ESLint流程梳理"></a>ESLint流程梳理</h2><h3 id="一、背景介绍"><a href="#一、背景介绍" class="headerlink" title="一、背景介绍"></a>一、背景介绍</h3><h5 id="ESLint是一个用来识别-ECMAScript-并且按照规则给出报告的代码检测工具，使用它可以避免低级错误和统一代码的风格。ESLint被设计为完全可配置的，主要有两种方式来配置ESLint："><a href="#ESLint是一个用来识别-ECMAScript-并且按照规则给出报告的代码检测工具，使用它可以避免低级错误和统一代码的风格。ESLint被设计为完全可配置的，主要有两种方式来配置ESLint：" class="headerlink" title="ESLint是一个用来识别 ECMAScript 并且按照规则给出报告的代码检测工具，使用它可以避免低级错误和统一代码的风格。ESLint被设计为完全可配置的，主要有两种方式来配置ESLint："></a>ESLint是一个用来识别 ECMAScript 并且按照规则给出报告的代码检测工具，使用它可以避免低级错误和统一代码的风格。ESLint被设计为完全可配置的，主要有两种方式来配置ESLint：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">在注释中配置：使用JavaScript注释直接把配置嵌入到JS文件中。</span><br><span class="line">配置文件：使用下面任一的文件来为全部的目录和它的子目录指定配置信息。</span><br><span class="line">javascript：使用.eslintrc.js文件并导出一个包含配置的对象。</span><br><span class="line">YAML：.eslintrc.yaml或者.eslintrc.yml</span><br><span class="line">JSON：.eslintrc.json，并且此文件允许使用JS形式的注释</span><br><span class="line">废弃的用法：.eslintrc，此文件可以是JSON或者YAML</span><br><span class="line">package.json：在package.json文件中创建eslintConfig属性，所有的配置包含在此属性中。</span><br><span class="line">这些文件的优先级则是按照以上出现的顺序</span><br><span class="line">（.eslintrc.js &gt; .eslintrc.yaml &gt; .eslintrc.yml &gt; .eslintrc.json &gt; .eslintrc &gt; package.json）。</span><br><span class="line"></span><br><span class="line">三种方法可以配置ESLint</span><br><span class="line">    &gt; 使用.eslintrc.*文件（ 支持JSON和YAML两种语法）</span><br><span class="line">    &gt; 在package.json中添加eslintConfig配置块</span><br><span class="line">    &gt; 使用JavaScript注释直接把配置嵌入到文件中</span><br><span class="line"></span><br><span class="line">可以被配置的信息主要分为3类：</span><br><span class="line"></span><br><span class="line">Environments：你的 javascript 脚步将要运行在什么环境（如：nodejs，browser，commonjs等）中。</span><br><span class="line">Globals：执行代码时脚步需要访问的额外全局变量。</span><br><span class="line">Rules：开启某些规则，也可以设置规则的等级。</span><br></pre></td></tr></table></figure>
-<h3 id="二、作用"><a href="#二、作用" class="headerlink" title="二、作用"></a>二、作用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">EsLint提供以下几种校验：</span><br><span class="line"></span><br><span class="line">语法错误校验</span><br><span class="line">不重要或丢失的标点符号，如分号</span><br><span class="line">没法运行到的代码块（使用过WebStorm的童鞋应该了解）</span><br><span class="line">未被使用的参数提醒</span><br><span class="line">漏掉的结束符，如&#125;</span><br><span class="line">确保样式的统一规则，如sass或者less</span><br><span class="line">检查变量的命名</span><br></pre></td></tr></table></figure>
-<h3 id="三、安装"><a href="#三、安装" class="headerlink" title="三、安装"></a>三、安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">安装</span><br><span class="line"></span><br><span class="line">全局安装</span><br><span class="line">npm i -g eslint</span><br><span class="line">局部安装（推荐）</span><br><span class="line">npm i -D eslint</span><br><span class="line">安装完毕后，接下来新建一个配置文件.eslintrc.js，</span><br><span class="line">或者使用如下的命令行来自动生成。</span><br><span class="line"></span><br><span class="line">eslint --init</span><br></pre></td></tr></table></figure>
-<h3 id="四、配置"><a href="#四、配置" class="headerlink" title="四、配置"></a>四、配置</h3><h5 id="指定执行环境"><a href="#指定执行环境" class="headerlink" title="指定执行环境"></a>指定执行环境</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">JavaScript 代码可以运行在浏览器或 nodejs 等环境中，</span><br><span class="line">每个环境的全局变量都不尽相同（如 nodejs 中没有 DOM 相关的全局变量）。</span><br><span class="line">在配置文件中可以自由的指定执行环境。</span><br><span class="line"></span><br><span class="line">// .eslintrc.js</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  env: &#123;</span><br><span class="line">    browser: true,</span><br><span class="line">    node: true,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">https://eslint.org/docs/user-guide/configuring#specifying-environments</span><br></pre></td></tr></table></figure>
-<h5 id="指定全局变量"><a href="#指定全局变量" class="headerlink" title="指定全局变量"></a>指定全局变量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">可以在配置文件或注释中指定额外的全局变量，false表明变量只读：</span><br><span class="line"></span><br><span class="line">使用注释来配置：</span><br><span class="line">/* global var1, var2 */</span><br><span class="line">/* global var1:false, var2:false */</span><br><span class="line">使用配置文件来配置：</span><br><span class="line">// .eslintrc.js</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  globals: &#123;</span><br><span class="line">    var1: true,</span><br><span class="line">    var2: true,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="配置Rules"><a href="#配置Rules" class="headerlink" title="配置Rules"></a>配置Rules</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">在配置文件中可以设置一些规则。</span><br><span class="line"></span><br><span class="line">这些规则的等级有三种：</span><br><span class="line"></span><br><span class="line">&quot;off&quot; 或者 0：关闭规则。</span><br><span class="line">&quot;warn&quot; 或者 1：打开规则，并且作为一个警告（不影响exit code）。</span><br><span class="line">&quot;error&quot; 或者 2：打开规则，并且作为一个错误（exit code将会是1）。</span><br><span class="line"></span><br><span class="line">默认校验的地址http://eslint.org/docs/rules/</span><br></pre></td></tr></table></figure>
-<h3 id="五、使用方法"><a href="#五、使用方法" class="headerlink" title="五、使用方法"></a>五、使用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">通过命令行工具来使用 eslint 。</span><br><span class="line">1、列出所有文件命令 eslint .</span><br><span class="line">2、列出具体某个文件</span><br><span class="line">eslint [options] file.js [file.js] [dir]</span><br></pre></td></tr></table></figure>
-<h3 id="六、自动修复"><a href="#六、自动修复" class="headerlink" title="六、自动修复"></a>六、自动修复</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eslint --fix [dir]</span><br></pre></td></tr></table></figure>
-<h3 id="七、相关插件使用"><a href="#七、相关插件使用" class="headerlink" title="七、相关插件使用"></a>七、相关插件使用</h3><h5 id="ESLint输出报告方式"><a href="#ESLint输出报告方式" class="headerlink" title="ESLint输出报告方式"></a>ESLint输出报告方式</h5><p>一、终端直接输出方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eslint .</span><br></pre></td></tr></table></figure></p>
-<p>二、md格式：(到eslint_report目录下查看md格式文件)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eslint run eslint_makdown</span><br></pre></td></tr></table></figure></p>
-<p>三、html格式：（到eslint_report目录下查看html格式文件）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eslint run eslint_html</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/java/spring注解/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/java/spring注解/" itemprop="url">
-                  spring注解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-25 16:43:17" itemprop="dateModified" datetime="2018-07-25T16:43:17+08:00">2018-07-25</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、大量的XML让开发者厌恶,因此Spring提供了许多注解来完成各种功能。</span><br><span class="line">2、大量的注解让开发者厌恶 ,因此Spring提供了组合注解来完成各种功能。</span><br></pre></td></tr></table></figure>
-<h2 id="Spring-Boot-注解的意义以及作用"><a href="#Spring-Boot-注解的意义以及作用" class="headerlink" title="Spring Boot 注解的意义以及作用"></a>Spring Boot 注解的意义以及作用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">利用注解：隐式配置，例如：@Autowired、@Bean、@Component等，通过注解来简化xml文件。</span><br><span class="line"></span><br><span class="line">利用Java文件：显示配置，比xml配置的优势是具备类型安全。</span><br><span class="line"></span><br><span class="line">利用传统的xml配置文件。</span><br></pre></td></tr></table></figure>
-<p>注解(annotations)列表</p>
-<p>@ResponseBody </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用该注解修饰的函数，会将结果直接填充到HTTP的响应体中，一般用于构建RESTful的api；</span><br></pre></td></tr></table></figure>
-<p>@Controller</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用于定义控制器类，在spring 项目中由控制器负责将用户发来的URL请求转发到对应的服务接口（service层）。</span><br></pre></td></tr></table></figure>
-<p>@RestController</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@ResponseBody和@Controller的合集</span><br></pre></td></tr></table></figure>
-<p>@RequestMapping</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">提供路由信息，负责URL到Controller中的具体函数的映射。</span><br></pre></td></tr></table></figure>
-<p><a href="https://blog.csdn.net/m0_37995707/article/details/77447764" target="_blank" rel="noopener">更多注解详看</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/git 之 ssh/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/git/git 之 ssh/" itemprop="url">
-                  ssh
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-12 20:33:50" itemprop="dateModified" datetime="2018-09-12T20:33:50+08:00">2018-09-12</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><p>你拥有了一个 GitHub 账号之后，就可以自由的 clone 或者下载其他项目，也可以创建自己的项目，但是你没法提交代码。仔细想想也知道，肯定不可能随意就能提交代码的，如果随意可以提交代码，那么 GitHub 上的项目岂不乱了套了，所以提交代码之前一定是需要某种授权的，而 GitHub 上一般都是基于 SSH 授权的。<br>那么什么是 SSH 呢？ 简单点说，SSH是一种网络协议，用于计算机之间的加密登录。目前是每一台 Linux 电脑的标准配置。而大多数 Git 服务器都会选择使用 SSH 公钥来进行授权，所以想要在 GitHub 提交代码的第一步就是要先添加 SSH key 配置。</p>
-<h3 id="生成SSH-key"><a href="#生成SSH-key" class="headerlink" title="生成SSH key"></a>生成SSH key</h3><p>Linux 与 Mac 都是默认安装了 SSH ，而 Windows 系统安装了 Git Bash 应该也是带了 SSH 的。大家可以在终端（win下在 Git Bash 里）输入 ssh 检测是否已安装。</p>
-<p>紧接着输入 <code>ssh-keygen -t rsa</code> 或者<code>（ssh-keygen -t rsa -C “邮箱名&quot;）</code> ，什么意思呢？就是指定 rsa 算法生成密钥，接着连续三个回车键（不需要输入密码），然后就会生成两个文件 <code>id_rsa</code> 和 <code>id_rsa.pub</code> ，而 <code>id_rsa</code> 是密钥，<code>id_rsa.pub</code> 就是公钥。这两文件默认分别在如下目录里生成：<br><code>Linux/Mac</code> 系统 在<code>~/.ssh</code> 下，win系统在 <code>/c/Documents and Settings/username/.ssh</code> 下，都是隐藏文件，相信你们有办法查看的。<br>接下来要做的是把 <code>id_rsa.pub</code>的内容添加到 GitHub 上，这样你本地的 <code>id_rsa</code> 密钥跟 GitHub 上的 <code>id_rsa.pub</code> 公钥进行配对，授权成功才可以提交代码。</p>
-<h3 id="GitHub-上添加-SSH-key"><a href="#GitHub-上添加-SSH-key" class="headerlink" title="GitHub 上添加 SSH key"></a>GitHub 上添加 SSH key</h3><p>第一步先在 GitHub 上的设置页面，点击最左侧 SSH and GPG keys ：</p>
-<h3 id="怎么查看-id-rsa-pub-文件的内容？"><a href="#怎么查看-id-rsa-pub-文件的内容？" class="headerlink" title="怎么查看 id_rsa.pub 文件的内容？"></a>怎么查看 id_rsa.pub 文件的内容？</h3><p>Linux/Mac 用户执行以下命令：<br>cd ~/.ssh<br>cat id_rsa.pub</p>
-<h3 id="测试是否ok"><a href="#测试是否ok" class="headerlink" title="测试是否ok"></a>测试是否ok</h3><p>SSH key 添加成功之后，输入 ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> 进行测试</p>
-<p><a href="http://stormzhang.com/github/2016/06/04/learn-github-from-zero4/" target="_blank" rel="noopener">ssh向GITHUB 提交代码</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2209,7 +2224,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-count">80</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2246,7 +2261,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2327,7 +2344,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">34</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

@@ -331,7 +331,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/java/java基础/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/详解KVO底层实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -350,8 +350,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/java/java基础/" itemprop="url">
-                  java 基础
+                <a class="post-title-link" href="/2018/06/11/iOS/详解KVO底层实现/" itemprop="url">
+                  详解KVO底层实现
                 </a>
               
             
@@ -394,7 +394,186 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-27 16:22:52" itemprop="dateModified" datetime="2018-09-27T16:22:52+08:00">2018-09-27</time>
+                <time title="修改时间：2018-10-18 16:15:56" itemprop="dateModified" datetime="2018-10-18T16:15:56+08:00">2018-10-18</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="一、KVO-Key-Value-Observing"><a href="#一、KVO-Key-Value-Observing" class="headerlink" title="一、KVO (Key-Value Observing)"></a>一、KVO (Key-Value Observing)</h3><p>KVO 是 Objective-C 对观察者模式（Observer Pattern）的实现。也是 Cocoa Binding 的基础。当被观察对象的某个属性发生更改时，观察者对象会获得通知。</p>
+<p>有意思的是，你不需要给被观察的对象添加任何额外代码，就能使用 KVO 。这是怎么做到的？</p>
+<h3 id="二、-KVO内部实现原理"><a href="#二、-KVO内部实现原理" class="headerlink" title="二、 KVO内部实现原理"></a>二、 KVO内部实现原理</h3><p>KVO是基于runtime机制实现的<br>当某个类的属性对象第一次被观察时，系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类中任何被观察属性的setter 方法。派生类在被重写的setter方法内实现真正的通知机制<br>如果原类为Person，那么生成的派生类名为NSKVONotifying_Person<br>每个类对象中都有一个isa指针指向当前类，当一个类对象的第一次被观察，那么系统会偷偷将isa指针指向动态生成的派生类，从而在给被监控属性赋值时执行的是派生类的setter方法<br>键值观察通知依赖于NSObject 的两个方法: willChangeValueForKey: 和 didChangevlueForKey:；在一个被观察属性发生改变之前， willChangeValueForKey:一定会被调用，这就 会记录旧的值。而当改变发生后，didChangeValueForKey:会被调用，继而 observeValueForKey:ofObject:change:context: 也会被调用。<br>补充：KVO的这套实现机制中苹果还偷偷重写了class方法，让我们误认为还是使用的当前类，从而达到隐藏生成的派生类</p>
+<h3 id="三、补充：-如何关闭默认的KVO的默认实现，并进入自定义的KVO实现？（看链接）"><a href="#三、补充：-如何关闭默认的KVO的默认实现，并进入自定义的KVO实现？（看链接）" class="headerlink" title="三、补充： 如何关闭默认的KVO的默认实现，并进入自定义的KVO实现？（看链接）"></a>三、补充： 如何关闭默认的KVO的默认实现，并进入自定义的KVO实现？（看链接）</h3><p><a href="https://tech.glowing.com/cn/implement-kvo/" target="_blank" rel="noopener">如何自己动手实现 KVO</a></p>
+<h3 id="四、附注-KVC底层实现原理-如下"><a href="#四、附注-KVC底层实现原理-如下" class="headerlink" title="四、附注: KVC底层实现原理(如下)"></a>四、附注: KVC底层实现原理(如下)</h3><p>KVC运用了一个isa-swizzling技术. isa-swizzling就是类型混合指针机制, 将2个对象的isa指针互相调换, 就是俗称的黑魔法.<br>KVC主要通过isa-swizzling, 来实现其内部查找定位的. 默认的实现方法�由NSOject提供isa指针, 如其名称所指,(就是is a kind of的意思), 指向分发表对象的类. 该分发表实际上包含了指向实现类中的方法的指针, 和其它数据。</p>
+<p>具体主要分为三大步<br>第一步：寻找该属性有没有setsetter方法？有，就直接赋值<br>第二步：寻找有没有该属性带下划线的成员属性？有，就直接赋值<br>第三步：寻找有没有该属性的成员属性？有，就直接赋值<br>或者这么说<br>1、首先搜索setKey:方法.(key指成员变量名, 首字母大写)<br>2、上面的setter方法没找到, 如果类方法accessInstanceVariablesDirectly返回YES. 那么按 _key, _isKey，key, iskey的顺序搜索成员名.(NSKeyValueCodingCatogery中实现的类方法, 默认实现为返回YES)<br>3、如果没有找到成员变量, 调用setValue:forUnderfinedKey:<br>比如说如下的一行KVC的代码：</p>
+<p>举个🌰e.g:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[object setValue:<span class="string">@"13123"</span> forKey:<span class="string">@"uuid"</span>];</span><br><span class="line"> </span><br><span class="line">就会被编译器处理成:</span><br><span class="line"><span class="comment">// 首先找到对应sel</span></span><br><span class="line">SEL sel = sel_get_ uuid(<span class="string">"setValue:forKey:"</span>);</span><br><span class="line"><span class="comment">// 根据object-&gt;isa找到sel对应的IMP实现指针</span></span><br><span class="line">IMP method = objc_msg_lookup (object-&gt;isa,sel);</span><br><span class="line"><span class="comment">// 调用指针完成KVC赋值</span></span><br><span class="line">method(object, sel, <span class="string">@"13123"</span>, <span class="string">@"uuid"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="如何为一个实例动态替换方法"><a href="#如何为一个实例动态替换方法" class="headerlink" title="如何为一个实例动态替换方法"></a>如何为一个实例动态替换方法</h3><p><a href="http://ios.jobbole.com/93080/" target="_blank" rel="noopener">资料</a><br>根据kvo的实现原理：派生个实例方法所在类的子类，创建hook函数，然后修改isa指针<code>object_setClass(instance, newClass);</code>，实现替换的方法实现。</p>
+<p><a href="https://www.cnblogs.com/oc-bowen/p/5884768.html" target="_blank" rel="noopener">详解KVO底层实现</a><br><a href="https://coding.net/u/dream001/p/CustomKVO/git/tree/master" target="_blank" rel="noopener">代码实现仓库地址</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/java/Java Web应用程序的推荐目录结构/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/java/Java Web应用程序的推荐目录结构/" itemprop="url">
+                  Java Web应用程序的推荐目录结构
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-17 11:24:07" itemprop="dateModified" datetime="2018-09-17T11:24:07+08:00">2018-09-17</time>
               
             
           </span>
@@ -447,7 +626,190 @@
       
         
           
-            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2>
+            <h2 id="Java-Web应用程序的推荐目录结构"><a href="#Java-Web应用程序的推荐目录结构" class="headerlink" title="Java Web应用程序的推荐目录结构"></a>Java Web应用程序的推荐目录结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">├── pom.xml</span><br><span class="line">└── src</span><br><span class="line">    ├── main</span><br><span class="line">    │   ├── java</span><br><span class="line">    │   │   └── mygroup</span><br><span class="line">    │   │       ├── controller</span><br><span class="line">    │   │       │   ├── HomeController.java</span><br><span class="line">    │   │       │   └── PersonController.java</span><br><span class="line">    │   │       ├── dao</span><br><span class="line">    │   │       │   └── PersonDao.java</span><br><span class="line">    │   │       └── model</span><br><span class="line">    │   │           └── Person.java</span><br><span class="line">    │   ├── resources</span><br><span class="line">    │   │   ├── db.properties</span><br><span class="line">    │   │   ├── log4j.xml</span><br><span class="line">    │   │   └── META-INF</span><br><span class="line">    │   │       └── persistence.xml</span><br><span class="line">    │   └── webapp</span><br><span class="line">    │       ├── index.html</span><br><span class="line">    │       ├── META-INF</span><br><span class="line">    │       │   ├── context.xml</span><br><span class="line">    │       │   └── MANIFEST.MF</span><br><span class="line">    │       ├── resources</span><br><span class="line">    │       │   └── css</span><br><span class="line">    │       │       └── screen.css</span><br><span class="line">    │       └── WEB-INF</span><br><span class="line">    │           ├── spring</span><br><span class="line">    │           │   ├── app</span><br><span class="line">    │           │   │   ├── controllers.xml</span><br><span class="line">    │           │   │   └── servlet-context.xml</span><br><span class="line">    │           │   ├── db.xml</span><br><span class="line">    │           │   └── root-context.xml</span><br><span class="line">    │           ├── views</span><br><span class="line">    │           │   ├── edit.jsp</span><br><span class="line">    │           │   ├── home.jsp</span><br><span class="line">    │           │   └── list.jsp</span><br><span class="line">    │           └── web.xml</span><br><span class="line">    └── test</span><br><span class="line">        ├── java</span><br><span class="line">        │   └── mygroup</span><br><span class="line">        │       ├── controller</span><br><span class="line">        │       │   ├── DataInitializer.java</span><br><span class="line">        │       │   ├── HomeControllerTest.java</span><br><span class="line">        │       │   └── PersonControllerTest.java</span><br><span class="line">        │       └── dao</span><br><span class="line">        │           └── PersonDaoTest.java</span><br><span class="line">        └── resources</span><br><span class="line">            ├── db.properties</span><br><span class="line">            ├── log4j.xml</span><br><span class="line">            ├── test-context.xml</span><br><span class="line">            └── test-db.xml</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.cnblogs.com/yudy/archive/2012/06/26/2563638.html" target="_blank" rel="noopener">Java Web应用程序的推荐目录结构</a><br><a href="https://www.cnblogs.com/scown/p/5561677.html" target="_blank" rel="noopener">Java Web 项目目录规范</a><br><a href="https://blog.csdn.net/qq_28018283/article/details/79398661" target="_blank" rel="noopener">用IntelliJ idea 创建 springMVC 的Maven 项目</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/java/spring注解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/java/spring注解/" itemprop="url">
+                  spring注解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-25 16:43:17" itemprop="dateModified" datetime="2018-07-25T16:43:17+08:00">2018-07-25</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、大量的XML让开发者厌恶,因此Spring提供了许多注解来完成各种功能。</span><br><span class="line">2、大量的注解让开发者厌恶 ,因此Spring提供了组合注解来完成各种功能。</span><br></pre></td></tr></table></figure>
+<h2 id="Spring-Boot-注解的意义以及作用"><a href="#Spring-Boot-注解的意义以及作用" class="headerlink" title="Spring Boot 注解的意义以及作用"></a>Spring Boot 注解的意义以及作用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">利用注解：隐式配置，例如：@Autowired、@Bean、@Component等，通过注解来简化xml文件。</span><br><span class="line"></span><br><span class="line">利用Java文件：显示配置，比xml配置的优势是具备类型安全。</span><br><span class="line"></span><br><span class="line">利用传统的xml配置文件。</span><br></pre></td></tr></table></figure>
+<p>注解(annotations)列表</p>
+<p>@ResponseBody </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用该注解修饰的函数，会将结果直接填充到HTTP的响应体中，一般用于构建RESTful的api；</span><br></pre></td></tr></table></figure>
+<p>@Controller</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用于定义控制器类，在spring 项目中由控制器负责将用户发来的URL请求转发到对应的服务接口（service层）。</span><br></pre></td></tr></table></figure>
+<p>@RestController</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@ResponseBody和@Controller的合集</span><br></pre></td></tr></table></figure>
+<p>@RequestMapping</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">提供路由信息，负责URL到Controller中的具体函数的映射。</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/m0_37995707/article/details/77447764" target="_blank" rel="noopener">更多注解详看</a></p>
+
           
         
       
@@ -896,6 +1258,356 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/java/java基础的副本/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/java/java基础的副本/" itemprop="url">
+                  java 基础
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-27 16:22:52" itemprop="dateModified" datetime="2018-09-27T16:22:52+08:00">2018-09-27</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/docsify的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/other/docsify的使用/" itemprop="url">
+                  docsify
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-21 15:22:57" itemprop="dateModified" datetime="2018-12-21T15:22:57+08:00">2018-12-21</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="使用前操作"><a href="#使用前操作" class="headerlink" title="使用前操作"></a>使用前操作</h4><ul>
+<li>安装<br><code>npm i docsify-cli -g</code></li>
+<li>然后创建目录<br>首先在 Desktop 创建一个文件夹：cloud-doc<br>cd 到当前目录</li>
+<li>初始化项目</li>
+</ul>
+<p>如果想在项目的 ./docs 目录里写文档，直接通过 init 初始化项目。<br>docsify init ./docs</p>
+<ul>
+<li>启动服务 （默认3000端口号）可以修改<br><code>docsify serve docs</code>  <code>docsify serve docs -p 4001</code></li>
+</ul>
+<p><a href="https://www.jianshu.com/p/cfd0d4009cff" target="_blank" rel="noopener">docsify（和 gitbook 一样的好东西)</a><br><a href="https://www.jianshu.com/p/62405ab3c186" target="_blank" rel="noopener">docsify轻量级文档系统</a><br><a href="https://docsify.js.org/#/zh-cn/" target="_blank" rel="noopener">中文文档</a><br><a href="https://github.com/docsifyjs/docsify/" target="_blank" rel="noopener">docsify项目地址</a></p>
+<h4 id="内网搭建"><a href="#内网搭建" class="headerlink" title="内网搭建"></a>内网搭建</h4><p><a href="https://www.jianshu.com/p/56b8a31bbcbb" target="_blank" rel="noopener">Docsify文档管理平台 内网搭建</a></p>
+<h4 id="优秀使用者"><a href="#优秀使用者" class="headerlink" title="优秀使用者"></a>优秀使用者</h4><p><a href="https://doc.xiaoz.me/#/" target="_blank" rel="noopener">小z博客文档管理系统</a><br><a href="https://mao.sh/archives/122.html" target="_blank" rel="noopener">使用docsify快速生成在线文档</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/Markdown/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1246,188 +1958,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/终极 Shell/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/other/终极 Shell/" itemprop="url">
-                  终极 Shell
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-26 10:07:10" itemprop="dateModified" datetime="2018-06-26T10:07:10+08:00">2018-06-26</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="方案名称"><a href="#方案名称" class="headerlink" title="方案名称"></a>方案名称</h3><p>在开始今天的 MacTalk 之前，先问两个问题吧：<br>来自：<a href="https://zhuanlan.zhihu.com/p/19556676?columnSlug=mactalk" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/19556676?columnSlug=mactalk</a></p>
-<blockquote>
-<p>相对于其他系统，Mac 的主要优势是什么？<br>你们平时用哪种 Shell？</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">……</span><br><span class="line">第一个童靴可以坐下了，Mac 的最大优势是 GUI 和命令行的完美结合，不要把所有注意力放在 Mac 性感的腰身和明媚的显示屏上好吧，这不是妹纸！第二个童靴你可以出去面壁了，讲了这么多期 MacTalk 你告诉我还在用 Windows 的 cmd， 你让 Mac 君情何以堪？哪怕你就说在用 Linux 的 Bash 我也就原谅你了，踢飞！</span><br><span class="line">上次在「如何学习一门编程语言」里提到了 Shell，也有读者问到 Shell 的问题，所以这次给大家说说 Shell 的事。</span><br><span class="line">我在「趣谈个人建站」里介绍过一点 Shell，自己的东西借用下不丢人，把扯淡的拿掉，干货留下，就是如下内容：</span><br><span class="line">Shell是Linux/Unix的一个外壳，你理解成衣服也行。它负责外界与Linux内核的交互，接收用户或其他应用程序的命令，然后把这些命令转化成内核能理解的语言，传给内核，内核是真正干活的，干完之后再把结果返回用户或应用程序。</span><br><span class="line">Linux/Unix提供了很多种Shell，为毛要这么多Shell？难道用来炒着吃么？那我问你，你同类型的衣服怎么有那么多件？花色，质地还不一样。写程序比买衣服复杂多了，而且程序员往往负责把复杂的事情搞简单，简单的事情搞复杂。牛程序员看到不爽的Shell，就会自己重新写一套，慢慢形成了一些标准，常用的Shell有这么几种，sh、bash、csh等，想知道你的系统有几种shell，可以通过以下命令查看：</span><br><span class="line">cat /etc/shells</span><br><span class="line">显示如下：</span><br><span class="line">/bin/bash</span><br><span class="line">/bin/csh</span><br><span class="line">/bin/ksh</span><br><span class="line">/bin/sh</span><br><span class="line">/bin/tcsh</span><br><span class="line">/bin/zsh</span><br><span class="line">在 Linux 里执行这个命令和 Mac 略有不同，你会发现 Mac 多了一个 zsh，也就是说 OS X 系统预装了个 zsh，这是个神马 Shell 呢？</span><br><span class="line">目前常用的 Linux 系统和 OS X 系统的默认 Shell 都是 bash，但是真正强大的 Shell 是深藏不露的 zsh， 这货绝对是马车中的跑车，跑车中的飞行车，史称『终极 Shell』，但是由于配置过于复杂，所以初期无人问津，很多人跑过来看看 zsh 的配置指南，什么都不说转身就走了。直到有一天，国外有个穷极无聊的程序员开发出了一个能够让你快速上手的zsh项目，叫做「oh my zsh」，Github 网址是：https://github.com/robbyrussell/oh-my-zsh。这玩意就像「X天叫你学会 C++」系列，可以让你神功速成，而且是真的。</span><br><span class="line">好，下面我们看看如何安装、配置和使用 zsh。</span><br><span class="line">安装zsh</span><br><span class="line">如果你用 Mac，就可以直接看下一节</span><br><span class="line">如果你用 Redhat Linux，执行：sudo yum install zsh</span><br><span class="line">如果你用 Ubuntu Linux，执行：sudo apt-get install zsh</span><br><span class="line">如果你用 Windows……去洗洗睡吧。</span><br><span class="line">安装完成后设置当前用户使用 zsh：chsh -s /bin/zsh，根据提示输入当前用户的密码就可以了。</span><br><span class="line">安装oh my zsh</span><br><span class="line">首先安装 git，安装方式同上，把 zsh 换成 git 即可。</span><br><span class="line">安装「oh my zsh」可以自动安装也可以手动安装。</span><br><span class="line">自动安装：</span><br><span class="line">wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</span><br><span class="line">手动安装：</span><br><span class="line">git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</span><br><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</span><br><span class="line">都不复杂，安装完成之后退出当前会话重新打开一个终端窗口，你就可以见到这个彩色的提示了：</span><br><span class="line"></span><br><span class="line">配置</span><br><span class="line">zsh 的配置主要集中在用户当前目录的.zshrc里，用 vim 或你喜欢的其他编辑器打开.zshrc，在最下面会发现这么一行字：</span><br></pre></td></tr></table></figure>
-<h2 id="Customize-to-your-needs…"><a href="#Customize-to-your-needs…" class="headerlink" title="Customize to your needs…"></a>Customize to your needs…</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">可以在此处定义自己的环境变量和别名，当然，oh my zsh 在安装时已经自动读取当前的环境变量并进行了设置，你可以继续追加其他环境变量。</span><br><span class="line">接下来进行别名的设置，我自己的部分配置如下：</span><br><span class="line">alias cls=&apos;clear&apos;</span><br><span class="line">alias ll=&apos;ls -l&apos;</span><br><span class="line">alias la=&apos;ls -a&apos;</span><br><span class="line">alias vi=&apos;vim&apos;</span><br><span class="line">alias javac=&quot;javac -J-Dfile.encoding=utf8&quot;</span><br><span class="line">alias grep=&quot;grep --color=auto&quot;</span><br><span class="line">alias -s html=mate   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开</span><br><span class="line">alias -s rb=mate     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开</span><br><span class="line">alias -s py=vi       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似</span><br><span class="line">alias -s js=vi</span><br><span class="line">alias -s c=vi</span><br><span class="line">alias -s java=vi</span><br><span class="line">alias -s txt=vi</span><br><span class="line">alias -s gz=&apos;tar -xzvf&apos;</span><br><span class="line">alias -s tgz=&apos;tar -xzvf&apos;</span><br><span class="line">alias -s zip=&apos;unzip&apos;</span><br><span class="line">alias -s bz2=&apos;tar -xjvf&apos;</span><br><span class="line">zsh 的牛粪之处在于不仅可以设置通用别名，还能针对文件类型设置对应的打开程序，比如：</span><br><span class="line">alias -s html=mate，意思就是你在命令行输入 hello.html，zsh会为你自动打开 TextMat 并读取 hello.html； alias -s gz=&apos;tar -xzvf&apos;，表示自动解压后缀为 gz 的压缩包。</span><br><span class="line">总之，只有想不到，木有做不到。</span><br><span class="line">设置完环境变量和别名之后，基本上就可以用了，如果你是个主题控，还可以玩玩 zsh 的主题。在 .zshrc 里找到ZSH_THEME，就可以设置主题了，默认主题是：</span><br><span class="line">ZSH_THEME=”robbyrussell”</span><br><span class="line">oh my zsh 提供了数十种主题，相关文件在~/.oh-my-zsh/themes目录下，你可以随意选择，也可以编辑主题满足自己的变态需求，我采用了默认主题robbyrussell，不过做了一点小小的改动：</span><br><span class="line">PROMPT=&apos;%&#123;$fg_bold[red]%&#125;➜ %&#123;$fg_bold[green]%&#125;%p%&#123;$fg[cyan]%&#125;%d %&#123;$fg_bold[blue]%&#125;$(git_prompt_info)%&#123;$fg_bold[blue]%&#125;% %&#123;$reset_color%&#125;&gt;&apos;</span><br><span class="line">#PROMPT=&apos;%&#123;$fg_bold[red]%&#125;➜ %&#123;$fg_bold[green]%&#125;%p %&#123;$fg[cyan]%&#125;%c %&#123;$fg_bold[blue]%&#125;$(git_prompt_info)%&#123;$fg_bold[blue]%&#125; % %&#123;$reset_color%&#125;&apos;</span><br><span class="line">对照原来的版本，我把 c 改为 d，c 表示当前目录，d 表示绝对路径，另外在末尾增加了一个「 &gt; 」，改完之后的效果是这样的：</span><br><span class="line">大家可以尝试进行改造，也算个趣事。</span><br><span class="line">最后我们来说说插件。</span><br></pre></td></tr></table></figure>
-<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p>oh my zsh 项目提供了完善的插件体系，相关的文件在~/.oh-my-zsh/plugins目录下，默认提供了100多种，大家可以根据自己的实际学习和工作环境采用，想了解每个插件的功能，只要打开相关目录下的 zsh 文件看一下就知道了。插件也是在.zshrc里配置，找到plugins关键字，你就可以加载自己的插件了，系统默认加载 git ，你可以在后面追加内容，如下：<br>plugins=(git textmate ruby autojump osx mvn gradle)<br>下面简单介绍几个：</p>
-<ol><br><li>git：当你处于一个 git 受控的目录下时，Shell 会明确显示 「git」和 branch，如上图所示，另外对 git 很多命令进行了简化，例如 gco=’git checkout’、gd=’git diff’、gst=’git status’、g=’git’等等，熟练使用可以大大减少 git 的命令长度，命令内容可以参考~/.oh-my-zsh/plugins/git/git.plugin.zsh</li><br><li>textmate：mr可以创建 ruby 的框架项目，tm finename 可以用 textmate 打开指定文件。</li><br><li>osx：tab 增强，quick-look filename 可以直接预览文件，man-preview grep 可以生成 grep手册 的pdf 版本等。</li><br><li>autojump：zsh 和 autojump 的组合形成了 zsh 下最强悍的插件，今天我们主要说说这货。</li><br></ol>
-
-<p>首先安装autojump，如果你用 Mac，可以使用 brew 安装：<br>brew install autojump<br>如果是 Linux，去下载 autojump 的最新版本，比如：<br>wget <a href="https://github.com/downloads/joelthelion/autojump/autojump_v21.1.2.tar.gz" target="_blank" rel="noopener">https://github.com/downloads/joelthelion/autojump/autojump_v21.1.2.tar.gz</a><br>解压缩后进入目录，执行<br>./install.sh<br>最后把以下代码加入.zshrc：<br>[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] &amp;&amp; . ~/.autojump/etc/profile.d/autojump.sh<br>至此，安装、配置、插件三位一体，终极 Shell 全面登场。退出终端会话重新登录，开始感受 zsh 的训疾如风！</p>
-<h2 id="使用-zsh"><a href="#使用-zsh" class="headerlink" title="使用 zsh"></a>使用 zsh</h2><ol><br><li>兼容 bash，原来使用 bash 的兄弟切换过来毫无压力，该咋用咋用。</li><br><li>强大的历史纪录功能，输入 grep 然后用上下箭头可以翻阅你执行的所有 grep 命令。</li><br><li>智能拼写纠正，输入gtep mactalk <em> -R，系统会提示：zsh: correct ‘gtep’ to ‘grep’ [nyae]? 比妹纸贴心吧，她们向来都是让你猜的……</em></li><br><li>各种补全：路径补全、命令补全，命令参数补全，插件内容补全等等。触发补全只需要按一下或两下 tab 键，补全项可以使用 ctrl+n/p/f/b上下左右切换。比如你想杀掉 java 的进程，只需要输入 kill java + tab键，如果只有一个 java 进程，zsh 会自动替换为进程的 pid，如果有多个则会出现选择项供你选择。ssh + 空格 + 两个tab键，zsh会列出所有访问过的主机和用户名进行补全</li><br><li>智能跳转，安装了autojump之后，zsh 会自动记录你访问过的目录，通过 j + 目录名 可以直接进行目录跳转，而且目录名支持模糊匹配和自动补全，例如你访问过hadoop-1.0.0目录，输入j hado 即可正确跳转。j –stat 可以看你的历史路径库。</li><br><li>目录浏览和跳转：输入 d，即可列出你在这个会话里访问的目录列表，输入列表前的序号，即可直接跳转。</li><br><li>在当前目录下输入 .. 或 … ，或直接输入当前目录名都可以跳转，你甚至不再需要输入 cd 命令了。</li><br><li>通配符搜索：ls -l **/.sh，可以递归显示当前目录下的 shell 文件，文件少时可以代替 find，文件太多就歇菜了。</li><br><li>更强的别名：请参考配置一节。</li><br><li>插件支持：请参考插件一节。</li><br></ol>
-
-<p>看完这篇文章，你就知道，zsh一出，无人再与争锋！终极二字不是盖的。<br>如果你是个正在使用 shell程序员，如果你依然准备使用 bash，那就去面壁和忏悔吧，别说你订阅过 MacTalk！<br>感谢那位开发了 oh my zsh 的无聊程序员，他可能没有因此收获物质上的利益，但是他的代码提升了无数程序员的效率，节省了大量的时间，我们说，程序员改变世界！<br>MacTalk 写的多了，朋友和家人都不太理解，这玩意赚不了钱争不了名，写来何用？我想，能够学习、编码、写作，并做出一点帮助别人的东西，总好过炒股炒房的价值吧……</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/Mac本地服务器搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1603,539 +2133,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/tomcat使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/other/tomcat使用/" itemprop="url">
-                  tomcat
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-13 18:45:09" itemprop="dateModified" datetime="2018-09-13T18:45:09+08:00">2018-09-13</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://blog.csdn.net/u012661010/article/details/73381599" target="_blank" rel="noopener">Tomcat的目录结构详细介绍</a></p>
-<h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><p>切换到<code>tomcat</code>所在的目录在终端执行如下命令：<br><code>bash bin/startup.sh</code> 用来启动<code>tomcat</code> </p>
-<p>然后直接<code>localhost:8080/</code> 就可以访问了</p>
-<h4 id="文件放置"><a href="#文件放置" class="headerlink" title="文件放置"></a>文件放置</h4><p>webapps目录用来存放应用程序，当tomcat启动时会去加载webapps目录下的应用程序。可以以文件夹、war包、jar包的形式发布应用</p>
-<h4 id="修改http访问端口（默认为8080端口），将8080修改为tomcat不在使用的端口号"><a href="#修改http访问端口（默认为8080端口），将8080修改为tomcat不在使用的端口号" class="headerlink" title="修改http访问端口（默认为8080端口），将8080修改为tomcat不在使用的端口号"></a>修改http访问端口（默认为8080端口），将8080修改为tomcat不在使用的端口号</h4><p>1、安装目录下的<code>conf</code>子目录中的<code>server.xml</code>文件 修改位置如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot;</span><br><span class="line">           connectionTimeout=&quot;20000&quot;</span><br><span class="line">           redirectPort=&quot;8443&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>2、然后在关闭和重启操作</p>
-<p><code>bash bin/shutdown.sh</code> 用来关闭<code>tomcat</code><br><code>bash bin/startup.sh</code> 用来启动<code>tomcat</code> </p>
-<h4 id="启动tomcat-服务报-The-file-is-absent-or-does-not-have-execute-permission"><a href="#启动tomcat-服务报-The-file-is-absent-or-does-not-have-execute-permission" class="headerlink" title="启动tomcat 服务报 The file is absent or does not have execute permission"></a>启动tomcat 服务报 The file is absent or does not have execute permission</h4><p>1、在<code>linu</code>上部署好<code>tomcat</code>后，准备启动时报错：</p>
-<p>Cannot find bin/catalina.sh<br>The file is absent or does not have execute permission </p>
-<p>This file is needed to run this program </p>
-<p>2、解决办法：</p>
-<p>对启动脚本添加执行权限</p>
-<p><code>chmod 777  *.sh</code></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/数据结构算法/树/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/数据结构算法/树/" itemprop="url">
-                  树
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-10 15:05:13" itemprop="dateModified" datetime="2018-10-10T15:05:13+08:00">2018-10-10</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>定义：n个节点构成的有序集合。<br>1、顺序查找<br>2、二分查找<br>    二分查找判定树，ASL，<br>3、树<br>4、二叉树    </p>
-<p>第一章 绪论<br>（a）计算<br>（b）计算模型<br>（c）大O记号<br>（d）算法分析<br>（e）迭代与递归<br>（xc）动态规划<br>第二章 向量<br>（a）接口与实现<br>（b）可扩充向量<br>（c）无序向量<br>（d1）有序向量：唯一化<br>（d2）有序向量：二分查找<br>（d3）有序向量：Fibonacci查找<br>（d4）有序向量：二分查找（改进）<br>（d5）有序向量：插值查找<br>（e）起泡排序<br>（f）归并排序<br>第三章 列表<br>（a）接口与实现<br>（b）无序列表<br>（c）有序列表<br>（d）选择排序<br>（e）插入排序<br>第四章 栈与队列<br>（a）栈接口与实现<br>（c1）栈应用：进制转换<br>（c2）栈应用：括号匹配<br>（c3）栈应用：栈混洗<br>（c4）栈应用：中缀表达式求值<br>（c5）栈应用：逆波兰表达式<br>（d）队列接口与实现<br>第五章 二叉树<br>（a）树<br>（b）树的表示<br>（c）二叉树<br>（d）二叉树实现<br>（e1）先序遍历<br>（e2）中序遍历<br>（e4）层次遍历<br>（e5）重构<br>第六章 图<br>（a）概述<br>（b1）邻接矩阵<br>（c）广度优先搜索<br>（d）深度优先搜索<br>第七章 二叉搜索树<br>（a）概述<br>（b1）BST：查找<br>（b2）BST：插入<br>（b3）BST：删除<br>（c）平衡与等价<br>（d1）AVL树：重平衡<br>（d2）AVL树：插入<br>（d3）AVL树：删除<br>（d4）AVL树：(3+4)-重构<br>第八章 高级搜索树<br>(a1)伸展树：逐层伸展<br>(a2)伸展树：双层伸展<br>(a3)伸展树：算法实现<br>(b1)B-树：动机<br>(b2)B-树：结构<br>(b3)B-树：查找<br>(b4)B-树： 插入<br>(b5)B-树： 删除<br>(xa1)红黑树：动机<br>(xa2)红黑树：结构<br>(xa3)红黑树：插入<br>(xa4)红黑树：删除</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/我的日常兴趣/中国节气/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/我的日常兴趣/中国节气/" itemprop="url">
-                  二十四节气
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-07 10:38:55" itemprop="dateModified" datetime="2018-08-07T10:38:55+08:00">2018-08-07</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其他/" itemprop="url" rel="index"><span itemprop="name">其他</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="二十四节气"><a href="#二十四节气" class="headerlink" title="二十四节气"></a>二十四节气</h2><p><img src="https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=5157a451be096b63951456026d5aec21/b03533fa828ba61ef3c2ab514134970a304e599b.jpg" alt="二十四节气"></p>
-<p>二十四节气是根据地球在黄道（即地球绕太阳公转的轨道）上的位置来划分的。视太阳从春分点（黄经零度，此刻太阳垂直照射赤道）出发，每前进15度为一个节气；运行一周又回到春分点，为一回归年，合360度，因此分为24个节气。</p>
-<h2 id="节与气"><a href="#节与气" class="headerlink" title="节与气"></a>节与气</h2><p>一年有二十四个节气，计十二个节和十二个气。即一个月之内有一节一气，每两节气相距，平均约三十天又十分之四，而阴历每月之日数．则为二十九天半，故约每三十四个月，必遇有两月仅有节而无气、及有气而无节者。有节无气之月，即农历之闰月，有气无节之月不为闰月，兹将节气与农历月份关系表列于后：</p>
-<h3 id="季月节气表"><a href="#季月节气表" class="headerlink" title="季月节气表"></a>季月节气表</h3><table log-set-param="table_view" data-sort="sortDisabled"><tbody><tr><th height="37">季</th><th height="37" colspan="3"><div class="para" label-module="para">春</div><br></th><th height="37" colspan="3">夏</th><th height="37" colspan="3">秋</th><th height="37" colspan="3"><div class="para" label-module="para">冬</div><br></th></tr><tr><td valign="top">月</td><td valign="top">正月</td><td valign="top">二月</td><td valign="top">三月</td><td valign="top">四月</td><td valign="top">五月</td><td valign="top">六月</td><td valign="top">七月</td><td valign="top">八月</td><td valign="top">九月</td><td valign="top">十月</td><td valign="top">冬月</td><td valign="top">腊月</td></tr><tr><td valign="top">节</td><td valign="top">立春</td><td valign="top">惊蛰</td><td valign="top">清明</td><td valign="top">立夏</td><td valign="top">芒种</td><td valign="top">小暑</td><td valign="top">立秋</td><td valign="top">白露</td><td valign="top">寒露</td><td valign="top">立冬</td><td valign="top">大雪</td><td valign="top">小寒</td></tr><tr><td valign="top">气</td><td valign="top">雨水</td><td valign="top">春分</td><td valign="top">谷雨</td><td valign="top">小满</td><td valign="top">夏至</td><td valign="top">大暑</td><td valign="top">处暑</td><td valign="top">秋分</td><td valign="top">霜降</td><td valign="top">小雪</td><td valign="top">冬至</td><td valign="top">大寒</td></tr></tbody></table>
-
-<h2 id="二十四节气歌"><a href="#二十四节气歌" class="headerlink" title="二十四节气歌"></a>二十四节气歌</h2><p>春雨惊春清谷天，夏满芒夏暑相连。<br>秋处露秋寒霜降，冬雪雪冬小大寒。<br>上半年逢六廿一，下半年逢八廿三。<br>每月两节不变更，最多相差一两天。</p>
-<h2 id="九九歌"><a href="#九九歌" class="headerlink" title="九九歌"></a>九九歌</h2><p>一九二九不出手；<br>三九四九冰上走； 五九六九沿河看柳；<br>七九河开八九燕来； 九九加一九，耕牛遍地走；  </p>
-<p>我国阴历有“九九”的说法，用来计算时令。计算的方法是从冬天的冬至日算起，第一个九天叫“一九”。第二个九天叫“二九”，依此类推，一直到“九九”。即第九个九天，这时冬天已过完，春天来到了。</p>
-<h2 id="三伏"><a href="#三伏" class="headerlink" title="三伏"></a>三伏</h2><p>伏日宜吃面，北方有句俚语，叫做“头伏饺子二伏面，三伏烙饼摊鸡蛋”。<br><a href="https://baike.baidu.com/item/%E5%A4%B4%E4%BC%8F%E9%A5%BA%E5%AD%90%E4%BA%8C%E4%BC%8F%E9%9D%A2/1113695?fr=aladdin" target="_blank" rel="noopener">头伏饺子二伏面百科</a>  </p>
-<p><a href="https://baike.baidu.com/item/%E4%BA%8C%E5%8D%81%E5%9B%9B%E8%8A%82%E6%B0%94/191597" target="_blank" rel="noopener">二十四节气百科</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2187,7 +2184,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-count">80</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2224,7 +2221,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2305,7 +2304,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">34</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
