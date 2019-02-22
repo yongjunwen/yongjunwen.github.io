@@ -1,30 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[React项目创建 与 redux的使用]]></title>
-    <url>%2F2018%2F10%2F30%2Freactnative%2FReact%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA%2F</url>
-    <content type="text"><![CDATA[初始化一个react项目 create-react-app是一个通过npm发布的安装包，在确认Node.js和npm安装好之后，输入下面命令创建。 npm install -g create-react-app 安装结束后，使用下面命令创建应用目录。 create-react-app test-app 打开目录 cd test-app 运行项目 npm start 基于create-react-app的再配置使用react-app-rewired来进行react的再配置 如何优雅地在React项目中使用Redux使用Redux 12npm install --save redux react-redux redux-thunknpm install --save-dev redux-logger 相关库说明 React UI框架 Redux 状态管理工具，与React没有任何关系，其他UI框架也可以使用Redux react-redux React插件，作用：方便在React项目中使用Redux react-thunk 中间件，作用：支持异步action Redux三大原则 单一数据源整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中 State 是只读的唯一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象 使用纯函数来执行修改为了描述 action 如何改变 state tree ，你需要编写 reducers 外部优秀网站Flex 布局教程：语法篇CSS参考手册React 入门 ruanyifengReact入门篇react.docschina.orgReact 中文索引react-collectionAnt Design of ReactDrag and Drop for ReactRedux 入门教程HTML 元素参考 divcss学习]]></content>
-      <categories>
-        <category>React</category>
-      </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[hashHistory 和 browserHistory 的区别]]></title>
-    <url>%2F2018%2F10%2F30%2Freactnative%2FhashHistory%20%E5%92%8C%20browserHistory%20%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
-    <content type="text"><![CDATA[router的使用 安装npm install react-router-dom --save 导入import { HashRouter, Route, Switch, withRouter,BrowserRouter } from &#39;react-router-dom&#39;; 官方推荐使用browserHistory 使用hashHistory,浏览器的url是这样的：/#/user/liuna?_k=adseis使用browserHistory,浏览器的url是这样的：/user/liuna router的使用在React中使用react-router-dom路由 使用 withRouter引入withRouterimport { withRouter } from “react-router-dom” 然后用高阶组件withRouter把要导出的组件传入进去最后使用this.props.history.push()把你需要跳转的路由push进去就好了 react-router v4 手动控制路由跳转]]></content>
-      <categories>
-        <category>React</category>
-      </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[React DnD 的使用]]></title>
-    <url>%2F2018%2F10%2F30%2Freactnative%2FReact%20DnD%20%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <url>%2F2018%2F10%2F30%2F%E5%89%8D%E7%AB%AF%2FReact%20DnD%20%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[核心API想要灵活使用，就先知道几个核心API DragSource 用于包装你需要拖动的组件，使组件能够被拖拽（make it draggable） DropTarget 用于包装接收拖拽元素的组件，使组件能够放置（dropped on it） DragDropContex 用于包装拖拽根组件，DragSource 和 DropTarget 都需要包裹在DragDropContex内 DragDropContextProvider 与 DragDropContex 类似，用 DragDropContextProvider 元素包裹拖拽根组件。 外部优秀网站React DnD 的使用Drag and Drop for React]]></content>
       <categories>
         <category>React</category>
@@ -34,8 +12,41 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[hashHistory 和 browserHistory 的区别]]></title>
+    <url>%2F2018%2F10%2F30%2F%E5%89%8D%E7%AB%AF%2FhashHistory%20%E5%92%8C%20browserHistory%20%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[router的使用 安装npm install react-router-dom --save 导入import { HashRouter, Route, Switch, withRouter,BrowserRouter } from &#39;react-router-dom&#39;; 官方推荐使用browserHistory 使用hashHistory,浏览器的url是这样的：/#/user/liuna?_k=adseis使用browserHistory,浏览器的url是这样的：/user/liuna router的使用在React中使用react-router-dom路由 使用 withRouter引入withRouterimport { withRouter } from “react-router-dom” 然后用高阶组件withRouter把要导出的组件传入进去最后使用this.props.history.push()把你需要跳转的路由push进去就好了 react-router v4 手动控制路由跳转]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[React项目创建 与 redux的使用]]></title>
+    <url>%2F2018%2F10%2F30%2F%E5%89%8D%E7%AB%AF%2FReact%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA%2F</url>
+    <content type="text"><![CDATA[初始化一个react项目 create-react-app是一个通过npm发布的安装包，在确认Node.js和npm安装好之后，输入下面命令创建。 npm install -g create-react-app 安装结束后，使用下面命令创建应用目录。 create-react-app test-app 打开目录 cd test-app 运行项目 npm start 基于create-react-app的再配置使用react-app-rewired来进行react的再配置 如何优雅地在React项目中使用Redux使用Redux 12npm install --save redux react-redux redux-thunknpm install --save-dev redux-logger 相关库说明 React UI框架 Redux 状态管理工具，与React没有任何关系，其他UI框架也可以使用Redux react-redux React插件，作用：方便在React项目中使用Redux react-thunk 中间件，作用：支持异步action Redux三大原则 单一数据源整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中 State 是只读的唯一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象 使用纯函数来执行修改为了描述 action 如何改变 state tree ，你需要编写 reducers 外部优秀网站Flex 布局教程：语法篇CSS参考手册React 入门 ruanyifengReact入门篇react.docschina.orgReact 中文索引react-collectionAnt Design of ReactDrag and Drop for ReactRedux 入门教程HTML 元素参考 divcss学习]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[如何扩展 Create React App 的 Webpack 配置]]></title>
+    <url>%2F2018%2F10%2F30%2F%E5%89%8D%E7%AB%AF%2F%E5%A6%82%E4%BD%95%E6%89%A9%E5%B1%95%20Create%20React%20App%20%E7%9A%84%20Webpack%20%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[配置方式其实我们可以通过以下几种方式来修改 webpack 的配置： 项目 eject 替换 react-scripts 包 使用 react-app-rewired scripts 包 + override 组合 如何扩展 Create React App 的 Webpack 配置 How to rewire your create-react-app project1) Install react-app-rewired$ npm install react-app-rewired --save-dev 2) Create a config-overrides.js file in the root directory123456/* config-overrides.js */module.exports = function override(config, env) &#123; //do stuff with the webpack config... return config;&#125; 1234567+-- your-project| +-- config-overrides.js| +-- node_modules| +-- package.json| +-- public| +-- README.md| +-- src 3) ‘Flip’ the existing calls to react-scripts in npm scripts12345678910 /* package.json */ &quot;scripts&quot;: &#123;- &quot;start&quot;: &quot;react-scripts start&quot;,+ &quot;start&quot;: &quot;react-app-rewired start&quot;,- &quot;build&quot;: &quot;react-scripts build&quot;,+ &quot;build&quot;: &quot;react-app-rewired build&quot;,- &quot;test&quot;: &quot;react-scripts test --env=jsdom&quot;,+ &quot;test&quot;: &quot;react-app-rewired test --env=jsdom&quot;&#125; 4) Start the Dev Server1$ npm start 5) Build your app1$ npm run build react-app-rewired使用]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React webpack配置</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[RN原理解析]]></title>
-    <url>%2F2018%2F06%2F15%2Freactnative%2FRN%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90%2F</url>
+    <url>%2F2018%2F06%2F15%2F%E5%89%8D%E7%AB%AF%2FRN%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90%2F</url>
     <content type="text"><![CDATA[react &amp; reactnative 图 android 原理分解链接 iOS 平台为例，剖析一下 React Native 的原理 基本原理概述 React Native 能够运行起来，全靠 Objective-C 和 JavaScript 的交互。 C 系列的语言，经过编译，链接等操作后，会得到一个二进制格式的可执行文，所谓的运行程序，其实是运行这个二进制程序。 JavaScript 是一种脚本语言，它不会经过编译、链接等操作，而是在运行时 才动态的进行词法、语法分析，生成抽象语法树(AST)和字节码，然后由解释器负责执行或者使用 JIT 将字节码转化为机器码再执行。整个流程由 JavaScript 引擎负责完成。 苹果提供了一个叫做 JavaScript Core 的框架，这是一个 JavaScript 引擎。iOS7中加入了JavaScriptCore.framework框架。把 WebKit 的 JavaScript 引擎用 Objective-C 封装。该框架让Objective-C和JavaScript代码直接的交互变得更加的简单方便。（注：JSCore，即JavaScriptCore，JS解析的核心部分，IOS使用的是内置的JavaScriptCore，Androis上使用的是 https://webkit.org/家的jsc.so。）JavaScriptCore和Objective-C 交互 JavaScript 是一种单线程的语言，它不具备自运行的能力，因此总是被动调用。很多介绍 React Native 的文章都会提到 “JavaScript 线程” 的概念，实际上，它表示的是 Objective-C 创建了一个单独的线程，这个线程只用于执行 JavaScript 代码，而且 JavaScript 代码只会在这个线程中执行。 Objective-C 与 JavaScript 交互obj-c 与 js调用关系图 交互流程 在 React Native 中，Objective-C 和 JavaScript 的交互都是通过传递 ModuleId、MethodId 和 Arguments 进行的。Objective-C 和 JavaScript 两端都保存了一份配置表，里面标记了所有 Objective-C 暴露给 JavaScript 的模块和方法。这样，无论是哪一方调用另一方的方法，实际上传递的数据只有 ModuleId、MethodId 和 Arguments 这三个元素，它们分别表示类、方法和方法参数，当 Objective-C 接收到这三个值后，就可以通过 runtime 唯一确定要调用的是哪个函数，然后调用这个函数。Objective-C 和 JavaScript 的交互总是由Objective-C发起的。Object-C与js的交互是通过各端的Bridge和ModuleConfig来进行的，实际过程可分为两个阶段：初始化阶段和方法调用阶段。 初始化 React Native 在RN（ios）项目中都会有 AppDelegate.m 这个文件，文件有如下代码： 用户能看到的一切内容都来源于这个 RootView，所有的初始化工作也都在这个方法内完成。在这个方法内部，在创建 RootView 之前，React Native 实际上先创建了一个 Bridge 对象。它是 Objective-C 与 JavaScript 交互的桥梁，后续的方法交互完全依赖于它，而整个初始化过程的最终目的其实也就是创建这个桥梁对象。 初始化方法的核心是 setUp 方法，而 setUp 方法的主要任务则是创建 BatchedBridge。BatchedBridge 的作用是批量读取 JavaScript 对 Objective-C 的方法调用，同时它内部持有一个 JavaScriptExecutor，顾名思义，这个对象用来执行 JavaScript 代码。创建 BatchedBridge 的关键是 start 方法，它可以分为五个步骤： 1.读取 JavaScript 源码 JavaScript 的代码是在 Objective-C 提供的环境下运行的，所以第一步就是把 JavaScript 加载进内存中，对于一个空的项目来说，所有的 JavaScript 代码大约占用 1.5 Mb 的内存空间。在这一步中，JSX 代码已经被转化成原生的 JavaScript 代码。 2.初始化模块信息 主要任务是找到所有需要暴露给 JavaScript 的类（Module） 初始化 JavaScript 代码的执行器，即 RCTJSCExecutor 对象 初始化JavaScript代码执行器，同时向 JavaScript 上下文中添加了一些 Block(Object-c中对闭包的实现) 作为全局变量。 3.Block–nativeRequireModuleConfig ： 它在 JavaScript 注册新的模块时调用： Block–nativeFlushQueueImmediate：一般情况下，Objective-C 会定时、主动的调用JS放到MessageQueue 中的方法，实际上（由于卡顿或某些特殊原因），JavaScript 也可以主动调用 Objective-C 的方法，目前，React Native 的逻辑是，如果消息队列中有等待 Objective-C 处理的逻辑，而且 Objective-C 超过 5ms 都没有来取走，那么 JavaScript 就会主动调用 Objective-C 的方法。 请牢牢记住这个 5ms，它告诉我们 JavaScript 与 Objective-C 的交互是存在一定开销的，不然就不会等待而是每次都立刻发起请求。其次，这个时间开销大约是毫秒级的，不会比 5ms 小太多，否则等待这么久就意义不大了。 4.生成模块列表并写入 JavaScript 端 让 JavaScript 获取所有模块的名字，作为一个全局变量存储 5.执行 JavaScript 源码 运行代码时，第三步中所添加的 Block（nativeRequireModuleConfig ） 就会被执行，从而向 JavaScript 端写入配置信息。 初始化工程 方法调用 1.OC调用 JS代码 OC不会直接调用实际的js函数，而是会去调用维系的中转函数，中转函数接收到 的参数包含了 ModuleId、MethodId 和 Arguments，就可以查找自己的模块配置表，找到真正要调用的 JavaScript 函数。 2.JS调用OC代码 在调用 Objective-C 代码时，JavaScript 会解析出方法的 ModuleId、MethodId 和 Arguments 并放入到 MessageQueue 中，等待 Objective-C 主动拿走，或者超时后主动发送给 Objective-C。 函数内部在每一次方调用中查找模块配置表找出要调用的方法，并通过 runtime 动态的调用。 React-Native简介与运行原理解析React Native通信机制详解]]></content>
       <categories>
         <category>ReactNative</category>
@@ -46,8 +57,8 @@
   </entry>
   <entry>
     <title><![CDATA[RN学习相关地址]]></title>
-    <url>%2F2018%2F06%2F15%2Freactnative%2FRN%E5%AD%A6%E4%B9%A0%E7%9B%B8%E5%85%B3%E5%9C%B0%E5%9D%80%2F</url>
-    <content type="text"><![CDATA[RN学习相关地址reactnative中文官网React之JSX语法crazycodeboy RN学习笔记RN学习应用与实践布局详细指南CSS布局ReactNative每日一学Flex布局介绍React Native 代码规范 前端扩展Flux 架构入门教程Redux 入门教程（一）：基本用法[JavaScript ES6基础语法] (http://es6.ruanyifeng.com/)[Redux介绍] (http://cn.redux.js.org/)MobX 简单、可扩展的状态管理 视频学习ReactNative基础与入门]]></content>
+    <url>%2F2018%2F06%2F15%2F%E5%89%8D%E7%AB%AF%2FRN%E5%AD%A6%E4%B9%A0%E7%9B%B8%E5%85%B3%E5%9C%B0%E5%9D%80%2F</url>
+    <content type="text"><![CDATA[RN学习相关地址reactnative中文官网React之JSX语法crazycodeboy RN学习笔记RN学习应用与实践布局详细指南CSS布局ReactNative每日一学Flex布局介绍React Native 代码规范 前端扩展Flux 架构入门教程Redux 入门教程（一）：基本用法[JavaScript ES6基础语法] (http://es6.ruanyifeng.com/)[Redux介绍] (http://cn.redux.js.org/)MobX 简单、可扩展的状态管理Ant Design 实战教程（beta 版）第一个组件 视频学习ReactNative基础与入门]]></content>
       <categories>
         <category>ReactNative</category>
       </categories>
@@ -57,7 +68,7 @@
   </entry>
   <entry>
     <title><![CDATA[RN脚手架初始化项目在0.45版本后问题]]></title>
-    <url>%2F2018%2F06%2F15%2Freactnative%2FRN%E8%84%9A%E6%89%8B%E6%9E%B6%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE%E5%9C%A80.45%E7%89%88%E6%9C%AC%E5%90%8E%E9%97%AE%E9%A2%98%2F</url>
+    <url>%2F2018%2F06%2F15%2F%E5%89%8D%E7%AB%AF%2FRN%E8%84%9A%E6%89%8B%E6%9E%B6%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE%E5%9C%A80.45%E7%89%88%E6%9C%AC%E5%90%8E%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[由于 RN 0.45.0 后，需要依赖一些第三方库，这些库通过 npm 或 yarn 下载非常慢，所以可以先手动下载，放到此文件夹： ~/.rncache（如果路径不存在就手动创建一个） 首先配置npm镜像 地址跳转 如果依然失败的话 需要看以下步骤了。 以下是我用到的几个库（版本可能会有更新），如果手动下载有困难，可以找已经下载好的同学拿一下： 1234boost_1_63_0.tar.gzdouble-conversion-1.1.5.tar.gzfolly-2016.09.26.00.tar.gzglog-0.3.4.tar.gz react更新依赖的脚本在这个地方：react-native/scripts/ios-install-third-party.sh 百度网盘外链下载iOS RN 0.45以上版本所需的第三方编译库(boost等) 产生原因： ~/.rncache 中 boost_1_63_0.tar.gz， double-conversion-1.1.5.tar.gz， folly-2016.09.26.00.tar.gz， glog-0.3.4.tar.gz 文件下载不完整 node_modules/react-native/third-party 文件不完整 解决方案： 删除 .rncache 后重新下载，或手动下载后放入 .rncache 中 把以上文件解压后放入 node_modules/react-native/third-party 下]]></content>
       <categories>
         <category>ReactNative</category>
@@ -67,19 +78,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ReactNative记录问题点]]></title>
-    <url>%2F2018%2F06%2F15%2Freactnative%2FReactNative%E8%AE%B0%E5%BD%95%E9%97%AE%E9%A2%98%E7%82%B9%2F</url>
-    <content type="text"><![CDATA[错误打印log的方法因为多了一个逗号：1234console.log('*************ZSDiscountHomeBrandCardView**str***************', +this.props.info)要删掉逗号就可以了 console.log('*************ZSDiscountHomeBrandCardView**str***************' +this.props.info) 注意：此种方式是异步操作不能立马打印出log1234567891011this.setState(&#123; cardList: tmpBrands&#125;)console.log('this.state.cardList=' + this.state.cardList)//此种方式可以打印出logthis.setState( &#123;cardList: tmpBrands&#125;, () =&gt; &#123; console.log('=》this.state.cardList=' + this.state.cardList) &#125;) RN中this所引起的undefined is not an object错误在我们编写RN代码的时候经常会出现一个错误，undefined is not an object(evaluating ‘this.refs’ ).undefined is not an object错误，提示我们未知的对象，该句话的含义就是我们没有定义该对象。但是this就是当前对象，为什么还会出现如此问题？只有一种可能，就是当前引用的this和this.setState的this不是指向同一个对象，这样才会出想“undefined is not an object”这样的错误。那么，今天我们来谈谈RN里的this，介绍几个特殊的case。 http://blog.csdn.net/codetomylaw/article/details/52215787 rn中Image不要用嵌套莫名在android上有很多问题 例如：设置边角弧度的时候在android上显示异常、加入jdrouter 页面布局错乱 hasOwnProperty 是否具有某个属性的使用1是否具有某个属性的使用 组件里 一定不能加分号12345678_renderErrorView () &#123; return ( &lt;View style=&#123;styles.container&#125;&gt; &lt;NavigationBar Title="专属优惠"/&gt; &lt;JDNetworkErrorView onRetry=&#123;this._fetchData&#125;/&gt; ；//此处加分号就是错误的 &lt;/View&gt; );&#125; 导入react和JDReact方式import React, { Component, PropTypes } from 'react' import { StyleSheet, Text, View, Platform }from 'react-native' import { JDText, JDDevice, JDImage, JDTouchable, JDNativeToast } from '@jdreact/jdreact-core-lib']]></content>
-      <categories>
-        <category>ReactNative</category>
-      </categories>
-      <tags>
-        <tag>ReactNative使用记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[ReactNative基础学习]]></title>
-    <url>%2F2018%2F06%2F15%2Freactnative%2FReactNative%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%2F</url>
+    <url>%2F2018%2F06%2F15%2F%E5%89%8D%E7%AB%AF%2FReactNative%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%2F</url>
     <content type="text"><![CDATA[组件的生命周期组件装载，组件在渲染之前，会先调用默认的props，ES6就是，static defaultProps；接下来就是组件初始化，constructor（props）组件的构造方法；接下来是 componentWillMount组件在加载之前的方法；render完成组件的渲染；componentDidMount 组件渲染完成。接下来就进入运行阶段啦。（一次调用） 组件更新，在运行中，如果组件的属性发生了改变，就会调用 componentWillReceiveProps 会被调用，然后就会调用 shouldComponentUpdate ，询问我们是否要渲染组件，如果返回FALSE的话，就不会渲染；如果是TRUE的话，就会调用componentWillUpdate重新渲染组件，然后render，再后来就完成更新啦componentDidUpdate（多次调用） 组件卸载，页面关闭的时候，组件会被卸载，componentWillUnmount，可以完成资源的回收与释放啦。（一次调用） 创建组件的三种方式1234567891011121314151617181920212223242526272829/** 方式1 ES6* */export default class NewView extends Component&#123; render()&#123; return &lt;Text style=&#123;styles.container&#125;&gt;hello ES6&lt;/Text&gt; ; &#125;&#125;/* * 方式2 ES5 需要module.exports * */// var NewView = React.createClass(&#123;// render()&#123;// return &lt;Text style=&#123;styles.container&#125;&gt;hello ES5&lt;/Text&gt; ;// &#125;// &#125;)// module.exports = NewView;/* * 方式3 函数式 需要module.exports * 无状态，不能使用this，但是可以传入属性 * */// function NewView(props) &#123;// return &lt;Text style=&#123;styles.container&#125;&gt;hello &#123;props.name&#125;&lt;/Text&gt; ;// &#125;// module.exports = NewView; 组件的导入和导出1234567891011121314151617181920212223242526272829一、导出组件三种导出方式，之前学过的ES6, ES5, 函数式三种建立组件方式，里面有提及过如何导出使用方式：import EIComponent from &apos;./EIComponent&apos;二、导出变量方法一：export var name = &apos;sun&apos;;export var age = &apos;female&apos;;方法二：var name = &apos;sun&apos;;var age = &apos;22&apos;;export &#123;name, age&#125;;使用方式：例如setup.js中加入：import EIComponent,&#123;name,age&#125; from &apos;./EIComponent&apos;三、导出方法方法前加exportexport function sum(a,b)&#123; return a+b;&#125;使用方式：和变量使用方式一致import EIComponent,&#123;name,age,sum&#125; from &apos;./EIComponent&apos; React Native props使用详解123456789101112131415161718191、什么是props? 父组件传递给子组件的属性2、如何使用props?3、什么是默认属性以及它的作用？ 4、如何对props进行约束和检查？5、props使用小技巧之延展操作符？6、props使用小技巧之解构赋值？props使用技巧--延展操作符延展操作符是ES6中的新语法。当我要传递很多个属性时，let params = &#123;name:&apos;张&apos;，age:18, sex:&apos;女&apos; &#125;；使用的时候就是 &lt;PropsTest name=&#123;params.name&#125; sex=&#123;params.sex&#125; /&gt;（但这个非常的复杂，代码也会很长）&lt;PropsTest &#123; ...params &#125; /&gt;（使用 大括号里放三个点 ...，然后接着 params 就可以在下一个页面被使用了。 ）props使用技巧--解构赋值延展操作符是将属性全部进行赋值，但如果只想取出部分来进行赋值，就可以使用解构赋值。let params = &#123;name:&apos;张&apos;，age:18, sex:&apos;女&apos; &#125;；let &#123;name,sex&#125;=params; &lt;PropsTest name=&#123;name&#125; sex=&#123;sex&#125; /&gt; 它比传统的方式好是它可以从一组属性中获取指定属性，而且，少了一点点代码。 什么是state props是不可改变，只读的。为了实现交互，就需要用到组件的state。我们将组件看为状态机，UI是各种各样的状态，并在各种各样的状态之间可以切换，只需要改变组件的state，就会重新渲染UI。state是组件私有的，是没有办法通过其他组件传递过来的。 123456789101112state也可以吹气球（导入新的资源，都会报错，因此需要将包管理器关掉，再重新启动服务即可。）如何控制state的变化呢，在文字上设置方法，onPress=&#123; ()=&gt; &#123;this.setState (&#123; size:this.state.size+10&#125;); &#125;&#125; 改变state的值是用 this.setState&#123;size:90&#125;&lt;Image style=&#123;&#123;width:this.state.size,height:this.state.size&#125;&#125; source=&#123;require(&apos;./qiqiu.png)&#125;/&gt;上述代码就将 Image 的大小给渲染出来啦。(动态化的UI就有啦) 什么是refref是什么？ref是组件的特殊属性，组件被渲染后，指向组件的一个引用。可以通过组件的ref属性，来获取真实的组件。因为，组件并不是真正的DOM节点，而是存在于内存中的一种数据结构，称为虚拟的DOM，只有当它真正的插入文档之后，才变为真正的DOM节点。根据React的设计，所以的DOM变动都发生在虚拟DOM上，然后再将实际的部分反映到真实的DOM上–这就是 DOM DIff，它可以提高页面性能。 类 class类ES6中引入了class（类），让javaScript的面向对象编程变得更加简单和易于理解 一、类的导入和导入普通的组件是一样的import Student from ‘./Student’; 二、类的实例化可以在setup.js的构造函数中，如下：this.stu= new Student(“晓明”，”男”, 16); 三、使用类的实例setup.js的render里面 this.stu.getDescription()//获取实例中的方法或属性等 四、类的继承构造方法和方法是可以重写的]]></content>
       <categories>
         <category>ReactNative</category>
@@ -89,8 +89,19 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[ReactNative记录问题点]]></title>
+    <url>%2F2018%2F06%2F15%2F%E5%89%8D%E7%AB%AF%2FReactNative%E8%AE%B0%E5%BD%95%E9%97%AE%E9%A2%98%E7%82%B9%2F</url>
+    <content type="text"><![CDATA[错误打印log的方法因为多了一个逗号：1234console.log('*************ZSDiscountHomeBrandCardView**str***************', +this.props.info)要删掉逗号就可以了 console.log('*************ZSDiscountHomeBrandCardView**str***************' +this.props.info) 注意：此种方式是异步操作不能立马打印出log1234567891011this.setState(&#123; cardList: tmpBrands&#125;)console.log('this.state.cardList=' + this.state.cardList)//此种方式可以打印出logthis.setState( &#123;cardList: tmpBrands&#125;, () =&gt; &#123; console.log('=》this.state.cardList=' + this.state.cardList) &#125;) RN中this所引起的undefined is not an object错误在我们编写RN代码的时候经常会出现一个错误，undefined is not an object(evaluating ‘this.refs’ ).undefined is not an object错误，提示我们未知的对象，该句话的含义就是我们没有定义该对象。但是this就是当前对象，为什么还会出现如此问题？只有一种可能，就是当前引用的this和this.setState的this不是指向同一个对象，这样才会出想“undefined is not an object”这样的错误。那么，今天我们来谈谈RN里的this，介绍几个特殊的case。 http://blog.csdn.net/codetomylaw/article/details/52215787 rn中Image不要用嵌套莫名在android上有很多问题 例如：设置边角弧度的时候在android上显示异常、加入jdrouter 页面布局错乱 hasOwnProperty 是否具有某个属性的使用1是否具有某个属性的使用 组件里 一定不能加分号12345678_renderErrorView () &#123; return ( &lt;View style=&#123;styles.container&#125;&gt; &lt;NavigationBar Title="专属优惠"/&gt; &lt;JDNetworkErrorView onRetry=&#123;this._fetchData&#125;/&gt; ；//此处加分号就是错误的 &lt;/View&gt; );&#125; 导入react和JDReact方式import React, { Component, PropTypes } from 'react' import { StyleSheet, Text, View, Platform }from 'react-native' import { JDText, JDDevice, JDImage, JDTouchable, JDNativeToast } from '@jdreact/jdreact-core-lib']]></content>
+      <categories>
+        <category>ReactNative</category>
+      </categories>
+      <tags>
+        <tag>ReactNative使用记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[React简介]]></title>
-    <url>%2F2018%2F06%2F15%2Freactnative%2FReact%E7%AE%80%E4%BB%8B%2F</url>
+    <url>%2F2018%2F06%2F15%2F%E5%89%8D%E7%AB%AF%2FReact%E7%AE%80%E4%BB%8B%2F</url>
     <content type="text"><![CDATA[#React简介http://www.jianshu.com/p/1606f8bd46ed 背景介绍 Facebook认为MVC无法满足他们的扩展需求，由于他们非常巨大的代码库和庞大的组织，使得MVC很快变得非常复复杂，每当需要添加一项新的功能或特性时，系统的复杂度就成级数增长，致使代码变得脆弱和不可预测，结果导致他们的MVC正在土崩瓦解。认为MVC不适合大规模应用，当系统中有很多的模型和相应的视图时，其复杂度就会迅速扩大，非常难以理解和调试，特别是模型和视图间可能存在的双向数据流动。 React特点 1、作为UI React可以作为MVC中的View层进行使用，并且在已有项目中很容易使用React开发新功能。2、虚拟domVirtual DOM 虚拟DOM传统的web应用，操作DOM一般是直接更新操作的，但是我们知道DOM更新通常是比较昂贵的。而React为了尽可能减少对DOM的操作，提供了一种不同的而又强大的方式来更新DOM，代替直接的DOM操作。就是Virtual DOM,一个轻量级的虚拟的DOM，就是React抽象出来的一个对象，描述dom应该什么样子的，应该如何呈现。通过这个Virtual DOM去更新真实的DOM，由这个Virtual DOM管理真实DOM的更新。 为什么通过这多一层的Virtual DOM操作就能更快呢？ 这是因为React有个diff算法，更新Virtual DOM并不保证马上影响真实的DOM，React会等到事件循环结束，然后利用这个diff算法，通过当前新的dom表述与之前的作比较，计算出最小的步骤更新真实的DOM。3、组件化Components 组件在DOM树上的节点被称为元素，在这里则不同，Virtual DOM上称为commponent。Virtual DOM的节点就是一个完整抽象的组件，它是由commponents组成。 component 的使用在 React 里极为重要, 因为 components 的存在让计算 DOM diff 更高效。 学习准备1231、前端基础知识：html、css、JavaScript2、jsx语法知识3、es6 相关知识 React和ReactNative关系 react用于web应用开发，rn采用React方式进行移动应用开发。rn采用React语法，用于进行JavaScript跨终端应用开发，即拥有原生native的交互体验，又能够保留React自由的开发效率，使用灵活的的html和css布局，使用React语法结构组件，然后同时运行在ios和android平台上。]]></content>
       <categories>
         <category>React</category>
@@ -100,8 +111,19 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[开发前端react项目 知识点总结]]></title>
+    <url>%2F2018%2F06%2F15%2F%E5%89%8D%E7%AB%AF%2Fjs%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[js中的||和&amp;&amp; 逻辑与&amp;&amp;和逻辑或||操作符可以应用于任何类型的操作数，而不仅仅是布尔值。 几乎所有语言中||和&amp;&amp;都遵循“短路”原理， 如&amp;&amp;中第一个表达式为假就不会去处理第二个表达式，而||正好相反。js同样也遵循上述原则： 当逻辑或||时，找到为true的分项就停止处理，并返回该分项的值，否则执行完，并返回最后分项的值。 当逻辑与&amp;&amp;时，找到为false的分项就停止处理，并返回该分项的值。 1234var a = "" || null || 3 || 4;//3alert(a);var b = 4 &amp;&amp; 5 &amp;&amp; null &amp;&amp; "0";//nullalert(b); 扩展运算符 … 的使用妙用ES6解构和扩展运算符让你的代码更优雅 箭头函数ES6箭头函数（Arrow Functions） 字典合并 利用扩展运算符12345const obj1 = &#123;&apos;name&apos;: &apos;张三&apos;, &apos;age&apos;: &apos;12&apos;, &apos;salary&apos;: &apos;2332&apos;&#125;;const obj2 = &#123;&apos;fat&apos;: &apos;true&apos;, &apos;name&apos;: &apos;李四&apos;&#125;;const obj3 = &#123;...obj1,...obj2&#125;;console.log(&apos;obj3=====&apos;, obj3); 原生JS实现深拷贝原生JS实现深拷贝JavaScript 中的对象拷贝 使用 Object.assign() 方法用于将从一个或多个源对象中的所有可枚举的属性值复制到目标对象 1234567let obj = &#123; a: 1, b: 2,&#125;;let objCopy = Object.assign(&#123;&#125;, obj);console.log(objCopy);// Result - &#123; a: 1, b: 2 &#125; 使用JSON.parse(JSON.stringify(object)) 123456789101112let obj = &#123; a: 1, b: &#123; c: 2, &#125;,&#125; let newObj = JSON.parse(JSON.stringify(obj)); obj.b.c = 20;console.log(obj); // &#123; a: 1, b: &#123; c: 20 &#125; &#125;console.log(newObj); // &#123; a: 1, b: &#123; c: 2 &#125; &#125; (一个新的对象) Chrome react调试插件React - React Developer Tools开发者工具的安装与使用（Chrome调试插件） 从React15.5起，React.PropTypes被移入到单独的package中使用 PropTypes 进行类型检查 需要我们安装软件包prop-types 安装方法为： 安装prop-types npm install prop-types --save 导入 import { PropTypes} from &#39;prop-types&#39;; 使用 1234567891011 static defaultProps = &#123; name: &apos;stranger&apos; &#125; static propTypes = &#123; autoPlay: PropTypes.bool.isRequired, maxLoops: PropTypes.number.isRequired, posterFrameSrc:PropTypes.string.isRequired, videoSrc: PropTypes.string.isRequired, nameString: PropTypes.string.isRequired, &#125;; CSS3的calc()使用calc()从字面我们可以把他理解为一个函数function。其实calc是英文单词calculate(计算)的缩写，是css3的一个新增的功能，用来指定元素的长度。比如说，你可以使用calc()给元素的border、margin、pading、font-size和width等属性设置动态值。为何说是动态值呢?因为我们使用的表达式来得到的值。不过calc()最大的好处就是用在流体布局上，可以通过calc()计算得到元素的宽度。 CSS3的calc()使用 如果变量名与属性名不一致，必须写成下面这样。1234567let &#123; foo: baz &#125; = &#123; foo: &apos;aaa&apos;, bar: &apos;bbb&apos; &#125;;baz // &quot;aaa&quot;let obj = &#123; first: &apos;hello&apos;, last: &apos;world&apos; &#125;;let &#123; first: f, last: l &#125; = obj;f // &apos;hello&apos;l // &apos;world&apos; ES6 引入了一种新的原始数据类型SymbolES6 引入了一种新的原始数据类型Symbol，表示独一无二的值。它是 JavaScript 语言的第七种数据类型，前六种是：undefined、null、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[如果某个端口已被占用 如何查看和关闭]]></title>
-    <url>%2F2018%2F06%2F15%2Freactnative%2F%E7%AB%AF%E5%8F%A3%E6%9F%A5%E7%9C%8B%E5%92%8C%E5%85%B3%E9%97%AD%2F</url>
+    <url>%2F2018%2F06%2F15%2F%E5%89%8D%E7%AB%AF%2F%E7%AB%AF%E5%8F%A3%E6%9F%A5%E7%9C%8B%E5%92%8C%E5%85%B3%E9%97%AD%2F</url>
     <content type="text"><![CDATA[如果某个端口已被占用 如何查看和关闭查看：lsof -i :8081 关闭：kill -9]]></content>
       <categories>
         <category>ReactNative</category>
@@ -111,25 +133,36 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[js知识点总结]]></title>
-    <url>%2F2018%2F06%2F15%2Freactnative%2Fjs%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"><![CDATA[js中的||和&amp;&amp; 逻辑与&amp;&amp;和逻辑或||操作符可以应用于任何类型的操作数，而不仅仅是布尔值。 几乎所有语言中||和&amp;&amp;都遵循“短路”原理， 如&amp;&amp;中第一个表达式为假就不会去处理第二个表达式，而||正好相反。js同样也遵循上述原则： 当逻辑或||时，找到为true的分项就停止处理，并返回该分项的值，否则执行完，并返回最后分项的值。 当逻辑与&amp;&amp;时，找到为false的分项就停止处理，并返回该分项的值。 1234var a = "" || null || 3 || 4;//3alert(a);var b = 4 &amp;&amp; 5 &amp;&amp; null &amp;&amp; "0";//nullalert(b); 扩展运算符 … 的使用妙用ES6解构和扩展运算符让你的代码更优雅 箭头函数ES6箭头函数（Arrow Functions） 字典合并 利用扩展运算符12345const obj1 = &#123;&apos;name&apos;: &apos;张三&apos;, &apos;age&apos;: &apos;12&apos;, &apos;salary&apos;: &apos;2332&apos;&#125;;const obj2 = &#123;&apos;fat&apos;: &apos;true&apos;, &apos;name&apos;: &apos;李四&apos;&#125;;const obj3 = &#123;...obj1,...obj2&#125;;console.log(&apos;obj3=====&apos;, obj3); 原生JS实现深拷贝原生JS实现深拷贝JavaScript 中的对象拷贝 使用 Object.assign() 方法用于将从一个或多个源对象中的所有可枚举的属性值复制到目标对象 1234567let obj = &#123; a: 1, b: 2,&#125;;let objCopy = Object.assign(&#123;&#125;, obj);console.log(objCopy);// Result - &#123; a: 1, b: 2 &#125; 使用JSON.parse(JSON.stringify(object)) 123456789101112let obj = &#123; a: 1, b: &#123; c: 2, &#125;,&#125; let newObj = JSON.parse(JSON.stringify(obj)); obj.b.c = 20;console.log(obj); // &#123; a: 1, b: &#123; c: 20 &#125; &#125;console.log(newObj); // &#123; a: 1, b: &#123; c: 2 &#125; &#125; (一个新的对象) Chrome react调试插件React - React Developer Tools开发者工具的安装与使用（Chrome调试插件） 从React15.5起，React.PropTypes被移入到单独的package中使用 PropTypes 进行类型检查 需要我们安装软件包prop-types 安装方法为： 安装prop-types npm install prop-types --save 导入 import { PropTypes} from &#39;prop-types&#39;; 使用 1234567891011 static defaultProps = &#123; name: &apos;stranger&apos; &#125; static propTypes = &#123; autoPlay: PropTypes.bool.isRequired, maxLoops: PropTypes.number.isRequired, posterFrameSrc:PropTypes.string.isRequired, videoSrc: PropTypes.string.isRequired, nameString: PropTypes.string.isRequired, &#125;;]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[ESLint安装使用流程]]></title>
-    <url>%2F2018%2F06%2F14%2Freactnative%2FESLint%E4%BB%8B%E7%BB%8D%2F</url>
+    <url>%2F2018%2F06%2F14%2F%E5%89%8D%E7%AB%AF%2FESLint%E4%BB%8B%E7%BB%8D%2F</url>
     <content type="text"><![CDATA[ESLint安装使用流程 京东通天塔项目安装使用流程12345&gt; 京东通天塔项目已经添加了相关的配置只需要做以下操作即可使用：1. npm run install_eslint_packages 安装相关依赖包2. IDE配置： http://139.199.180.74/showdoc/Public/Uploads/2017-12-12/5a2f4a15bfbcd.jpeg3.输出使用 详见最底部 `ESLint输出报告方式` 新项目安装使用流程ESLint流程梳理一、背景介绍ESLint是一个用来识别 ECMAScript 并且按照规则给出报告的代码检测工具，使用它可以避免低级错误和统一代码的风格。ESLint被设计为完全可配置的，主要有两种方式来配置ESLint：1234567891011121314151617181920在注释中配置：使用JavaScript注释直接把配置嵌入到JS文件中。配置文件：使用下面任一的文件来为全部的目录和它的子目录指定配置信息。javascript：使用.eslintrc.js文件并导出一个包含配置的对象。YAML：.eslintrc.yaml或者.eslintrc.ymlJSON：.eslintrc.json，并且此文件允许使用JS形式的注释废弃的用法：.eslintrc，此文件可以是JSON或者YAMLpackage.json：在package.json文件中创建eslintConfig属性，所有的配置包含在此属性中。这些文件的优先级则是按照以上出现的顺序（.eslintrc.js &gt; .eslintrc.yaml &gt; .eslintrc.yml &gt; .eslintrc.json &gt; .eslintrc &gt; package.json）。三种方法可以配置ESLint &gt; 使用.eslintrc.*文件（ 支持JSON和YAML两种语法） &gt; 在package.json中添加eslintConfig配置块 &gt; 使用JavaScript注释直接把配置嵌入到文件中可以被配置的信息主要分为3类：Environments：你的 javascript 脚步将要运行在什么环境（如：nodejs，browser，commonjs等）中。Globals：执行代码时脚步需要访问的额外全局变量。Rules：开启某些规则，也可以设置规则的等级。 二、作用123456789EsLint提供以下几种校验：语法错误校验不重要或丢失的标点符号，如分号没法运行到的代码块（使用过WebStorm的童鞋应该了解）未被使用的参数提醒漏掉的结束符，如&#125;确保样式的统一规则，如sass或者less检查变量的命名 三、安装12345678910安装全局安装npm i -g eslint局部安装（推荐）npm i -D eslint安装完毕后，接下来新建一个配置文件.eslintrc.js，或者使用如下的命令行来自动生成。eslint --init 四、配置指定执行环境12345678910111213JavaScript 代码可以运行在浏览器或 nodejs 等环境中，每个环境的全局变量都不尽相同（如 nodejs 中没有 DOM 相关的全局变量）。在配置文件中可以自由的指定执行环境。// .eslintrc.jsmodule.exports = &#123; env: &#123; browser: true, node: true, &#125;,&#125;;https://eslint.org/docs/user-guide/configuring#specifying-environments 指定全局变量12345678910111213可以在配置文件或注释中指定额外的全局变量，false表明变量只读：使用注释来配置：/* global var1, var2 *//* global var1:false, var2:false */使用配置文件来配置：// .eslintrc.jsmodule.exports = &#123; globals: &#123; var1: true, var2: true, &#125;,&#125;; 配置Rules123456789在配置文件中可以设置一些规则。这些规则的等级有三种：&quot;off&quot; 或者 0：关闭规则。&quot;warn&quot; 或者 1：打开规则，并且作为一个警告（不影响exit code）。&quot;error&quot; 或者 2：打开规则，并且作为一个错误（exit code将会是1）。默认校验的地址http://eslint.org/docs/rules/ 五、使用方法1234通过命令行工具来使用 eslint 。1、列出所有文件命令 eslint .2、列出具体某个文件eslint [options] file.js [file.js] [dir] 六、自动修复1eslint --fix [dir] 七、相关插件使用ESLint输出报告方式一、终端直接输出方式：1eslint . 二、md格式：(到eslint_report目录下查看md格式文件)1eslint run eslint_makdown 三、html格式：（到eslint_report目录下查看html格式文件）1eslint run eslint_html]]></content>
       <categories>
         <category>React</category>
       </categories>
       <tags>
         <tag>ESLint</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Android Studio平台下无线调试]]></title>
+    <url>%2F2018%2F06%2F11%2Fandroid%2FAndroid%20Studio%E5%B9%B3%E5%8F%B0%E4%B8%8B%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%95%2F</url>
+    <content type="text"><![CDATA[Android Studio平台下无线调试]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>android学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Android编码规范]]></title>
+    <url>%2F2018%2F06%2F11%2Fandroid%2Fandroid-code-style%2F</url>
+    <content type="text"><![CDATA[Android编码规范 Android快速开发框架 Android组件化设计思路]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>Android编码规范</tag>
       </tags>
   </entry>
   <entry>
@@ -155,25 +188,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Android编码规范]]></title>
-    <url>%2F2018%2F06%2F11%2Fandroid%2Fandroid-code-style%2F</url>
-    <content type="text"><![CDATA[Android编码规范 Android快速开发框架 Android组件化设计思路]]></content>
+    <title><![CDATA[ssh]]></title>
+    <url>%2F2018%2F06%2F11%2Fgit%2Fgit%20%E4%B9%8B%20ssh%2F</url>
+    <content type="text"><![CDATA[SSH你拥有了一个 GitHub 账号之后，就可以自由的 clone 或者下载其他项目，也可以创建自己的项目，但是你没法提交代码。仔细想想也知道，肯定不可能随意就能提交代码的，如果随意可以提交代码，那么 GitHub 上的项目岂不乱了套了，所以提交代码之前一定是需要某种授权的，而 GitHub 上一般都是基于 SSH 授权的。那么什么是 SSH 呢？ 简单点说，SSH是一种网络协议，用于计算机之间的加密登录。目前是每一台 Linux 电脑的标准配置。而大多数 Git 服务器都会选择使用 SSH 公钥来进行授权，所以想要在 GitHub 提交代码的第一步就是要先添加 SSH key 配置。 生成SSH keyLinux 与 Mac 都是默认安装了 SSH ，而 Windows 系统安装了 Git Bash 应该也是带了 SSH 的。大家可以在终端（win下在 Git Bash 里）输入 ssh 检测是否已安装。 紧接着输入 ssh-keygen -t rsa 或者（ssh-keygen -t rsa -C “邮箱名&quot;） ，什么意思呢？就是指定 rsa 算法生成密钥，接着连续三个回车键（不需要输入密码），然后就会生成两个文件 id_rsa 和 id_rsa.pub ，而 id_rsa 是密钥，id_rsa.pub 就是公钥。这两文件默认分别在如下目录里生成：Linux/Mac 系统 在~/.ssh 下，win系统在 /c/Documents and Settings/username/.ssh 下，都是隐藏文件，相信你们有办法查看的。接下来要做的是把 id_rsa.pub的内容添加到 GitHub 上，这样你本地的 id_rsa 密钥跟 GitHub 上的 id_rsa.pub 公钥进行配对，授权成功才可以提交代码。 GitHub 上添加 SSH key第一步先在 GitHub 上的设置页面，点击最左侧 SSH and GPG keys ： 怎么查看 id_rsa.pub 文件的内容？Linux/Mac 用户执行以下命令：cd ~/.sshcat id_rsa.pub 测试是否okSSH key 添加成功之后，输入 ssh -T git@github.com 进行测试 ssh向GITHUB 提交代码]]></content>
       <categories>
-        <category>android</category>
+        <category>git</category>
       </categories>
       <tags>
-        <tag>Android编码规范</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Android Studio平台下无线调试]]></title>
-    <url>%2F2018%2F06%2F11%2Fandroid%2FAndroid%20Studio%E5%B9%B3%E5%8F%B0%E4%B8%8B%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%95%2F</url>
-    <content type="text"><![CDATA[Android Studio平台下无线调试]]></content>
-      <categories>
-        <category>android</category>
-      </categories>
-      <tags>
-        <tag>android学习</tag>
+        <tag>ssh</tag>
       </tags>
   </entry>
   <entry>
@@ -185,28 +207,6 @@
       </categories>
       <tags>
         <tag>git删除缓存远程分支</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[初始化git仓库项目.md]]></title>
-    <url>%2F2018%2F06%2F11%2Fgit%2F%E5%88%9D%E5%A7%8B%E5%8C%96git%E4%BB%93%E5%BA%93%E9%A1%B9%E7%9B%AE%2F</url>
-    <content type="text"><![CDATA[常用 Git 命令清单 Command line instructions 命令行指令Git global setup12git config --global user.name &quot;xxx&quot;git config --global user.email &quot;xxx@email.com&quot; Create a new repository123456git clone git@git.jd.com:xxx/yyy.gitcd JDViewKitDoctouch README.mdgit add README.mdgit commit -m &quot;add README&quot;git push -u origin master Existing folder123456cd existing_foldergit initgit remote add origin git@git.jd.com:xxx/yyy.gitgit add .git commit -m &quot;Initial commit&quot;git push -u origin master Existing Git repository1234cd existing_repogit remote add origin git@git.jd.com:xxx/yyy.gitgit push -u origin --allgit push -u origin --tags 问题解决方案fatal: refusing to merge unrelated histories 解决方案解决方案可以使用 rebase 的方式来进行合并。 1git pull --rebase origin master 1234567891011cdmkdir rebaseTmpcd rebaseTmpecho &quot;hello a line&quot; &gt; tmp.txtgit initgit add .git commit -m &quot;Local first commit&quot;git remote add origin https://github.com/HustLion/java_console_log4j.gitgit pull --rebase origin mastergit push -u origin master]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git仓库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[ssh]]></title>
-    <url>%2F2018%2F06%2F11%2Fgit%2Fgit%20%E4%B9%8B%20ssh%2F</url>
-    <content type="text"><![CDATA[SSH你拥有了一个 GitHub 账号之后，就可以自由的 clone 或者下载其他项目，也可以创建自己的项目，但是你没法提交代码。仔细想想也知道，肯定不可能随意就能提交代码的，如果随意可以提交代码，那么 GitHub 上的项目岂不乱了套了，所以提交代码之前一定是需要某种授权的，而 GitHub 上一般都是基于 SSH 授权的。那么什么是 SSH 呢？ 简单点说，SSH是一种网络协议，用于计算机之间的加密登录。目前是每一台 Linux 电脑的标准配置。而大多数 Git 服务器都会选择使用 SSH 公钥来进行授权，所以想要在 GitHub 提交代码的第一步就是要先添加 SSH key 配置。 生成SSH keyLinux 与 Mac 都是默认安装了 SSH ，而 Windows 系统安装了 Git Bash 应该也是带了 SSH 的。大家可以在终端（win下在 Git Bash 里）输入 ssh 检测是否已安装。 紧接着输入 ssh-keygen -t rsa 或者（ssh-keygen -t rsa -C “邮箱名&quot;） ，什么意思呢？就是指定 rsa 算法生成密钥，接着连续三个回车键（不需要输入密码），然后就会生成两个文件 id_rsa 和 id_rsa.pub ，而 id_rsa 是密钥，id_rsa.pub 就是公钥。这两文件默认分别在如下目录里生成：Linux/Mac 系统 在~/.ssh 下，win系统在 /c/Documents and Settings/username/.ssh 下，都是隐藏文件，相信你们有办法查看的。接下来要做的是把 id_rsa.pub的内容添加到 GitHub 上，这样你本地的 id_rsa 密钥跟 GitHub 上的 id_rsa.pub 公钥进行配对，授权成功才可以提交代码。 GitHub 上添加 SSH key第一步先在 GitHub 上的设置页面，点击最左侧 SSH and GPG keys ： 怎么查看 id_rsa.pub 文件的内容？Linux/Mac 用户执行以下命令：cd ~/.sshcat id_rsa.pub 测试是否okSSH key 添加成功之后，输入 ssh -T git@github.com 进行测试 ssh向GITHUB 提交代码]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>ssh</tag>
       </tags>
   </entry>
   <entry>
@@ -232,14 +232,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[icon生成脚本]]></title>
-    <url>%2F2018%2F06%2F11%2FiOS%2F%20icon%E7%94%9F%E6%88%90%E8%84%9A%E6%9C%AC%2F</url>
-    <content type="text"><![CDATA[autoExportAppIconautoExportAppIconOne key to generate iOS app icon 标题 Useagepython /path/autoExportAppIcon.py /path/image.jpg New iOS App Icon show in finder replace the files.]]></content>
+    <title><![CDATA[初始化git仓库项目.md]]></title>
+    <url>%2F2018%2F06%2F11%2Fgit%2F%E5%88%9D%E5%A7%8B%E5%8C%96git%E4%BB%93%E5%BA%93%E9%A1%B9%E7%9B%AE%2F</url>
+    <content type="text"><![CDATA[常用 Git 命令清单 Command line instructions 命令行指令Git global setup12git config --global user.name &quot;xxx&quot;git config --global user.email &quot;xxx@email.com&quot; Create a new repository123456git clone git@git.jd.com:xxx/yyy.gitcd JDViewKitDoctouch README.mdgit add README.mdgit commit -m &quot;add README&quot;git push -u origin master Existing folder123456cd existing_foldergit initgit remote add origin git@git.jd.com:xxx/yyy.gitgit add .git commit -m &quot;Initial commit&quot;git push -u origin master Existing Git repository1234cd existing_repogit remote add origin git@git.jd.com:xxx/yyy.gitgit push -u origin --allgit push -u origin --tags 问题解决方案fatal: refusing to merge unrelated histories 解决方案解决方案可以使用 rebase 的方式来进行合并。 1git pull --rebase origin master 1234567891011cdmkdir rebaseTmpcd rebaseTmpecho &quot;hello a line&quot; &gt; tmp.txtgit initgit add .git commit -m &quot;Local first commit&quot;git remote add origin https://github.com/HustLion/java_console_log4j.gitgit pull --rebase origin mastergit push -u origin master]]></content>
       <categories>
-        <category>iOS</category>
+        <category>git</category>
       </categories>
       <tags>
-        <tag>iOS-WIKI</tag>
+        <tag>git仓库</tag>
       </tags>
   </entry>
   <entry>
@@ -254,6 +254,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[icon生成脚本]]></title>
+    <url>%2F2018%2F06%2F11%2FiOS%2F%20icon%E7%94%9F%E6%88%90%E8%84%9A%E6%9C%AC%2F</url>
+    <content type="text"><![CDATA[autoExportAppIconautoExportAppIconOne key to generate iOS app icon 标题 Useagepython /path/autoExportAppIcon.py /path/image.jpg New iOS App Icon show in finder replace the files.]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>iOS-WIKI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[如何判断代码运行在DEBUG还是RELEASE模式下？]]></title>
     <url>%2F2018%2F06%2F11%2FiOS%2F%20%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E5%9C%A8DEBUG%E8%BF%98%E6%98%AFRELEASE%E6%A8%A1%E5%BC%8F%E4%B8%8B%2F</url>
     <content type="text"><![CDATA[首先确定下项目的 Build Settings 是否已经设置过宏定义 DEBUG，如何看呢？点击 Build Settings ，然后在搜索框里输入‘macros’ 如果已经设置过，在 Preprocessor Macros 的 Debug 后面会有 DEBUG=1，如果没有，就手动设置下。接下来就可以这样做了 12345#ifdef DEBUG //do sth.#else //do sth.#endif http://stackoverflow.com/a/9063682 一般Apple已经为我们设置好了 DEBUG 的宏定义，所以，我们只要让 NSLog 在 DEBUG 模式下失效就好了，这样能让我们的程序运行起来更加稳定，同时我们也可以继续使用正规的 NSLog。 1234567//put this in prefix.pch#ifndef DEBUG#undef NSLog#define NSLog(args, ...)#endif]]></content>
@@ -265,20 +276,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[iOS之GCD]]></title>
-    <url>%2F2018%2F06%2F11%2FiOS%2FiOS%20GCD%2F</url>
-    <content type="text"><![CDATA[阿里云GCD ===============关于GCD的一些好用的函数=============== 一次性代码(多用于单例)1234static dispatch_once_t onceToken; dispatch_once(&amp;;onceToken, ^&#123; NSLog(@"once"); &#125;); 延迟执行 perform 1234567891011121314//可以在运行时调用方法- (id)performSelector:(SEL)selector//可带一个参数- (id)performSelector:(SEL)selector withObject:(id)object//可带两个参数- (id)performSelector:(SEL)selector withObject:(id)object withObject:(id)object//可延时执行方法- (void)performSelector:(SEL)selector withObject:(id)argument afterDelay:(NSTimeInterval)delay//可放到另一个线程中执行- (void)performSelector:(SEL)selector onThread:(NSThread *)thread withObject:(id)argument waitUntilDone:(BOOL)wait- (void)performSelectorOnMainThread:(SEL)selector withObject:(id)argument waitUntilDone:(BOOL)wait //延后执行方法的两种实现方式：[self performSelector:@selector(doSomething) withObject:nil afterDelay:5.0]; GCD方式 123456789101112dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC));dispatch_after(time, dispatch_get_main_queue(), ^(void)&#123; [self doSomething];&#125;); //把任务放在主线程执行的两种方式[self performSlectorOnMainThread:@selector(doSomething) withObject:nil waitUntilDone:NO]; dispatch_async(dispatch_get_main_queue(), ^&#123; [self doSomething];&#125;); 1、performSelector系列方法在内存管理方面容易有疏失。它无法确定将要执行的选择子具体是什么，因而ARC编译器也就无法插入适当的内存管理方法。2、performSelector系列方法所能处理的选择子太过局限了，选择子的返回值类型及发送给方法的参数个数都受到限制。3、如果想把任务放在另一个线程上执行，那么最好不要用performSelector系列方法，而是应该把任务封装到块里，然后调用GCD的相关方法来实现。 栅栏函数关键函数dispatch_barrier_async 作用:只有当栅栏函数执行完毕后才能执行后面的函数 需求:使用栅栏函数规定线程执行顺序 注意:栅栏函数不能使用全局并发队列(否则没有意义) 12345678910111213141516171819dispatch_queue_t queue = dispatch_queue_create("download", DISPATCH_QUEUE_CONCURRENT); dispatch_async(queue, ^&#123; for (NSInteger i = 0; i &lt; 5; i++) &#123;NSLog(@"task1 -- %zd -- %@", i, [NSThread currentThread]);&#125; &#125;); dispatch_barrier_async(queue, ^&#123; NSLog(@"+++++++ barrier ++++++++"); &#125;); dispatch_async(queue, ^&#123; for (NSInteger i = 0; i &lt; 5; i++) &#123; NSLog(@"task2 -- %zd -- %@", i, [NSThread currentThread]); &#125; &#125;); 迭代方法关键函数 dispatch_apply 123dispatch_apply(6, queue, ^(size_t index) &#123; NSLog(@"%zd------%@",index, [NSThread currentThread]); &#125;);]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>iOS-WIKI</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Xcode中和symbols有关的几个设置]]></title>
     <url>%2F2018%2F06%2F11%2FiOS%2FXcode%E4%B8%AD%E5%92%8Csymbols%E6%9C%89%E5%85%B3%E7%9A%84%E5%87%A0%E4%B8%AA%E8%AE%BE%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[在iOS开发中 特别是有framework打包的时候 经常遇到包比较大的问题。下面就来开下Xcode中和symbols有关的几个设置。 简书地址 Generate Debug Symbols 修改为NO后 能减少包的大小 但是debug功能就不能使用了]]></content>
+    <content type="text"><![CDATA[在iOS开发中 特别是有framework打包的时候 经常遇到包比较大的问题。下面就来开下Xcode中和symbols有关的几个设置。 简书地址 Generate Debug Symbols 修改为NO后 能减少包的大小 但是debug功能就不能使用了 -iOS可执行文件瘦身方法]]></content>
       <categories>
         <category>iOS</category>
       </categories>
@@ -298,9 +298,42 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Xcode中如何去掉默认的Main.storyboard]]></title>
+    <url>%2F2018%2F06%2F11%2FiOS%2FXcode%E4%B8%AD%E5%A6%82%E4%BD%95%E5%8E%BB%E6%8E%89%E9%BB%98%E8%AE%A4%E7%9A%84Main.storyboard%2F</url>
+    <content type="text"><![CDATA[xcode 6取消了 Empty Application 模板来创建一个工程，创建出来的有工程多了Main.storyboard，默认加载Main.storyboard，但是有很多人还想用代码来实现UI的布局，去除Main.storyboard的有三步： 修改 首先如图打开工程下面Supporting Files下面的Info.plist Main storyboard file base name删除这一行 其次找到工程的TAGETS/General/Deployment Info 删除Main。 经过上面两步算是删除了工程对Main.storyboard的依赖，但是运行工程后会发现是黑屏 在AppDelegate中的- (BOOL)application:(UIApplication )application didFinishLaunchingWithOptions:(NSDictionary )launchOptions 中添加以下代码即可解决 123self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]; self.window.backgroundColor = [UIColor whiteColor];[self.window makeKeyAndVisible]; 报错 程序运行会提示： 1Application windows are expected to have a root view controller at the end of application launch 解决方案 意思是应用程序期望拥有一个根控制器（RootViewController）修改上面的代码，随便添加了一个控制器，程序就不抱错了 123456789101112- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions &#123; self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]; self.window.backgroundColor = [UIColor whiteColor]; UITabBarController *tbc = [[UITabBarController alloc] init]; self.window.rootViewController = tbc; [self.window makeKeyAndVisible]; return YES;&#125;]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>iOS-WIKI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[iOS之GCD]]></title>
+    <url>%2F2018%2F06%2F11%2FiOS%2FiOS%20GCD%2F</url>
+    <content type="text"><![CDATA[阿里云GCD ===============关于GCD的一些好用的函数=============== 一次性代码(多用于单例)1234static dispatch_once_t onceToken; dispatch_once(&amp;;onceToken, ^&#123; NSLog(@"once"); &#125;); 延迟执行 perform 1234567891011121314//可以在运行时调用方法- (id)performSelector:(SEL)selector//可带一个参数- (id)performSelector:(SEL)selector withObject:(id)object//可带两个参数- (id)performSelector:(SEL)selector withObject:(id)object withObject:(id)object//可延时执行方法- (void)performSelector:(SEL)selector withObject:(id)argument afterDelay:(NSTimeInterval)delay//可放到另一个线程中执行- (void)performSelector:(SEL)selector onThread:(NSThread *)thread withObject:(id)argument waitUntilDone:(BOOL)wait- (void)performSelectorOnMainThread:(SEL)selector withObject:(id)argument waitUntilDone:(BOOL)wait //延后执行方法的两种实现方式：[self performSelector:@selector(doSomething) withObject:nil afterDelay:5.0]; GCD方式 123456789101112dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC));dispatch_after(time, dispatch_get_main_queue(), ^(void)&#123; [self doSomething];&#125;); //把任务放在主线程执行的两种方式[self performSlectorOnMainThread:@selector(doSomething) withObject:nil waitUntilDone:NO]; dispatch_async(dispatch_get_main_queue(), ^&#123; [self doSomething];&#125;); 1、performSelector系列方法在内存管理方面容易有疏失。它无法确定将要执行的选择子具体是什么，因而ARC编译器也就无法插入适当的内存管理方法。2、performSelector系列方法所能处理的选择子太过局限了，选择子的返回值类型及发送给方法的参数个数都受到限制。3、如果想把任务放在另一个线程上执行，那么最好不要用performSelector系列方法，而是应该把任务封装到块里，然后调用GCD的相关方法来实现。 栅栏函数关键函数dispatch_barrier_async 作用:只有当栅栏函数执行完毕后才能执行后面的函数 需求:使用栅栏函数规定线程执行顺序 注意:栅栏函数不能使用全局并发队列(否则没有意义) 12345678910111213141516171819dispatch_queue_t queue = dispatch_queue_create("download", DISPATCH_QUEUE_CONCURRENT); dispatch_async(queue, ^&#123; for (NSInteger i = 0; i &lt; 5; i++) &#123;NSLog(@"task1 -- %zd -- %@", i, [NSThread currentThread]);&#125; &#125;); dispatch_barrier_async(queue, ^&#123; NSLog(@"+++++++ barrier ++++++++"); &#125;); dispatch_async(queue, ^&#123; for (NSInteger i = 0; i &lt; 5; i++) &#123; NSLog(@"task2 -- %zd -- %@", i, [NSThread currentThread]); &#125; &#125;); 迭代方法关键函数 dispatch_apply 123dispatch_apply(6, queue, ^(size_t index) &#123; NSLog(@"%zd------%@",index, [NSThread currentThread]); &#125;);]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>iOS-WIKI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[OS 中的 armv7,armv7s,arm64,i386,x86_64 都是什么]]></title>
     <url>%2F2018%2F06%2F11%2FiOS%2FiOS%20%E4%B8%AD%E7%9A%84%20armv7%2Carmv7s%2Carm64%2Ci386%2Cx86_64%20%E9%83%BD%E6%98%AF%E4%BB%80%E4%B9%88%2F</url>
     <content type="text"><![CDATA[在做静态库的时候以及引用静态库的时候经常会遇到一些关于真机模拟器不通用的情况，会报错找不到相应库导致编译失败， 这里简单记录一下各种设备支持的架构。 iOS测试分为模拟器测试和真机测试，处理器分为32位处理器，和64位处理器模拟器模拟器32位处理器测试需要i386架构，（iphone5,iphone5s以下的模拟器） 模拟器64位处理器测试需要x86_64架构，(iphone6以上的模拟器) 真机真机32位处理器需要armv7,或者armv7s架构，（iphone4真机/armv7, ipnone5,iphone5s真机/armv7s） 真机64位处理器需要arm64架构。(iphone6,iphone6p以上的真机) project -&gt; target -&gt; building setting -&gt; Arhitectures 设置 设置debug属性设置为no的时候，会编译支持所有架构的版本，编译的速度会变慢，设置为yes 的时候，只编译当前的architecture版本，编译速度快。 一般情况下，debug 设置为yes，release为no，这样发行版本能适应不同设备。 用到的命令行查看或者合并静态库.a支持信息：lipo -info .a文件 两个静态库合并： lipo -create 文件1 文件2 -output /Users/sunjianfei/Desktop/libPrint.a]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>iOS-WIKI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[iOS linkmap统计ipa包]]></title>
+    <url>%2F2018%2F06%2F11%2FiOS%2FiOS%20linkmap%E7%BB%9F%E8%AE%A1ipa%E5%8C%85%2F</url>
+    <content type="text"><![CDATA[iOS APP编译后，除了一些资源文件，剩下的就是一个可执行文件，有时候项目大了，引入的库多了，可执行文件很大，想知道这个可执行文件的构成是怎样，里面的内容都是些什么，哪些库占用空间较高，可以用以下方法勘察： 1.XCode开启编译选项Write Link Map FileXCode -&gt; Project -&gt; Build Settings -&gt; 搜map -&gt; 把Write Link Map File选项设为yes，并指定好linkMap的存储位置 2.编译后，到编译目录里找到该txt文件，文件名和路径就是上述的Path to Link Map File位于~/Library/Developer/Xcode/DerivedData/XXX-eumsvrzbvgfofvbfsoqokmjprvuh/Build/Intermediates/XXX.build/Debug-iphoneos/XXX.build/这个LinkMap里展示了整个可执行文件的全貌，列出了编译后的每一个.o目标文件的信息（包括静态链接库.a里的），以及每一个目标文件的代码段，数据段存储详情。 在LinkMap里首先列出来的是目标文件列表：12345678910# Object files:[ 0] linker synthesized[ 1] /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/crt1.o[ 2] /Users/bang/Library/Developer/Xcode/DerivedData/yishu-eyzgphknrrzpevagadjtwpzzeqag/Build/Intermediates/yishu.build/Debug-iphonesimulator/yishu.build/Objects-normal/i386/TKPFileInfo.o...[280] /Users/bang/Downloads/yishu/yishu/Classes/lib/UMeng/MobClick/libMobClickLibrary.a(UMANJob.o)[281] /Users/bang/Downloads/yishu/yishu/Classes/lib/UMeng/MobClick/libMobClickLibrary.a(UMANWorker.o)[282] /Users/bang/Downloads/yishu/yishu/Classes/lib/UMeng/MobClick/libMobClickLibrary.a(MobClick.o)[283] /Users/bang/Downloads/yishu/yishu/Classes/lib/UMeng/MobClick/libMobClickLibrary.a(UMANLaunch.o)... 前面中括号里的是这个文件的编号，后面会用到，像项目里引用到静态链接库libMobClickLibrary.a里的目标文件都会在这里列出来。 接着是一个段表，描述各个段在最后编译成的可执行文件中的偏移位置及大小，包括了代码段（TEXT，保存程序代码段编译后的机器码）和数据段（DATA，保存变量值）12345678910111213141516171819202122232425262728293031323334# Sections:# Address Size Segment Section0x00002740 0x00273890 __TEXT __text0x00275FD0 0x00000ADA __TEXT __symbol_stub0x00276AAC 0x00001222 __TEXT __stub_helper0x00277CCE 0x00019D9E __TEXT __objc_methname0x00291A70 0x00012847 __TEXT __cstring0x002A42B7 0x00001FC1 __TEXT __objc_classname0x002A6278 0x000046A7 __TEXT __objc_methtype0x002AA920 0x000061CE __TEXT __ustring0x002B0AF0 0x00000764 __TEXT __const0x002B1254 0x000028B8 __TEXT __gcc_except_tab0x002B3B0C 0x00004EBC __TEXT __unwind_info0x002B89C8 0x0003662C __TEXT __eh_frame0x002EF000 0x00000014 __DATA __program_vars0x002EF014 0x00000284 __DATA __nl_symbol_ptr0x002EF298 0x0000073C __DATA __la_symbol_ptr0x002EF9E0 0x000030A4 __DATA __const0x002F2A84 0x00000590 __DATA __objc_classlist0x002F3014 0x0000000C __DATA __objc_nlclslist0x002F3020 0x0000006C __DATA __objc_catlist0x002F308C 0x000000D8 __DATA __objc_protolist0x002F3164 0x00000008 __DATA __objc_imageinfo0x002F3170 0x0002BC80 __DATA __objc_const0x0031EDF0 0x00003A30 __DATA __objc_selrefs0x00322820 0x00000014 __DATA __objc_protorefs0x00322834 0x000006B8 __DATA __objc_classrefs0x00322EEC 0x00000394 __DATA __objc_superrefs0x00323280 0x000037C8 __DATA __objc_data0x00326A48 0x000096D0 __DATA __cfstring0x00330118 0x00001424 __DATA __objc_ivar0x00331540 0x00006080 __DATA __data0x003375C0 0x0000001C __DATA __common0x003375E0 0x000018E8 __DATA __bss 首列是数据在文件的偏移位置，第二列是这一段占用大小，第三列是段类型，代码段和数据段，第四列是段名称。每一行的数据都紧跟在上一行后面，如第二行__symbol_stub的地址0x00275FD0就是第一行__text的地址0x00002740加上大小0x00273890，整个可执行文件大致数据分布就是这样。这里可以清楚看到各种类型的数据在最终可执行文件里占的比例，例如__text表示编译后的程序执行语句，__data表示已初始化的全局变量和局部静态变量，__bss表示未初始化的全局变量和局部静态变量，__cstring表示代码里的字符串常量，等等。 接着就是按上表顺序，列出具体的按每个文件列出每个对应字段的位置和占用空间12345# Address Size File Name0x00002740 0x0000003E [ 1] start0x00002780 0x00000400 [ 2] +[TKPFileInfo parseWithDictionary:]0x00002B80 0x00000030 [ 2] -[TKPFileInfo fileID]... 同样首列是数据在文件的偏移地址，第二列是占用大小，第三列是所属文件序号，对应上述Object files列表，最后是名字。例如第二行代表了文件序号为2（反查上面就是TKPFileInfo.o）的parseWithDictionary方法占用了1000byte大小。 使用这个文件可以让你了解整个APP编译后的情况，也许从中可以发现一些异常，还可以用这个文件计算静态链接库在项目里占的大小，有时候我们在项目里链了很多第三方库，导致APP体积变大很多，我们想确切知道每个库占用了多大空间，可以给我们优化提供方向。LinkMap里有了每个目标文件每个方法每个数据的占用大小数据，所以只要写个脚本，就可以统计出每个.o最后的大小，属于一个.a静态链接库的.o加起来，就是这个库在APP里占用的空间大小。 生成的linkmap文件path/Users/wenyongjun/Library/Developer/Xcode/DerivedData/JDViewKitProduct-cvqwuevthaoawvbqwonrghbfhnuz/Build/Intermediates.noindex/JDViewKitProduct.build/Debug-iphonesimulator/JDViewKitProduct.build/JDViewKitProduct-LinkMap-normal-x86_64.txt 基于LinkMap分析iOSAPP各模块体积 iOS APP可执行文件的组成]]></content>
       <categories>
         <category>iOS</category>
       </categories>
@@ -331,9 +364,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[iOS linkmap统计ipa包]]></title>
-    <url>%2F2018%2F06%2F11%2FiOS%2FiOS%20linkmap%E7%BB%9F%E8%AE%A1ipa%E5%8C%85%2F</url>
-    <content type="text"><![CDATA[iOS APP编译后，除了一些资源文件，剩下的就是一个可执行文件，有时候项目大了，引入的库多了，可执行文件很大，想知道这个可执行文件的构成是怎样，里面的内容都是些什么，哪些库占用空间较高，可以用以下方法勘察： 1.XCode开启编译选项Write Link Map FileXCode -&gt; Project -&gt; Build Settings -&gt; 搜map -&gt; 把Write Link Map File选项设为yes，并指定好linkMap的存储位置 2.编译后，到编译目录里找到该txt文件，文件名和路径就是上述的Path to Link Map File位于~/Library/Developer/Xcode/DerivedData/XXX-eumsvrzbvgfofvbfsoqokmjprvuh/Build/Intermediates/XXX.build/Debug-iphoneos/XXX.build/这个LinkMap里展示了整个可执行文件的全貌，列出了编译后的每一个.o目标文件的信息（包括静态链接库.a里的），以及每一个目标文件的代码段，数据段存储详情。 在LinkMap里首先列出来的是目标文件列表：12345678910# Object files:[ 0] linker synthesized[ 1] /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/crt1.o[ 2] /Users/bang/Library/Developer/Xcode/DerivedData/yishu-eyzgphknrrzpevagadjtwpzzeqag/Build/Intermediates/yishu.build/Debug-iphonesimulator/yishu.build/Objects-normal/i386/TKPFileInfo.o...[280] /Users/bang/Downloads/yishu/yishu/Classes/lib/UMeng/MobClick/libMobClickLibrary.a(UMANJob.o)[281] /Users/bang/Downloads/yishu/yishu/Classes/lib/UMeng/MobClick/libMobClickLibrary.a(UMANWorker.o)[282] /Users/bang/Downloads/yishu/yishu/Classes/lib/UMeng/MobClick/libMobClickLibrary.a(MobClick.o)[283] /Users/bang/Downloads/yishu/yishu/Classes/lib/UMeng/MobClick/libMobClickLibrary.a(UMANLaunch.o)... 前面中括号里的是这个文件的编号，后面会用到，像项目里引用到静态链接库libMobClickLibrary.a里的目标文件都会在这里列出来。 接着是一个段表，描述各个段在最后编译成的可执行文件中的偏移位置及大小，包括了代码段（TEXT，保存程序代码段编译后的机器码）和数据段（DATA，保存变量值）12345678910111213141516171819202122232425262728293031323334# Sections:# Address Size Segment Section0x00002740 0x00273890 __TEXT __text0x00275FD0 0x00000ADA __TEXT __symbol_stub0x00276AAC 0x00001222 __TEXT __stub_helper0x00277CCE 0x00019D9E __TEXT __objc_methname0x00291A70 0x00012847 __TEXT __cstring0x002A42B7 0x00001FC1 __TEXT __objc_classname0x002A6278 0x000046A7 __TEXT __objc_methtype0x002AA920 0x000061CE __TEXT __ustring0x002B0AF0 0x00000764 __TEXT __const0x002B1254 0x000028B8 __TEXT __gcc_except_tab0x002B3B0C 0x00004EBC __TEXT __unwind_info0x002B89C8 0x0003662C __TEXT __eh_frame0x002EF000 0x00000014 __DATA __program_vars0x002EF014 0x00000284 __DATA __nl_symbol_ptr0x002EF298 0x0000073C __DATA __la_symbol_ptr0x002EF9E0 0x000030A4 __DATA __const0x002F2A84 0x00000590 __DATA __objc_classlist0x002F3014 0x0000000C __DATA __objc_nlclslist0x002F3020 0x0000006C __DATA __objc_catlist0x002F308C 0x000000D8 __DATA __objc_protolist0x002F3164 0x00000008 __DATA __objc_imageinfo0x002F3170 0x0002BC80 __DATA __objc_const0x0031EDF0 0x00003A30 __DATA __objc_selrefs0x00322820 0x00000014 __DATA __objc_protorefs0x00322834 0x000006B8 __DATA __objc_classrefs0x00322EEC 0x00000394 __DATA __objc_superrefs0x00323280 0x000037C8 __DATA __objc_data0x00326A48 0x000096D0 __DATA __cfstring0x00330118 0x00001424 __DATA __objc_ivar0x00331540 0x00006080 __DATA __data0x003375C0 0x0000001C __DATA __common0x003375E0 0x000018E8 __DATA __bss 首列是数据在文件的偏移位置，第二列是这一段占用大小，第三列是段类型，代码段和数据段，第四列是段名称。每一行的数据都紧跟在上一行后面，如第二行__symbol_stub的地址0x00275FD0就是第一行__text的地址0x00002740加上大小0x00273890，整个可执行文件大致数据分布就是这样。这里可以清楚看到各种类型的数据在最终可执行文件里占的比例，例如__text表示编译后的程序执行语句，__data表示已初始化的全局变量和局部静态变量，__bss表示未初始化的全局变量和局部静态变量，__cstring表示代码里的字符串常量，等等。 接着就是按上表顺序，列出具体的按每个文件列出每个对应字段的位置和占用空间12345# Address Size File Name0x00002740 0x0000003E [ 1] start0x00002780 0x00000400 [ 2] +[TKPFileInfo parseWithDictionary:]0x00002B80 0x00000030 [ 2] -[TKPFileInfo fileID]... 同样首列是数据在文件的偏移地址，第二列是占用大小，第三列是所属文件序号，对应上述Object files列表，最后是名字。例如第二行代表了文件序号为2（反查上面就是TKPFileInfo.o）的parseWithDictionary方法占用了1000byte大小。 使用这个文件可以让你了解整个APP编译后的情况，也许从中可以发现一些异常，还可以用这个文件计算静态链接库在项目里占的大小，有时候我们在项目里链了很多第三方库，导致APP体积变大很多，我们想确切知道每个库占用了多大空间，可以给我们优化提供方向。LinkMap里有了每个目标文件每个方法每个数据的占用大小数据，所以只要写个脚本，就可以统计出每个.o最后的大小，属于一个.a静态链接库的.o加起来，就是这个库在APP里占用的空间大小。 生成的linkmap文件path/Users/wenyongjun/Library/Developer/Xcode/DerivedData/JDViewKitProduct-cvqwuevthaoawvbqwonrghbfhnuz/Build/Intermediates.noindex/JDViewKitProduct.build/Debug-iphonesimulator/JDViewKitProduct.build/JDViewKitProduct-LinkMap-normal-x86_64.txt 基于LinkMap分析iOSAPP各模块体积 iOS APP可执行文件的组成]]></content>
+    <title><![CDATA[iOS打包Framework真机和模拟器兼容合并版本]]></title>
+    <url>%2F2018%2F06%2F11%2FiOS%2FiOS%E6%89%93%E5%8C%85Framework%E7%9C%9F%E6%9C%BA%E5%92%8C%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%85%BC%E5%AE%B9%E5%90%88%E5%B9%B6%E7%89%88%E6%9C%AC%2F</url>
+    <content type="text"><![CDATA[查询framework支持哪些架构，命令为：1lipo -info XXXX.framework/XXXX 合并包123 lipo -create XXXX.framework/XXXX-armv7 XXXX.framework/XXXX-arm64 -output XXXX.framework/XXXXlipo -create 【模拟器打包path】 【真机打包path】 -output 【导出兼容版本path】 一键打包shell脚本1234567891011121314151617181920212223242526272829303132333435363738394041### 使用方法 ##### bash get_framework.sh##### 填写要生成的包的名字FrameWorkName="JDViewKit"# 设置输出包的文件路径OutputDir=$&#123;SRCROOT&#125;/VKOutput# Working dir will be deleted after the framework creation.buildDir=buildDEVICE_DIR=$&#123;buildDir&#125;/Release-iphoneosSIMULATOR_DIR=$&#123;buildDir&#125;/Release-iphonesimulator/$&#123;FrameWorkName&#125;.framework#编译真机和模拟器的两种架构# -configuration $&#123;CONFIGURATION&#125;# Clean and Building both architectures.xcodebuild -configuration "Release" -target "$&#123;FrameWorkName&#125;" -sdk iphoneos clean buildxcodebuild -configuration "Release" -target "$&#123;FrameWorkName&#125;" -sdk iphonesimulator clean build# 把旧的输出文件包删除掉if [ -d "$&#123;OutputDir&#125;" ]thensudo rm -rf "$&#123;OutputDir&#125;"fi# 创建输出包sudo mkdir -p "$&#123;OutputDir&#125;"sudo cp -R "$&#123;DEVICE_DIR&#125;/" "$&#123;OutputDir&#125;/"# 使用 lipo工具合并通用包（(i386 + armv6/armv7)）sudo lipo -create "$&#123;DEVICE_DIR&#125;/$&#123;FrameWorkName&#125;.framework/$&#123;FrameWorkName&#125;" "$&#123;SIMULATOR_DIR&#125;/$&#123;FrameWorkName&#125;" -output "$&#123;OutputDir&#125;/$&#123;FrameWorkName&#125;.framework/$&#123;FrameWorkName&#125;"# 删除build包 打开输出包文件夹sudo rm -r "$&#123;buildDir&#125;"open "$&#123;OutputDir&#125;"]]></content>
       <categories>
         <category>iOS</category>
       </categories>
@@ -364,9 +397,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[iOS打包Framework真机和模拟器兼容合并版本]]></title>
-    <url>%2F2018%2F06%2F11%2FiOS%2FiOS%E6%89%93%E5%8C%85Framework%E7%9C%9F%E6%9C%BA%E5%92%8C%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%85%BC%E5%AE%B9%E5%90%88%E5%B9%B6%E7%89%88%E6%9C%AC%2F</url>
-    <content type="text"><![CDATA[查询framework支持哪些架构，命令为：1lipo -info XXXX.framework/XXXX 合并包123 lipo -create XXXX.framework/XXXX-armv7 XXXX.framework/XXXX-arm64 -output XXXX.framework/XXXXlipo -create 【模拟器打包path】 【真机打包path】 -output 【导出兼容版本path】 一键打包shell脚本1234567891011121314151617181920212223242526272829303132333435363738394041### 使用方法 ##### bash get_framework.sh##### 填写要生成的包的名字FrameWorkName="JDViewKit"# 设置输出包的文件路径OutputDir=$&#123;SRCROOT&#125;/VKOutput# Working dir will be deleted after the framework creation.buildDir=buildDEVICE_DIR=$&#123;buildDir&#125;/Release-iphoneosSIMULATOR_DIR=$&#123;buildDir&#125;/Release-iphonesimulator/$&#123;FrameWorkName&#125;.framework#编译真机和模拟器的两种架构# -configuration $&#123;CONFIGURATION&#125;# Clean and Building both architectures.xcodebuild -configuration "Release" -target "$&#123;FrameWorkName&#125;" -sdk iphoneos clean buildxcodebuild -configuration "Release" -target "$&#123;FrameWorkName&#125;" -sdk iphonesimulator clean build# 把旧的输出文件包删除掉if [ -d "$&#123;OutputDir&#125;" ]thensudo rm -rf "$&#123;OutputDir&#125;"fi# 创建输出包sudo mkdir -p "$&#123;OutputDir&#125;"sudo cp -R "$&#123;DEVICE_DIR&#125;/" "$&#123;OutputDir&#125;/"# 使用 lipo工具合并通用包（(i386 + armv6/armv7)）sudo lipo -create "$&#123;DEVICE_DIR&#125;/$&#123;FrameWorkName&#125;.framework/$&#123;FrameWorkName&#125;" "$&#123;SIMULATOR_DIR&#125;/$&#123;FrameWorkName&#125;" -output "$&#123;OutputDir&#125;/$&#123;FrameWorkName&#125;.framework/$&#123;FrameWorkName&#125;"# 删除build包 打开输出包文件夹sudo rm -r "$&#123;buildDir&#125;"open "$&#123;OutputDir&#125;"]]></content>
+    <title><![CDATA[iOS runtime]]></title>
+    <url>%2F2018%2F06%2F11%2FiOS%2Fruntime%E7%9B%B8%E5%85%B3%2F</url>
+    <content type="text"><![CDATA[仓库地址dream001 demo仓库地址苹果官网开源代码官方api 掘金runtime实战总结IOS程序在main函数前所做的事情 maindevtang 深入理解Objective-C的Runtime机制]]></content>
       <categories>
         <category>iOS</category>
       </categories>
@@ -386,9 +419,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[iOS runtime]]></title>
-    <url>%2F2018%2F06%2F11%2FiOS%2Fruntime%E7%9B%B8%E5%85%B3%2F</url>
-    <content type="text"><![CDATA[仓库地址dream001 demo仓库地址苹果官网开源代码官方api 掘金runtime实战总结IOS程序在main函数前所做的事情 maindevtang 深入理解Objective-C的Runtime机制]]></content>
+    <title><![CDATA[深入理解iOS App的启动过程]]></title>
+    <url>%2F2018%2F06%2F11%2FiOS%2F%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3iOS%20App%E7%9A%84%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[深入理解iOS App的启动过程 准备知识 知道概念Mach-O哪些名词指的是Mach-o ? Executable 可执行文件 Dylib 动态库 Bundle 无法被连接的动态库，只能通过dlopen()加载 Image 指的是Executable，Dylib或者Bundle的一种，文中会多次使用Image这个名词。 Framework 动态库和对应的头文件和资源文件的集合 Apple出品的操作系统的可执行文件格式几乎都是mach-o，iOS当然也不例外。mach-o可以大致的分为三部分： Header 头部，包含可以执行的CPU架构，比如x86,arm64 Load commands 加载命令，包含文件的组织架构和在虚拟内存中的布局方式 Data，数据，包含load commands中需要的各个段(segment)的数据，每一个Segment都得大小是Page的整数倍。 那么Data部分又包含哪些segment呢？绝大多数mach-o包括以下三个段（支持用户自定义Segment，但是很少使用） __TEXT 代码段，只读，包括函数，和只读的字符串，上图中类似__TEXT,__text的都是代码段 __DATA数据段，读写，包括可读写的全局变量等，上图类似中的__DATA,__data都是数据段 __LINKEDIT __LINKEDIT包含了方法和变量的元数据（位置，偏移量），以及代码签名等信息。 dyld dyld的全称是dynamic loader，它的作用是加载一个进程所需要的image，dyld是开源的。 Virtual Memory 虚拟内存是在物理内存上建立的一个逻辑地址空间，它向上（应用）提供了一个连续的逻辑地址空间，向下隐藏了物理内存的细节。虚拟内存使得逻辑地址可以没有实际的物理地址，也可以让多个逻辑地址对应到一个物理地址。虚拟内存被划分为一个个大小相同的Page（64位系统上是16KB），提高管理和读写的效率。 Page又分为只读和读写的Page。 虚拟内存是建立在物理内存和进程之间的中间层。在iOS上，当内存不足的时候，会尝试释放那些只读的Page，因为只读的Page在下次被访问的时候，可以再从磁盘读取。如果没有可用内存，会通知在后台的App（也就是在这个时候收到了memory warning），如果在这之后仍然没有可用内存，则会杀死在后台的App。 Page fault 在应用执行的时候，它被分配的逻辑地址空间都是可以访问的，当应用访问一个逻辑Page，而在对应的物理内存中并不存在的时候，这时候就发生了一次Page fault。当Page fault发生的时候，会中断当前的程序，在物理内存中寻找一个可用的Page，然后从磁盘中读取数据到物理内存，接着继续执行当前程序。 Dirty Page &amp; Clean Page1、如果一个Page可以从磁盘上重新生成，那么这个Page称为Clean Page2、如果一个Page包含了进程相关信息，那么这个Page称为Dirty Page像代码段这种只读的Page就是Clean Page。而像数据段(_DATA)这种读写的Page，当写数据发生的时候，会触发COW(Copy on write)，也就是写时复制，Page会被标记成Dirty，同时会被复制。 启动过程 加载动态库 dyld会首先读取mach-o文件的Header和load commands。接着就知道了这个可执行文件依赖的动态库。例如加载动态库A到内存，接着检查A所依赖的动态库，就这样的递归加载，直到所有的动态库加载完毕。通常一个App所依赖的动态库在100-400个左右，其中大多数都是系统的动态库，它们会被缓存到dyld shared cache，这样读取的效率会很高。 Rebase &amp;&amp; Bind为什么要Rebase？ 有两种主要的技术来保证应用的安全：ASLR和Code Sign。 ASLR的全称是Address space layout randomization，翻译过来就是“地址空间布局随机化”。App被启动的时候，程序会被影射到逻辑的地址空间，这个逻辑的地址空间有一个起始地址，而ASLR技术使得这个起始地址是随机的。如果是固定的，那么黑客很容易就可以由起始地址+偏移量找到函数的地址。 Rebase 修正内部(指向当前mach-o文件)的指针指向 Bind 修正外部指针指向 Objective CObjective C是动态语言，所以在执行main函数之前，需要把类的信息注册到一个全局的Table中。同时，Objective C支持Category，在初始化的时候，也会把Category中的方法注册到对应的类中，同时会唯一Selector，这也是为什么当你的Cagegory实现了类中同名的方法后，类中的方法会被覆盖。 另外，由于iOS开发时基于Cocoa Touch的，所以绝大多数的类起始都是系统类，所以大多数的Runtime初始化起始在Rebase和Bind中已经完成。 Initializers接下来就是必要的初始化部分了，主要包括几部分： +load方法。C／C++静态初始化对象和标记为attribute(constructor)的方法这里要提一点的就是，+load方法已经被弃用了，如果你用Swift开发，你会发现根本无法去写这样一个方法，官方的建议是实用initialize。区别就是，load是在类装载的时候执行，而initialize是在类第一次收到message前调用。 Main函数之后从main函数开始执行，到你的第一个界面显示，这期间一般会做哪些事情。 执行AppDelegate的代理方法，主要是didFinishLaunchingWithOptions 初始化Window，初始化基础的ViewController结构(一般是UINavigationController+UITabViewController) 获取数据(Local DB／Network)，展示给用户。 总结不同的App在启动的时候做的事情往往不同，但是优化起来的核心思想无非就两个： 能延迟执行的就延迟执行。比如SDK的初始化，界面的创建。不能延迟执行的，尽量放到后台执行。比如数据读取，原始JSON数据转对象，日志发送。Main函数之前 Main函数之前是iOS系统的工作，所以这部分的优化往往更具有通用性。 dylibs启动的第一步是加载动态库，加载系统的动态库使很快的，因为可以缓存，而加载内嵌的动态库速度较慢。所以，提高这一步的效率的关键是：减少动态库的数量。 合并动态库，比如公司内部由私有Pod建立了如下动态库：XXTableView, XXHUD, XXLabel，强烈建议合并成一个XXUIKit来提高加载速度。 Rebase &amp; Bind &amp; Objective C RuntimeRebase和Bind都是为了解决指针引用的问题。对于Objective C开发来说，主要的时间消耗在Class/Method的符号加载上，所以常见的优化方案是： 减少__DATA段中的指针数量。合并Category和功能类似的类。比如：UIView+Frame,UIView+AutoLayout…合并为一个删除无用的方法和类。多用Swift Structs，因为Swfit Structs是静态分发的。感兴趣的同学可以看看我之前这篇文章：《Swift进阶之内存模型和方法调度》 Initializers通常，我们会在+load方法中进行method-swizzling，这也是Nshipster推荐的方式。 用initialize替代load。不少同学喜欢用method-swizzling来实现AOP去做日志统计等内容，强烈建议改为在initialize进行初始化。减少atribute((constructor))的使用，而是在第一次访问的时候才用dispatch_once等方式初始化。不要创建线程使用Swfit重写代码。]]></content>
       <categories>
         <category>iOS</category>
       </categories>
@@ -408,9 +441,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[深入理解iOS App的启动过程]]></title>
-    <url>%2F2018%2F06%2F11%2FiOS%2F%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3iOS%20App%E7%9A%84%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B%2F</url>
-    <content type="text"><![CDATA[深入理解iOS App的启动过程 准备知识 知道概念Mach-O哪些名词指的是Mach-o ? Executable 可执行文件 Dylib 动态库 Bundle 无法被连接的动态库，只能通过dlopen()加载 Image 指的是Executable，Dylib或者Bundle的一种，文中会多次使用Image这个名词。 Framework 动态库和对应的头文件和资源文件的集合 Apple出品的操作系统的可执行文件格式几乎都是mach-o，iOS当然也不例外。mach-o可以大致的分为三部分： Header 头部，包含可以执行的CPU架构，比如x86,arm64 Load commands 加载命令，包含文件的组织架构和在虚拟内存中的布局方式 Data，数据，包含load commands中需要的各个段(segment)的数据，每一个Segment都得大小是Page的整数倍。 那么Data部分又包含哪些segment呢？绝大多数mach-o包括以下三个段（支持用户自定义Segment，但是很少使用） __TEXT 代码段，只读，包括函数，和只读的字符串，上图中类似__TEXT,__text的都是代码段 __DATA数据段，读写，包括可读写的全局变量等，上图类似中的__DATA,__data都是数据段 __LINKEDIT __LINKEDIT包含了方法和变量的元数据（位置，偏移量），以及代码签名等信息。 dyld dyld的全称是dynamic loader，它的作用是加载一个进程所需要的image，dyld是开源的。 Virtual Memory 虚拟内存是在物理内存上建立的一个逻辑地址空间，它向上（应用）提供了一个连续的逻辑地址空间，向下隐藏了物理内存的细节。虚拟内存使得逻辑地址可以没有实际的物理地址，也可以让多个逻辑地址对应到一个物理地址。虚拟内存被划分为一个个大小相同的Page（64位系统上是16KB），提高管理和读写的效率。 Page又分为只读和读写的Page。 虚拟内存是建立在物理内存和进程之间的中间层。在iOS上，当内存不足的时候，会尝试释放那些只读的Page，因为只读的Page在下次被访问的时候，可以再从磁盘读取。如果没有可用内存，会通知在后台的App（也就是在这个时候收到了memory warning），如果在这之后仍然没有可用内存，则会杀死在后台的App。 Page fault 在应用执行的时候，它被分配的逻辑地址空间都是可以访问的，当应用访问一个逻辑Page，而在对应的物理内存中并不存在的时候，这时候就发生了一次Page fault。当Page fault发生的时候，会中断当前的程序，在物理内存中寻找一个可用的Page，然后从磁盘中读取数据到物理内存，接着继续执行当前程序。 Dirty Page &amp; Clean Page1、如果一个Page可以从磁盘上重新生成，那么这个Page称为Clean Page2、如果一个Page包含了进程相关信息，那么这个Page称为Dirty Page像代码段这种只读的Page就是Clean Page。而像数据段(_DATA)这种读写的Page，当写数据发生的时候，会触发COW(Copy on write)，也就是写时复制，Page会被标记成Dirty，同时会被复制。 启动过程 加载动态库 dyld会首先读取mach-o文件的Header和load commands。接着就知道了这个可执行文件依赖的动态库。例如加载动态库A到内存，接着检查A所依赖的动态库，就这样的递归加载，直到所有的动态库加载完毕。通常一个App所依赖的动态库在100-400个左右，其中大多数都是系统的动态库，它们会被缓存到dyld shared cache，这样读取的效率会很高。 Rebase &amp;&amp; Bind为什么要Rebase？ 有两种主要的技术来保证应用的安全：ASLR和Code Sign。 ASLR的全称是Address space layout randomization，翻译过来就是“地址空间布局随机化”。App被启动的时候，程序会被影射到逻辑的地址空间，这个逻辑的地址空间有一个起始地址，而ASLR技术使得这个起始地址是随机的。如果是固定的，那么黑客很容易就可以由起始地址+偏移量找到函数的地址。 Rebase 修正内部(指向当前mach-o文件)的指针指向 Bind 修正外部指针指向 Objective CObjective C是动态语言，所以在执行main函数之前，需要把类的信息注册到一个全局的Table中。同时，Objective C支持Category，在初始化的时候，也会把Category中的方法注册到对应的类中，同时会唯一Selector，这也是为什么当你的Cagegory实现了类中同名的方法后，类中的方法会被覆盖。 另外，由于iOS开发时基于Cocoa Touch的，所以绝大多数的类起始都是系统类，所以大多数的Runtime初始化起始在Rebase和Bind中已经完成。 Initializers接下来就是必要的初始化部分了，主要包括几部分： +load方法。C／C++静态初始化对象和标记为attribute(constructor)的方法这里要提一点的就是，+load方法已经被弃用了，如果你用Swift开发，你会发现根本无法去写这样一个方法，官方的建议是实用initialize。区别就是，load是在类装载的时候执行，而initialize是在类第一次收到message前调用。 Main函数之后从main函数开始执行，到你的第一个界面显示，这期间一般会做哪些事情。 执行AppDelegate的代理方法，主要是didFinishLaunchingWithOptions 初始化Window，初始化基础的ViewController结构(一般是UINavigationController+UITabViewController) 获取数据(Local DB／Network)，展示给用户。 总结不同的App在启动的时候做的事情往往不同，但是优化起来的核心思想无非就两个： 能延迟执行的就延迟执行。比如SDK的初始化，界面的创建。不能延迟执行的，尽量放到后台执行。比如数据读取，原始JSON数据转对象，日志发送。Main函数之前 Main函数之前是iOS系统的工作，所以这部分的优化往往更具有通用性。 dylibs启动的第一步是加载动态库，加载系统的动态库使很快的，因为可以缓存，而加载内嵌的动态库速度较慢。所以，提高这一步的效率的关键是：减少动态库的数量。 合并动态库，比如公司内部由私有Pod建立了如下动态库：XXTableView, XXHUD, XXLabel，强烈建议合并成一个XXUIKit来提高加载速度。 Rebase &amp; Bind &amp; Objective C RuntimeRebase和Bind都是为了解决指针引用的问题。对于Objective C开发来说，主要的时间消耗在Class/Method的符号加载上，所以常见的优化方案是： 减少__DATA段中的指针数量。合并Category和功能类似的类。比如：UIView+Frame,UIView+AutoLayout…合并为一个删除无用的方法和类。多用Swift Structs，因为Swfit Structs是静态分发的。感兴趣的同学可以看看我之前这篇文章：《Swift进阶之内存模型和方法调度》 Initializers通常，我们会在+load方法中进行method-swizzling，这也是Nshipster推荐的方式。 用initialize替代load。不少同学喜欢用method-swizzling来实现AOP去做日志统计等内容，强烈建议改为在initialize进行初始化。减少atribute((constructor))的使用，而是在第一次访问的时候才用dispatch_once等方式初始化。不要创建线程使用Swfit重写代码。]]></content>
+    <title><![CDATA[详解KVO底层实现]]></title>
+    <url>%2F2018%2F06%2F11%2FiOS%2F%E8%AF%A6%E8%A7%A3KVO%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%2F</url>
+    <content type="text"><![CDATA[一、KVO (Key-Value Observing)KVO 是 Objective-C 对观察者模式（Observer Pattern）的实现。也是 Cocoa Binding 的基础。当被观察对象的某个属性发生更改时，观察者对象会获得通知。 有意思的是，你不需要给被观察的对象添加任何额外代码，就能使用 KVO 。这是怎么做到的？ 二、 KVO内部实现原理KVO是基于runtime机制实现的当某个类的属性对象第一次被观察时，系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类中任何被观察属性的setter 方法。派生类在被重写的setter方法内实现真正的通知机制如果原类为Person，那么生成的派生类名为NSKVONotifying_Person每个类对象中都有一个isa指针指向当前类，当一个类对象的第一次被观察，那么系统会偷偷将isa指针指向动态生成的派生类，从而在给被监控属性赋值时执行的是派生类的setter方法键值观察通知依赖于NSObject 的两个方法: willChangeValueForKey: 和 didChangevlueForKey:；在一个被观察属性发生改变之前， willChangeValueForKey:一定会被调用，这就 会记录旧的值。而当改变发生后，didChangeValueForKey:会被调用，继而 observeValueForKey:ofObject:change:context: 也会被调用。补充：KVO的这套实现机制中苹果还偷偷重写了class方法，让我们误认为还是使用的当前类，从而达到隐藏生成的派生类 三、补充： 如何关闭默认的KVO的默认实现，并进入自定义的KVO实现？（看链接）如何自己动手实现 KVO 四、附注: KVC底层实现原理(如下)KVC运用了一个isa-swizzling技术. isa-swizzling就是类型混合指针机制, 将2个对象的isa指针互相调换, 就是俗称的黑魔法.KVC主要通过isa-swizzling, 来实现其内部查找定位的. 默认的实现方法�由NSOject提供isa指针, 如其名称所指,(就是is a kind of的意思), 指向分发表对象的类. 该分发表实际上包含了指向实现类中的方法的指针, 和其它数据。 具体主要分为三大步第一步：寻找该属性有没有setsetter方法？有，就直接赋值第二步：寻找有没有该属性带下划线的成员属性？有，就直接赋值第三步：寻找有没有该属性的成员属性？有，就直接赋值或者这么说1、首先搜索setKey:方法.(key指成员变量名, 首字母大写)2、上面的setter方法没找到, 如果类方法accessInstanceVariablesDirectly返回YES. 那么按 _key, _isKey，key, iskey的顺序搜索成员名.(NSKeyValueCodingCatogery中实现的类方法, 默认实现为返回YES)3、如果没有找到成员变量, 调用setValue:forUnderfinedKey:比如说如下的一行KVC的代码： 举个🌰e.g: 123456789[object setValue:@"13123" forKey:@"uuid"]; 就会被编译器处理成:// 首先找到对应selSEL sel = sel_get_ uuid("setValue:forKey:");// 根据object-&gt;isa找到sel对应的IMP实现指针IMP method = objc_msg_lookup (object-&gt;isa,sel);// 调用指针完成KVC赋值method(object, sel, @"13123", @"uuid"); 如何为一个实例动态替换方法资料根据kvo的实现原理：派生个实例方法所在类的子类，创建hook函数，然后修改isa指针object_setClass(instance, newClass);，实现替换的方法实现。 详解KVO底层实现代码实现仓库地址]]></content>
       <categories>
         <category>iOS</category>
       </categories>
@@ -430,28 +463,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[java-spring]]></title>
-    <url>%2F2018%2F06%2F11%2Fjava%2Fjava-spring%2F</url>
-    <content type="text"><![CDATA[spring框架1234Spring是一个开放源代码的设计层面框架，他解决的是业务逻辑层和其他各层的松耦合问题，因此它将面向接口的编程思想贯穿整个系统应用。Spring是于2003 年兴起的一个轻量级的Java 开发框架，由Rod Johnson创建。简单来说，Spring是一个分层的JavaSE/EE full-stack(一站式) 轻量级开源框架。 下载和安装Spring请按如下步骤进行。（1）登录站点，下载Spring的最新稳定版本。最新版本为spring-framework-5.0.建议下载spring-framework-spring-framework-4.0.0.M2-dist这个压缩包不仅包含Spring的开发包，而且包含Spring编译和运行所依赖的第三方类库。解压缩下载到的压缩包，解压缩后的文件夹应用如下几个文件夹。dist：该文件夹下放Spring的jar包，通常只需要Spring.jar文件即可。该文件夹下还有一些类似spring－Xxx.jar的压缩包， 这些压缩包是spring.jar压缩包的子模块压缩包。除非确定整个J2EE应用只需要使用Spring的某一方面时，才考虑使用这种分模块压缩包。通常建议使用Spring.jardocs：该文件夹下包含spring的相关文档、开发指南及API参考文档。lib：该文件夹下包含spring编译和运行所依赖的第三方类库，该路径下的类库并不是 spring必需的，但如果需要使用第三方类库的支持，这里的类库就是必需要的。samples：该文件夹下包含Spring的几个简单例子，可作为Spring入门学习的案例。src：该文件夹下包含Spring的全部源文件，如果开发过程中有地方无法把握，可以参考该源文件，了解底层实现。springspringtest：该文件夹下包含Spring的测试示例。tiger：该路径下存放关于JDK的相关内容解压缩后的文件夹下，还包含一些关于Spring的License和项目相关文件（2）将spring.jar复制到项目的CLASSPATH路径下，对于Web应用，将spring.jar文件复制到WEB-INF/lib路径下，该应用即可以利用Spring框架了。（3）通常Spring的框架还依赖于其他一些jar文件，因此还须将lib下对应的包复制到WEB-INF/lib路径下，具体要复制哪些jar文件，取决于应用所需要使用的项目。通常需要复制cglib，dom4j，jakarta-commons，log4j等文件夹下的jar文件。（4）为了编译java文件，可以找到Spring的基础类，将Spring.jar文件的路径添加到环境变量CLASSPATH中。当然，也可以使用ANT工具，但无须添加环境变量。如果使用Eclipse或者NetBeans等IDE时，也不需要设置环境变量。 Spring MVC传统的web架构的view 表现层使用struts作为表现层。但是如果试用下spring自带的MVC，会发现spring 在一般场合完全可以取代struts。从某些角度来说，spring的mvc设计的更加合理，有兴趣的话不妨尝试下单个的spring的MVC。 w3Cschool-spring学习 Spring Boot 是什么？1Spring Boot 的目的是提供一组工具，以便快速构建容易配置的 Spring 应用程序。]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[详解KVO底层实现]]></title>
-    <url>%2F2018%2F06%2F11%2FiOS%2F%E8%AF%A6%E8%A7%A3KVO%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%2F</url>
-    <content type="text"><![CDATA[一、KVO (Key-Value Observing)KVO 是 Objective-C 对观察者模式（Observer Pattern）的实现。也是 Cocoa Binding 的基础。当被观察对象的某个属性发生更改时，观察者对象会获得通知。 有意思的是，你不需要给被观察的对象添加任何额外代码，就能使用 KVO 。这是怎么做到的？ 二、 KVO内部实现原理KVO是基于runtime机制实现的当某个类的属性对象第一次被观察时，系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类中任何被观察属性的setter 方法。派生类在被重写的setter方法内实现真正的通知机制如果原类为Person，那么生成的派生类名为NSKVONotifying_Person每个类对象中都有一个isa指针指向当前类，当一个类对象的第一次被观察，那么系统会偷偷将isa指针指向动态生成的派生类，从而在给被监控属性赋值时执行的是派生类的setter方法键值观察通知依赖于NSObject 的两个方法: willChangeValueForKey: 和 didChangevlueForKey:；在一个被观察属性发生改变之前， willChangeValueForKey:一定会被调用，这就 会记录旧的值。而当改变发生后，didChangeValueForKey:会被调用，继而 observeValueForKey:ofObject:change:context: 也会被调用。补充：KVO的这套实现机制中苹果还偷偷重写了class方法，让我们误认为还是使用的当前类，从而达到隐藏生成的派生类 三、补充： 如何关闭默认的KVO的默认实现，并进入自定义的KVO实现？（看链接）如何自己动手实现 KVO 四、附注: KVC底层实现原理(如下)KVC运用了一个isa-swizzling技术. isa-swizzling就是类型混合指针机制, 将2个对象的isa指针互相调换, 就是俗称的黑魔法.KVC主要通过isa-swizzling, 来实现其内部查找定位的. 默认的实现方法�由NSOject提供isa指针, 如其名称所指,(就是is a kind of的意思), 指向分发表对象的类. 该分发表实际上包含了指向实现类中的方法的指针, 和其它数据。 具体主要分为三大步第一步：寻找该属性有没有setsetter方法？有，就直接赋值第二步：寻找有没有该属性带下划线的成员属性？有，就直接赋值第三步：寻找有没有该属性的成员属性？有，就直接赋值或者这么说1、首先搜索setKey:方法.(key指成员变量名, 首字母大写)2、上面的setter方法没找到, 如果类方法accessInstanceVariablesDirectly返回YES. 那么按 _key, _isKey，key, iskey的顺序搜索成员名.(NSKeyValueCodingCatogery中实现的类方法, 默认实现为返回YES)3、如果没有找到成员变量, 调用setValue:forUnderfinedKey:比如说如下的一行KVC的代码： 举个🌰e.g: 123456789[object setValue:@"13123" forKey:@"uuid"]; 就会被编译器处理成:// 首先找到对应selSEL sel = sel_get_ uuid("setValue:forKey:");// 根据object-&gt;isa找到sel对应的IMP实现指针IMP method = objc_msg_lookup (object-&gt;isa,sel);// 调用指针完成KVC赋值method(object, sel, @"13123", @"uuid"); 如何为一个实例动态替换方法资料根据kvo的实现原理：派生个实例方法所在类的子类，创建hook函数，然后修改isa指针object_setClass(instance, newClass);，实现替换的方法实现。 详解KVO底层实现代码实现仓库地址]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>iOS-WIKI</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Java Web应用程序的推荐目录结构]]></title>
     <url>%2F2018%2F06%2F11%2Fjava%2FJava%20Web%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%A8%E8%8D%90%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%2F</url>
     <content type="text"><![CDATA[Java Web应用程序的推荐目录结构12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152├── pom.xml└── src ├── main │ ├── java │ │ └── mygroup │ │ ├── controller │ │ │ ├── HomeController.java │ │ │ └── PersonController.java │ │ ├── dao │ │ │ └── PersonDao.java │ │ └── model │ │ └── Person.java │ ├── resources │ │ ├── db.properties │ │ ├── log4j.xml │ │ └── META-INF │ │ └── persistence.xml │ └── webapp │ ├── index.html │ ├── META-INF │ │ ├── context.xml │ │ └── MANIFEST.MF │ ├── resources │ │ └── css │ │ └── screen.css │ └── WEB-INF │ ├── spring │ │ ├── app │ │ │ ├── controllers.xml │ │ │ └── servlet-context.xml │ │ ├── db.xml │ │ └── root-context.xml │ ├── views │ │ ├── edit.jsp │ │ ├── home.jsp │ │ └── list.jsp │ └── web.xml └── test ├── java │ └── mygroup │ ├── controller │ │ ├── DataInitializer.java │ │ ├── HomeControllerTest.java │ │ └── PersonControllerTest.java │ └── dao │ └── PersonDaoTest.java └── resources ├── db.properties ├── log4j.xml ├── test-context.xml └── test-db.xml Java Web应用程序的推荐目录结构Java Web 项目目录规范用IntelliJ idea 创建 springMVC 的Maven 项目]]></content>
@@ -463,9 +474,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[spring注解]]></title>
-    <url>%2F2018%2F06%2F11%2Fjava%2Fspring%E6%B3%A8%E8%A7%A3%2F</url>
-    <content type="text"><![CDATA[背景121、大量的XML让开发者厌恶,因此Spring提供了许多注解来完成各种功能。2、大量的注解让开发者厌恶 ,因此Spring提供了组合注解来完成各种功能。 Spring Boot 注解的意义以及作用12345利用注解：隐式配置，例如：@Autowired、@Bean、@Component等，通过注解来简化xml文件。利用Java文件：显示配置，比xml配置的优势是具备类型安全。利用传统的xml配置文件。 注解(annotations)列表 @ResponseBody 1用该注解修饰的函数，会将结果直接填充到HTTP的响应体中，一般用于构建RESTful的api； @Controller 1用于定义控制器类，在spring 项目中由控制器负责将用户发来的URL请求转发到对应的服务接口（service层）。 @RestController 1@ResponseBody和@Controller的合集 @RequestMapping 1提供路由信息，负责URL到Controller中的具体函数的映射。 更多注解详看]]></content>
+    <title><![CDATA[java-spring]]></title>
+    <url>%2F2018%2F06%2F11%2Fjava%2Fjava-spring%2F</url>
+    <content type="text"><![CDATA[spring框架1234Spring是一个开放源代码的设计层面框架，他解决的是业务逻辑层和其他各层的松耦合问题，因此它将面向接口的编程思想贯穿整个系统应用。Spring是于2003 年兴起的一个轻量级的Java 开发框架，由Rod Johnson创建。简单来说，Spring是一个分层的JavaSE/EE full-stack(一站式) 轻量级开源框架。 下载和安装Spring请按如下步骤进行。（1）登录站点，下载Spring的最新稳定版本。最新版本为spring-framework-5.0.建议下载spring-framework-spring-framework-4.0.0.M2-dist这个压缩包不仅包含Spring的开发包，而且包含Spring编译和运行所依赖的第三方类库。解压缩下载到的压缩包，解压缩后的文件夹应用如下几个文件夹。dist：该文件夹下放Spring的jar包，通常只需要Spring.jar文件即可。该文件夹下还有一些类似spring－Xxx.jar的压缩包， 这些压缩包是spring.jar压缩包的子模块压缩包。除非确定整个J2EE应用只需要使用Spring的某一方面时，才考虑使用这种分模块压缩包。通常建议使用Spring.jardocs：该文件夹下包含spring的相关文档、开发指南及API参考文档。lib：该文件夹下包含spring编译和运行所依赖的第三方类库，该路径下的类库并不是 spring必需的，但如果需要使用第三方类库的支持，这里的类库就是必需要的。samples：该文件夹下包含Spring的几个简单例子，可作为Spring入门学习的案例。src：该文件夹下包含Spring的全部源文件，如果开发过程中有地方无法把握，可以参考该源文件，了解底层实现。springspringtest：该文件夹下包含Spring的测试示例。tiger：该路径下存放关于JDK的相关内容解压缩后的文件夹下，还包含一些关于Spring的License和项目相关文件（2）将spring.jar复制到项目的CLASSPATH路径下，对于Web应用，将spring.jar文件复制到WEB-INF/lib路径下，该应用即可以利用Spring框架了。（3）通常Spring的框架还依赖于其他一些jar文件，因此还须将lib下对应的包复制到WEB-INF/lib路径下，具体要复制哪些jar文件，取决于应用所需要使用的项目。通常需要复制cglib，dom4j，jakarta-commons，log4j等文件夹下的jar文件。（4）为了编译java文件，可以找到Spring的基础类，将Spring.jar文件的路径添加到环境变量CLASSPATH中。当然，也可以使用ANT工具，但无须添加环境变量。如果使用Eclipse或者NetBeans等IDE时，也不需要设置环境变量。 Spring MVC传统的web架构的view 表现层使用struts作为表现层。但是如果试用下spring自带的MVC，会发现spring 在一般场合完全可以取代struts。从某些角度来说，spring的mvc设计的更加合理，有兴趣的话不妨尝试下单个的spring的MVC。 w3Cschool-spring学习 Spring Boot 是什么？1Spring Boot 的目的是提供一组工具，以便快速构建容易配置的 Spring 应用程序。]]></content>
       <categories>
         <category>java</category>
       </categories>
@@ -485,17 +496,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hexo 博客框架添加搜索]]></title>
-    <url>%2F2018%2F06%2F11%2Fother%2FHexo%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%2F</url>
-    <content type="text"><![CDATA[用Hexo提供的Local Search,原理是通过hexo-generator-search插件在本地生成一个search.xml文件，搜索的时候从这个文件中根据关键字检索出相应的链接。 安装步骤安装 hexo-generator-search在站点的根目录下执行以下命令： 1$ npm install hexo-generator-search --save 安装 hexo-generator-searchdb在站点的根目录下执行以下命令： 1$ npm install hexo-generator-searchdb --save 启用搜索 编辑 站点配置文件_config.yml，新增以下内容到任意位置： search: path: search.xml field: post format: html limit: 10000 修改主题配置文件 我的路径：/blog/themes/next下的_config.yml文件，进行编辑。 local_search: enable: true 最后部署到github、coding，打开网页就可以看到搜索功能了。]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>博客框架</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[java 基础]]></title>
     <url>%2F2018%2F06%2F11%2Fjava%2Fjava%E5%9F%BA%E7%A1%80%E7%9A%84%E5%89%AF%E6%9C%AC%2F</url>
     <content type="text"><![CDATA[背景]]></content>
@@ -507,14 +507,36 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[docsify]]></title>
-    <url>%2F2018%2F06%2F11%2Fother%2Fdocsify%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[使用前操作 安装npm i docsify-cli -g 然后创建目录首先在 Desktop 创建一个文件夹：cloud-doccd 到当前目录 初始化项目 如果想在项目的 ./docs 目录里写文档，直接通过 init 初始化项目。docsify init ./docs 启动服务 （默认3000端口号）可以修改docsify serve docs docsify serve docs -p 4001 docsify（和 gitbook 一样的好东西)docsify轻量级文档系统中文文档docsify项目地址 内网搭建Docsify文档管理平台 内网搭建 优秀使用者小z博客文档管理系统使用docsify快速生成在线文档]]></content>
+    <title><![CDATA[spring注解]]></title>
+    <url>%2F2018%2F06%2F11%2Fjava%2Fspring%E6%B3%A8%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[背景121、大量的XML让开发者厌恶,因此Spring提供了许多注解来完成各种功能。2、大量的注解让开发者厌恶 ,因此Spring提供了组合注解来完成各种功能。 Spring Boot 注解的意义以及作用12345利用注解：隐式配置，例如：@Autowired、@Bean、@Component等，通过注解来简化xml文件。利用Java文件：显示配置，比xml配置的优势是具备类型安全。利用传统的xml配置文件。 注解(annotations)列表 @ResponseBody 1用该注解修饰的函数，会将结果直接填充到HTTP的响应体中，一般用于构建RESTful的api； @Controller 1用于定义控制器类，在spring 项目中由控制器负责将用户发来的URL请求转发到对应的服务接口（service层）。 @RestController 1@ResponseBody和@Controller的合集 @RequestMapping 1提供路由信息，负责URL到Controller中的具体函数的映射。 更多注解详看]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo 博客框架添加搜索]]></title>
+    <url>%2F2018%2F06%2F11%2Fother%2FHexo%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%2F</url>
+    <content type="text"><![CDATA[用Hexo提供的Local Search,原理是通过hexo-generator-search插件在本地生成一个search.xml文件，搜索的时候从这个文件中根据关键字检索出相应的链接。 安装步骤安装 hexo-generator-search在站点的根目录下执行以下命令： 1$ npm install hexo-generator-search --save 安装 hexo-generator-searchdb在站点的根目录下执行以下命令： 1$ npm install hexo-generator-searchdb --save 启用搜索 编辑 站点配置文件_config.yml，新增以下内容到任意位置： search: path: search.xml field: post format: html limit: 10000 修改主题配置文件 我的路径：/blog/themes/next下的_config.yml文件，进行编辑。 local_search: enable: true 最后部署到github、coding，打开网页就可以看到搜索功能了。]]></content>
       <categories>
         <category>工具</category>
       </categories>
       <tags>
-        <tag>docsify</tag>
+        <tag>博客框架</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mac端本地服务搭建]]></title>
+    <url>%2F2018%2F06%2F11%2Fother%2FMac%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%2F</url>
+    <content type="text"><![CDATA[方案名称Mac 系统 - 启用 Mac 本地 Web 服务器关键字 Mac 系统 \ Web 服务器 需求场景 局域网搭建 Web 服务器测试环境参考链接 简书 - Mac OS X 启用 Web 服务器(推荐)详细内容 https://www.jianshu.com/p/d006a34a343f 启动 Apache终端输入$ sudo apachectl start可启动 Apache，打开浏览器，输入 http://localhost/ 看到如下页面证明本地 Web 服务器启动成功 可启动 Apache，默认站点的根目录为系统级根目录/Library/WebServer/Documents更多信息，可参考 简书 - Mac OS X 启用 Web 服务器(推荐) 创建用户级根目录 启动 PHP 安装 MySQL 开启 HTTPS https://github.com/viktyz/iosnotebook/blob/master/Notes/Note_00222_20170601.md 关闭和重启Mac OS 终端起动、关闭、重启apache的方 Mac OS 终端起动、关闭、重启apache的方法 打开终端重启apache：sudo /usr/sbin/apachectl restart关闭apache：sudo /usr/sbin/apachectl stop开启apache：sudo /usr/sbin/apachectl start Mac下如何修改apache根目录Mac下如何修改apache根目录]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>启动本地服务</tag>
       </tags>
   </entry>
   <entry>
@@ -540,14 +562,25 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Mac端本地服务搭建]]></title>
-    <url>%2F2018%2F06%2F11%2Fother%2FMac%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%2F</url>
-    <content type="text"><![CDATA[方案名称Mac 系统 - 启用 Mac 本地 Web 服务器关键字 Mac 系统 \ Web 服务器 需求场景 局域网搭建 Web 服务器测试环境参考链接 简书 - Mac OS X 启用 Web 服务器(推荐)详细内容 https://www.jianshu.com/p/d006a34a343f 启动 Apache终端输入$ sudo apachectl start可启动 Apache，打开浏览器，输入 http://localhost/ 看到如下页面证明本地 Web 服务器启动成功 可启动 Apache，默认站点的根目录为系统级根目录/Library/WebServer/Documents更多信息，可参考 简书 - Mac OS X 启用 Web 服务器(推荐) 创建用户级根目录 启动 PHP 安装 MySQL 开启 HTTPS https://github.com/viktyz/iosnotebook/blob/master/Notes/Note_00222_20170601.md 关闭和重启Mac OS 终端起动、关闭、重启apache的方 Mac OS 终端起动、关闭、重启apache的方法 打开终端重启apache：sudo /usr/sbin/apachectl restart关闭apache：sudo /usr/sbin/apachectl stop开启apache：sudo /usr/sbin/apachectl start Mac下如何修改apache根目录Mac下如何修改apache根目录]]></content>
+    <title><![CDATA[docsify]]></title>
+    <url>%2F2018%2F06%2F11%2Fother%2Fdocsify%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[使用前操作 安装npm i docsify-cli -g 然后创建目录首先在 Desktop 创建一个文件夹：cloud-doccd 到当前目录 初始化项目 如果想在项目的 ./docs 目录里写文档，直接通过 init 初始化项目。docsify init ./docs 启动服务 （默认3000端口号）可以修改docsify serve docs docsify serve docs -p 4001 docsify（和 gitbook 一样的好东西)docsify轻量级文档系统中文文档docsify项目地址 内网搭建Docsify文档管理平台 内网搭建 优秀使用者小z博客文档管理系统使用docsify快速生成在线文档]]></content>
       <categories>
         <category>工具</category>
       </categories>
       <tags>
-        <tag>启动本地服务</tag>
+        <tag>docsify</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vim修改的撤销、重做和保存]]></title>
+    <url>%2F2018%2F06%2F11%2Fother%2Fvim%E4%BF%AE%E6%94%B9%E7%9A%84%E6%92%A4%E9%94%80%E3%80%81%E9%87%8D%E5%81%9A%E5%92%8C%E4%BF%9D%E5%AD%98%2F</url>
+    <content type="text"><![CDATA[vim修改的撤销、重做和保存 u:撤销上一步的操作 ctrl+r：将原来的撤销重做一遍 U：恢复一整行原来的面貌（文本打开时的状态） :wq 保存退出 :e! 放弃修改，重新回到文件打开时的状态 linux命令中:wq和:wq！区别 首先使用esc(键退出)-&gt;:(符号输入)-&gt;wq(保存退出) :wq(保存编辑操作退出) :wq!(保存编辑强制退出)]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>vim修改的撤销、重做和保存</tag>
       </tags>
   </entry>
   <entry>
@@ -559,6 +592,39 @@
       </categories>
       <tags>
         <tag>tomcat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[weex compile + 访问]]></title>
+    <url>%2F2018%2F06%2F11%2Fvue%20%26%20weex%2Fweex%20compile%20%2B%20%E8%AE%BF%E9%97%AE%2F</url>
+    <content type="text"><![CDATA[本地启的服务测试（访问地址）：http://xxxx/jsTest/PromotionHome.js xxxx/jsTest 本地服务地址 + 存放js的目录 vue到js文件编译拷贝两步骤：weex compile PromotionHome.vue PromotionHome.jscp PromotionHome.js /Library/WebServer/Documents/jsTest]]></content>
+      <categories>
+        <category>weex</category>
+      </categories>
+      <tags>
+        <tag>weex 编译</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[weex 工作原理]]></title>
+    <url>%2F2018%2F06%2F11%2Fvue%20%26%20weex%2Fweex%20%E5%8E%9F%E7%90%86%2F</url>
+    <content type="text"><![CDATA[weex 工作原理123transformer 会把 template, style, script 都转换成一段段 json 或者 js，这样客户端只接收并运行js，不必同时解析html/css这些语法，并且这些js还会继续进行数据监听和绑定，然后生成最终的virtual dom 再发送给 native端进行渲染。 weex 主要就是做了三件事 在服务端用 Transformer 工具把 Vue 代码转换成 Js Bundle。 在客户端运行Js Framework 的 JavaScript 引擎，解释执行Js Bundle生成Virtual DOM。 在客户端设计一套 JS Bridge，能使IOS端（或者Android端）的Object-C语言（或Java语言）与Javascript语言相互调用，把Virtual Dom转换为DOM，渲染到页面。H5端直接和Js Framework 通讯，不需要Js Bridge。如下为Virtual DOM 渲染为Dom的过程： 相关概念：1234ECMAScript：定义了JavaScript语言的标准JavaScriptCore：应用在在wekit内核内的js引擎，浏览器有Safari。V8: 应用在chromium内的js引擎，浏览器有Chrome。JS引擎的作用都是解释和执行JavaScript代码。 有关JavaScript引擎解析的内容请查看 JavaScriptCore解析 有关JavaScriptCore和V8的内容请查看：JavaScript引擎 怎么开始搭建个weex项目相对比较简单看官方吧。weex相关工具 123node.jsweex-toolkitWeex Playground App 相关论坛weex 文章weex 调试weex 文档：weex中使用数据流工具Vuex实践weex交流室]]></content>
+      <categories>
+        <category>weex</category>
+      </categories>
+      <tags>
+        <tag>weex 工作原理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[weex 开发坑点]]></title>
+    <url>%2F2018%2F06%2F11%2Fvue%20%26%20weex%2Fweex%20%E5%9D%91%E7%82%B9%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940410、div 执行v-for循环的时候 要设置动态宽 自动撑满在iOS上有问题&lt;div v-for="(itemProduct,index) in productList" :style="&#123;height:sliderHeight,width:brandItemBgWidth&#125;" style="align-items: center;justify-content: center;"&gt;1、&lt;text&gt;aaa&lt;/text&gt; 该标签一定要写在一行否则native展示不对2、作为子组件里面的数据源一定要 这样写data: function () &#123; &#125; 必须加上function 不能做省略3、引入组件或者工具类 import PromotionWishLampItemView from './PromotionWishLampItemView.vue’ import Util from './PromotionUtil.js'4、引入的子组件要注册export default &#123; components: &#123; PromotionWishLampItemView &#125;,&#125;5、控件属性进行双向绑定用v-bind 缩写是冒号 :6、例如生命周期函数created、mounted和methods是并列的函数体，methods存放自定义函数7、 foreach不支持直接break// _wishLamps.forEach(function (item, index) &#123;////// foreach不支持直接break// &#125;);8、给某个对象添加属性并赋值的方式 if (typeof item.itemStyle == 'undefined') &#123; console.log('注册中 ====='); //全局注册 Vue.set(item, "itemStyle", "1"); &#125;9、数组剪切前四个（n个）的方案 _proList.slice(0, 4);10、数组添加对象的方式 _this.productList.push(wishLampDict);11、css style双向绑定要用花括号 :style="&#123;height:brandItemCurveHeight,width:brandItemWidth&#125;”12、json转化成能打印的字符串var str = JSON.stringify(result);console.log('qryExclusiveDiscount-backData:' + str);13、通过某个比例scale计算字体大小 如果不是整形在android上显示有问题 this.contentFontSize = Math.round(26 * scale);14、通过某个比例scale计算字体大小 如果不是整形在android上显示有问题 通过向上取整显示个别有问题通过向下取整 Math.floor]]></content>
+      <categories>
+        <category>weex</category>
+      </categories>
+      <tags>
+        <tag>weex 坑点</tag>
       </tags>
   </entry>
   <entry>
@@ -595,14 +661,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[weex compile + 访问]]></title>
-    <url>%2F2018%2F06%2F11%2Fvue%20%26%20weex%2Fweex%20compile%20%2B%20%E8%AE%BF%E9%97%AE%2F</url>
-    <content type="text"><![CDATA[本地启的服务测试（访问地址）：http://xxxx/jsTest/PromotionHome.js xxxx/jsTest 本地服务地址 + 存放js的目录 vue到js文件编译拷贝两步骤：weex compile PromotionHome.vue PromotionHome.jscp PromotionHome.js /Library/WebServer/Documents/jsTest]]></content>
+    <title><![CDATA[六十甲子]]></title>
+    <url>%2F2018%2F06%2F11%2F%E6%88%91%E7%9A%84%E6%97%A5%E5%B8%B8%E5%85%B4%E8%B6%A3%2F%E5%85%AD%E5%8D%81%E7%94%B2%E5%AD%90%2F</url>
+    <content type="text"><![CDATA[六十甲子 天干地支与六十甲子在中国古代的历法中，甲、乙、丙、丁、戊、己、庚、辛、壬、癸被称为“十天干”，子、丑、寅、卯、辰、巳、午、未、申、酉、戌、亥叫作“十二地支”。 12天干：甲jiǎ、乙yǐ、丙bǐng、丁dīng、戊wù、己jǐ、庚gēng、辛xīn、壬rén、癸guǐ地支：子zǐ、丑chǒu、寅yín、卯mǎo、辰chén、巳sì、午wǔ、未wèi、申shēn、酉yǒu、戌xū、亥hài 释义 天干地支以天干和地支按顺序相配﹐即甲、乙、丙、丁、戊、己、庚、辛、壬、癸与子、丑、寅、卯、辰、巳、午、未、申、酉、戌、亥相组合，从”甲子”起﹐到”癸亥”止﹐满六十为一周﹐称为”六十甲子”。亦称”六十花甲子”。 又因起头是“甲”字的有六组，所以也叫“六甲”。 年龄指人满六十岁。 道家星宿神六十甲子神六十甲子神道家信奉的六十个星宿神﹐即六十甲子日值日的六十位神。用天干和地支循环相配作为称呼这些神的名字。 1234567891001 甲子 11甲戌 21甲申 31 甲午 41甲辰 51甲寅02 乙丑 12 乙亥 22乙酉 32 乙未 42乙巳 52 乙卯03 丙寅 13丙子 23 丙戌 33丙申 43丙午 53丙辰04丁卯 14丁丑 24丁亥 34丁酉 44丁未 54丁巳05戊辰 15戊寅 25戊子 35戊戌 45戊申 55 戊午06己巳 16己卯 26己丑 36 己亥 46 己酉 56 己未07庚午 17 庚辰 27庚寅 37 庚子 47 庚戌 57 庚申08辛未 18 辛巳 28 辛卯 38 辛丑 48 辛亥 58 辛酉09壬申 19壬午 29 壬辰 39 壬寅 49 壬子 59 壬戌10癸酉 20癸未 30 癸巳 40 癸卯 50 癸丑 60 癸亥 二十四节气百科]]></content>
       <categories>
-        <category>weex</category>
+        <category>其他</category>
       </categories>
       <tags>
-        <tag>weex 编译</tag>
+        <tag>其他</tag>
       </tags>
   </entry>
   <entry>
@@ -617,25 +683,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[weex 工作原理]]></title>
-    <url>%2F2018%2F06%2F11%2Fvue%20%26%20weex%2Fweex%20%E5%8E%9F%E7%90%86%2F</url>
-    <content type="text"><![CDATA[weex 工作原理123transformer 会把 template, style, script 都转换成一段段 json 或者 js，这样客户端只接收并运行js，不必同时解析html/css这些语法，并且这些js还会继续进行数据监听和绑定，然后生成最终的virtual dom 再发送给 native端进行渲染。 weex 主要就是做了三件事 在服务端用 Transformer 工具把 Vue 代码转换成 Js Bundle。 在客户端运行Js Framework 的 JavaScript 引擎，解释执行Js Bundle生成Virtual DOM。 在客户端设计一套 JS Bridge，能使IOS端（或者Android端）的Object-C语言（或Java语言）与Javascript语言相互调用，把Virtual Dom转换为DOM，渲染到页面。H5端直接和Js Framework 通讯，不需要Js Bridge。如下为Virtual DOM 渲染为Dom的过程： 相关概念：1234ECMAScript：定义了JavaScript语言的标准JavaScriptCore：应用在在wekit内核内的js引擎，浏览器有Safari。V8: 应用在chromium内的js引擎，浏览器有Chrome。JS引擎的作用都是解释和执行JavaScript代码。 有关JavaScript引擎解析的内容请查看 JavaScriptCore解析 有关JavaScriptCore和V8的内容请查看：JavaScript引擎 怎么开始搭建个weex项目相对比较简单看官方吧。weex相关工具 123node.jsweex-toolkitWeex Playground App 相关论坛weex 文章weex 调试weex 文档：weex中使用数据流工具Vuex实践weex交流室]]></content>
+    <title><![CDATA[MySQL Workbench使用]]></title>
+    <url>%2F2018%2F06%2F11%2F%E6%95%B0%E6%8D%AE%E5%BA%93%2FMySQL%20Workbench%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[MySQL Workbench 安装使用 MySQL Workbench为数据库架构师，开发人员和DBA提供统一的可视化工具。MySQL Workbench为服务器配置，用户管理，备份等提供了数据建模，SQL开发以及全面的管理工具。 SQL 教程MySQL Workbench Mac下MySQL与MySQLWorkbench的安装 和 关联Mac下MySQL与MySQLWorkbench的安装 布局介绍 MySQL Workbench布局介绍]]></content>
       <categories>
-        <category>weex</category>
+        <category>db</category>
       </categories>
       <tags>
-        <tag>weex 工作原理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[weex 开发坑点]]></title>
-    <url>%2F2018%2F06%2F11%2Fvue%20%26%20weex%2Fweex%20%E5%9D%91%E7%82%B9%2F</url>
-    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940410、div 执行v-for循环的时候 要设置动态宽 自动撑满在iOS上有问题&lt;div v-for="(itemProduct,index) in productList" :style="&#123;height:sliderHeight,width:brandItemBgWidth&#125;" style="align-items: center;justify-content: center;"&gt;1、&lt;text&gt;aaa&lt;/text&gt; 该标签一定要写在一行否则native展示不对2、作为子组件里面的数据源一定要 这样写data: function () &#123; &#125; 必须加上function 不能做省略3、引入组件或者工具类 import PromotionWishLampItemView from './PromotionWishLampItemView.vue’ import Util from './PromotionUtil.js'4、引入的子组件要注册export default &#123; components: &#123; PromotionWishLampItemView &#125;,&#125;5、控件属性进行双向绑定用v-bind 缩写是冒号 :6、例如生命周期函数created、mounted和methods是并列的函数体，methods存放自定义函数7、 foreach不支持直接break// _wishLamps.forEach(function (item, index) &#123;////// foreach不支持直接break// &#125;);8、给某个对象添加属性并赋值的方式 if (typeof item.itemStyle == 'undefined') &#123; console.log('注册中 ====='); //全局注册 Vue.set(item, "itemStyle", "1"); &#125;9、数组剪切前四个（n个）的方案 _proList.slice(0, 4);10、数组添加对象的方式 _this.productList.push(wishLampDict);11、css style双向绑定要用花括号 :style="&#123;height:brandItemCurveHeight,width:brandItemWidth&#125;”12、json转化成能打印的字符串var str = JSON.stringify(result);console.log('qryExclusiveDiscount-backData:' + str);13、通过某个比例scale计算字体大小 如果不是整形在android上显示有问题 this.contentFontSize = Math.round(26 * scale);14、通过某个比例scale计算字体大小 如果不是整形在android上显示有问题 通过向上取整显示个别有问题通过向下取整 Math.floor]]></content>
-      <categories>
-        <category>weex</category>
-      </categories>
-      <tags>
-        <tag>weex 坑点</tag>
+        <tag>MySQL Workbench使用</tag>
       </tags>
   </entry>
   <entry>
@@ -647,17 +702,6 @@
       </categories>
       <tags>
         <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[MySQL Workbench使用]]></title>
-    <url>%2F2018%2F06%2F11%2F%E6%95%B0%E6%8D%AE%E5%BA%93%2FMySQL%20Workbench%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[MySQL Workbench 安装使用 MySQL Workbench为数据库架构师，开发人员和DBA提供统一的可视化工具。MySQL Workbench为服务器配置，用户管理，备份等提供了数据建模，SQL开发以及全面的管理工具。 SQL 教程MySQL Workbench]]></content>
-      <categories>
-        <category>db</category>
-      </categories>
-      <tags>
-        <tag>MySQL Workbench使用</tag>
       </tags>
   </entry>
   <entry>
@@ -727,9 +771,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[iOS总结的点]]></title>
-    <url>%2F2018%2F06%2F11%2FiOS%2F%E6%80%BB%E7%BB%93%E7%9A%84%E7%82%B9%2F</url>
-    <content type="text"><![CDATA[UIImage中 imageNamed 和 imageWithContentsOfFile的区别[UIImage imageNamed:]只适合与UI界面中小的贴图的读取，而一些比较大的资源文件应该尽量避免使用这个接口。直接读取文件路径[UIImage imageWithContentsOfFile]来解决图片的读取问题这两种方式的主要区别在于：imageName的方式会在使用的时候系统会cache，程序员是无法处理cache的，这是由系统自动处理的，对于重复加载的图像，速度会提升很多，这样反而用户体验好。所以如果某张图片需要在应用中使用多次，或者重复引用，使用imageName的方式会更好imageWithContentsOfFile的方式，在使用完成之后系统会释放，不会缓存下来，所以也就没有这样的问题。一般也不会把所有的图片都会缓存。有些图片在应用中只使用一两次的，就可以用这样的方式，比如新手引导界面的图片等等，就适合这样的方式。没有明显的界限。 CALayer 和 UIView的区别CALayer属于Core Animation部分的内容，比较重要而不太好理解。以下是园子中看到的一篇文章的摘录： UIView是iOS系统中界面元素的基础，所有的界面元素都是继承自它。它本身完全是由 CoreAnimation来实现的。它真正的绘图部分，是由一个CALayer类来管理。UIView本身更像是一个CALayer的管理器，访问它的跟绘图和跟坐标有关的属性，例如frame，bounds等，实际上内部都是在访问它所包含的CALayer的相关属性。 UIView有个重要属性layer，可以返回它的主CALayer实例。 如何定义一个不规则的button （还包含一个问题若干个button叠加在一起，苹果如何知道点击的是哪个button，实现原理？） 在iOS中通常使用hit-testing去找到那个被触摸的视图。这个视图叫hit-test view，当iOS找到hit-test view后就把touch event交个那个视图来处理。 用GCD的方式去实现有n个线程去访问一个属性，只有一个线程去修改属性NSRunloop的使用 那么具体什么是NSRunLoop呢？其实NSRunLoop的本质是一个消息机制的处理模式。 NSRunLoop是一种更加高明的消息处理模式 http://blog.csdn.net/cwq9944/article/details/8555104 CoreAnimation 与 UIViewAnimation分别何时会使用arc 和 gc 理解 ARC是iOS 5推出的新功能，全称叫 ARC(Automatic Reference Counting)。简单地说，就是代码中自动加入了retain/release，原先需要手动添加的用来处理内存管理的引用计数的代码可以自动地由编译器完成了。 ARC基本规则 retain, release, autorelease, dealloc由编译器自动插入，不能在代码中调用dealloc虽然可以被重载，但是不能调用[super dealloc] 如何在ARC代码中混编非ARC代码 “ios中如果arc和非arc文件混编，可以在build parses中指定compile flags，如果arc文件设为”-fobjc-arc”,非arc文件设为”-fno-objc-arc”” 使用了ARC之后如果你想复用以前写过的使用MRC的类， 就会出报错。这时候怎么办？方法比较简单， 只需要做下面的一个步骤就可以解决： 在targets的build phases选项下Compile Sources下选择要不使用arc编译的文件，双击它，输入 -fno-objc-arc 即可 MRC工程中也可以使用ARC的类。方法如下： 在targets的build phases选项下Compile Sources下选择要使用arc编译的文件，双击它，输入 -fobjc-arc 即可 NSAutoreleasepool理解 iOS的运行时是由一个一个runloop组成的 每个runloop中都创建一个Autorelease Pool，并在runloop的末尾进行释放， 所以，一般情况下，每个接受autorelease消息的对象，都会在下个runloop开始前被释放。也就是说，在一段同步的代码中执行过程中，生成的对象接受autorelease消息后，一般是不会在代码段执行完成前释放的。 当然也有让autorelease提前生效的办法：自己创建Pool并进行释放 123NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];NSArray * array = [[[NSArray alloc] init] autorelease];[pool drain]; weak,block weak不增加引用，block增加引用 举例哦，某对象self，self的strong成员变量有blockA，blockA内部引用了self，如果self不经过__weak处理，就会变成： self强引用blockA，blockA强引用self。这不就循环引用了嘛 runtime由于runtime是更底层的语言，我们编写的OC代码在运行时，编译器内部会先转为C和C++的代码，然后再执行，因而运用runtime机制，程 序的性能也会更好。 123456789 @interface Person : NSObject&#123; CGFloat height;&#125;@property (nonatomic, copy) NSString *name;@property (nonatomic, strong) NSNumber *age;@property (nonatomic, assign) int no;@end 复制代码 然后，我们在其它文件中使用这个类，注意在使用之前，要包含 #import &lt;objc/message.h&gt; 下面通过一小段代码来获取到上面这个类中所有的成员变量 复制代码 1234567891011121314unsigned int outCount = 0; Ivar *vars = class_copyIvarList([Lender class], &amp;outCount); // 获取到所有的成员变量列表 // 遍历所有的成员变量 for (int i = 0; i &lt; outCount; i++) &#123; Ivar ivar = vars[i]; // 取出第i个位置的成员变量 const char *propertyName = ivar_getName(ivar); // 获取变量名 const char *propertyType = ivar_getTypeEncoding(ivar); // 获取变量编码类型 printf("---%s--%s\n", propertyName, propertyType); &#125; 什么是GCD？ Grand Central Dispatch或者GCD，是一套低层API，提供了一种新的方法来进行并发程序编写。从基本功能上讲， GCD有点像NSOperationQueue，他们都允许程序将任务切分为多个单一任务然后提交至工作队列来并发地或者串行地执行。GCD比之NSOpertionQueue更底层更高效，并且它不是Cocoa框架的一部分。 GCD的基本概念就是dispatch queue。dispatch queue是一个对象，它可以接受任务，并将任务以先到先执行的顺序来执行。dispatch queue可以是并发的或串行的。并发任务会像NSOperationQueue那样基于系统负载来合适地并发进行，串行队列同一时间只执行单一任务。 GCD中有三种队列类型： The main queue: 与主线程功能相同。实际上，提交至main queue的任务会在主线程中执行。main queue可以调用dispatch_get_main_queue()来获得。因为main queue是与主线程相关的，所以这是一个串行队列。 Global queues: 全局队列是并发队列，并由整个进程共享。进程中存在三个全局队列：高、中（默认）、低三个优先级队列。可以调用dispatch_get_global_queue函数传入优先级来访问队列。 用户队列: 用户队列 (GCD并不这样称呼这种队列, 但是没有一个特定的名字来形容这种队列，所以我们称其为用户队列) 是用函数 dispatch_queue_create 创建的队列. 这些队列是串行的。正因为如此，它们可以用来完成同步机制, 有点像传统线程中的mutex。 首先，我们要明确NSOperationQueue与GCD之间的关系 NSOpertaionQueue用GCD构建封装的，是GCD的高级抽象。 其次，我们要区别两者的不同 GCD仅仅支持FIFO队列，而NSOperationQueue中的队列可以被重新设置优先级，从而实现不同操作的执行顺序调整 http://www.dreamingwish.com/frontui/article/default/ios-multithread-program-runloop-the.html xcode：关于Other Linker Flags 关于Other Linker Flags xcode中，在“Targets”选项下有Other Linker Flags选项，在这里可以填写xcode链接器的参数，如：-ObjC、-all_load、-force_load等。 主要参数 这里要说的主要参数是ld工具的参数，也是在Other Linker Flags里常用到的参数。 1.-ObjC 当使用ObjC写的静态类别库（Objective-C static library that contains categories），在程序编译链接时，如果不在Other Linker Flags中填写-ObjC，往往会报错，出现”selector not recognized”。博主无力，原因看不太懂。具体原因请查阅xcode帮助文档。 -ObjC的作用是加载用ObjC实现的类、类别等所有成员。 2.-all_load 强制链接器加载所有包含非ObjC的目标文档。 -force_load 加载指定的目标文档。-force_load后面需要文档路径 __strong：会retain（强引用）__weak NSObject *obj;和assign类似，多一个功能：对象销毁后置为nil __autoreleasing：使对象延迟释放 __bridge:忽略所有的内存管理细节 Core Foundation需要使用桥接， Objective-C运行时定义了几种重要的类型。 Class：定义Objective-C类 Ivar：定义对象的实例变量，包括类型和名字。 Protocol：定义正式协议。 objc_property_t：定义属性。叫这个名字可能是为了防止和Objective-C 1.0中的用户类型冲突，那时候还没有属性。 Method：定义对象方法或类方法。这个类型提供了方法的名字（就是选择器）、参数数量和类型，以及返回值（这些信息合起来称为方法的签名），还有一个指向代码的函数指针（也就是方法的实现）。 SEL：定义选择器。选择器是方法名的唯一标识符。 IMP：定义方法实现。这只是一个指向某个函数的指针，该函数接受一个对象、一个选择器和一个可变长参数列表（varargs），返回一个对象 Objective-C Method Swizzling IOS 中方法重组相关常用方法，都在包内： //向类中添加MethodBOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types) //修改类的Method IMPclass_replaceMethod(Class cls, SEL name, IMP imp, const char *types) //交换2个方法中的IMPvoid method_exchangeImplementations(Method m1, Method m2) //获取类的某个实例方法Method class_getInstanceMethod(Class aClass, SEL aSelector);底层原理 在运行时，oc 的方法被称为一种叫 Method 的结构体，这种 objc_method 类型的结构体定义为： 12345struct objc_method &#123; SEL method_name OBJC2_UNAVAILABLE; char *method_types OBJC2_UNAVAILABLE; IMP method_imp OBJC2_UNAVAILABLE;&#125;]]></content>
+    <title><![CDATA[《Effective-Objective-C 2.0》]]></title>
+    <url>%2F2018%2F06%2F11%2FiOS%2F%E3%80%8AEffective-Objective-C%202.0%E3%80%8B%2F</url>
+    <content type="text"><![CDATA[图片原地址：https://upload-images.jianshu.io/upload_images/1457495-debf9e0c37687e51.png对应简书总结Effective-Objective-C 2.0.pdfiOS相关书籍汇总 分界线 说明：以下内容 均来自与jatstar的汇总 只做引用学习 没有商业用途 Effective-Objective-C 2.0 熟悉Objective-C 起源 由消息型语言鼻祖Smalltalk演化而来。是C语言的超集。 与函数式语言关键区别：消息结构的语言，运行时所执行的代码由运行环境决定(动态绑定)；函数调用的语言，由编译器决定。 NSString someString 中 someString为指向NSString 的指针。Type 声明的对象总是被分配的堆区(heap space) 中，而绝不可能分配的栈区(stack)。 如果只需保存int float double char 等非对象类型（nonoobject type） ，使用C结构体(如CGRect)比使用OC对象性能更优，因为创建OC对象需要分配及释放堆区内存等额外开销。 在类的头文件中尽量少引入其他头文件 头文件在类的头文件中，少引入头文件，使用@Class 向前声明即可。 然后在实现文件中再引入那些类的头文件。这样可以降低类之间的耦合。 无法使用向前声明的情况，如果 引入当前类遵守的某一项协议，此时把协议单独放下一个头文件中，再将其引入。 多用字面量语法，少用与之等价的方法。 举个🌰: 123456789101112NSNumber *intNumber = @1;NSNumber *floatNumber = @2.5f;NSArray *namesArray = @[@"Jat",@"Jay",@"Vae"];NSString *myName = namesArray[0];NSDictionary *personData = @&#123;@"ChineseName":@"张建宇",@"EnglishName":@"Jat",@"age":@"23"&#125;Number *myAge = personData[@"age"];//通过字面量创建的数组或者字典 ，如果值中有nil，会抛出异常。 多用类型常量，少用＃define 预处理指令。 ＃define定义的出来的常量，不包含类型信息，编译器需要再编译前执行查找替换，会增加编译时间。 只在当前类使用的常量，可以使用 static const 在.m中定义。 在头文件中使用extern来声明全局变量,并在相关实现文件中定义其值。命名时，通常使用于是相关的类名最为前缀。如 UITextFieldTextDidBeginEditingNotification 。 《iOS开发中 const,static,extern用法总结》 使用枚举来表示状态，选项，状态码 易懂的枚举名可以提高代码的可读性。 选项为多选时，使用二进制表示枚举值，以便通过按位或将其组合起来。🌰： UIInterfaceOrientationMask。 switch语句中，不要实现default分支。这样加入新的枚举之后，编译器会提示：switch语句没有处理所有枚举值。 消息／对象／运行时 理解“属性” 这一概念 Objective-C语法@property详解 在对象内部尽量直接访问实例变量。 直接访问实例变量不经过方法派发，比点语法快。 ⚠️直接访问copy修饰的属性，不会掉用setter方法，所以不会拷贝该属性。 ⚠️不会触发KVO通知。是否会产生问题，视情况而定。 初始化方法和dealloc方法中，总是应该直接访问。 ⚠️注意考虑懒加载的情况下，要使用点语法。 理解“对象等同性”这一概念。 ==比较的是指针地址是否一样。 特有的等同性判断方法，如isEqualToString比isEqual快一些。 相同的对象必须具有相同的哈希码，但是哈希码相同的对象未必相同。 不必逐条比较每个属性的哈希码，依情况，使用速度快，碰撞率低的算法。 以“类族模式”隐藏实现细节 例如UIButton 中的 + (instancetype)buttonWithType:(UIButtonType)buttonType. 可以把实现细节隐藏在一个公共的接口后面。 在既有类中使用关联对象存放自定义数据 理解objc_msgSend 的作用 Objective-c “动态绑定(dynamic binding)” 的特性使得所要调用的函数直到运行时才能确定。通过动态消息派发系统(dynamic message dicpatch system)来查出对应的方法并执行。 消息由接收者(receiver)，选择子(selecter)，以及参数构成。调用方法实际上相当于在给对象发送消息。 理解消息转发机制 //TODO： 待续 用方法调配技术调试黑盒方法 123456789101112131415161718192021222324//Category#import "NSString+Test.h"#import &lt;objc runtime.h=""&gt;@implementation NSString (Test)- (NSString*)eoc_myLowercaseString &#123; NSString *lowercase = [self eoc_myLowercaseString]; NSLog(@"%@ =&gt; %@", self, lowercase); return lowercase;&#125;// 不会死循环，因为eoc_myLowercaseString与lowercaseString方法互换了，运行时期间eoc_myLowercaseString选择子实际上对应的原有的lowercaseString方法实现。+ (void)load&#123; Method originalMethod = class_getInstanceMethod([NSString class],@selector(lowercaseString)); Method swappedMethod = class_getInstanceMethod([NSString class],@selector(eoc_myLowercaseString)); method_exchangeImplementations(originalMethod, swappedMethod);&#125;@end /* 测试一下：NSString *string = @"Hello World";NSString *textString = [string lowercaseString];Output:Hello World =&gt; hello world*/&lt;/objc&gt; 理解类对象的用意 //TODO: 待续 接口与API设计 使用前缀避免命名空间冲突。 提供全能初始化方法 提供一个全能初始化方法，并与文档中指明，其他初始化方法均调用此方法。 全能初始化方法与超类不同时，应该重写，冲突时，应该加上抛异常机制提示。 实现description方法 自定义类，覆写description方法，返回的字符串，NSLog时的显示该字符串； 重写debugDescription，改变调试控制台输出信息，默认为description方法的返回值。 尽量使用不可变对象。 使用清晰而且协调的命名方式 为私有方法名加前缀 给私有方法名加上前缀(虽然我感觉没必要～也没见过知名开源项目有加；但是爱老婆说按规范要加) 不要使用下划线做私有方法的前缀，因为这种做法是预留给苹果的。 理解Objective-C错误模型 只有发生使整个应用崩溃的严重错误时，才之用异常。 不那么严重的错误，可以指派委托方法来处理错误，也可以把错误信息放在NSError里，由NSLog输出。 理解NSCoding协议。 想令对象具有拷贝功能，需实现NSCoying协议；如果对象有可变版本，还需要实现NSMutableCopying协议。 浅拷贝之后的内容与原始内容指针地址相同，深拷贝之后的内容指向原始内容相关对象的一份拷贝。(深拷贝会逐个元素发送Copy消息，用拷贝得到元素创建Set); 通过委托与数据源协议进行对象间的通信。 @property(nonatomic,weak)id delegate 用weak修饰，，防止循环引用(retain cycle); 将类的实现代码分散到便于管理的数个分类之中。//易于管理 总是为第三方类的分类名称增加前缀。 勿在分类中声明属性。 封装数据所用的全部属性都定义在主接口里。 关联对象可以解决分类不能合成实例变量的问题。//本书作者认为此方法内存管理上容易出错，不是很推荐。 使用“class-continuation”分类 隐藏实现细节 //就是Extension吧，匿名的分类。 通过协议提供匿名对象。 //隐藏返回值类型 内存管理 理解引用计数 以ARC简化引用计数 在dealloc方法中只释放引用并移除监听(KVO和Notifications) 编写 “异常安全代码”时留意内存管理问题(即：使用@try...@catch语法时) 以弱引用避免保留环(retain cycle :循环引用) 以“自动释放池块”降低内存峰值。 用“僵尸对象”调试内存管理问题。 系统在回收对象时，可以不将其真正回收，而是把它转化为僵尸对象。 系统会修改对象的isa指针，令其指向特殊的僵尸类。僵尸类能够响应所有的选择子，打印一条包含消息内容以及接收者的消息，然后终止程序。 不要使用retainCount。(ARC模式下，此方法废弃了)。block与GCD //翻译成 块与大中枢派发也是醉了。。。 理解block这一概念。 语法结构： return_type (^block_name)(parameters) 默认情况下block外的变量需要在block中修改的，需要在声明时加__block修饰，但block修改其所在的类的成员变量时不需要加。 定义block时，它是分配在栈区的，所以。只在其作用域范围有效。调用copy拷贝到堆区之后可以和OC对象一样具备引用计数。由ARC去管理。 为常见的block类型创建typedef 12345678910typedef int(^SomeBlock)(BOOL flag,int value);//使用：SomeBlock block = ^ (BOOL flag,int value)&#123; if(flag)&#123; return value * 5; &#125;else&#123; return value *10; &#125;&#125; 使用handler block降低代码的分散程度。//如AFN中的网络请求回调 用block引用其所属对象时不要出现循环引用。 多用派发队列，少用同步锁。 派发队列可以用来表述同步语义(synchornization semantic),比使用@synchronized块和NSLock对象更简单。 使用同步和异步派发结合起来，可以实现与普通加锁一样的同步行为，而且不会阻塞执行异步派发的线程。 使用同步队列和栅栏块，可以让同步锁更加高效。 多用GCD,少用｀performSelector｀系列方法。 12345678SEL selector;if(/* some condition */)&#123; selector = @selector(foo);&#125;else if(/* some other condition */)&#123; selector = @selector(bar);&#125;else&#123; selector = @selecter(baz)&#125; /运行时才能确定调用列哪个方法，编译器没有办法在编译时按ARC的内存管理原则判定返回值是不是该释放，编译器没有添加释放操作。这将又可能导致内存泄漏 / 掌握GCD和NSOperationQueue的使用时机。 运行任务之前，可以用在NSOperation对象上调用cancel取消该任务。 可以指定任务间的依赖关系。 可以通过KVO监听NSOperation的属性。例如isFinished,isCancelled。 指定操作的优先级。 重用NSOperation对象。 通过Dispathtch Group机制，根据系统资源状况来执行任务。 使用dispatch_once来执行只需运行一次的线程安全代码。 12345678+(id)sharedInstance&#123; static SomeClass *sharedInstance = nil; static dispatch_once_t onceToken; dispatch_once(@onceToken,^&#123; sharedInstance = [[self alloc]init]; &#125;) return sharedInstance;&#125; 不要使用dispatch_get_current_queue(void);//调试还是可以用下的 系统框架 熟悉系统框架。 CFNetWork:提供C语言级别的网络通信能力，将BSDsocket抽象成易于使用的接口。 CoreAudio:提供的C语言API可用来操作设备上的音频硬件。 AVFoundation:处理音频视频的录制，回放。 CoreData:用于实现数据持久化。 CoreText:提供C语言接口，用于执行文字排版以及渲染操作。 多用block枚举，少用for循环。//block枚举本身通过GCD并发执行遍历，更高效。 对自定义其内存管理语义的cellection使用无缝桥接。 构建缓存时选用NSCache而非NSDictionary.// low memory时 NSCache会自动删减缓存 精简initalize和load的实现代码。 iOS平台上，当类或者分类载入系统时，会先调用+(void) load;同时实现时，先调类里面的，再调用分类里面的。 无法判断各个类载入的顺序，所以在load方法使用第三方类比较危险。 load方法会阻塞线程，所以要尽量精简里面的代码。 首次使用某个类是，会调用该类的+(void) initalize方法，可以覆写该方法做一些与类相关的初始化操作。但是同load一样，也应该尽量精简。 别忘了NSTimer会保留目标对象。//weakSelf大法打破循环就好了。]]></content>
       <categories>
         <category>iOS</category>
       </categories>
@@ -738,9 +782,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[《Effective-Objective-C 2.0》]]></title>
-    <url>%2F2018%2F06%2F11%2FiOS%2F%E3%80%8AEffective-Objective-C%202.0%E3%80%8B%2F</url>
-    <content type="text"><![CDATA[图片原地址：https://upload-images.jianshu.io/upload_images/1457495-debf9e0c37687e51.png对应简书总结Effective-Objective-C 2.0.pdfiOS相关书籍汇总 分界线 说明：以下内容 均来自与jatstar的汇总 只做引用学习 没有商业用途 Effective-Objective-C 2.0 熟悉Objective-C 起源 由消息型语言鼻祖Smalltalk演化而来。是C语言的超集。 与函数式语言关键区别：消息结构的语言，运行时所执行的代码由运行环境决定(动态绑定)；函数调用的语言，由编译器决定。 NSString someString 中 someString为指向NSString 的指针。Type 声明的对象总是被分配的堆区(heap space) 中，而绝不可能分配的栈区(stack)。 如果只需保存int float double char 等非对象类型（nonoobject type） ，使用C结构体(如CGRect)比使用OC对象性能更优，因为创建OC对象需要分配及释放堆区内存等额外开销。 在类的头文件中尽量少引入其他头文件 头文件在类的头文件中，少引入头文件，使用@Class 向前声明即可。 然后在实现文件中再引入那些类的头文件。这样可以降低类之间的耦合。 无法使用向前声明的情况，如果 引入当前类遵守的某一项协议，此时把协议单独放下一个头文件中，再将其引入。 多用字面量语法，少用与之等价的方法。 举个🌰: 123456789101112NSNumber *intNumber = @1;NSNumber *floatNumber = @2.5f;NSArray *namesArray = @[@"Jat",@"Jay",@"Vae"];NSString *myName = namesArray[0];NSDictionary *personData = @&#123;@"ChineseName":@"张建宇",@"EnglishName":@"Jat",@"age":@"23"&#125;Number *myAge = personData[@"age"];//通过字面量创建的数组或者字典 ，如果值中有nil，会抛出异常。 多用类型常量，少用＃define 预处理指令。 ＃define定义的出来的常量，不包含类型信息，编译器需要再编译前执行查找替换，会增加编译时间。 只在当前类使用的常量，可以使用 static const 在.m中定义。 在头文件中使用extern来声明全局变量,并在相关实现文件中定义其值。命名时，通常使用于是相关的类名最为前缀。如 UITextFieldTextDidBeginEditingNotification 。 《iOS开发中 const,static,extern用法总结》 使用枚举来表示状态，选项，状态码 易懂的枚举名可以提高代码的可读性。 选项为多选时，使用二进制表示枚举值，以便通过按位或将其组合起来。🌰： UIInterfaceOrientationMask。 switch语句中，不要实现default分支。这样加入新的枚举之后，编译器会提示：switch语句没有处理所有枚举值。 消息／对象／运行时 理解“属性” 这一概念 Objective-C语法@property详解 在对象内部尽量直接访问实例变量。 直接访问实例变量不经过方法派发，比点语法快。 ⚠️直接访问copy修饰的属性，不会掉用setter方法，所以不会拷贝该属性。 ⚠️不会触发KVO通知。是否会产生问题，视情况而定。 初始化方法和dealloc方法中，总是应该直接访问。 ⚠️注意考虑懒加载的情况下，要使用点语法。 理解“对象等同性”这一概念。 ==比较的是指针地址是否一样。 特有的等同性判断方法，如isEqualToString比isEqual快一些。 相同的对象必须具有相同的哈希码，但是哈希码相同的对象未必相同。 不必逐条比较每个属性的哈希码，依情况，使用速度快，碰撞率低的算法。 以“类族模式”隐藏实现细节 例如UIButton 中的 + (instancetype)buttonWithType:(UIButtonType)buttonType. 可以把实现细节隐藏在一个公共的接口后面。 在既有类中使用关联对象存放自定义数据 理解objc_msgSend 的作用 Objective-c “动态绑定(dynamic binding)” 的特性使得所要调用的函数直到运行时才能确定。通过动态消息派发系统(dynamic message dicpatch system)来查出对应的方法并执行。 消息由接收者(receiver)，选择子(selecter)，以及参数构成。调用方法实际上相当于在给对象发送消息。 理解消息转发机制 //TODO： 待续 用方法调配技术调试黑盒方法 123456789101112131415161718192021222324//Category#import "NSString+Test.h"#import &lt;objc runtime.h=""&gt;@implementation NSString (Test)- (NSString*)eoc_myLowercaseString &#123; NSString *lowercase = [self eoc_myLowercaseString]; NSLog(@"%@ =&gt; %@", self, lowercase); return lowercase;&#125;// 不会死循环，因为eoc_myLowercaseString与lowercaseString方法互换了，运行时期间eoc_myLowercaseString选择子实际上对应的原有的lowercaseString方法实现。+ (void)load&#123; Method originalMethod = class_getInstanceMethod([NSString class],@selector(lowercaseString)); Method swappedMethod = class_getInstanceMethod([NSString class],@selector(eoc_myLowercaseString)); method_exchangeImplementations(originalMethod, swappedMethod);&#125;@end /* 测试一下：NSString *string = @"Hello World";NSString *textString = [string lowercaseString];Output:Hello World =&gt; hello world*/&lt;/objc&gt; 理解类对象的用意 //TODO: 待续 接口与API设计 使用前缀避免命名空间冲突。 提供全能初始化方法 提供一个全能初始化方法，并与文档中指明，其他初始化方法均调用此方法。 全能初始化方法与超类不同时，应该重写，冲突时，应该加上抛异常机制提示。 实现description方法 自定义类，覆写description方法，返回的字符串，NSLog时的显示该字符串； 重写debugDescription，改变调试控制台输出信息，默认为description方法的返回值。 尽量使用不可变对象。 使用清晰而且协调的命名方式 为私有方法名加前缀 给私有方法名加上前缀(虽然我感觉没必要～也没见过知名开源项目有加；但是爱老婆说按规范要加) 不要使用下划线做私有方法的前缀，因为这种做法是预留给苹果的。 理解Objective-C错误模型 只有发生使整个应用崩溃的严重错误时，才之用异常。 不那么严重的错误，可以指派委托方法来处理错误，也可以把错误信息放在NSError里，由NSLog输出。 理解NSCoding协议。 想令对象具有拷贝功能，需实现NSCoying协议；如果对象有可变版本，还需要实现NSMutableCopying协议。 浅拷贝之后的内容与原始内容指针地址相同，深拷贝之后的内容指向原始内容相关对象的一份拷贝。(深拷贝会逐个元素发送Copy消息，用拷贝得到元素创建Set); 通过委托与数据源协议进行对象间的通信。 @property(nonatomic,weak)id delegate 用weak修饰，，防止循环引用(retain cycle); 将类的实现代码分散到便于管理的数个分类之中。//易于管理 总是为第三方类的分类名称增加前缀。 勿在分类中声明属性。 封装数据所用的全部属性都定义在主接口里。 关联对象可以解决分类不能合成实例变量的问题。//本书作者认为此方法内存管理上容易出错，不是很推荐。 使用“class-continuation”分类 隐藏实现细节 //就是Extension吧，匿名的分类。 通过协议提供匿名对象。 //隐藏返回值类型 内存管理 理解引用计数 以ARC简化引用计数 在dealloc方法中只释放引用并移除监听(KVO和Notifications) 编写 “异常安全代码”时留意内存管理问题(即：使用@try...@catch语法时) 以弱引用避免保留环(retain cycle :循环引用) 以“自动释放池块”降低内存峰值。 用“僵尸对象”调试内存管理问题。 系统在回收对象时，可以不将其真正回收，而是把它转化为僵尸对象。 系统会修改对象的isa指针，令其指向特殊的僵尸类。僵尸类能够响应所有的选择子，打印一条包含消息内容以及接收者的消息，然后终止程序。 不要使用retainCount。(ARC模式下，此方法废弃了)。block与GCD //翻译成 块与大中枢派发也是醉了。。。 理解block这一概念。 语法结构： return_type (^block_name)(parameters) 默认情况下block外的变量需要在block中修改的，需要在声明时加__block修饰，但block修改其所在的类的成员变量时不需要加。 定义block时，它是分配在栈区的，所以。只在其作用域范围有效。调用copy拷贝到堆区之后可以和OC对象一样具备引用计数。由ARC去管理。 为常见的block类型创建typedef 12345678910typedef int(^SomeBlock)(BOOL flag,int value);//使用：SomeBlock block = ^ (BOOL flag,int value)&#123; if(flag)&#123; return value * 5; &#125;else&#123; return value *10; &#125;&#125; 使用handler block降低代码的分散程度。//如AFN中的网络请求回调 用block引用其所属对象时不要出现循环引用。 多用派发队列，少用同步锁。 派发队列可以用来表述同步语义(synchornization semantic),比使用@synchronized块和NSLock对象更简单。 使用同步和异步派发结合起来，可以实现与普通加锁一样的同步行为，而且不会阻塞执行异步派发的线程。 使用同步队列和栅栏块，可以让同步锁更加高效。 多用GCD,少用｀performSelector｀系列方法。 12345678SEL selector;if(/* some condition */)&#123; selector = @selector(foo);&#125;else if(/* some other condition */)&#123; selector = @selector(bar);&#125;else&#123; selector = @selecter(baz)&#125; /运行时才能确定调用列哪个方法，编译器没有办法在编译时按ARC的内存管理原则判定返回值是不是该释放，编译器没有添加释放操作。这将又可能导致内存泄漏 / 掌握GCD和NSOperationQueue的使用时机。 运行任务之前，可以用在NSOperation对象上调用cancel取消该任务。 可以指定任务间的依赖关系。 可以通过KVO监听NSOperation的属性。例如isFinished,isCancelled。 指定操作的优先级。 重用NSOperation对象。 通过Dispathtch Group机制，根据系统资源状况来执行任务。 使用dispatch_once来执行只需运行一次的线程安全代码。 12345678+(id)sharedInstance&#123; static SomeClass *sharedInstance = nil; static dispatch_once_t onceToken; dispatch_once(@onceToken,^&#123; sharedInstance = [[self alloc]init]; &#125;) return sharedInstance;&#125; 不要使用dispatch_get_current_queue(void);//调试还是可以用下的 系统框架 熟悉系统框架。 CFNetWork:提供C语言级别的网络通信能力，将BSDsocket抽象成易于使用的接口。 CoreAudio:提供的C语言API可用来操作设备上的音频硬件。 AVFoundation:处理音频视频的录制，回放。 CoreData:用于实现数据持久化。 CoreText:提供C语言接口，用于执行文字排版以及渲染操作。 多用block枚举，少用for循环。//block枚举本身通过GCD并发执行遍历，更高效。 对自定义其内存管理语义的cellection使用无缝桥接。 构建缓存时选用NSCache而非NSDictionary.// low memory时 NSCache会自动删减缓存 精简initalize和load的实现代码。 iOS平台上，当类或者分类载入系统时，会先调用+(void) load;同时实现时，先调类里面的，再调用分类里面的。 无法判断各个类载入的顺序，所以在load方法使用第三方类比较危险。 load方法会阻塞线程，所以要尽量精简里面的代码。 首次使用某个类是，会调用该类的+(void) initalize方法，可以覆写该方法做一些与类相关的初始化操作。但是同load一样，也应该尽量精简。 别忘了NSTimer会保留目标对象。//weakSelf大法打破循环就好了。]]></content>
+    <title><![CDATA[iOS总结的点]]></title>
+    <url>%2F2018%2F06%2F11%2FiOS%2F%E6%80%BB%E7%BB%93%E7%9A%84%E7%82%B9%2F</url>
+    <content type="text"><![CDATA[UIImage中 imageNamed 和 imageWithContentsOfFile的区别[UIImage imageNamed:]只适合与UI界面中小的贴图的读取，而一些比较大的资源文件应该尽量避免使用这个接口。直接读取文件路径[UIImage imageWithContentsOfFile]来解决图片的读取问题这两种方式的主要区别在于：imageName的方式会在使用的时候系统会cache，程序员是无法处理cache的，这是由系统自动处理的，对于重复加载的图像，速度会提升很多，这样反而用户体验好。所以如果某张图片需要在应用中使用多次，或者重复引用，使用imageName的方式会更好imageWithContentsOfFile的方式，在使用完成之后系统会释放，不会缓存下来，所以也就没有这样的问题。一般也不会把所有的图片都会缓存。有些图片在应用中只使用一两次的，就可以用这样的方式，比如新手引导界面的图片等等，就适合这样的方式。没有明显的界限。 CALayer 和 UIView的区别CALayer属于Core Animation部分的内容，比较重要而不太好理解。以下是园子中看到的一篇文章的摘录： UIView是iOS系统中界面元素的基础，所有的界面元素都是继承自它。它本身完全是由 CoreAnimation来实现的。它真正的绘图部分，是由一个CALayer类来管理。UIView本身更像是一个CALayer的管理器，访问它的跟绘图和跟坐标有关的属性，例如frame，bounds等，实际上内部都是在访问它所包含的CALayer的相关属性。 UIView有个重要属性layer，可以返回它的主CALayer实例。 如何定义一个不规则的button （还包含一个问题若干个button叠加在一起，苹果如何知道点击的是哪个button，实现原理？） 在iOS中通常使用hit-testing去找到那个被触摸的视图。这个视图叫hit-test view，当iOS找到hit-test view后就把touch event交个那个视图来处理。 用GCD的方式去实现有n个线程去访问一个属性，只有一个线程去修改属性NSRunloop的使用 那么具体什么是NSRunLoop呢？其实NSRunLoop的本质是一个消息机制的处理模式。 NSRunLoop是一种更加高明的消息处理模式 http://blog.csdn.net/cwq9944/article/details/8555104 CoreAnimation 与 UIViewAnimation分别何时会使用arc 和 gc 理解 ARC是iOS 5推出的新功能，全称叫 ARC(Automatic Reference Counting)。简单地说，就是代码中自动加入了retain/release，原先需要手动添加的用来处理内存管理的引用计数的代码可以自动地由编译器完成了。 ARC基本规则 retain, release, autorelease, dealloc由编译器自动插入，不能在代码中调用dealloc虽然可以被重载，但是不能调用[super dealloc] 如何在ARC代码中混编非ARC代码 “ios中如果arc和非arc文件混编，可以在build parses中指定compile flags，如果arc文件设为”-fobjc-arc”,非arc文件设为”-fno-objc-arc”” 使用了ARC之后如果你想复用以前写过的使用MRC的类， 就会出报错。这时候怎么办？方法比较简单， 只需要做下面的一个步骤就可以解决： 在targets的build phases选项下Compile Sources下选择要不使用arc编译的文件，双击它，输入 -fno-objc-arc 即可 MRC工程中也可以使用ARC的类。方法如下： 在targets的build phases选项下Compile Sources下选择要使用arc编译的文件，双击它，输入 -fobjc-arc 即可 NSAutoreleasepool理解 iOS的运行时是由一个一个runloop组成的 每个runloop中都创建一个Autorelease Pool，并在runloop的末尾进行释放， 所以，一般情况下，每个接受autorelease消息的对象，都会在下个runloop开始前被释放。也就是说，在一段同步的代码中执行过程中，生成的对象接受autorelease消息后，一般是不会在代码段执行完成前释放的。 当然也有让autorelease提前生效的办法：自己创建Pool并进行释放 123NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];NSArray * array = [[[NSArray alloc] init] autorelease];[pool drain]; weak,block weak不增加引用，block增加引用 举例哦，某对象self，self的strong成员变量有blockA，blockA内部引用了self，如果self不经过__weak处理，就会变成： self强引用blockA，blockA强引用self。这不就循环引用了嘛 runtime由于runtime是更底层的语言，我们编写的OC代码在运行时，编译器内部会先转为C和C++的代码，然后再执行，因而运用runtime机制，程 序的性能也会更好。 123456789 @interface Person : NSObject&#123; CGFloat height;&#125;@property (nonatomic, copy) NSString *name;@property (nonatomic, strong) NSNumber *age;@property (nonatomic, assign) int no;@end 复制代码 然后，我们在其它文件中使用这个类，注意在使用之前，要包含 #import &lt;objc/message.h&gt; 下面通过一小段代码来获取到上面这个类中所有的成员变量 复制代码 1234567891011121314unsigned int outCount = 0; Ivar *vars = class_copyIvarList([Lender class], &amp;outCount); // 获取到所有的成员变量列表 // 遍历所有的成员变量 for (int i = 0; i &lt; outCount; i++) &#123; Ivar ivar = vars[i]; // 取出第i个位置的成员变量 const char *propertyName = ivar_getName(ivar); // 获取变量名 const char *propertyType = ivar_getTypeEncoding(ivar); // 获取变量编码类型 printf("---%s--%s\n", propertyName, propertyType); &#125; 什么是GCD？ Grand Central Dispatch或者GCD，是一套低层API，提供了一种新的方法来进行并发程序编写。从基本功能上讲， GCD有点像NSOperationQueue，他们都允许程序将任务切分为多个单一任务然后提交至工作队列来并发地或者串行地执行。GCD比之NSOpertionQueue更底层更高效，并且它不是Cocoa框架的一部分。 GCD的基本概念就是dispatch queue。dispatch queue是一个对象，它可以接受任务，并将任务以先到先执行的顺序来执行。dispatch queue可以是并发的或串行的。并发任务会像NSOperationQueue那样基于系统负载来合适地并发进行，串行队列同一时间只执行单一任务。 GCD中有三种队列类型： The main queue: 与主线程功能相同。实际上，提交至main queue的任务会在主线程中执行。main queue可以调用dispatch_get_main_queue()来获得。因为main queue是与主线程相关的，所以这是一个串行队列。 Global queues: 全局队列是并发队列，并由整个进程共享。进程中存在三个全局队列：高、中（默认）、低三个优先级队列。可以调用dispatch_get_global_queue函数传入优先级来访问队列。 用户队列: 用户队列 (GCD并不这样称呼这种队列, 但是没有一个特定的名字来形容这种队列，所以我们称其为用户队列) 是用函数 dispatch_queue_create 创建的队列. 这些队列是串行的。正因为如此，它们可以用来完成同步机制, 有点像传统线程中的mutex。 首先，我们要明确NSOperationQueue与GCD之间的关系 NSOpertaionQueue用GCD构建封装的，是GCD的高级抽象。 其次，我们要区别两者的不同 GCD仅仅支持FIFO队列，而NSOperationQueue中的队列可以被重新设置优先级，从而实现不同操作的执行顺序调整 http://www.dreamingwish.com/frontui/article/default/ios-multithread-program-runloop-the.html xcode：关于Other Linker Flags 关于Other Linker Flags xcode中，在“Targets”选项下有Other Linker Flags选项，在这里可以填写xcode链接器的参数，如：-ObjC、-all_load、-force_load等。 主要参数 这里要说的主要参数是ld工具的参数，也是在Other Linker Flags里常用到的参数。 1.-ObjC 当使用ObjC写的静态类别库（Objective-C static library that contains categories），在程序编译链接时，如果不在Other Linker Flags中填写-ObjC，往往会报错，出现”selector not recognized”。博主无力，原因看不太懂。具体原因请查阅xcode帮助文档。 -ObjC的作用是加载用ObjC实现的类、类别等所有成员。 2.-all_load 强制链接器加载所有包含非ObjC的目标文档。 -force_load 加载指定的目标文档。-force_load后面需要文档路径 __strong：会retain（强引用）__weak NSObject *obj;和assign类似，多一个功能：对象销毁后置为nil __autoreleasing：使对象延迟释放 __bridge:忽略所有的内存管理细节 Core Foundation需要使用桥接， Objective-C运行时定义了几种重要的类型。 Class：定义Objective-C类 Ivar：定义对象的实例变量，包括类型和名字。 Protocol：定义正式协议。 objc_property_t：定义属性。叫这个名字可能是为了防止和Objective-C 1.0中的用户类型冲突，那时候还没有属性。 Method：定义对象方法或类方法。这个类型提供了方法的名字（就是选择器）、参数数量和类型，以及返回值（这些信息合起来称为方法的签名），还有一个指向代码的函数指针（也就是方法的实现）。 SEL：定义选择器。选择器是方法名的唯一标识符。 IMP：定义方法实现。这只是一个指向某个函数的指针，该函数接受一个对象、一个选择器和一个可变长参数列表（varargs），返回一个对象 Objective-C Method Swizzling IOS 中方法重组相关常用方法，都在包内： //向类中添加MethodBOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types) //修改类的Method IMPclass_replaceMethod(Class cls, SEL name, IMP imp, const char *types) //交换2个方法中的IMPvoid method_exchangeImplementations(Method m1, Method m2) //获取类的某个实例方法Method class_getInstanceMethod(Class aClass, SEL aSelector);底层原理 在运行时，oc 的方法被称为一种叫 Method 的结构体，这种 objc_method 类型的结构体定义为： 12345struct objc_method &#123; SEL method_name OBJC2_UNAVAILABLE; char *method_types OBJC2_UNAVAILABLE; IMP method_imp OBJC2_UNAVAILABLE;&#125;]]></content>
       <categories>
         <category>iOS</category>
       </categories>
@@ -771,8 +815,52 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[CSS基础必学列表]]></title>
+    <url>%2F2017%2F12%2F04%2F%E5%89%8D%E7%AB%AF%2FCSS%2F</url>
+    <content type="text"><![CDATA[CSS基础必学列表12345678910111213141516171819202122232425262728293031323334353637383940414243CSS width宽度CSS height高度CSS border边框CSS background背景CSS sprites背景拼合CSS float浮动CSS margin外边距CSS padding内边距CSS color字体颜色CSS font-size字体大小CSS font-family字体CSS font-weight字体加粗CSS display显示与隐藏CSS overflow隐藏与滚动条CSS position定位CSS text-align内容水平位置CSS text-indent缩进CSS text-decoration下划线CSS clear清除浮动CSS cursor鼠标手势光标CSS font文本CSS font-style文本斜体CSS font-variant缩小大写字母CSS id CSS classleft right top bottomcss letter-spacing字间距CSS line-height行高css min-width最小宽度css max-width最大宽度CSS min-height最小高度css max-height最大高度CSS text-transform英文大小写css text-overflow省略号CSS white-space不换行css z-index重叠顺序CSS 前花括号星号*CSS 缩写div与span区别及用法CSS是什么DIV+CSS是什么CSS 注释CSS 指针CSS 文本排版 注意点 DIV CSS left right top bottom定位这四个CSS属性样式用于定位对象盒子，必须定义position属性值为absolute或者relative此取值方可生效。 DIVCSS5]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ES6]]></title>
+    <url>%2F2017%2F12%2F04%2F%E5%89%8D%E7%AB%AF%2FES6%2F</url>
+    <content type="text"><![CDATA[ECMAScript 6 入门 ECMAScript 6简介 let 和 const 命令 变量的解构赋值 字符串的扩展 正则的扩展 数值的扩展 函数的扩展 数组的扩展 对象的扩展 对象的新增方法 Symbol Set 和 Map 数据结构 Proxy Reflect Promise 对象 Iterator 和 for…of 循环 Generator 函数的语法 Generator 函数的异步应用 async 函数 Class 的基本语法 Class 的继承 Decorator Module 的语法 Module 的加载实现 ECMAScript 6 入门]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Flex布局]]></title>
+    <url>%2F2017%2F12%2F04%2F%E5%89%8D%E7%AB%AF%2FFlex%E5%B8%83%E5%B1%80%2F</url>
+    <content type="text"><![CDATA[Flex布局是什么？Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。 容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。 容器的属性以下6个属性设置在容器上。 123456flex-directionflex-wrapflex-flowjustify-contentalign-itemsalign-content flex-direction属性flex-direction属性决定主轴的方向（即项目的排列方向）。 123.box &#123; flex-direction: row | row-reverse | column | column-reverse;&#125; 它可能有4个值。 1234row（默认值）：主轴为水平方向，起点在左端。row-reverse：主轴为水平方向，起点在右端。column：主轴为垂直方向，起点在上沿。column-reverse：主轴为垂直方向，起点在下沿。 justify-content属性justify-content属性定义了项目在主轴上的对齐方式。 123.box &#123; justify-content: flex-start | flex-end | center | space-between | space-around;&#125; 5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。 12345flex-start（默认值）：左对齐flex-end：右对齐center： 居中space-between：两端对齐，项目之间的间隔都相等。space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。 align-items属性align-items属性定义项目在交叉轴上如何对齐。 123.box &#123; align-items: flex-start | flex-end | center | baseline | stretch;&#125; 取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。 12345flex-start：交叉轴的起点对齐。flex-end：交叉轴的终点对齐。center：交叉轴的中点对齐。baseline: 项目的第一行文字的基线对齐。stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。 Flex布局出处Flexbox——快速布局神器]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Flex布局</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ajax中的withCredentials使用]]></title>
+    <url>%2F2017%2F12%2F04%2F%E5%89%8D%E7%AB%AF%2Fajax%E4%B8%AD%E7%9A%84withCredentials%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[XMLHttpRequest.withCredentials 有什么用?跨域请求是否提供凭据信息(cookie、HTTP认证及客户端SSL证明等)也可以简单的理解为，当前请求为跨域类型时是否在请求中协带cookie。XMLHttpRequest.withCredentials 怎么用?withCredentials属于XMLHttpRequest对象下的属性，可以对其进行查看或配置。 1234567var xhr = new XMLHttpRequest();xhr.open(&apos;GET&apos;, &apos;http://172.19.0.215:1314/learnLinkManager/getLearnLinkList&apos;, true); xhr.withCredentials = true; //关键设置xhr.onreadystatechange = function() &#123; console.log(&apos;withCredentials=&gt;&apos;, xhr.withCredentials);&#125;;xhr.send(null); ajax中的withCredentials使用效果跨域请求设置withCredentials跨域请求带cookie的解决方案]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>跨域请求是否提供凭据信息cookie</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[npm更换镜像]]></title>
-    <url>%2F2017%2F12%2F04%2Fnode.js%2Fnpm%E6%9B%B4%E6%8D%A2%E9%95%9C%E5%83%8F%2F</url>
+    <url>%2F2017%2F12%2F04%2F%E5%89%8D%E7%AB%AF%2Fnpm%E6%9B%B4%E6%8D%A2%E9%95%9C%E5%83%8F%2F</url>
     <content type="text"><![CDATA[由于不可说原因，npm install时，速度总是不尽如人意，解决办法是修改npm的数据源npm config set registry https://registry.npm.taobao.org 开发ReactNative项目，搭建环境时通过如下代码将npm设置成淘宝镜像终端直接设置 12npm config set registry https://registry.npm.taobao.org --globalnpm config set disturl https://npm.taobao.org/dist --global 或者 编辑 ~/.npmrc 加入下面内容 1registry = http://registry.cnpmjs.org 修改后可以通过这个进行测试npm config get registry npm config get registry npm配置镜像、设置代理]]></content>
       <categories>
         <category>前端</category>
@@ -782,8 +870,19 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[redux]]></title>
+    <url>%2F2017%2F12%2F04%2F%E5%89%8D%E7%AB%AF%2Freact-redux%2F</url>
+    <content type="text"><![CDATA[动机随着 JavaScript 单页应用开发日趋复杂，JavaScript 需要管理比任何时候都要多的 state （状态）。 这些 state 可能包括服务器响应、缓存数据、本地生成尚未持久化到服务器的数据，也包括 UI 状态，如激活的路由，被选中的标签，是否显示加载动效或者分页器等等。 Redux 中文文档 几个关键库&quot;react-redux&quot;: &quot;^5.1.0&quot;, &quot;redux&quot;: &quot;^4.0.1&quot;, &quot;redux-logger&quot;: &quot;^3.0.6&quot;, &quot;redux-thunk&quot;: &quot;^2.3.0&quot; action内的type取名一定需要唯一的 如果多出添加重名的type 多处reducer都会收到该type的事件所有的 reducer 都会收到 action。reducer 通过 action.type 来进行判定处理。如果某个 reducer 不处理某个动作，也就是没有处理这个 action.type 的 case， 就会走 default 分支，把 state 原样返回。 react-redux中多个action和reducer是如何关联的]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>react redux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[react 默认端口修改]]></title>
-    <url>%2F2017%2F12%2F04%2Fnode.js%2Freact%20%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3%E4%BF%AE%E6%94%B9%2F</url>
+    <url>%2F2017%2F12%2F04%2F%E5%89%8D%E7%AB%AF%2Freact%20%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3%E4%BF%AE%E6%94%B9%2F</url>
     <content type="text"><![CDATA[修改react port的方法执行npm start便可启动项目，所以不管是react怎么升级，找修改端口的位置，我们首先都应该想到看一下package.json里面的配置信息。如果你是先前创建的项目，端口的修改是在scripts文件夹的start.js文件里。但是现在创建的项目里没有了scripts文件夹了，但看package.json会发现它放到了依赖里面，在node_modules文件夹里的可以看到react-scripts文件夹，在start.js里可以找到修改端口的代码。 依赖的模块放在哪 dependencies: 指定项目运行所依赖的模块，即：开发版和发布版都需要的依赖。 devDependencies:指定项目开发所需要的模块，即：开发版需要但发布版不需要，例如关于测试的、文档类的。 npm install &lt;package_name&gt; –save 表示将这个包名及对应的版本添加到 package.json的 dependenciesnpm install &lt;package_name&gt; –save-dev 表示将这个包名及对应的版本添加到 package.json的 devDependencies react 默认端口修改]]></content>
       <categories>
         <category>前端</category>
@@ -866,7 +965,18 @@
   <entry>
     <title><![CDATA[什么是cocoapods]]></title>
     <url>%2F2016%2F06%2F11%2FiOS%2F%E4%BB%80%E4%B9%88%E6%98%AFCocoaPods%2F</url>
-    <content type="text"><![CDATA[产生背景什么是CocoaPods12345CocoaPods是一个用来帮助我们管理第三方依赖库的工具。它可以解决库与库之间的依赖关系，下载库的源代码，同时通过创建一个Xcode的workspace来将这些第三方库和我们的工程连接起来，供我们开发使用。使用CocoaPods的目的是让我们能自动化的、集中的、直观的管理第三方开源库。 为什么需要CocoaPods12345678 在进行iOS开发的时候，总免不了使用第三方的开源库，比如SBJson、AFNetworking、Reachability等等。使用这些库的时候通常需要： 下载开源库的源代码并引入工程 向工程中添加开源库使用到的framework 解决开源库和开源库以及开源库和工程之间的依赖关系、 检查重复添加的framework等问题 如果开源库有更新的时候，还需要将工程中使用的开源库删除，重新执行前面的三个步骤 CocoaPods的安装 1、安装 CocoaPods是用Ruby实现的，要想使用它首先需要有Ruby的环境。 幸运的是OS X系统默认的已经可以运行Ruby了，因此我们只需要执行以下命令： $ sudo gem install cocoapods CocoaPods是以Ruby gem包的形式被安装的。在安装执行的过程中， 可能会问我们是不是更新rake，输入y即可。这是因为rake gem包会在安装的过程中检查更细， 如果有可用的新版本就会出现刚才的选项。 在安装进程结束的时候，执行命令： $ pod setup 2、安装过程中可能遇到的问题 执行完install命令半天没反应 ---被墙了 gem版本过老 ---- sudo gem update --system 安装完成后，执行pod setup命令时报错：rvm use ruby-1.9.3-p448 3、升级CocoaPods sudo gem install cocoapods CocoaPods的使用： 1、创建Podfile cd到项目目录 touch Podfile 2、编辑Podfile 3、开始安装 pod install 安装完成后就可以使用了 安装问题使用cocoapods出现ld: symbol(s) not found for architecture x86_64问题解决方案]]></content>
+    <content type="text"><![CDATA[产生背景什么是CocoaPods12345CocoaPods是一个用来帮助我们管理第三方依赖库的工具。它可以解决库与库之间的依赖关系，下载库的源代码，同时通过创建一个Xcode的workspace来将这些第三方库和我们的工程连接起来，供我们开发使用。使用CocoaPods的目的是让我们能自动化的、集中的、直观的管理第三方开源库。 为什么需要CocoaPods12345678 在进行iOS开发的时候，总免不了使用第三方的开源库，比如SBJson、AFNetworking、Reachability等等。使用这些库的时候通常需要： 下载开源库的源代码并引入工程 向工程中添加开源库使用到的framework 解决开源库和开源库以及开源库和工程之间的依赖关系、 检查重复添加的framework等问题 如果开源库有更新的时候，还需要将工程中使用的开源库删除，重新执行前面的三个步骤 CocoaPods的安装 1、安装 CocoaPods是用Ruby实现的，要想使用它首先需要有Ruby的环境。 幸运的是OS X系统默认的已经可以运行Ruby了，因此我们只需要执行以下命令： $ sudo gem install cocoapods CocoaPods是以Ruby gem包的形式被安装的。在安装执行的过程中， 可能会问我们是不是更新rake，输入y即可。这是因为rake gem包会在安装的过程中检查更细， 如果有可用的新版本就会出现刚才的选项。 在安装进程结束的时候，执行命令： $ pod setup 2、安装过程中可能遇到的问题 执行完install命令半天没反应 ---被墙了 gem版本过老 ---- sudo gem update --system 安装完成后，执行pod setup命令时报错：rvm use ruby-1.9.3-p448 3、升级CocoaPods sudo gem install cocoapods CocoaPods的使用： 1、创建Podfile cd到项目目录 touch Podfile 2、编辑Podfile 3、开始安装 pod install 安装完成后就可以使用了 安装问题使用cocoapods出现ld: symbol(s) not found for architecture x86_64问题解决方案 cocoapods版本兼容问题使用bundle管理多版本Cocoapods之间的协助开发]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>iOS-WIKI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用bundle管理多版本Cocoapods之间的协助开发]]></title>
+    <url>%2F2016%2F06%2F11%2FiOS%2F%E4%BD%BF%E7%94%A8bundle%E7%AE%A1%E7%90%86%E5%A4%9A%E7%89%88%E6%9C%ACCocoapods%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8D%8F%E5%8A%A9%E5%BC%80%E5%8F%91%2F</url>
+    <content type="text"><![CDATA[一般在公司团队开发中，在使用Cocoapods的时候，会面临同事之间使用的pod版本不一致的问题。 由于不同版本的pod在执行pod install或者pod update的时候会改变 .xcodeproj 的格式 或为xml 或者 json。这样就会造成很难解决的冲突问题。 因此这里介绍一下如何高效便捷的统一我们的Cocoapods版本。 Bundle：Bundler是一个ruby环境下的一个gem。 使用 Bundler 的原理就是通过为每个项目指定特定的一个pod版本,使用这个版本来执行install或者update。 好处就是我们在安装多个pod版本的时候，根据不同的项目需求去执行pod命令的时候，不用手动去切换pod的版本。 安装： 1gem install bundler 创建gemfile文件 cd 项目目录 1bundle init 这样, 与 .xcodeproj 同级的目录中就会多出一个 Gemfile文件。 在Gemfile里添加如下代码，指定pod版本 12345# frozen_string_literal: truesource &quot;https://rubygems.org&quot;# gem &quot;rails&quot;gem &apos;cocoapods&apos;, &apos;0.39.0&apos; 到这里已经安装完毕，使用起来也很简单在之前执行的命令前面加上 bundle exec就好了，如： 12345bundle exec pod install --verbose --no-repo-update或者bundle exec pod update --verbose --no-repo-update]]></content>
       <categories>
         <category>iOS</category>
       </categories>
