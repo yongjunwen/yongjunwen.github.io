@@ -108,18 +108,20 @@
 
 
 
-  <meta name="description" content="仓库地址dream001 demo仓库地址苹果官网开源代码官方api 掘金runtime实战总结IOS程序在main函数前所做的事情  maindevtang 深入理解Objective-C的Runtime机制">
+  <meta name="description" content="class 结构（方法步骤）1234567891011121314151617181920struct objc_class &amp;#123;    //类本身    Class _Nonnull isa ;    //父类    Class _Nullable super_class    //类名                                 const char * _Nonn">
 <meta name="keywords" content="iOS-WIKI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS runtime">
 <meta property="og:url" content="http://yoursite.com/2018/06/11/iOS/runtime相关/index.html">
 <meta property="og:site_name" content="追梦机器人的博客">
-<meta property="og:description" content="仓库地址dream001 demo仓库地址苹果官网开源代码官方api 掘金runtime实战总结IOS程序在main函数前所做的事情  maindevtang 深入理解Objective-C的Runtime机制">
+<meta property="og:description" content="class 结构（方法步骤）1234567891011121314151617181920struct objc_class &amp;#123;    //类本身    Class _Nonnull isa ;    //父类    Class _Nullable super_class    //类名                                 const char * _Nonn">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-17T03:19:06.497Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1682758-675c67c6868038d1?imageMogr2/auto-orient/">
+<meta property="og:updated_time" content="2019-03-14T07:04:34.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS runtime">
-<meta name="twitter:description" content="仓库地址dream001 demo仓库地址苹果官网开源代码官方api 掘金runtime实战总结IOS程序在main函数前所做的事情  maindevtang 深入理解Objective-C的Runtime机制">
+<meta name="twitter:description" content="class 结构（方法步骤）1234567891011121314151617181920struct objc_class &amp;#123;    //类本身    Class _Nonnull isa ;    //父类    Class _Nullable super_class    //类名                                 const char * _Nonn">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1682758-675c67c6868038d1?imageMogr2/auto-orient/">
 
 
 
@@ -391,7 +393,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-17 11:19:06" itemprop="dateModified" datetime="2018-10-17T11:19:06+08:00">2018-10-17</time>
+                <time title="修改时间：2019-03-14 15:04:34" itemprop="dateModified" datetime="2019-03-14T15:04:34+08:00">2019-03-14</time>
               
             
           </span>
@@ -442,7 +444,21 @@
       
 
       
-        <h1 id="仓库地址"><a href="#仓库地址" class="headerlink" title="仓库地址"></a>仓库地址</h1><p><a href="https://coding.net/u/dream001/p/iOS_runtime/git/tree/master" target="_blank" rel="noopener">dream001 demo仓库地址</a><br><a href="https://opensource.apple.com/source/objc4/" target="_blank" rel="noopener">苹果官网开源代码</a><br><a href="https://developer.apple.com/documentation/objectivec/objective_c_runtime#//apple_ref/doc/uid/TP40001418-CH1g-126286" target="_blank" rel="noopener">官方api</a></p>
+        <h3 id="class-结构（方法步骤）"><a href="#class-结构（方法步骤）" class="headerlink" title="class 结构（方法步骤）"></a>class 结构（方法步骤）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">struct objc_class &#123;</span><br><span class="line">    //类本身</span><br><span class="line">    Class _Nonnull isa ;</span><br><span class="line">    //父类</span><br><span class="line">    Class _Nullable super_class</span><br><span class="line">    //类名                             </span><br><span class="line">    const char * _Nonnull name                              </span><br><span class="line">    long version                                            </span><br><span class="line">    long info</span><br><span class="line">    //类大小                                               </span><br><span class="line">    long instance_size      </span><br><span class="line">    //类中的变量                                </span><br><span class="line">    struct objc_ivar_list * _Nullable ivars                 </span><br><span class="line">    //类中的变量 </span><br><span class="line">    struct objc_method_list * _Nullable * _Nullable methodLists</span><br><span class="line">    //缓存，便于下次查找                   </span><br><span class="line">    struct objc_cache * _Nonnull cache</span><br><span class="line">    //类中的协议                       </span><br><span class="line">    struct objc_protocol_list * _Nullable protocols         </span><br><span class="line">&#125; OBJC2_UNAVAILABLE;</span><br></pre></td></tr></table></figure>
+<h3 id="NSObject-alloc-init-初始化步骤"><a href="#NSObject-alloc-init-初始化步骤" class="headerlink" title="[[NSObject alloc] init]初始化步骤"></a>[[NSObject alloc] init]初始化步骤</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">   https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html#//apple_ref/doc/uid/TP40008048-CH100</span><br><span class="line">     </span><br><span class="line">     struct objc_class &#123;</span><br><span class="line">     Class isa // 类本身 --&gt; &#123;isa; methodLists(alloc)(类方法)&#125;</span><br><span class="line">     </span><br><span class="line">     Class super_class                                        ;</span><br><span class="line">     const char *name                                         ;</span><br><span class="line">     long version                                             ;</span><br><span class="line">     long info                                                ;</span><br><span class="line">     long instance_size                                       ;</span><br><span class="line">     struct objc_ivar_list *ivars                             ;</span><br><span class="line">     struct objc_method_list **methodLists  // 实例方法                  ;</span><br><span class="line">     struct objc_cache *cache                                 ;</span><br><span class="line">     struct objc_protocol_list *protocols                     ;</span><br><span class="line">     &#125;</span><br><span class="line">     最终指向自己，形成了一个闭环， NSObject的isa 不是指向一个nil</span><br><span class="line">     1 [EOCObject alloc] 先执行，因为EOCObject检测，没有alloc方法， 就去父类里面去查找。</span><br><span class="line">     2 检测父类是否响应 alloc， 如果有，那么执行， 开始分配内存空间大小（成员变量）。// 方法（类有关系）</span><br><span class="line">     3 init 方法，检测是否响应，如果没有去父类查找。</span><br><span class="line">     4 方法执行完，会存缓存（所以一般第二次操作，会更快）</span><br><span class="line">     */</span><br><span class="line">    MyObject * objc  = [[MyObject alloc] init];</span><br></pre></td></tr></table></figure>
+<h3 id="main-之前的过程有哪些？"><a href="#main-之前的过程有哪些？" class="headerlink" title="main()之前的过程有哪些？"></a>main()之前的过程有哪些？</h3><p>1<code>main</code>之前的加载过程<br>1）<code>dyld</code> 开始将程序二进制文件初始化<br>2）交由<code>ImageLoader</code> 读取 <code>image</code>，其中包含了我们的类，方法等各种符号<code>（Class、Protocol 、Selector、 IMP）</code><br>3）由于<code>runtime</code> 向<code>dyld</code> 绑定了回调，当<code>image</code>加载到内存后，<code>dyld</code>会通知<code>runtime</code>进行处理<br>4）<code>runtime</code> 接手后调用<code>map_images</code>做解析和处理<br>5）接下来<code>load_images</code> 中调用<code>call_load_methods</code>方法，遍历所有加载进来的<code>Class</code>，按继承层次依次调用Class的<code>+load</code>和其他Category的<code>+load</code>方法<br>6）至此 所有的信息都被加载到内存中<br>7）最后<code>dyld</code>调用真正的<code>main</code>函数  </p>
+<ul>
+<li>对象的<code>isa</code>指针指向所属的类  </li>
+<li>类的<code>isa</code>指针指向了所属的元类  </li>
+<li>元类的<code>isa</code>指向了根元类，根元类指向了自己。</li>
+<li>类的<code>superClass</code> 指向父类最终到根类</li>
+<li>根类的<code>superclass</code>指向<code>nil</code></li>
+<li>元类的<code>superclass</code> 指向父元类，最终到根元类</li>
+<li>根元类的<code>superclass</code> 指向根类</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/1682758-675c67c6868038d1?imageMogr2/auto-orient/" alt=""></p>
+<p>class_isMetaClass用于判断Class对象是否为元类，object_getClass用于获取对象的isa指针指向的对象。</p>
+<h3 id="仓库地址"><a href="#仓库地址" class="headerlink" title="仓库地址"></a>仓库地址</h3><p><a href="https://coding.net/u/dream001/p/iOS_runtime/git/tree/master" target="_blank" rel="noopener">dream001 demo仓库地址</a><br><a href="https://opensource.apple.com/source/objc4/" target="_blank" rel="noopener">苹果官网开源代码</a><br><a href="https://developer.apple.com/documentation/objectivec/objective_c_runtime#//apple_ref/doc/uid/TP40001418-CH1g-126286" target="_blank" rel="noopener">官方api</a></p>
 <p><a href="https://juejin.im/post/5ac0a6116fb9a028de44d717" target="_blank" rel="noopener">掘金runtime实战总结</a><br><a href="https://maxwellqi.github.io/ios-primary-main/" target="_blank" rel="noopener">IOS程序在main函数前所做的事情</a>  <a href="http://blog.sunnyxx.com/2014/08/30/objc-pre-main/" target="_blank" rel="noopener">main</a><br><a href="http://blog.devtang.com/2014/09/09/ios-weekly-24/" target="_blank" rel="noopener">devtang</a></p>
 <p><a href="https://www.csdn.net/article/2015-07-06/2825133-objective-c-runtime/1" target="_blank" rel="noopener">深入理解Objective-C的Runtime机制</a></p>
 
@@ -478,8 +494,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/11/iOS/ios-ARC和垃圾回收机制的区别/" rel="next" title="iOS-ARC和垃圾回收机制的区别">
-                <i class="fa fa-chevron-left"></i> iOS-ARC和垃圾回收机制的区别
+              <a href="/2018/06/11/iOS/画边角弧度/" rel="next" title="UIBezierPath画边角弧度">
+                <i class="fa fa-chevron-left"></i> UIBezierPath画边角弧度
               </a>
             
           </div>
@@ -488,8 +504,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/11/iOS/iOS开发之位移枚举和按位或按位与运算/" rel="prev" title="iOS开发之位移枚举和按位或按位与运算">
-                iOS开发之位移枚举和按位或按位与运算 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/11/iOS/ios-ARC和垃圾回收机制的区别/" rel="prev" title="iOS-ARC和垃圾回收机制的区别">
+                iOS-ARC和垃圾回收机制的区别 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -568,7 +584,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">97</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -712,7 +728,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">46</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -748,7 +768,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#仓库地址"><span class="nav-number">1.</span> <span class="nav-text">仓库地址</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#class-结构（方法步骤）"><span class="nav-number">1.</span> <span class="nav-text">class 结构（方法步骤）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSObject-alloc-init-初始化步骤"><span class="nav-number">2.</span> <span class="nav-text">[[NSObject alloc] init]初始化步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#main-之前的过程有哪些？"><span class="nav-number">3.</span> <span class="nav-text">main()之前的过程有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#仓库地址"><span class="nav-number">4.</span> <span class="nav-text">仓库地址</span></a></li></ol></div>
             
 
           </div>

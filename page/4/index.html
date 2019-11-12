@@ -331,6 +331,365 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/Xcode中如何去掉默认的Main.storyboard/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/iOS/Xcode中如何去掉默认的Main.storyboard/" itemprop="url">
+                  Xcode中如何去掉默认的Main.storyboard
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-21 17:34:29" itemprop="dateModified" datetime="2019-02-21T17:34:29+08:00">2019-02-21</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>xcode 6取消了 Empty Application 模板来创建一个工程，创建出来的有工程多了Main.storyboard，默认加载Main.storyboard，但是有很多人还想用代码来实现UI的布局，去除Main.storyboard的有三步：</p>
+<p><strong>修改</strong>  </p>
+<ul>
+<li><p>首先如图打开工程下面Supporting Files下面的Info.plist</p>
+<p>  <code>Main storyboard file base name</code>删除这一行</p>
+</li>
+</ul>
+<ul>
+<li>其次找到工程的TAGETS/General/Deployment Info 删除Main。</li>
+</ul>
+<ul>
+<li>经过上面两步算是删除了工程对Main.storyboard的依赖，但是运行工程后会发现是黑屏</li>
+</ul>
+<p>在AppDelegate中的- (BOOL)application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions 中添加以下代码即可解决</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];</span><br><span class="line"> self.window.backgroundColor = [UIColor whiteColor];</span><br><span class="line">[self.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
+<p><strong>报错</strong>  </p>
+<p>程序运行会提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Application windows are expected to have a root view controller at the end of application launch</span><br></pre></td></tr></table></figure>
+<p><strong>解决方案</strong> </p>
+<p>意思是应用程序期望拥有一个根控制器（RootViewController）<br>修改上面的代码，随便添加了一个控制器，程序就不抱错了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions &#123;</span><br><span class="line">    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];</span><br><span class="line">    self.window.backgroundColor = [UIColor whiteColor];</span><br><span class="line"></span><br><span class="line">    UITabBarController *tbc = [[UITabBarController alloc] init];</span><br><span class="line"></span><br><span class="line">    self.window.rootViewController = tbc;</span><br><span class="line"></span><br><span class="line">    [self.window makeKeyAndVisible];</span><br><span class="line"></span><br><span class="line">    return YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/iOS Block/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/iOS/iOS Block/" itemprop="url">
+                  iOS之block
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-13 20:36:52" itemprop="dateModified" datetime="2019-08-13T20:36:52+08:00">2019-08-13</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-block的定义：void-a"><a href="#1-block的定义：void-a" class="headerlink" title="1.block的定义：void(^a)()=^(){};"></a>1.block的定义：void(^a)()=^(){};</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">=前面：</span><br><span class="line">    <span class="keyword">void</span>:返回值类型；</span><br><span class="line">    ()():语法结构，第一个括号里面是block名字,第二个括号里面是参数列表，和c或java中参数列表写法一样；例如：<span class="keyword">int</span> i,<span class="keyword">char</span> c...</span><br><span class="line">    ^:脱字符，block标识</span><br><span class="line">    a:block名称，就像函数名，对象实例化名称，说白了就是一个名字；</span><br><span class="line">=号后面：</span><br><span class="line">    ^是block标识；</span><br><span class="line">    ()参数列表，当没有参数时，可以省略，但是“=”前面的()参数列表不能省略；</span><br><span class="line">    &#123;&#125;要执行的代码放在这里面，最后加“;”</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/iOS linkmap统计ipa包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -460,6 +819,375 @@
 <h3 id="生成的linkmap文件path"><a href="#生成的linkmap文件path" class="headerlink" title="生成的linkmap文件path"></a>生成的linkmap文件path</h3><p>/Users/wenyongjun/Library/Developer/Xcode/DerivedData/JDViewKitProduct-cvqwuevthaoawvbqwonrghbfhnuz/Build/Intermediates.noindex/JDViewKitProduct.build/Debug-iphonesimulator/JDViewKitProduct.build/JDViewKitProduct-LinkMap-normal-x86_64.txt </p>
 <p><a href="https://blog.csdn.net/zgzczzw/article/details/79855660" target="_blank" rel="noopener">基于LinkMap分析iOSAPP各模块体积</a></p>
 <p><a href="http://blog.cnbang.net/tech/2296/" target="_blank" rel="noopener">iOS APP可执行文件的组成</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/iOS GCD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/iOS/iOS GCD/" itemprop="url">
+                  iOS之GCD
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-25 15:34:23" itemprop="dateModified" datetime="2018-10-25T15:34:23+08:00">2018-10-25</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://www.aliyun.com/jiaocheng/topic_13551.html" target="_blank" rel="noopener">阿里云GCD</a></p>
+<p><em>===============关于GCD的一些好用的函数===============</em></p>
+<h4 id="一次性代码-多用于单例"><a href="#一次性代码-多用于单例" class="headerlink" title="一次性代码(多用于单例)"></a>一次性代码(多用于单例)</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;  </span><br><span class="line"><span class="built_in">dispatch_once</span>(&amp;;onceToken, ^&#123;</span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"once"</span>); </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="延迟执行"><a href="#延迟执行" class="headerlink" title="延迟执行"></a>延迟执行</h4><ul>
+<li>perform</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可以在运行时调用方法</span></span><br><span class="line">- (<span class="keyword">id</span>)performSelector:(SEL)selector</span><br><span class="line"><span class="comment">//可带一个参数</span></span><br><span class="line">- (<span class="keyword">id</span>)performSelector:(SEL)selector withObject:(<span class="keyword">id</span>)object</span><br><span class="line"><span class="comment">//可带两个参数</span></span><br><span class="line">- (<span class="keyword">id</span>)performSelector:(SEL)selector withObject:(<span class="keyword">id</span>)object withObject:(<span class="keyword">id</span>)object</span><br><span class="line"><span class="comment">//可延时执行方法</span></span><br><span class="line">- (<span class="keyword">void</span>)performSelector:(SEL)selector withObject:(<span class="keyword">id</span>)argument afterDelay:(<span class="built_in">NSTimeInterval</span>)delay</span><br><span class="line"><span class="comment">//可放到另一个线程中执行</span></span><br><span class="line">- (<span class="keyword">void</span>)performSelector:(SEL)selector onThread:(<span class="built_in">NSThread</span> *)thread withObject:(<span class="keyword">id</span>)argument waitUntilDone:(<span class="built_in">BOOL</span>)wait</span><br><span class="line">- (<span class="keyword">void</span>)performSelectorOnMainThread:(SEL)selector withObject:(<span class="keyword">id</span>)argument waitUntilDone:(<span class="built_in">BOOL</span>)wait</span><br><span class="line"> </span><br><span class="line"><span class="comment">//延后执行方法的两种实现方式：</span></span><br><span class="line">[<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(doSomething) withObject:<span class="literal">nil</span> afterDelay:<span class="number">5.0</span>];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>GCD方式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC));</span><br><span class="line">dispatch_after(time, dispatch_get_main_queue(), ^(void)&#123;</span><br><span class="line">    [self doSomething];</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//把任务放在主线程执行的两种方式</span><br><span class="line">[self performSlectorOnMainThread:@selector(doSomething) withObject:nil waitUntilDone:NO];</span><br><span class="line"> </span><br><span class="line">dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">    [self doSomething];</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>1、</strong>performSelector系列方法在内存管理方面容易有疏失。它无法确定将要执行的选择子具体是什么，因而ARC编译器也就无法插入适当的内存管理方法。<br><strong>2、</strong>performSelector系列方法所能处理的选择子太过局限了，选择子的返回值类型及发送给方法的参数个数都受到限制。<br><strong>3、</strong>如果想把任务放在另一个线程上执行，那么最好不要用performSelector系列方法，而是应该把任务封装到块里，然后调用GCD的相关方法来实现。</p>
+<h4 id="栅栏函数"><a href="#栅栏函数" class="headerlink" title="栅栏函数"></a>栅栏函数</h4><p>关键函数<code>dispatch_barrier_async</code> </p>
+<ul>
+<li>作用:只有当栅栏函数执行完毕后才能执行后面的函数</li>
+<li>需求:使用栅栏函数规定线程执行顺序</li>
+<li>注意:栅栏函数不能使用全局并发队列(否则没有意义)</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_queue_create(<span class="string">"download"</span>, DISPATCH_QUEUE_CONCURRENT); </span><br><span class="line">   <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="built_in">NSInteger</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;<span class="built_in">NSLog</span>(<span class="string">@"task1 -- %zd -- %@"</span>, i, [<span class="built_in">NSThread</span> currentThread]);&#125;</span><br><span class="line">   &#125;);</span><br><span class="line"></span><br><span class="line">   dispatch_barrier_async(queue, ^&#123;</span><br><span class="line"></span><br><span class="line">       <span class="built_in">NSLog</span>(<span class="string">@"+++++++ barrier ++++++++"</span>);</span><br><span class="line"></span><br><span class="line">   &#125;);</span><br><span class="line"></span><br><span class="line">   <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="built_in">NSInteger</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line"></span><br><span class="line">           <span class="built_in">NSLog</span>(<span class="string">@"task2 -- %zd -- %@"</span>, i, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h4><p>关键函数 <code>dispatch_apply</code></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dispatch_apply(<span class="number">6</span>, queue, ^(size_t index) &#123; </span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%zd------%@"</span>,index, [<span class="built_in">NSThread</span> currentThread]); </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/iOS 中的 armv7,armv7s,arm64,i386,x86_64 都是什么/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/iOS/iOS 中的 armv7,armv7s,arm64,i386,x86_64 都是什么/" itemprop="url">
+                  OS 中的 armv7,armv7s,arm64,i386,x86_64 都是什么
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-22 16:29:09" itemprop="dateModified" datetime="2018-10-22T16:29:09+08:00">2018-10-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在做静态库的时候以及引用静态库的时候经常会遇到一些关于真机模拟器不通用的情况，会报错找不到相应库导致编译失败，</p>
+<p>这里简单记录一下各种设备支持的架构。</p>
+<h4 id="iOS测试分为模拟器测试和真机测试，处理器分为32位处理器，和64位处理器"><a href="#iOS测试分为模拟器测试和真机测试，处理器分为32位处理器，和64位处理器" class="headerlink" title="iOS测试分为模拟器测试和真机测试，处理器分为32位处理器，和64位处理器"></a>iOS测试分为模拟器测试和真机测试，处理器分为32位处理器，和64位处理器</h4><h5 id="模拟器"><a href="#模拟器" class="headerlink" title="模拟器"></a>模拟器</h5><p>模拟器32位处理器测试需要i386架构，（iphone5,iphone5s以下的模拟器）</p>
+<p>模拟器64位处理器测试需要x86_64架构，(iphone6以上的模拟器)</p>
+<h5 id="真机"><a href="#真机" class="headerlink" title="真机"></a>真机</h5><p>真机32位处理器需要armv7,或者armv7s架构，（iphone4真机/armv7,      ipnone5,iphone5s真机/armv7s）</p>
+<p>真机64位处理器需要arm64架构。(iphone6,iphone6p以上的真机)</p>
+<p>project -&gt; target -&gt; building setting -&gt; Arhitectures 设置</p>
+<h5 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h5><p>debug属性设置为no的时候，会编译支持所有架构的版本，编译的速度会变慢，设置为yes 的时候，只编译当前的architecture版本，编译速度快。</p>
+<p>一般情况下，debug 设置为yes，release为no，这样发行版本能适应不同设备。</p>
+<h5 id="用到的命令行查看或者合并"><a href="#用到的命令行查看或者合并" class="headerlink" title="用到的命令行查看或者合并"></a>用到的命令行查看或者合并</h5><p>静态库.a支持信息：<br>lipo -info .a文件  </p>
+<p>两个静态库合并：<br> lipo -create 文件1  文件2  -output /Users/sunjianfei/Desktop/libPrint.a</p>
 
           
         
@@ -690,6 +1418,188 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/iOS开发中 const,static,extern用法总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/iOS/iOS开发中 const,static,extern用法总结/" itemprop="url">
+                  iOS开发中 const,static,extern用法总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-20 16:05:41" itemprop="dateModified" datetime="2018-08-20T16:05:41+08:00">2018-08-20</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>iOS开发中怎么使用const,static,extern3个关键字.</p>
+</blockquote>
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p>const的作用: const 是一个左结合的类型修饰符，它与其左侧的类型修饰符一起为一个类型修饰符,表示该类型只读.</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">修饰基本变量</span><br><span class="line"><span class="comment">// 这两种写法是一样的，const只修饰右边的基本变量b</span></span><br><span class="line">   <span class="keyword">const</span> <span class="keyword">int</span> b = <span class="number">20</span>; <span class="comment">// b:只读变量</span></span><br><span class="line">   <span class="keyword">int</span> <span class="keyword">const</span> b = <span class="number">20</span>; <span class="comment">// b:只读变量</span></span><br><span class="line"></span><br><span class="line">修饰指针变量</span><br><span class="line"><span class="comment">// 两种方式一样</span></span><br><span class="line"> <span class="keyword">const</span> <span class="keyword">int</span> *p1; <span class="comment">// *p1：只读 p1:只读</span></span><br><span class="line"> <span class="keyword">int</span> <span class="keyword">const</span> *p1; <span class="comment">// *p1：只读 p1:只读</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">// const修饰指针变量p1</span></span><br><span class="line"> <span class="keyword">int</span> * <span class="keyword">const</span> p1; <span class="comment">// *p1:变量 p1:常量</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 第一个const修饰*p1 第二个const修饰 p1</span></span><br><span class="line"> <span class="comment">// 两种方式一样</span></span><br><span class="line"> <span class="keyword">const</span> <span class="keyword">int</span> * <span class="keyword">const</span> p1; <span class="comment">// *p1：常量 p1：常量</span></span><br><span class="line"> <span class="keyword">int</span> <span class="keyword">const</span> * <span class="keyword">const</span> p1;  <span class="comment">// *p1：常量 p1：常量</span></span><br></pre></td></tr></table></figure>
+<p>简言之:沿着<em>号划一条线，如果const位于</em>的左侧，则const就是用来修饰指针所指向的变量，即指针指向为常量；如果const位于*的右侧，const就是修饰指针本身，即指针本身是常量。</p>
+<h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><p>static的作用:</p>
+<p>修饰局部变量：<br>延长局部变量的生命周期。<br>局部变量只会生成一份内存,只会初始化一次。<br>修饰全局变量:<br>使其只能在本文件中访问。</p>
+<h3 id="extern"><a href="#extern" class="headerlink" title="extern"></a>extern</h3><p>extern的作用: 声明和捕捉外部全局变量。<br>联合使用<br>static与const:声明一个静态的全局只读变量,(仅当前文件可访问且只读).</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span>  <span class="built_in">NSString</span> * <span class="keyword">const</span> key = <span class="string">@"name"</span>;</span><br></pre></td></tr></table></figure>
+<p>extern与const组合:定义全局只读变量，多个文件共享。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.h文件</span><br><span class="line"><span class="keyword">extern</span>  <span class="built_in">NSString</span> * <span class="keyword">const</span> king;</span><br><span class="line">.m文件</span><br><span class="line"><span class="built_in">NSString</span>  * <span class="keyword">const</span> king = <span class="string">@"king"</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://jatstar.cn/2016/01/10/const-static-extern/" target="_blank" rel="noopener">来源const-static-extern</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/iOS 静态库和动态库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -831,359 +1741,6 @@
 <li>链接（Link）：对.o文件中的对于其他的库的引用的地方进行引用，生成最后的可执行文件（同时也包括多个 .o 文件进行 link）。</li>
 </ul>
 <p><a href="https://www.cnblogs.com/junhuawang/p/7598236.html" target="_blank" rel="noopener">引用</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/iOS打包Framework真机和模拟器兼容合并版本/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/iOS/iOS打包Framework真机和模拟器兼容合并版本/" itemprop="url">
-                  iOS打包Framework真机和模拟器兼容合并版本
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-03 17:21:38" itemprop="dateModified" datetime="2018-07-03T17:21:38+08:00">2018-07-03</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="查询framework支持哪些架构，命令为："><a href="#查询framework支持哪些架构，命令为：" class="headerlink" title="查询framework支持哪些架构，命令为："></a>查询framework支持哪些架构，命令为：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -info XXXX.framework/XXXX</span><br></pre></td></tr></table></figure>
-<h3 id="合并包"><a href="#合并包" class="headerlink" title="合并包"></a>合并包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> lipo -create XXXX.framework/XXXX-armv7 XXXX.framework/XXXX-arm64 -output XXXX.framework/XXXX</span><br><span class="line"></span><br><span class="line">lipo -create 【模拟器打包path】 【真机打包path】 -output 【导出兼容版本path】</span><br></pre></td></tr></table></figure>
-<h3 id="一键打包shell脚本"><a href="#一键打包shell脚本" class="headerlink" title="一键打包shell脚本"></a>一键打包shell脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 使用方法 ###</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># bash get_framework.sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 填写要生成的包的名字</span></span><br><span class="line">FrameWorkName=<span class="string">"JDViewKit"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置输出包的文件路径</span></span><br><span class="line">OutputDir=<span class="variable">$&#123;SRCROOT&#125;</span>/VKOutput</span><br><span class="line"><span class="comment"># Working dir will be deleted after the framework creation.</span></span><br><span class="line">buildDir=build</span><br><span class="line">DEVICE_DIR=<span class="variable">$&#123;buildDir&#125;</span>/Release-iphoneos</span><br><span class="line">SIMULATOR_DIR=<span class="variable">$&#123;buildDir&#125;</span>/Release-iphonesimulator/<span class="variable">$&#123;FrameWorkName&#125;</span>.framework</span><br><span class="line"></span><br><span class="line"><span class="comment">#编译真机和模拟器的两种架构</span></span><br><span class="line"><span class="comment"># -configuration $&#123;CONFIGURATION&#125;</span></span><br><span class="line"><span class="comment"># Clean and Building both architectures.</span></span><br><span class="line"></span><br><span class="line">xcodebuild -configuration <span class="string">"Release"</span> -target <span class="string">"<span class="variable">$&#123;FrameWorkName&#125;</span>"</span> -sdk iphoneos clean build</span><br><span class="line">xcodebuild -configuration <span class="string">"Release"</span> -target <span class="string">"<span class="variable">$&#123;FrameWorkName&#125;</span>"</span> -sdk iphonesimulator clean build</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 把旧的输出文件包删除掉</span></span><br><span class="line"><span class="keyword">if</span> [ -d <span class="string">"<span class="variable">$&#123;OutputDir&#125;</span>"</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">sudo rm -rf <span class="string">"<span class="variable">$&#123;OutputDir&#125;</span>"</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建输出包</span></span><br><span class="line">sudo mkdir -p <span class="string">"<span class="variable">$&#123;OutputDir&#125;</span>"</span></span><br><span class="line">sudo cp -R <span class="string">"<span class="variable">$&#123;DEVICE_DIR&#125;</span>/"</span> <span class="string">"<span class="variable">$&#123;OutputDir&#125;</span>/"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 lipo工具合并通用包（(i386 + armv6/armv7)）</span></span><br><span class="line">sudo lipo -create <span class="string">"<span class="variable">$&#123;DEVICE_DIR&#125;</span>/<span class="variable">$&#123;FrameWorkName&#125;</span>.framework/<span class="variable">$&#123;FrameWorkName&#125;</span>"</span> <span class="string">"<span class="variable">$&#123;SIMULATOR_DIR&#125;</span>/<span class="variable">$&#123;FrameWorkName&#125;</span>"</span> -output <span class="string">"<span class="variable">$&#123;OutputDir&#125;</span>/<span class="variable">$&#123;FrameWorkName&#125;</span>.framework/<span class="variable">$&#123;FrameWorkName&#125;</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除build包  打开输出包文件夹</span></span><br><span class="line">sudo rm -r <span class="string">"<span class="variable">$&#123;buildDir&#125;</span>"</span></span><br><span class="line">open <span class="string">"<span class="variable">$&#123;OutputDir&#125;</span>"</span></span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/iOS开发中 const,static,extern用法总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/iOS/iOS开发中 const,static,extern用法总结/" itemprop="url">
-                  iOS开发中 const,static,extern用法总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-20 16:05:41" itemprop="dateModified" datetime="2018-08-20T16:05:41+08:00">2018-08-20</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>iOS开发中怎么使用const,static,extern3个关键字.</p>
-</blockquote>
-<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p>const的作用: const 是一个左结合的类型修饰符，它与其左侧的类型修饰符一起为一个类型修饰符,表示该类型只读.</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">修饰基本变量</span><br><span class="line"><span class="comment">// 这两种写法是一样的，const只修饰右边的基本变量b</span></span><br><span class="line">   <span class="keyword">const</span> <span class="keyword">int</span> b = <span class="number">20</span>; <span class="comment">// b:只读变量</span></span><br><span class="line">   <span class="keyword">int</span> <span class="keyword">const</span> b = <span class="number">20</span>; <span class="comment">// b:只读变量</span></span><br><span class="line"></span><br><span class="line">修饰指针变量</span><br><span class="line"><span class="comment">// 两种方式一样</span></span><br><span class="line"> <span class="keyword">const</span> <span class="keyword">int</span> *p1; <span class="comment">// *p1：只读 p1:只读</span></span><br><span class="line"> <span class="keyword">int</span> <span class="keyword">const</span> *p1; <span class="comment">// *p1：只读 p1:只读</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">// const修饰指针变量p1</span></span><br><span class="line"> <span class="keyword">int</span> * <span class="keyword">const</span> p1; <span class="comment">// *p1:变量 p1:常量</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 第一个const修饰*p1 第二个const修饰 p1</span></span><br><span class="line"> <span class="comment">// 两种方式一样</span></span><br><span class="line"> <span class="keyword">const</span> <span class="keyword">int</span> * <span class="keyword">const</span> p1; <span class="comment">// *p1：常量 p1：常量</span></span><br><span class="line"> <span class="keyword">int</span> <span class="keyword">const</span> * <span class="keyword">const</span> p1;  <span class="comment">// *p1：常量 p1：常量</span></span><br></pre></td></tr></table></figure>
-<p>简言之:沿着<em>号划一条线，如果const位于</em>的左侧，则const就是用来修饰指针所指向的变量，即指针指向为常量；如果const位于*的右侧，const就是修饰指针本身，即指针本身是常量。</p>
-<h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><p>static的作用:</p>
-<p>修饰局部变量：<br>延长局部变量的生命周期。<br>局部变量只会生成一份内存,只会初始化一次。<br>修饰全局变量:<br>使其只能在本文件中访问。</p>
-<h3 id="extern"><a href="#extern" class="headerlink" title="extern"></a>extern</h3><p>extern的作用: 声明和捕捉外部全局变量。<br>联合使用<br>static与const:声明一个静态的全局只读变量,(仅当前文件可访问且只读).</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span>  <span class="built_in">NSString</span> * <span class="keyword">const</span> key = <span class="string">@"name"</span>;</span><br></pre></td></tr></table></figure>
-<p>extern与const组合:定义全局只读变量，多个文件共享。</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.h文件</span><br><span class="line"><span class="keyword">extern</span>  <span class="built_in">NSString</span> * <span class="keyword">const</span> king;</span><br><span class="line">.m文件</span><br><span class="line"><span class="built_in">NSString</span>  * <span class="keyword">const</span> king = <span class="string">@"king"</span></span><br></pre></td></tr></table></figure>
-<p><a href="https://jatstar.cn/2016/01/10/const-static-extern/" target="_blank" rel="noopener">来源const-static-extern</a></p>
 
           
         
@@ -1442,7 +1999,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/runtime相关/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/iOS打包Framework真机和模拟器兼容合并版本/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -1461,8 +2018,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/iOS/runtime相关/" itemprop="url">
-                  iOS runtime
+                <a class="post-title-link" href="/2018/06/11/iOS/iOS打包Framework真机和模拟器兼容合并版本/" itemprop="url">
+                  iOS打包Framework真机和模拟器兼容合并版本
                 </a>
               
             
@@ -1505,7 +2062,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-17 11:19:06" itemprop="dateModified" datetime="2018-10-17T11:19:06+08:00">2018-10-17</time>
+                <time title="修改时间：2018-07-03 17:21:38" itemprop="dateModified" datetime="2018-07-03T17:21:38+08:00">2018-07-03</time>
               
             
           </span>
@@ -1558,583 +2115,9 @@
       
         
           
-            <h1 id="仓库地址"><a href="#仓库地址" class="headerlink" title="仓库地址"></a>仓库地址</h1><p><a href="https://coding.net/u/dream001/p/iOS_runtime/git/tree/master" target="_blank" rel="noopener">dream001 demo仓库地址</a><br><a href="https://opensource.apple.com/source/objc4/" target="_blank" rel="noopener">苹果官网开源代码</a><br><a href="https://developer.apple.com/documentation/objectivec/objective_c_runtime#//apple_ref/doc/uid/TP40001418-CH1g-126286" target="_blank" rel="noopener">官方api</a></p>
-<p><a href="https://juejin.im/post/5ac0a6116fb9a028de44d717" target="_blank" rel="noopener">掘金runtime实战总结</a><br><a href="https://maxwellqi.github.io/ios-primary-main/" target="_blank" rel="noopener">IOS程序在main函数前所做的事情</a>  <a href="http://blog.sunnyxx.com/2014/08/30/objc-pre-main/" target="_blank" rel="noopener">main</a><br><a href="http://blog.devtang.com/2014/09/09/ios-weekly-24/" target="_blank" rel="noopener">devtang</a></p>
-<p><a href="https://www.csdn.net/article/2015-07-06/2825133-objective-c-runtime/1" target="_blank" rel="noopener">深入理解Objective-C的Runtime机制</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/ios-ARC和垃圾回收机制的区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/iOS/ios-ARC和垃圾回收机制的区别/" itemprop="url">
-                  iOS-ARC和垃圾回收机制的区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-15 15:39:48" itemprop="dateModified" datetime="2018-08-15T15:39:48+08:00">2018-08-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在<code>java</code>中有个垃圾回收器，什么是垃圾回收器，就是在程序运行的期间，垃圾回收器会不断的去扫描堆中的对象是否无人使用。如果无人使用就会回收了。</p>
-<p><code>ARC</code>在编译的时候就会在合适的地方插入<code>retain,release,autorelease</code>,在运行的时候没有东西去进行实时检查，它插入的代码可以在对象没有人用的时候，引用计数器就会变为0.一旦变为0就会被销毁了。</p>
-<p>如果在java中有一段代码是<code>Person * p=[Person new]; p=nil</code>，这个对象什么时候被回收？不一定，因为这要看垃圾回收器有没有扫描到这里。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/深入理解iOS App的启动过程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/iOS/深入理解iOS App的启动过程/" itemprop="url">
-                  深入理解iOS App的启动过程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-18 17:41:37" itemprop="dateModified" datetime="2018-10-18T17:41:37+08:00">2018-10-18</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://blog.csdn.net/Hello_Hwc/article/details/78317863?locationNum=9&amp;fps=1" target="_blank" rel="noopener">深入理解iOS App的启动过程</a></p>
-<h2 id="准备知识-知道概念"><a href="#准备知识-知道概念" class="headerlink" title="准备知识 知道概念"></a>准备知识 知道概念</h2><h3 id="Mach-O"><a href="#Mach-O" class="headerlink" title="Mach-O"></a>Mach-O</h3><p>哪些名词指的是Mach-o ?</p>
-<ul>
-<li>Executable 可执行文件</li>
-<li>Dylib 动态库</li>
-<li>Bundle 无法被连接的动态库，只能通过dlopen()加载</li>
-<li>Image 指的是Executable，Dylib或者Bundle的一种，文中会多次使用Image这个名词。</li>
-<li>Framework 动态库和对应的头文件和资源文件的集合</li>
-</ul>
-<p>Apple出品的操作系统的可执行文件格式几乎都是mach-o，iOS当然也不例外。<br>mach-o可以大致的分为三部分：</p>
-<ul>
-<li>Header 头部，包含可以执行的CPU架构，比如x86,arm64</li>
-<li>Load commands 加载命令，包含文件的组织架构和在虚拟内存中的布局方式</li>
-<li>Data，数据，包含load commands中需要的各个段(segment)的数据，每一个Segment都得大小是Page的整数倍。</li>
-</ul>
-<p>那么Data部分又包含哪些segment呢？绝大多数mach-o包括以下三个段（支持用户自定义Segment，但是很少使用）</p>
-<ul>
-<li><code>__TEXT</code> 代码段，只读，包括函数，和只读的字符串，上图中类似<code>__TEXT</code>,__text的都是代码段</li>
-<li><code>__DATA</code>数据段，读写，包括可读写的全局变量等，上图类似中的<code>__DATA</code>,<code>__data</code>都是数据段</li>
-<li><code>__LINKEDIT</code> <code>__LINKEDIT</code>包含了方法和变量的元数据（位置，偏移量），以及代码签名等信息。</li>
-</ul>
-<h3 id="dyld"><a href="#dyld" class="headerlink" title="dyld"></a>dyld</h3><blockquote>
-<p>dyld的全称是dynamic loader，它的作用是加载一个进程所需要的image，dyld是开源的。</p>
-</blockquote>
-<h3 id="Virtual-Memory"><a href="#Virtual-Memory" class="headerlink" title="Virtual Memory"></a>Virtual Memory</h3><blockquote>
-<p>虚拟内存是在物理内存上建立的一个逻辑地址空间，它向上（应用）提供了一个连续的逻辑地址空间，向下隐藏了物理内存的细节。<br>虚拟内存使得逻辑地址可以没有实际的物理地址，也可以让多个逻辑地址对应到一个物理地址。<br>虚拟内存被划分为一个个大小相同的Page（64位系统上是16KB），提高管理和读写的效率。 Page又分为只读和读写的Page。</p>
-</blockquote>
-<p>虚拟内存是建立在物理内存和进程之间的中间层。在iOS上，当内存不足的时候，会尝试释放那些只读的Page，因为只读的Page在下次被访问的时候，可以再从磁盘读取。如果没有可用内存，会通知在后台的App（也就是在这个时候收到了memory warning），如果在这之后仍然没有可用内存，则会杀死在后台的App。</p>
-<h3 id="Page-fault"><a href="#Page-fault" class="headerlink" title="Page fault"></a>Page fault</h3><blockquote>
-<p>在应用执行的时候，它被分配的逻辑地址空间都是可以访问的，当应用访问一个逻辑Page，而在对应的物理内存中并不存在的时候，这时候就发生了一次Page fault。当Page fault发生的时候，会中断当前的程序，在物理内存中寻找一个可用的Page，然后从磁盘中读取数据到物理内存，接着继续执行当前程序。</p>
-</blockquote>
-<h3 id="Dirty-Page-amp-Clean-Page"><a href="#Dirty-Page-amp-Clean-Page" class="headerlink" title="Dirty Page &amp; Clean Page"></a>Dirty Page &amp; Clean Page</h3><p>1、如果一个Page可以从磁盘上重新生成，那么这个Page称为Clean Page<br>2、如果一个Page包含了进程相关信息，那么这个Page称为Dirty Page<br>像代码段这种只读的Page就是Clean Page。而像数据段(_DATA)这种读写的Page，当写数据发生的时候，会触发COW(Copy on write)，也就是写时复制，Page会被标记成Dirty，同时会被复制。</p>
-<h2 id="启动过程"><a href="#启动过程" class="headerlink" title="启动过程"></a>启动过程</h2><p><img src="/images/app_start.jpg" alt=""></p>
-<h3 id="加载动态库"><a href="#加载动态库" class="headerlink" title="加载动态库"></a>加载动态库</h3><blockquote>
-<p>dyld会首先读取mach-o文件的Header和load commands。<br>接着就知道了这个可执行文件依赖的动态库。例如加载动态库A到内存，接着检查A所依赖的动态库，就这样的递归加载，直到所有的动态库加载完毕。通常一个App所依赖的动态库在100-400个左右，其中大多数都是系统的动态库，它们会被缓存到dyld shared cache，这样读取的效率会很高。</p>
-</blockquote>
-<h3 id="Rebase-amp-amp-Bind"><a href="#Rebase-amp-amp-Bind" class="headerlink" title="Rebase &amp;&amp; Bind"></a>Rebase &amp;&amp; Bind</h3><p>为什么要Rebase？</p>
-<p>有两种主要的技术来保证应用的安全：ASLR和Code Sign。</p>
-<p>ASLR的全称是Address space layout randomization，翻译过来就是“地址空间布局随机化”。App被启动的时候，程序会被影射到逻辑的地址空间，这个逻辑的地址空间有一个起始地址，而ASLR技术使得这个起始地址是随机的。如果是固定的，那么黑客很容易就可以由起始地址+偏移量找到函数的地址。</p>
-<ul>
-<li>Rebase 修正内部(指向当前mach-o文件)的指针指向</li>
-<li>Bind 修正外部指针指向</li>
-</ul>
-<h3 id="Objective-C"><a href="#Objective-C" class="headerlink" title="Objective C"></a>Objective C</h3><p>Objective C是动态语言，所以在执行main函数之前，需要把类的信息注册到一个全局的Table中。同时，Objective C支持Category，在初始化的时候，也会把Category中的方法注册到对应的类中，同时会唯一Selector，这也是为什么当你的Cagegory实现了类中同名的方法后，类中的方法会被覆盖。</p>
-<p>另外，由于iOS开发时基于Cocoa Touch的，所以绝大多数的类起始都是系统类，所以大多数的Runtime初始化起始在Rebase和Bind中已经完成。</p>
-<h3 id="Initializers"><a href="#Initializers" class="headerlink" title="Initializers"></a>Initializers</h3><p>接下来就是必要的初始化部分了，主要包括几部分：</p>
-<p>+load方法。<br>C／C++静态初始化对象和标记为<strong>attribute</strong>(constructor)的方法<br>这里要提一点的就是，+load方法已经被弃用了，如果你用Swift开发，你会发现根本无法去写这样一个方法，官方的建议是实用initialize。区别就是，load是在类装载的时候执行，而initialize是在类第一次收到message前调用。</p>
-<h3 id="Main函数之后"><a href="#Main函数之后" class="headerlink" title="Main函数之后"></a>Main函数之后</h3><p>从main函数开始执行，到你的第一个界面显示，这期间一般会做哪些事情。</p>
-<ul>
-<li>执行AppDelegate的代理方法，主要是didFinishLaunchingWithOptions</li>
-<li>初始化Window，初始化基础的ViewController结构(一般是UINavigationController+UITabViewController)</li>
-<li>获取数据(Local DB／Network)，展示给用户。</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>不同的App在启动的时候做的事情往往不同，但是优化起来的核心思想无非就两个：</p>
-<p>能延迟执行的就延迟执行。比如SDK的初始化，界面的创建。<br>不能延迟执行的，尽量放到后台执行。比如数据读取，原始JSON数据转对象，日志发送。<br>Main函数之前</p>
-<p>Main函数之前是iOS系统的工作，所以这部分的优化往往更具有通用性。</p>
-<h3 id="dylibs"><a href="#dylibs" class="headerlink" title="dylibs"></a>dylibs</h3><p>启动的第一步是加载动态库，加载系统的动态库使很快的，因为可以缓存，而加载内嵌的动态库速度较慢。所以，提高这一步的效率的关键是：减少动态库的数量。</p>
-<p>合并动态库，比如公司内部由私有Pod建立了如下动态库：XXTableView, XXHUD, XXLabel，强烈建议合并成一个XXUIKit来提高加载速度。</p>
-<h3 id="Rebase-amp-Bind-amp-Objective-C-Runtime"><a href="#Rebase-amp-Bind-amp-Objective-C-Runtime" class="headerlink" title="Rebase &amp; Bind &amp; Objective C Runtime"></a>Rebase &amp; Bind &amp; Objective C Runtime</h3><p>Rebase和Bind都是为了解决指针引用的问题。对于Objective C开发来说，主要的时间消耗在Class/Method的符号加载上，所以常见的优化方案是：</p>
-<p>减少__DATA段中的指针数量。<br>合并Category和功能类似的类。比如：UIView+Frame,UIView+AutoLayout…合并为一个<br>删除无用的方法和类。<br>多用Swift Structs，因为Swfit Structs是静态分发的。感兴趣的同学可以看看我之前这篇文章：《Swift进阶之内存模型和方法调度》</p>
-<h3 id="Initializers-1"><a href="#Initializers-1" class="headerlink" title="Initializers"></a>Initializers</h3><p>通常，我们会在+load方法中进行method-swizzling，这也是Nshipster推荐的方式。</p>
-<p>用initialize替代load。不少同学喜欢用method-swizzling来实现AOP去做日志统计等内容，强烈建议改为在initialize进行初始化。<br>减少<strong>atribute</strong>((constructor))的使用，而是在第一次访问的时候才用dispatch_once等方式初始化。<br>不要创建线程<br>使用Swfit重写代码。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/画边角弧度/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/iOS/画边角弧度/" itemprop="url">
-                  UIBezierPath画边角弧度
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-15 14:23:20" itemprop="dateModified" datetime="2018-08-15T14:23:20+08:00">2018-08-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="UIBezierPath"><a href="#UIBezierPath" class="headerlink" title="UIBezierPath"></a>UIBezierPath</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIBezierPath</span> *maskPath = [<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:m_newsIV.bounds</span><br><span class="line">                                                     byRoundingCorners:<span class="built_in">UIRectCornerTopLeft</span> | <span class="built_in">UIRectCornerTopRight</span></span><br><span class="line">                                                           cornerRadii:<span class="built_in">CGSizeMake</span>(<span class="number">10.0</span>, <span class="number">10.0</span>)];</span><br><span class="line">      <span class="comment">// Create the shape layer and set its path</span></span><br><span class="line">      <span class="built_in">CAShapeLayer</span> *maskLayer = [<span class="built_in">CAShapeLayer</span> layer];</span><br><span class="line">      maskLayer.frame = m_newsIV.bounds;</span><br><span class="line">      maskLayer.path = maskPath.CGPath;</span><br><span class="line">      <span class="comment">// Set the newly created shape layer as the mask for the image view's layer</span></span><br><span class="line">      m_newsIV.layer.mask = maskLayer;</span><br></pre></td></tr></table></figure>
-
+            <h3 id="查询framework支持哪些架构，命令为："><a href="#查询framework支持哪些架构，命令为：" class="headerlink" title="查询framework支持哪些架构，命令为："></a>查询framework支持哪些架构，命令为：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -info XXXX.framework/XXXX</span><br></pre></td></tr></table></figure>
+<h3 id="合并包"><a href="#合并包" class="headerlink" title="合并包"></a>合并包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> lipo -create XXXX.framework/XXXX-armv7 XXXX.framework/XXXX-arm64 -output XXXX.framework/XXXX</span><br><span class="line"></span><br><span class="line">lipo -create 【模拟器打包path】 【真机打包path】 -output 【导出兼容版本path】</span><br></pre></td></tr></table></figure>
+<h3 id="一键打包shell脚本"><a href="#一键打包shell脚本" class="headerlink" title="一键打包shell脚本"></a>一键打包shell脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 使用方法 ###</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># bash get_framework.sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 填写要生成的包的名字</span></span><br><span class="line">FrameWorkName=<span class="string">"JDViewKit"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置输出包的文件路径</span></span><br><span class="line">OutputDir=<span class="variable">$&#123;SRCROOT&#125;</span>/VKOutput</span><br><span class="line"><span class="comment"># Working dir will be deleted after the framework creation.</span></span><br><span class="line">buildDir=build</span><br><span class="line">DEVICE_DIR=<span class="variable">$&#123;buildDir&#125;</span>/Release-iphoneos</span><br><span class="line">SIMULATOR_DIR=<span class="variable">$&#123;buildDir&#125;</span>/Release-iphonesimulator/<span class="variable">$&#123;FrameWorkName&#125;</span>.framework</span><br><span class="line"></span><br><span class="line"><span class="comment">#编译真机和模拟器的两种架构</span></span><br><span class="line"><span class="comment"># -configuration $&#123;CONFIGURATION&#125;</span></span><br><span class="line"><span class="comment"># Clean and Building both architectures.</span></span><br><span class="line"></span><br><span class="line">xcodebuild -configuration <span class="string">"Release"</span> -target <span class="string">"<span class="variable">$&#123;FrameWorkName&#125;</span>"</span> -sdk iphoneos clean build</span><br><span class="line">xcodebuild -configuration <span class="string">"Release"</span> -target <span class="string">"<span class="variable">$&#123;FrameWorkName&#125;</span>"</span> -sdk iphonesimulator clean build</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 把旧的输出文件包删除掉</span></span><br><span class="line"><span class="keyword">if</span> [ -d <span class="string">"<span class="variable">$&#123;OutputDir&#125;</span>"</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">sudo rm -rf <span class="string">"<span class="variable">$&#123;OutputDir&#125;</span>"</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建输出包</span></span><br><span class="line">sudo mkdir -p <span class="string">"<span class="variable">$&#123;OutputDir&#125;</span>"</span></span><br><span class="line">sudo cp -R <span class="string">"<span class="variable">$&#123;DEVICE_DIR&#125;</span>/"</span> <span class="string">"<span class="variable">$&#123;OutputDir&#125;</span>/"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 lipo工具合并通用包（(i386 + armv6/armv7)）</span></span><br><span class="line">sudo lipo -create <span class="string">"<span class="variable">$&#123;DEVICE_DIR&#125;</span>/<span class="variable">$&#123;FrameWorkName&#125;</span>.framework/<span class="variable">$&#123;FrameWorkName&#125;</span>"</span> <span class="string">"<span class="variable">$&#123;SIMULATOR_DIR&#125;</span>/<span class="variable">$&#123;FrameWorkName&#125;</span>"</span> -output <span class="string">"<span class="variable">$&#123;OutputDir&#125;</span>/<span class="variable">$&#123;FrameWorkName&#125;</span>.framework/<span class="variable">$&#123;FrameWorkName&#125;</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除build包  打开输出包文件夹</span></span><br><span class="line">sudo rm -r <span class="string">"<span class="variable">$&#123;buildDir&#125;</span>"</span></span><br><span class="line">open <span class="string">"<span class="variable">$&#123;OutputDir&#125;</span>"</span></span><br></pre></td></tr></table></figure>
           
         
       
@@ -2176,7 +2159,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2223,7 +2206,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">97</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2367,7 +2350,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">46</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

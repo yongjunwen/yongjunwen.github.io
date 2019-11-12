@@ -331,6 +331,581 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/Hexo主题添加搜索/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/other/Hexo主题添加搜索/" itemprop="url">
+                  Hexo 博客框架添加搜索
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-22 17:24:28" itemprop="dateModified" datetime="2018-08-22T17:24:28+08:00">2018-08-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>用Hexo提供的<code>Local Search</code>,原理是通过<code>hexo-generator-search</code>插件在本地生成一个<code>search.xml</code>文件，搜索的时候从这个文件中根据关键字检索出相应的链接。</p>
+<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><h5 id="安装-hexo-generator-search"><a href="#安装-hexo-generator-search" class="headerlink" title="安装 hexo-generator-search"></a>安装 hexo-generator-search</h5><p>在站点的根目录下执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
+<h5 id="安装-hexo-generator-searchdb"><a href="#安装-hexo-generator-searchdb" class="headerlink" title="安装 hexo-generator-searchdb"></a>安装 hexo-generator-searchdb</h5><p>在站点的根目录下执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+<p>启用搜索</p>
+<p>编辑 站点配置文件<code>_config.yml</code>，新增以下内容到任意位置：</p>
+<pre><code>search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+</code></pre><p>修改主题配置文件</p>
+<p>我的路径：<code>/blog/themes/next</code>下的<code>_config.yml</code>文件，进行编辑。</p>
+<pre><code>local_search:
+    enable: true
+</code></pre><p>最后部署到github、coding，打开网页就可以看到搜索功能了。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/Hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/other/Hexo/" itemprop="url">
+                  Hexo 博客框架
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-26 10:35:26" itemprop="dateModified" datetime="2018-06-26T10:35:26+08:00">2018-06-26</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="什么是-Hexo？"><a href="#什么是-Hexo？" class="headerlink" title="什么是 Hexo？"></a>什么是 Hexo？</h3><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>新建完成后，指定文件夹的目录如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+<h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p>应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package.json</span><br><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;hexo-site&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;0.0.0&quot;,</span><br><span class="line">  &quot;private&quot;: true,</span><br><span class="line">  &quot;hexo&quot;: &#123;</span><br><span class="line">    &quot;version&quot;: &quot;&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;dependencies&quot;: &#123;</span><br><span class="line">    &quot;hexo&quot;: &quot;^3.0.0&quot;,</span><br><span class="line">    &quot;hexo-generator-archive&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-generator-category&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-generator-index&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-generator-tag&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-ejs&quot;: &quot;^0.1.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-stylus&quot;: &quot;^0.2.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-marked&quot;: &quot;^0.2.4&quot;,</span><br><span class="line">    &quot;hexo-server&quot;: &quot;^0.1.2&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h3><p>网站的 <a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">配置</a> 信息，您可以在此配置大部分的参数。</p>
+<h3 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h3><p> 主题 文件夹。Hexo 会根据主题来生成静态页面。</p>
+<h3 id="source"><a href="#source" class="headerlink" title="source"></a>source</h3><p>资源文件夹是存放用户资源的地方。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
+<h3 id="重要的几个指令"><a href="#重要的几个指令" class="headerlink" title="重要的几个指令"></a>重要的几个指令</h3><p>了解更多 详见<a href="https://hexo.io/zh-cn/docs/commands.html#deploy" target="_blank" rel="noopener">指令</a> 信息</p>
+<blockquote>
+<p>初始化新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init [folder]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>server 启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/。" target="_blank" rel="noopener">http://localhost:4000/。</a></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>generate 生成静态文件。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>deploy 部署网站。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>clean 清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+<h3 id="资源文件夹"><a href="#资源文件夹" class="headerlink" title="资源文件夹"></a>资源文件夹</h3><blockquote>
+<p>资源（Asset）代表 source 文件夹中除了文章以外的所有文件，例如图片、CSS、JS 文件等。比方说，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 source/images 文件夹中。然后通过类似于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](/images/image.jpg)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>的方法访问它们。</p>
+</blockquote>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><blockquote>
+<p>Hexo 提供了快速方便的一键部署功能，让您只需一条命令就能将网站部署到服务器上。详见<a href="https://hexo.io/zh-cn/docs/deployment.html" target="_blank" rel="noopener">网站</a> 信息</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/Markdown/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/other/Markdown/" itemprop="url">
+                  Markdown 编辑器语法指南
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-10 17:23:35" itemprop="dateModified" datetime="2018-07-10T17:23:35+08:00">2018-07-10</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://segmentfault.com/markdown/" target="_blank" rel="noopener">Markdown 编辑器语法指南</a></p>
+<p><a href="http://macdown.uranusjr.com/" target="_blank" rel="noopener">MacDown</a></p>
+<h2 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h2><p>如果你只想高亮语句中的某个函数名或关键字，可以使用 <code>function_name()</code> 实现<br>通常编辑器根据代码片段适配合适的高亮方法，但你也可以用 以下方式 包裹一段代码，并指定一种语言</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'hello world'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+</blockquote>
+<p>支持的语言：1c, abnf, accesslog, actionscript, ada, apache, applescript, arduino, armasm, asciidoc, aspectj, autohotkey, autoit, avrasm, awk, axapta, bash, basic, bnf, brainfuck, cal, capnproto, ceylon, clean, clojure, clojure-repl, cmake, coffeescript, coq, cos, cpp, crmsh, crystal, cs, csp, css, d, dart, delphi, diff, django, dns, dockerfile, dos, dsconfig, dts, dust, ebnf, elixir, elm, erb, erlang, erlang-repl, excel, fix, flix, fortran, fsharp, gams, gauss, gcode, gherkin, glsl, go, golo, gradle, groovy, haml, handlebars, haskell, haxe, hsp, htmlbars, http, hy, inform7, ini, irpf90, java, javascript, json, julia, kotlin, lasso, ldif, leaf, less, lisp, livecodeserver, livescript, llvm, lsl, lua, makefile, markdown, mathematica, matlab, maxima, mel, mercury, mipsasm, mizar, mojolicious, monkey, moonscript, n1ql, nginx, nimrod, nix, nsis, objectivec, ocaml, openscad, oxygene, parser3, perl, pf, php, pony, powershell, processing, profile, prolog, protobuf, puppet, purebasic, python, q, qml, r, rib, roboconf, rsl, ruby, ruleslanguage, rust, scala, scheme, scilab, scss, smali, smalltalk, sml, sqf, sql, stan, stata, step21, stylus, subunit, swift, taggerscript, tap, tcl, tex, thrift, tp, twig, typescript, vala, vbnet, vbscript, vbscript-html, verilog, vhdl, vim, x86asm, xl, xml, xquery, yaml, zephir</p>
+<h2 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;b&gt; Markdown 在此处同样适用，如 <span class="emphasis">*加粗*</span> &lt;/b&gt;</span><br><span class="line"></span><br><span class="line"><span class="bullet">- </span>列表文本前使用 [减号+空格]</span><br><span class="line"><span class="bullet">+ </span>列表文本前使用 [加号+空格]</span><br><span class="line"><span class="bullet">* </span>列表文本前使用 [星号+空格]</span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; 引用文本前使用 [大于号+空格]</span></span><br><span class="line"><span class="quote">&gt; 折行可以不加，新起一行都要加上哦</span></span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; </span></span><br><span class="line"><span class="quote">&gt; &gt; 最外层引用</span></span><br><span class="line"><span class="quote">&gt; &gt; 多一个 &gt; 嵌套一层引用</span></span><br><span class="line"><span class="quote">&gt; &gt; &gt; 可以嵌套很多层</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">![<span class="string">图片名称</span>](<span class="link">http://图片网址</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="分隔符"><a href="#分隔符" class="headerlink" title="分隔符"></a>分隔符</h2><hr>
+<p>如果你有写分割线的习惯，可以新起一行输入三个减号-。前后都有段落时，请空出一行：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">前面的段落</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">后面的段落</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/OmniGraffle 五步绘制流程图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -449,6 +1024,196 @@
           
             <p><a href="https://www.jianshu.com/p/cca7ce55aee1" target="_blank" rel="noopener">OmniGraffle 五步绘制流程图</a></p>
 <p><a href="https://sspai.com/post/41950" target="_blank" rel="noopener">OmniGraffle 基础入门（一）：从工具栏开始</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/Mac本地服务器搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/other/Mac本地服务器搭建/" itemprop="url">
+                  Mac端本地服务搭建
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-13 18:53:10" itemprop="dateModified" datetime="2018-09-13T18:53:10+08:00">2018-09-13</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="方案名称"><a href="#方案名称" class="headerlink" title="方案名称"></a>方案名称</h3><p>Mac 系统 - 启用 Mac 本地 Web 服务器<br>关键字</p>
+<p>Mac 系统 \ Web 服务器</p>
+<h3 id="需求场景"><a href="#需求场景" class="headerlink" title="需求场景"></a>需求场景</h3><ol>
+<li><p>局域网搭建 Web 服务器测试环境<br>参考链接</p>
+</li>
+<li><p>简书 - Mac OS X 启用 Web 服务器(推荐)<br>详细内容 <a href="https://www.jianshu.com/p/d006a34a343f" target="_blank" rel="noopener">https://www.jianshu.com/p/d006a34a343f</a></p>
+</li>
+</ol>
+<h3 id="启动-Apache"><a href="#启动-Apache" class="headerlink" title="启动 Apache"></a>启动 Apache</h3><p>终端输入<br>$ sudo apachectl start<br>可启动 Apache，打开浏览器，输入 <a href="http://localhost/" target="_blank" rel="noopener">http://localhost/</a> 看到如下页面证明本地 Web 服务器启动成功</p>
+<p>可启动 Apache，默认站点的根目录为系统级根目录<br>/Library/WebServer/Documents<br>更多信息，可参考 简书 - Mac OS X 启用 Web 服务器(推荐)</p>
+<ul>
+<li>创建用户级根目录</li>
+<li>启动 PHP</li>
+<li>安装 MySQL</li>
+<li>开启 HTTPS</li>
+</ul>
+<p><a href="https://github.com/viktyz/iosnotebook/blob/master/Notes/Note_00222_20170601.md" target="_blank" rel="noopener">https://github.com/viktyz/iosnotebook/blob/master/Notes/Note_00222_20170601.md</a></p>
+<h3 id="关闭和重启"><a href="#关闭和重启" class="headerlink" title="关闭和重启"></a>关闭和重启</h3><p>Mac OS 终端起动、关闭、重启apache的方</p>
+<p>Mac OS 终端起动、关闭、重启apache的方法</p>
+<p>打开终端<br>重启apache：sudo /usr/sbin/apachectl restart<br>关闭apache：sudo /usr/sbin/apachectl stop<br>开启apache：sudo /usr/sbin/apachectl start</p>
+<h3 id="Mac下如何修改apache根目录"><a href="#Mac下如何修改apache根目录" class="headerlink" title="Mac下如何修改apache根目录"></a>Mac下如何修改apache根目录</h3><p><a href="https://www.cnblogs.com/chuangshaogreat/p/7821407.html" target="_blank" rel="noopener">Mac下如何修改apache根目录</a> </p>
 
           
         
@@ -683,6 +1448,189 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/tomcat使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/other/tomcat使用/" itemprop="url">
+                  tomcat
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-13 18:45:09" itemprop="dateModified" datetime="2018-09-13T18:45:09+08:00">2018-09-13</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://blog.csdn.net/u012661010/article/details/73381599" target="_blank" rel="noopener">Tomcat的目录结构详细介绍</a></p>
+<h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><p>切换到<code>tomcat</code>所在的目录在终端执行如下命令：<br><code>bash bin/startup.sh</code> 用来启动<code>tomcat</code> </p>
+<p>然后直接<code>localhost:8080/</code> 就可以访问了</p>
+<h4 id="文件放置"><a href="#文件放置" class="headerlink" title="文件放置"></a>文件放置</h4><p>webapps目录用来存放应用程序，当tomcat启动时会去加载webapps目录下的应用程序。可以以文件夹、war包、jar包的形式发布应用</p>
+<h4 id="修改http访问端口（默认为8080端口），将8080修改为tomcat不在使用的端口号"><a href="#修改http访问端口（默认为8080端口），将8080修改为tomcat不在使用的端口号" class="headerlink" title="修改http访问端口（默认为8080端口），将8080修改为tomcat不在使用的端口号"></a>修改http访问端口（默认为8080端口），将8080修改为tomcat不在使用的端口号</h4><p>1、安装目录下的<code>conf</code>子目录中的<code>server.xml</code>文件 修改位置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot;</span><br><span class="line">           connectionTimeout=&quot;20000&quot;</span><br><span class="line">           redirectPort=&quot;8443&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>2、然后在关闭和重启操作</p>
+<p><code>bash bin/shutdown.sh</code> 用来关闭<code>tomcat</code><br><code>bash bin/startup.sh</code> 用来启动<code>tomcat</code> </p>
+<h4 id="启动tomcat-服务报-The-file-is-absent-or-does-not-have-execute-permission"><a href="#启动tomcat-服务报-The-file-is-absent-or-does-not-have-execute-permission" class="headerlink" title="启动tomcat 服务报 The file is absent or does not have execute permission"></a>启动tomcat 服务报 The file is absent or does not have execute permission</h4><p>1、在<code>linu</code>上部署好<code>tomcat</code>后，准备启动时报错：</p>
+<p>Cannot find bin/catalina.sh<br>The file is absent or does not have execute permission </p>
+<p>This file is needed to run this program </p>
+<p>2、解决办法：</p>
+<p>对启动脚本添加执行权限</p>
+<p><code>chmod 777  *.sh</code></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/vim修改的撤销、重做和保存/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -816,189 +1764,6 @@
 <li>:wq(保存编辑操作退出)</li>
 <li>:wq!(保存编辑强制退出)</li>
 </ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/other/tomcat使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/other/tomcat使用/" itemprop="url">
-                  tomcat
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-13 18:45:09" itemprop="dateModified" datetime="2018-09-13T18:45:09+08:00">2018-09-13</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://blog.csdn.net/u012661010/article/details/73381599" target="_blank" rel="noopener">Tomcat的目录结构详细介绍</a></p>
-<h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><p>切换到<code>tomcat</code>所在的目录在终端执行如下命令：<br><code>bash bin/startup.sh</code> 用来启动<code>tomcat</code> </p>
-<p>然后直接<code>localhost:8080/</code> 就可以访问了</p>
-<h4 id="文件放置"><a href="#文件放置" class="headerlink" title="文件放置"></a>文件放置</h4><p>webapps目录用来存放应用程序，当tomcat启动时会去加载webapps目录下的应用程序。可以以文件夹、war包、jar包的形式发布应用</p>
-<h4 id="修改http访问端口（默认为8080端口），将8080修改为tomcat不在使用的端口号"><a href="#修改http访问端口（默认为8080端口），将8080修改为tomcat不在使用的端口号" class="headerlink" title="修改http访问端口（默认为8080端口），将8080修改为tomcat不在使用的端口号"></a>修改http访问端口（默认为8080端口），将8080修改为tomcat不在使用的端口号</h4><p>1、安装目录下的<code>conf</code>子目录中的<code>server.xml</code>文件 修改位置如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot;</span><br><span class="line">           connectionTimeout=&quot;20000&quot;</span><br><span class="line">           redirectPort=&quot;8443&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>2、然后在关闭和重启操作</p>
-<p><code>bash bin/shutdown.sh</code> 用来关闭<code>tomcat</code><br><code>bash bin/startup.sh</code> 用来启动<code>tomcat</code> </p>
-<h4 id="启动tomcat-服务报-The-file-is-absent-or-does-not-have-execute-permission"><a href="#启动tomcat-服务报-The-file-is-absent-or-does-not-have-execute-permission" class="headerlink" title="启动tomcat 服务报 The file is absent or does not have execute permission"></a>启动tomcat 服务报 The file is absent or does not have execute permission</h4><p>1、在<code>linu</code>上部署好<code>tomcat</code>后，准备启动时报错：</p>
-<p>Cannot find bin/catalina.sh<br>The file is absent or does not have execute permission </p>
-<p>This file is needed to run this program </p>
-<p>2、解决办法：</p>
-<p>对启动脚本添加执行权限</p>
-<p><code>chmod 777  *.sh</code></p>
 
           
         
@@ -1393,728 +2158,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/vue & weex/weex 坑点/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/vue & weex/weex 坑点/" itemprop="url">
-                  weex 开发坑点
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-10 15:29:53" itemprop="dateModified" datetime="2018-07-10T15:29:53+08:00">2018-07-10</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/weex/" itemprop="url" rel="index"><span itemprop="name">weex</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">0、div 执行v-for循环的时候 要设置动态宽 自动撑满在iOS上有问题</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(itemProduct,index) in productList"</span> <span class="attr">:style</span>=<span class="string">"&#123;height:sliderHeight,width:brandItemBgWidth&#125;"</span></span></span><br><span class="line"><span class="tag">     <span class="attr">style</span>=<span class="string">"align-items: center;justify-content: center;"</span>&gt;</span></span><br><span class="line">1、<span class="tag">&lt;<span class="name">text</span>&gt;</span>aaa<span class="tag">&lt;/<span class="name">text</span>&gt;</span>  该标签一定要写在一行否则native展示不对</span><br><span class="line">2、作为子组件里面的数据源一定要 这样写</span><br><span class="line">data: function () &#123; &#125;   必须加上function 不能做省略</span><br><span class="line">3、引入组件或者工具类</span><br><span class="line">  import PromotionWishLampItemView from './PromotionWishLampItemView.vue’</span><br><span class="line"> import Util from './PromotionUtil.js'</span><br><span class="line">4、引入的子组件要注册</span><br><span class="line">export default &#123;</span><br><span class="line">    components: &#123;</span><br><span class="line">        PromotionWishLampItemView</span><br><span class="line">    &#125;,&#125;</span><br><span class="line">5、控件属性进行双向绑定用v-bind 缩写是冒号 :</span><br><span class="line">6、例如生命周期函数created、mounted和methods是并列的函数体，methods存放自定义函数</span><br><span class="line">7、 foreach不支持直接break</span><br><span class="line">//                                _wishLamps.forEach(function (item, index) &#123;</span><br><span class="line">//////                                    foreach不支持直接break</span><br><span class="line">//                                &#125;);</span><br><span class="line">8、给某个对象添加属性并赋值的方式</span><br><span class="line">    if (typeof item.itemStyle == 'undefined') &#123;</span><br><span class="line">        console.log('注册中 =====');</span><br><span class="line">        //全局注册</span><br><span class="line">        Vue.set(item, "itemStyle", "1");</span><br><span class="line">    &#125;</span><br><span class="line">9、数组剪切前四个（n个）的方案</span><br><span class="line">    _proList.slice(0, 4);</span><br><span class="line">10、数组添加对象的方式</span><br><span class="line">     _this.productList.push(wishLampDict);</span><br><span class="line">11、css style双向绑定要用花括号</span><br><span class="line">    :style="&#123;height:brandItemCurveHeight,width:brandItemWidth&#125;”</span><br><span class="line">12、json转化成能打印的字符串</span><br><span class="line">var str = JSON.stringify(result);</span><br><span class="line">console.log('qryExclusiveDiscount-backData:' + str);</span><br><span class="line">13、通过某个比例scale计算字体大小 如果不是整形在android上显示有问题 </span><br><span class="line">this.contentFontSize = Math.round(26 * scale);</span><br><span class="line">14、通过某个比例scale计算字体大小 如果不是整形在android上显示有问题   通过向上取整显示个别有问题</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">通过向下取整 Math.floor</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/前端/MVC，MVP 和 MVVM /">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/前端/MVC，MVP 和 MVVM /" itemprop="url">
-                  MVC，MVP 和 MVVM
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-23 17:50:29" itemprop="dateModified" datetime="2018-08-23T17:50:29+08:00">2018-08-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>复杂的软件必须有清晰合理的架构，否则无法开发和维护。<br>MVC（Model-View-Controller）是最常见的软件架构之一，业界有着广泛应用。它本身很容易理解，但是要讲清楚，它与衍生的 MVP 和 MVVM 架构的区别就不容易了。<br>昨天晚上，我读了《Scaling Isomorphic Javascript Code》，突然意识到，它们的区别非常简单。我用几段话，就可以说清。</p>
-<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>MVC模式的意思是，软件可以分成三个部分。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020104.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* 视图（View）：用户界面。</span><br><span class="line">* 控制器（Controller）：业务逻辑</span><br><span class="line">* 模型（Model）：数据保存</span><br></pre></td></tr></table></figure>
-<p>各部分之间的通信方式如下。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020105.png" alt=""></p>
-<ol>
-<li>View 传送指令到 Controller</li>
-<li>Controller 完成业务逻辑后，要求 Model 改变状态</li>
-<li>Model 将新的数据发送到 View，用户得到反馈<br>所有通信都是单向的。<h2 id="互动模式"><a href="#互动模式" class="headerlink" title="互动模式"></a>互动模式</h2></li>
-</ol>
-<p>接受用户指令时，MVC 可以分成两种方式。一种是通过 View 接受指令，传递给 Controller。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020106.png" alt=""></p>
-<p>另一种是直接通过controller接受指令。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020107.png" alt=""></p>
-<h2 id="实例：Backbone"><a href="#实例：Backbone" class="headerlink" title="实例：Backbone"></a>实例：Backbone</h2><p>实际项目往往采用更灵活的方式，以 Backbone.js 为例。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020108.png" alt=""></p>
-<ol>
-<li>用户可以向 View 发送指令（DOM 事件），再由 View 直接要求 Model 改变状态。</li>
-<li>用户也可以直接向 Controller 发送指令（改变 URL 触发 hashChange 事件），再由 Controller 发送给 View。</li>
-<li>Controller 非常薄，只起到路由的作用，而 View 非常厚，业务逻辑都部署在 View。所以，Backbone 索性取消了 Controller，只保留一个 Router（路由器） 。<h2 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h2></li>
-</ol>
-<p>MVP 模式将 Controller 改名为 Presenter，同时改变了通信方向。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020109.png" alt=""></p>
-<ol>
-<li>各部分之间的通信，都是双向的。</li>
-<li>View 与 Model 不发生联系，都通过 Presenter 传递。</li>
-<li>View 非常薄，不部署任何业务逻辑，称为”被动视图”（Passive View），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里。<h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2></li>
-</ol>
-<p>MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020110.png" alt=""></p>
-<p>唯一的区别是，它采用双向绑定（data-binding）：View的变动，自动反映在 ViewModel，反之亦然。<a href="https://angularjs.org/" target="_blank" rel="noopener">Angular</a> 和 <a href="http://emberjs.com/" target="_blank" rel="noopener">Ember</a> 都采用这种模式。<br><a href="http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html" target="_blank" rel="noopener">来自</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/前端/用于在safari跳转到APP的web页面/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/前端/用于在safari跳转到APP的web页面/" itemprop="url">
-                  web页面打开APP
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-04 18:08:39" itemprop="dateModified" datetime="2018-07-04T18:08:39+08:00">2018-07-04</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="在WXApp上设置一个URL-Schemes"><a href="#在WXApp上设置一个URL-Schemes" class="headerlink" title="在WXApp上设置一个URL Schemes"></a>在WXApp上设置一个URL Schemes</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">为了能让别的App(包括我们刚才创建的MyApp)能够打开 OpenTest，</span><br><span class="line">我们需要为app添加一个URL Schemes。</span><br><span class="line">步骤：选中app工程-&gt;Info-&gt;URL Types-&gt;点击“+”-&gt;在URL Schemes栏填上 OpenTest</span><br></pre></td></tr></table></figure>
-<h3 id="打开APP-xxx-html"><a href="#打开APP-xxx-html" class="headerlink" title="打开APP  xxx.html"></a>打开APP  xxx.html</h3><blockquote>
-<p>可以保存一下页面为.html 放在本地服务Document目录下 快速启动</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf-8"</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"HandheldFriendly"</span> <span class="attr">content</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1, user-scalable=no"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">open_win</span>(<span class="params"></span>) </span></span></span><br><span class="line"><span class="undefined">		&#123;</span></span><br><span class="line"><span class="javascript">		<span class="built_in">window</span>.open(<span class="string">"OpenTest"</span>)</span></span><br><span class="line"><span class="javascript">		<span class="comment">// window.open("http://www.baidu.com")</span></span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">		</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width:100%;height: 100%;background: white; position: absolute;"</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 方法一 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">"margin-top:200px; width:100%;color:#666; font-size:32px; text-align: center ;display:inline-block;"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">href</span>=<span class="string">"OpenTest"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>打开OpenTest App页面<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">&lt;!-- OpenTest --&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">&lt;!-- 方法二跳转有点问题 --&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- &lt;input type=button </span></span><br><span class="line"><span class="comment">		style="width:250px; height=200px;"</span></span><br><span class="line"><span class="comment">		size="60"</span></span><br><span class="line"><span class="comment">		value="dsl open 打开" onclick="open_win()" /&gt; --&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/我的日常兴趣/中国节气/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/我的日常兴趣/中国节气/" itemprop="url">
-                  二十四节气
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-07 10:38:55" itemprop="dateModified" datetime="2018-08-07T10:38:55+08:00">2018-08-07</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其他/" itemprop="url" rel="index"><span itemprop="name">其他</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="二十四节气"><a href="#二十四节气" class="headerlink" title="二十四节气"></a>二十四节气</h2><p><img src="https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=5157a451be096b63951456026d5aec21/b03533fa828ba61ef3c2ab514134970a304e599b.jpg" alt="二十四节气"></p>
-<p>二十四节气是根据地球在黄道（即地球绕太阳公转的轨道）上的位置来划分的。视太阳从春分点（黄经零度，此刻太阳垂直照射赤道）出发，每前进15度为一个节气；运行一周又回到春分点，为一回归年，合360度，因此分为24个节气。</p>
-<h2 id="节与气"><a href="#节与气" class="headerlink" title="节与气"></a>节与气</h2><p>一年有二十四个节气，计十二个节和十二个气。即一个月之内有一节一气，每两节气相距，平均约三十天又十分之四，而阴历每月之日数．则为二十九天半，故约每三十四个月，必遇有两月仅有节而无气、及有气而无节者。有节无气之月，即农历之闰月，有气无节之月不为闰月，兹将节气与农历月份关系表列于后：</p>
-<h3 id="季月节气表"><a href="#季月节气表" class="headerlink" title="季月节气表"></a>季月节气表</h3><table log-set-param="table_view" data-sort="sortDisabled"><tbody><tr><th height="37">季</th><th height="37" colspan="3"><div class="para" label-module="para">春</div><br></th><th height="37" colspan="3">夏</th><th height="37" colspan="3">秋</th><th height="37" colspan="3"><div class="para" label-module="para">冬</div><br></th></tr><tr><td valign="top">月</td><td valign="top">正月</td><td valign="top">二月</td><td valign="top">三月</td><td valign="top">四月</td><td valign="top">五月</td><td valign="top">六月</td><td valign="top">七月</td><td valign="top">八月</td><td valign="top">九月</td><td valign="top">十月</td><td valign="top">冬月</td><td valign="top">腊月</td></tr><tr><td valign="top">节</td><td valign="top">立春</td><td valign="top">惊蛰</td><td valign="top">清明</td><td valign="top">立夏</td><td valign="top">芒种</td><td valign="top">小暑</td><td valign="top">立秋</td><td valign="top">白露</td><td valign="top">寒露</td><td valign="top">立冬</td><td valign="top">大雪</td><td valign="top">小寒</td></tr><tr><td valign="top">气</td><td valign="top">雨水</td><td valign="top">春分</td><td valign="top">谷雨</td><td valign="top">小满</td><td valign="top">夏至</td><td valign="top">大暑</td><td valign="top">处暑</td><td valign="top">秋分</td><td valign="top">霜降</td><td valign="top">小雪</td><td valign="top">冬至</td><td valign="top">大寒</td></tr></tbody></table>
-
-<h2 id="二十四节气歌"><a href="#二十四节气歌" class="headerlink" title="二十四节气歌"></a>二十四节气歌</h2><p>春雨惊春清谷天，夏满芒夏暑相连。<br>秋处露秋寒霜降，冬雪雪冬小大寒。<br>上半年逢六廿一，下半年逢八廿三。<br>每月两节不变更，最多相差一两天。</p>
-<h2 id="九九歌"><a href="#九九歌" class="headerlink" title="九九歌"></a>九九歌</h2><p>一九二九不出手；<br>三九四九冰上走； 五九六九沿河看柳；<br>七九河开八九燕来； 九九加一九，耕牛遍地走；  </p>
-<p>我国阴历有“九九”的说法，用来计算时令。计算的方法是从冬天的冬至日算起，第一个九天叫“一九”。第二个九天叫“二九”，依此类推，一直到“九九”。即第九个九天，这时冬天已过完，春天来到了。</p>
-<h2 id="三伏"><a href="#三伏" class="headerlink" title="三伏"></a>三伏</h2><p>伏日宜吃面，北方有句俚语，叫做“头伏饺子二伏面，三伏烙饼摊鸡蛋”。<br><a href="https://baike.baidu.com/item/%E5%A4%B4%E4%BC%8F%E9%A5%BA%E5%AD%90%E4%BA%8C%E4%BC%8F%E9%9D%A2/1113695?fr=aladdin" target="_blank" rel="noopener">头伏饺子二伏面百科</a>  </p>
-<p><a href="https://baike.baidu.com/item/%E4%BA%8C%E5%8D%81%E5%9B%9B%E8%8A%82%E6%B0%94/191597" target="_blank" rel="noopener">二十四节气百科</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2161,7 +2209,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">97</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2305,7 +2353,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">46</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

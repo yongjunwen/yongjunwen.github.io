@@ -1061,7 +1061,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/android/android-code-style/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/android/android之泛型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -1080,8 +1080,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/android/android-code-style/" itemprop="url">
-                  Android编码规范
+                <a class="post-title-link" href="/2018/06/11/android/android之泛型/" itemprop="url">
+                  泛型
                 </a>
               
             
@@ -1124,7 +1124,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-30 16:58:12" itemprop="dateModified" datetime="2018-08-30T16:58:12+08:00">2018-08-30</time>
+                <time title="修改时间：2019-09-05 19:26:18" itemprop="dateModified" datetime="2019-09-05T19:26:18+08:00">2019-09-05</time>
               
             
           </span>
@@ -1177,9 +1177,14 @@
       
         
           
-            <p><a href="https://github.com/tianshaojie/android-code-style" target="_blank" rel="noopener">Android编码规范</a></p>
-<p><a href="https://github.com/tianshaojie/AndroidFine" target="_blank" rel="noopener">Android快速开发框架</a></p>
-<p><a href="https://github.com/tianshaojie/android-modularization" target="_blank" rel="noopener">Android组件化设计思路</a></p>
+            <h3 id="什么是泛型？"><a href="#什么是泛型？" class="headerlink" title="什么是泛型？"></a>什么是泛型？</h3><p>泛型，大概的意思是指没有指定具体的类型的类或方法，以泛型的形式传入一个类中或方法中，在Java编程(Android编程)里面使用一对尖括号和一个大写字母表示，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//泛型类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//泛型方法，类型参数位于返回类型之前或void之前</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;E&gt; <span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(E [] arr, E x)</span></span>&#123;</span><br><span class="line">   <span class="keyword">for</span>(E val:arr)&#123;</span><br><span class="line">      <span class="keyword">if</span>(x.equal(val))&#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="泛型-（-extends-T和-super-T）"><a href="#泛型-（-extends-T和-super-T）" class="headerlink" title="泛型 （? extends T和? super T）"></a>泛型 （? extends T和? super T）</h3><p><a href="https://blog.csdn.net/android_bar/article/details/81486161" target="_blank" rel="noopener">泛型 （? extends T和? super T）</a></p>
+<p>&lt;? extends T&gt;和&lt;? super T&gt;是泛型中的“通配符（Wildcards）”和“边界（Bounds）”的概念。</p>
+<ul>
+<li>&lt;? extends T&gt;：上界通配符（Upper Bounds Wildcards）</li>
+<li>&lt;? super T&gt;：    下界通配符（Lower Bounds Wildcards）</li>
+</ul>
 
           
         
@@ -1703,7 +1708,7 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/git 之 ssh/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/android/android-code-style/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -1722,8 +1727,8 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/git/git 之 ssh/" itemprop="url">
-                  ssh
+                <a class="post-title-link" href="/2018/06/11/android/android-code-style/" itemprop="url">
+                  Android编码规范
                 </a>
               
             
@@ -1766,7 +1771,7 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-12 20:33:50" itemprop="dateModified" datetime="2018-09-12T20:33:50+08:00">2018-09-12</time>
+                <time title="修改时间：2018-08-30 16:58:12" itemprop="dateModified" datetime="2018-08-30T16:58:12+08:00">2018-08-30</time>
               
             
           </span>
@@ -1783,7 +1788,7 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
 
                 
                 
@@ -1819,13 +1824,9 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
       
         
           
-            <h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><p>你拥有了一个 GitHub 账号之后，就可以自由的 clone 或者下载其他项目，也可以创建自己的项目，但是你没法提交代码。仔细想想也知道，肯定不可能随意就能提交代码的，如果随意可以提交代码，那么 GitHub 上的项目岂不乱了套了，所以提交代码之前一定是需要某种授权的，而 GitHub 上一般都是基于 SSH 授权的。<br>那么什么是 SSH 呢？ 简单点说，SSH是一种网络协议，用于计算机之间的加密登录。目前是每一台 Linux 电脑的标准配置。而大多数 Git 服务器都会选择使用 SSH 公钥来进行授权，所以想要在 GitHub 提交代码的第一步就是要先添加 SSH key 配置。</p>
-<h3 id="生成SSH-key"><a href="#生成SSH-key" class="headerlink" title="生成SSH key"></a>生成SSH key</h3><p>Linux 与 Mac 都是默认安装了 SSH ，而 Windows 系统安装了 Git Bash 应该也是带了 SSH 的。大家可以在终端（win下在 Git Bash 里）输入 ssh 检测是否已安装。</p>
-<p>紧接着输入 <code>ssh-keygen -t rsa</code> 或者<code>（ssh-keygen -t rsa -C “邮箱名&quot;）</code> ，什么意思呢？就是指定 rsa 算法生成密钥，接着连续三个回车键（不需要输入密码），然后就会生成两个文件 <code>id_rsa</code> 和 <code>id_rsa.pub</code> ，而 <code>id_rsa</code> 是密钥，<code>id_rsa.pub</code> 就是公钥。这两文件默认分别在如下目录里生成：<br><code>Linux/Mac</code> 系统 在<code>~/.ssh</code> 下，win系统在 <code>/c/Documents and Settings/username/.ssh</code> 下，都是隐藏文件，相信你们有办法查看的。<br>接下来要做的是把 <code>id_rsa.pub</code>的内容添加到 GitHub 上，这样你本地的 <code>id_rsa</code> 密钥跟 GitHub 上的 <code>id_rsa.pub</code> 公钥进行配对，授权成功才可以提交代码。</p>
-<h3 id="GitHub-上添加-SSH-key"><a href="#GitHub-上添加-SSH-key" class="headerlink" title="GitHub 上添加 SSH key"></a>GitHub 上添加 SSH key</h3><p>第一步先在 GitHub 上的设置页面，点击最左侧 SSH and GPG keys ：</p>
-<h3 id="怎么查看-id-rsa-pub-文件的内容？"><a href="#怎么查看-id-rsa-pub-文件的内容？" class="headerlink" title="怎么查看 id_rsa.pub 文件的内容？"></a>怎么查看 id_rsa.pub 文件的内容？</h3><p>Linux/Mac 用户执行以下命令：<br>cd ~/.ssh<br>cat id_rsa.pub</p>
-<h3 id="测试是否ok"><a href="#测试是否ok" class="headerlink" title="测试是否ok"></a>测试是否ok</h3><p>SSH key 添加成功之后，输入 ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> 进行测试</p>
-<p><a href="http://stormzhang.com/github/2016/06/04/learn-github-from-zero4/" target="_blank" rel="noopener">ssh向GITHUB 提交代码</a></p>
+            <p><a href="https://github.com/tianshaojie/android-code-style" target="_blank" rel="noopener">Android编码规范</a></p>
+<p><a href="https://github.com/tianshaojie/AndroidFine" target="_blank" rel="noopener">Android快速开发框架</a></p>
+<p><a href="https://github.com/tianshaojie/android-modularization" target="_blank" rel="noopener">Android组件化设计思路</a></p>
 
           
         
@@ -2052,7 +2053,7 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/git 常用功能/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/git 之 ssh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -2071,8 +2072,8 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/git/git 常用功能/" itemprop="url">
-                  git项目中的常用功能
+                <a class="post-title-link" href="/2018/06/11/git/git 之 ssh/" itemprop="url">
+                  ssh
                 </a>
               
             
@@ -2115,7 +2116,7 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-18 15:01:46" itemprop="dateModified" datetime="2018-09-18T15:01:46+08:00">2018-09-18</time>
+                <time title="修改时间：2018-09-12 20:33:50" itemprop="dateModified" datetime="2018-09-12T20:33:50+08:00">2018-09-12</time>
               
             
           </span>
@@ -2168,20 +2169,13 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
       
         
           
-            <h3 id="列出提交个数-主要用来设置项目build号"><a href="#列出提交个数-主要用来设置项目build号" class="headerlink" title="列出提交个数   主要用来设置项目build号"></a>列出提交个数   主要用来设置项目build号</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rev-list --count HEAD</span><br></pre></td></tr></table></figure>
-<h3 id="获得两个版本间所有变更的文件列表"><a href="#获得两个版本间所有变更的文件列表" class="headerlink" title="获得两个版本间所有变更的文件列表"></a>获得两个版本间所有变更的文件列表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git diff 6962e097c87bcbd937eb59d94f9f79b9a709455d   </span><br><span class="line">c02e20f5ad5eb1a675b6b3d30fed5b66f309871c --stat &gt; log.txt -p</span><br></pre></td></tr></table></figure>
-<h3 id="查看某个文件的修改历史"><a href="#查看某个文件的修改历史" class="headerlink" title="查看某个文件的修改历史"></a>查看某个文件的修改历史</h3><p><code>git log -p filePath/fileName.m</code></p>
-<h3 id="使用-pull-rebase-操作替代-merge"><a href="#使用-pull-rebase-操作替代-merge" class="headerlink" title="使用 pull rebase 操作替代 merge"></a>使用 pull rebase 操作替代 merge</h3><p>　　如果你工作的团队正工作在同一个分支，那么你所要做的获取/合并或经常拉取。分支合并的 git 记录与合并提交时提示功能分支被并入主干。但在多个团队成员工作的同一分支的情况下，经常合并导致在日志中多个合并的消息引起混乱。所以你可以使用 pull rebase，以保持历史信息清除了无用合并的消息。</p>
-<p><code>git config branch.BRANCH_NAME_HERE.rebase true</code></p>
-<p>　　此外，您可以配置一个特定的分支总是衍合：</p>
-<p><code>git pull --rebase</code></p>
-<h3 id="gc-命令"><a href="#gc-命令" class="headerlink" title="gc 命令"></a>gc 命令</h3><p>“垃圾回收”是一个很亲切的功能。让我们开始吧：<br><code>$ git gc --prune=now</code><br>现在，重新检视一下仓库的大小，发现确实有效啊：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ find .git/objects -type f</span><br><span class="line">.git/objects/info/packs</span><br><span class="line">.git/objects/pack/pack-9d75315485cb7bfbf51ce5c94a4535da99b58dbb.idx</span><br><span class="line">.git/objects/pack/pack-9d75315485cb7bfbf51ce5c94a4535da99b58dbb.pack</span><br><span class="line">$</span><br><span class="line">$ du -ah    # 此处略去了无关输出</span><br><span class="line">4.0K    ./.git/objects/pack/pack-9d75315485cb7bfbf51ce5c94a4535da99b58dbb.idx</span><br><span class="line"> 52M    ./.git/objects/pack/pack-9d75315485cb7bfbf51ce5c94a4535da99b58dbb.pack</span><br><span class="line"> 77M    ./bigfile</span><br><span class="line">130M    .</span><br></pre></td></tr></table></figure>
-<h3 id="cherry-pick用法"><a href="#cherry-pick用法" class="headerlink" title="cherry-pick用法"></a>cherry-pick用法</h3><p>使用场景：在branch1开发，进行多个提交，这是切换到branch2，想把之前branch1分支提交的commit都复制过来。</p>
-<p>单个<code>commit</code>只需要<code>git cherry-pick commitid</code></p>
-<p>多个<code>commit</code> 只需要<code>git cherry-pick commitid1..commitid100</code></p>
-<p>注意，不包含第一个<code>commitid</code> ， 即  <code>git cherry-pick (commitid1..commitid100]</code></p>
-<h3 id="Git更新远程分支列表"><a href="#Git更新远程分支列表" class="headerlink" title="Git更新远程分支列表"></a>Git更新远程分支列表</h3><p><code>git remote update origin --prune</code></p>
+            <h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><p>你拥有了一个 GitHub 账号之后，就可以自由的 clone 或者下载其他项目，也可以创建自己的项目，但是你没法提交代码。仔细想想也知道，肯定不可能随意就能提交代码的，如果随意可以提交代码，那么 GitHub 上的项目岂不乱了套了，所以提交代码之前一定是需要某种授权的，而 GitHub 上一般都是基于 SSH 授权的。<br>那么什么是 SSH 呢？ 简单点说，SSH是一种网络协议，用于计算机之间的加密登录。目前是每一台 Linux 电脑的标准配置。而大多数 Git 服务器都会选择使用 SSH 公钥来进行授权，所以想要在 GitHub 提交代码的第一步就是要先添加 SSH key 配置。</p>
+<h3 id="生成SSH-key"><a href="#生成SSH-key" class="headerlink" title="生成SSH key"></a>生成SSH key</h3><p>Linux 与 Mac 都是默认安装了 SSH ，而 Windows 系统安装了 Git Bash 应该也是带了 SSH 的。大家可以在终端（win下在 Git Bash 里）输入 ssh 检测是否已安装。</p>
+<p>紧接着输入 <code>ssh-keygen -t rsa</code> 或者<code>（ssh-keygen -t rsa -C “邮箱名&quot;）</code> ，什么意思呢？就是指定 rsa 算法生成密钥，接着连续三个回车键（不需要输入密码），然后就会生成两个文件 <code>id_rsa</code> 和 <code>id_rsa.pub</code> ，而 <code>id_rsa</code> 是密钥，<code>id_rsa.pub</code> 就是公钥。这两文件默认分别在如下目录里生成：<br><code>Linux/Mac</code> 系统 在<code>~/.ssh</code> 下，win系统在 <code>/c/Documents and Settings/username/.ssh</code> 下，都是隐藏文件，相信你们有办法查看的。<br>接下来要做的是把 <code>id_rsa.pub</code>的内容添加到 GitHub 上，这样你本地的 <code>id_rsa</code> 密钥跟 GitHub 上的 <code>id_rsa.pub</code> 公钥进行配对，授权成功才可以提交代码。</p>
+<h3 id="GitHub-上添加-SSH-key"><a href="#GitHub-上添加-SSH-key" class="headerlink" title="GitHub 上添加 SSH key"></a>GitHub 上添加 SSH key</h3><p>第一步先在 GitHub 上的设置页面，点击最左侧 SSH and GPG keys ：</p>
+<h3 id="怎么查看-id-rsa-pub-文件的内容？"><a href="#怎么查看-id-rsa-pub-文件的内容？" class="headerlink" title="怎么查看 id_rsa.pub 文件的内容？"></a>怎么查看 id_rsa.pub 文件的内容？</h3><p>Linux/Mac 用户执行以下命令：<br>cd ~/.ssh<br>cat id_rsa.pub</p>
+<h3 id="测试是否ok"><a href="#测试是否ok" class="headerlink" title="测试是否ok"></a>测试是否ok</h3><p>SSH key 添加成功之后，输入 ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> 进行测试</p>
+<p><a href="http://stormzhang.com/github/2016/06/04/learn-github-from-zero4/" target="_blank" rel="noopener">ssh向GITHUB 提交代码</a></p>
 
           
         
@@ -2224,7 +2218,7 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2271,7 +2265,7 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">97</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2415,7 +2409,11 @@ clickMeButton.setOnClickListener(<span class="keyword">new</span> OnClickListene
                     
                       
                     
-                    <span class="site-state-item-count">46</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

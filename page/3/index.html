@@ -331,179 +331,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/git 本地仓库 更换远程仓库/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="追梦机器人">
-      <meta itemprop="description" content="为了明天而努力">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追梦机器人的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/git/git 本地仓库 更换远程仓库/" itemprop="url">
-                  git 本地仓库 更换远程仓库
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-28 15:22:59" itemprop="dateModified" datetime="2018-08-28T15:22:59+08:00">2018-08-28</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a></p>
-<h2 id="git修改远程仓库地址的三种方法"><a href="#git修改远程仓库地址的三种方法" class="headerlink" title="git修改远程仓库地址的三种方法"></a>git修改远程仓库地址的三种方法</h2><h3 id="直接命令修改"><a href="#直接命令修改" class="headerlink" title="直接命令修改"></a>直接命令修改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin [url]</span><br></pre></td></tr></table></figure>
-<h3 id="命令，先删除后设新地址"><a href="#命令，先删除后设新地址" class="headerlink" title="命令，先删除后设新地址"></a>命令，先删除后设新地址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git remote rm origin </span><br><span class="line">git remote add origin [url]</span><br></pre></td></tr></table></figure>
-<h3 id="直接修改配置文件"><a href="#直接修改配置文件" class="headerlink" title="直接修改配置文件"></a>直接修改配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">文件位置：git/config </span><br><span class="line">config</span><br><span class="line"></span><br><span class="line">[core]</span><br><span class="line">    repositoryformatversion = 0</span><br><span class="line">    filemode = false</span><br><span class="line">    bare = false</span><br><span class="line">    logallrefupdates = true</span><br><span class="line">    symlinks = false</span><br><span class="line">    ignorecase = true</span><br><span class="line">[gui]</span><br><span class="line">    wmstate = normal</span><br><span class="line">    geometry = 841x483+225+101 189 218</span><br><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">    url = git@github.com:project.git</span><br><span class="line">    fetch = +refs/heads/*:refs/remotes/origin/*</span><br><span class="line">[branch &quot;master&quot;]</span><br><span class="line">    remote = origin</span><br><span class="line">    merge = refs/heads/master</span><br></pre></td></tr></table></figure>
-<h3 id="补充：如果用sourcetree的话可以直接修改远程仓库地址"><a href="#补充：如果用sourcetree的话可以直接修改远程仓库地址" class="headerlink" title="补充：如果用sourcetree的话可以直接修改远程仓库地址"></a>补充：如果用sourcetree的话可以直接修改远程仓库地址</h3>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/初始化git仓库项目/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1042,6 +869,189 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/git 常用功能/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追梦机器人">
+      <meta itemprop="description" content="为了明天而努力">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追梦机器人的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/11/git/git 常用功能/" itemprop="url">
+                  git项目中的常用功能
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-11 16:17:22" itemprop="dateCreated datePublished" datetime="2018-06-11T16:17:22+08:00">2018-06-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-18 15:01:46" itemprop="dateModified" datetime="2018-09-18T15:01:46+08:00">2018-09-18</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="列出提交个数-主要用来设置项目build号"><a href="#列出提交个数-主要用来设置项目build号" class="headerlink" title="列出提交个数   主要用来设置项目build号"></a>列出提交个数   主要用来设置项目build号</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rev-list --count HEAD</span><br></pre></td></tr></table></figure>
+<h3 id="获得两个版本间所有变更的文件列表"><a href="#获得两个版本间所有变更的文件列表" class="headerlink" title="获得两个版本间所有变更的文件列表"></a>获得两个版本间所有变更的文件列表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git diff 6962e097c87bcbd937eb59d94f9f79b9a709455d   </span><br><span class="line">c02e20f5ad5eb1a675b6b3d30fed5b66f309871c --stat &gt; log.txt -p</span><br></pre></td></tr></table></figure>
+<h3 id="查看某个文件的修改历史"><a href="#查看某个文件的修改历史" class="headerlink" title="查看某个文件的修改历史"></a>查看某个文件的修改历史</h3><p><code>git log -p filePath/fileName.m</code></p>
+<h3 id="使用-pull-rebase-操作替代-merge"><a href="#使用-pull-rebase-操作替代-merge" class="headerlink" title="使用 pull rebase 操作替代 merge"></a>使用 pull rebase 操作替代 merge</h3><p>　　如果你工作的团队正工作在同一个分支，那么你所要做的获取/合并或经常拉取。分支合并的 git 记录与合并提交时提示功能分支被并入主干。但在多个团队成员工作的同一分支的情况下，经常合并导致在日志中多个合并的消息引起混乱。所以你可以使用 pull rebase，以保持历史信息清除了无用合并的消息。</p>
+<p><code>git config branch.BRANCH_NAME_HERE.rebase true</code></p>
+<p>　　此外，您可以配置一个特定的分支总是衍合：</p>
+<p><code>git pull --rebase</code></p>
+<h3 id="gc-命令"><a href="#gc-命令" class="headerlink" title="gc 命令"></a>gc 命令</h3><p>“垃圾回收”是一个很亲切的功能。让我们开始吧：<br><code>$ git gc --prune=now</code><br>现在，重新检视一下仓库的大小，发现确实有效啊：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ find .git/objects -type f</span><br><span class="line">.git/objects/info/packs</span><br><span class="line">.git/objects/pack/pack-9d75315485cb7bfbf51ce5c94a4535da99b58dbb.idx</span><br><span class="line">.git/objects/pack/pack-9d75315485cb7bfbf51ce5c94a4535da99b58dbb.pack</span><br><span class="line">$</span><br><span class="line">$ du -ah    # 此处略去了无关输出</span><br><span class="line">4.0K    ./.git/objects/pack/pack-9d75315485cb7bfbf51ce5c94a4535da99b58dbb.idx</span><br><span class="line"> 52M    ./.git/objects/pack/pack-9d75315485cb7bfbf51ce5c94a4535da99b58dbb.pack</span><br><span class="line"> 77M    ./bigfile</span><br><span class="line">130M    .</span><br></pre></td></tr></table></figure>
+<h3 id="cherry-pick用法"><a href="#cherry-pick用法" class="headerlink" title="cherry-pick用法"></a>cherry-pick用法</h3><p>使用场景：在branch1开发，进行多个提交，这是切换到branch2，想把之前branch1分支提交的commit都复制过来。</p>
+<p>单个<code>commit</code>只需要<code>git cherry-pick commitid</code></p>
+<p>多个<code>commit</code> 只需要<code>git cherry-pick commitid1..commitid100</code></p>
+<p>注意，不包含第一个<code>commitid</code> ， 即  <code>git cherry-pick (commitid1..commitid100]</code></p>
+<h3 id="Git更新远程分支列表"><a href="#Git更新远程分支列表" class="headerlink" title="Git更新远程分支列表"></a>Git更新远程分支列表</h3><p><code>git remote update origin --prune</code></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/ 如何判断代码运行在DEBUG还是RELEASE模式下/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1223,7 +1233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/Xcode中和symbols有关的几个设置/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/git/git 本地仓库 更换远程仓库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -1242,8 +1252,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/iOS/Xcode中和symbols有关的几个设置/" itemprop="url">
-                  Xcode中和symbols有关的几个设置
+                <a class="post-title-link" href="/2018/06/11/git/git 本地仓库 更换远程仓库/" itemprop="url">
+                  git 本地仓库 更换远程仓库
                 </a>
               
             
@@ -1286,7 +1296,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-01-28 17:11:38" itemprop="dateModified" datetime="2019-01-28T17:11:38+08:00">2019-01-28</time>
+                <time title="修改时间：2018-08-28 15:22:59" itemprop="dateModified" datetime="2018-08-28T15:22:59+08:00">2018-08-28</time>
               
             
           </span>
@@ -1303,7 +1313,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
 
                 
                 
@@ -1339,11 +1349,11 @@
       
         
           
-            <p>在iOS开发中 特别是有framework打包的时候  经常遇到包比较大的问题。下面就来开下Xcode中和symbols有关的几个设置。</p>
-<p><a href="https://www.jianshu.com/p/11710e7ab661" target="_blank" rel="noopener">简书地址</a></p>
-<p>Generate Debug Symbols 修改为NO后 能减少包的大小 但是debug功能就不能使用了</p>
-<p>-<br><img src="https://img-blog.csdn.net/20150202124656301" alt=""><br><a href="https://www.cnblogs.com/jasontec/p/9601631.html" target="_blank" rel="noopener">iOS可执行文件瘦身方法</a></p>
-
+            <p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a></p>
+<h2 id="git修改远程仓库地址的三种方法"><a href="#git修改远程仓库地址的三种方法" class="headerlink" title="git修改远程仓库地址的三种方法"></a>git修改远程仓库地址的三种方法</h2><h3 id="直接命令修改"><a href="#直接命令修改" class="headerlink" title="直接命令修改"></a>直接命令修改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin [url]</span><br></pre></td></tr></table></figure>
+<h3 id="命令，先删除后设新地址"><a href="#命令，先删除后设新地址" class="headerlink" title="命令，先删除后设新地址"></a>命令，先删除后设新地址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git remote rm origin </span><br><span class="line">git remote add origin [url]</span><br></pre></td></tr></table></figure>
+<h3 id="直接修改配置文件"><a href="#直接修改配置文件" class="headerlink" title="直接修改配置文件"></a>直接修改配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">文件位置：git/config </span><br><span class="line">config</span><br><span class="line"></span><br><span class="line">[core]</span><br><span class="line">    repositoryformatversion = 0</span><br><span class="line">    filemode = false</span><br><span class="line">    bare = false</span><br><span class="line">    logallrefupdates = true</span><br><span class="line">    symlinks = false</span><br><span class="line">    ignorecase = true</span><br><span class="line">[gui]</span><br><span class="line">    wmstate = normal</span><br><span class="line">    geometry = 841x483+225+101 189 218</span><br><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">    url = git@github.com:project.git</span><br><span class="line">    fetch = +refs/heads/*:refs/remotes/origin/*</span><br><span class="line">[branch &quot;master&quot;]</span><br><span class="line">    remote = origin</span><br><span class="line">    merge = refs/heads/master</span><br></pre></td></tr></table></figure>
+<h3 id="补充：如果用sourcetree的话可以直接修改远程仓库地址"><a href="#补充：如果用sourcetree的话可以直接修改远程仓库地址" class="headerlink" title="补充：如果用sourcetree的话可以直接修改远程仓库地址"></a>补充：如果用sourcetree的话可以直接修改远程仓库地址</h3>
           
         
       
@@ -1568,7 +1578,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/Xcode中如何去掉默认的Main.storyboard/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/NSRunloop工作原理和相关应用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -1587,8 +1597,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/iOS/Xcode中如何去掉默认的Main.storyboard/" itemprop="url">
-                  Xcode中如何去掉默认的Main.storyboard
+                <a class="post-title-link" href="/2018/06/11/iOS/NSRunloop工作原理和相关应用/" itemprop="url">
+                  NSRunloop工作原理和相关应用
                 </a>
               
             
@@ -1631,7 +1641,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-21 17:34:29" itemprop="dateModified" datetime="2019-02-21T17:34:29+08:00">2019-02-21</time>
+                <time title="修改时间：2019-03-19 20:59:08" itemprop="dateModified" datetime="2019-03-19T20:59:08+08:00">2019-03-19</time>
               
             
           </span>
@@ -1684,27 +1694,15 @@
       
         
           
-            <p>xcode 6取消了 Empty Application 模板来创建一个工程，创建出来的有工程多了Main.storyboard，默认加载Main.storyboard，但是有很多人还想用代码来实现UI的布局，去除Main.storyboard的有三步：</p>
-<p><strong>修改</strong>  </p>
-<ul>
-<li><p>首先如图打开工程下面Supporting Files下面的Info.plist</p>
-<p>  <code>Main storyboard file base name</code>删除这一行</p>
-</li>
-</ul>
-<ul>
-<li>其次找到工程的TAGETS/General/Deployment Info 删除Main。</li>
-</ul>
-<ul>
-<li>经过上面两步算是删除了工程对Main.storyboard的依赖，但是运行工程后会发现是黑屏</li>
-</ul>
-<p>在AppDelegate中的- (BOOL)application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions 中添加以下代码即可解决</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];</span><br><span class="line"> self.window.backgroundColor = [UIColor whiteColor];</span><br><span class="line">[self.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
-<p><strong>报错</strong>  </p>
-<p>程序运行会提示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Application windows are expected to have a root view controller at the end of application launch</span><br></pre></td></tr></table></figure>
-<p><strong>解决方案</strong> </p>
-<p>意思是应用程序期望拥有一个根控制器（RootViewController）<br>修改上面的代码，随便添加了一个控制器，程序就不抱错了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions &#123;</span><br><span class="line">    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];</span><br><span class="line">    self.window.backgroundColor = [UIColor whiteColor];</span><br><span class="line"></span><br><span class="line">    UITabBarController *tbc = [[UITabBarController alloc] init];</span><br><span class="line"></span><br><span class="line">    self.window.rootViewController = tbc;</span><br><span class="line"></span><br><span class="line">    [self.window makeKeyAndVisible];</span><br><span class="line"></span><br><span class="line">    return YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h3 id="NSRunloop与程序运行"><a href="#NSRunloop与程序运行" class="headerlink" title="NSRunloop与程序运行"></a>NSRunloop与程序运行</h3><p>　　　那么具体什么是NSRunLoop呢?其实NSRunLoop的本质是一个消息机制的处理模式。让我们首先来看一下程序的入口——main.m文件，一个ios程序启动后，只有短短的十行代码居然能保持整个应用程序一直运行而没有退出，是不是有点意思？程序之所以没有直接退出是因为UIApplicationMain这个函数内部默认启动了一个跟主线程相关的NSRunloop对象，而UIApplicationMain这个函数一直执行没有返回就保存程序一直运行的状态。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;UIKit/UIKit.h&gt;</span><br><span class="line"></span><br><span class="line">#import &quot;AppDelegate.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char * argv[]) &#123;</span><br><span class="line"></span><br><span class="line">    @autoreleasepool &#123;</span><br><span class="line"></span><br><span class="line">        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>　　文章之初我们暂且将NSRunloop理解为实现这样功能的一段代码 , 这可以帮助我们更好的理解NSRunloop处理事件的过程(实际上远比这复杂的多：）)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char * argv[]) &#123;</span><br><span class="line"></span><br><span class="line">  BOOL runnning =YES;</span><br><span class="line">   do&#123;</span><br><span class="line">        ...</span><br><span class="line">       //处理各种操作 各种事件</span><br><span class="line">       ...</span><br><span class="line">      &#125;while(running);</span><br><span class="line">  </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面用官方提供的一幅非常经典的图片，来认识NSRunloop循环处理时间的流程。</p>
+<p><img src="http://www.cocoachina.com/cms/uploads/allimg/120703/4064_120703135151_1.png" alt=""><br>通过所有的“消息”都被添加到了<code>NSRunLoop</code>中去，而在这里这些消息并分为<code>input source</code>和<code>Timer source</code> 并在循环中检查是不是有事件需要发生，如果需要那么就调用相应的函数处理。由此形成了运行-&gt;检测-&gt;休眠 -&gt;运行 的循环状态。</p>
+<p><a href="https://www.cnblogs.com/ruihaha/p/5813819.html" target="_blank" rel="noopener">NSRunloop工作原理和相关应用</a></p>
+<p><a href="https://blog.ibireme.com/2015/05/18/runloop/" target="_blank" rel="noopener">深入理解RunLoop</a></p>
+
           
         
       
@@ -1757,7 +1755,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/iOS GCD/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/Category中的方法为什么会覆盖原来类中的方法？/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -1776,8 +1774,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/iOS/iOS GCD/" itemprop="url">
-                  iOS之GCD
+                <a class="post-title-link" href="/2018/06/11/iOS/Category中的方法为什么会覆盖原来类中的方法？/" itemprop="url">
+                  Category中的方法为什么会覆盖原来类中的方法？
                 </a>
               
             
@@ -1820,7 +1818,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-25 15:34:23" itemprop="dateModified" datetime="2018-10-25T15:34:23+08:00">2018-10-25</time>
+                <time title="修改时间：2019-03-13 20:58:02" itemprop="dateModified" datetime="2019-03-13T20:58:02+08:00">2019-03-13</time>
               
             
           </span>
@@ -1873,27 +1871,13 @@
       
         
           
-            <p><a href="https://www.aliyun.com/jiaocheng/topic_13551.html" target="_blank" rel="noopener">阿里云GCD</a></p>
-<p><em>===============关于GCD的一些好用的函数===============</em></p>
-<h4 id="一次性代码-多用于单例"><a href="#一次性代码-多用于单例" class="headerlink" title="一次性代码(多用于单例)"></a>一次性代码(多用于单例)</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;  </span><br><span class="line"><span class="built_in">dispatch_once</span>(&amp;;onceToken, ^&#123;</span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"once"</span>); </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="延迟执行"><a href="#延迟执行" class="headerlink" title="延迟执行"></a>延迟执行</h4><ul>
-<li>perform</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可以在运行时调用方法</span></span><br><span class="line">- (<span class="keyword">id</span>)performSelector:(SEL)selector</span><br><span class="line"><span class="comment">//可带一个参数</span></span><br><span class="line">- (<span class="keyword">id</span>)performSelector:(SEL)selector withObject:(<span class="keyword">id</span>)object</span><br><span class="line"><span class="comment">//可带两个参数</span></span><br><span class="line">- (<span class="keyword">id</span>)performSelector:(SEL)selector withObject:(<span class="keyword">id</span>)object withObject:(<span class="keyword">id</span>)object</span><br><span class="line"><span class="comment">//可延时执行方法</span></span><br><span class="line">- (<span class="keyword">void</span>)performSelector:(SEL)selector withObject:(<span class="keyword">id</span>)argument afterDelay:(<span class="built_in">NSTimeInterval</span>)delay</span><br><span class="line"><span class="comment">//可放到另一个线程中执行</span></span><br><span class="line">- (<span class="keyword">void</span>)performSelector:(SEL)selector onThread:(<span class="built_in">NSThread</span> *)thread withObject:(<span class="keyword">id</span>)argument waitUntilDone:(<span class="built_in">BOOL</span>)wait</span><br><span class="line">- (<span class="keyword">void</span>)performSelectorOnMainThread:(SEL)selector withObject:(<span class="keyword">id</span>)argument waitUntilDone:(<span class="built_in">BOOL</span>)wait</span><br><span class="line"> </span><br><span class="line"><span class="comment">//延后执行方法的两种实现方式：</span></span><br><span class="line">[<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(doSomething) withObject:<span class="literal">nil</span> afterDelay:<span class="number">5.0</span>];</span><br></pre></td></tr></table></figure>
-<ul>
-<li>GCD方式</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC));</span><br><span class="line">dispatch_after(time, dispatch_get_main_queue(), ^(void)&#123;</span><br><span class="line">    [self doSomething];</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//把任务放在主线程执行的两种方式</span><br><span class="line">[self performSlectorOnMainThread:@selector(doSomething) withObject:nil waitUntilDone:NO];</span><br><span class="line"> </span><br><span class="line">dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">    [self doSomething];</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><strong>1、</strong>performSelector系列方法在内存管理方面容易有疏失。它无法确定将要执行的选择子具体是什么，因而ARC编译器也就无法插入适当的内存管理方法。<br><strong>2、</strong>performSelector系列方法所能处理的选择子太过局限了，选择子的返回值类型及发送给方法的参数个数都受到限制。<br><strong>3、</strong>如果想把任务放在另一个线程上执行，那么最好不要用performSelector系列方法，而是应该把任务封装到块里，然后调用GCD的相关方法来实现。</p>
-<h4 id="栅栏函数"><a href="#栅栏函数" class="headerlink" title="栅栏函数"></a>栅栏函数</h4><p>关键函数<code>dispatch_barrier_async</code> </p>
-<ul>
-<li>作用:只有当栅栏函数执行完毕后才能执行后面的函数</li>
-<li>需求:使用栅栏函数规定线程执行顺序</li>
-<li>注意:栅栏函数不能使用全局并发队列(否则没有意义)</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_queue_create(<span class="string">"download"</span>, DISPATCH_QUEUE_CONCURRENT); </span><br><span class="line">   <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="built_in">NSInteger</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;<span class="built_in">NSLog</span>(<span class="string">@"task1 -- %zd -- %@"</span>, i, [<span class="built_in">NSThread</span> currentThread]);&#125;</span><br><span class="line">   &#125;);</span><br><span class="line"></span><br><span class="line">   dispatch_barrier_async(queue, ^&#123;</span><br><span class="line"></span><br><span class="line">       <span class="built_in">NSLog</span>(<span class="string">@"+++++++ barrier ++++++++"</span>);</span><br><span class="line"></span><br><span class="line">   &#125;);</span><br><span class="line"></span><br><span class="line">   <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="built_in">NSInteger</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line"></span><br><span class="line">           <span class="built_in">NSLog</span>(<span class="string">@"task2 -- %zd -- %@"</span>, i, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h4><p>关键函数 <code>dispatch_apply</code></p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dispatch_apply(<span class="number">6</span>, queue, ^(size_t index) &#123; </span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%zd------%@"</span>,index, [<span class="built_in">NSThread</span> currentThread]); </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+            <h3 id="深入了解Category"><a href="#深入了解Category" class="headerlink" title="深入了解Category"></a>深入了解<code>Category</code></h3><p>我们都知道<code>OC</code>代码执行时会先转成<code>C\C++</code>代码，<code>OC</code>对象转成对应的结构体；<br><code>Category</code>对应的结构体我们可以通过将分类的<code>.m文件转成c++</code>文件查看：<br><code>xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc xxxxx.m</code><br>即可生成对应的<code>.cpp</code>文件；<br>在<code>.cpp</code>文件中搜索<code>Category_t</code>可以看到<code>Category</code>对应的结构体：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">struct _category_t &#123;</span><br><span class="line">const char *name;</span><br><span class="line">struct _class_t *cls;</span><br><span class="line">const struct _method_list_t *instance_methods;</span><br><span class="line">const struct _method_list_t *class_methods;</span><br><span class="line">const struct _protocol_list_t *protocols;</span><br><span class="line">const struct _prop_list_t *properties;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>通过观察结构体我们可以发现分类对应的结构体中有存储实例方法的列表、存储类方法的列表、存储协议的和属性的列表。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通过源码分析可知：系统是在运行时将分类中对应的实例方法、类方法等插入到了原来类或元类的方法列表中，且是在列表的前 </span><br><span class="line">边！所以，方法调用时通过isa去对应的类或元类的列表中查找对应的方法时先查到的是分类中的方法！查到后就直接调用不在继</span><br><span class="line">续查找。这即是’覆盖’的本质！</span><br></pre></td></tr></table></figure>
+<h3 id="存在多个分类，调用谁？"><a href="#存在多个分类，调用谁？" class="headerlink" title="存在多个分类，调用谁？"></a>存在多个分类，调用谁？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">当有多个分类时，会调用哪个分类中的方法呢？</span><br><span class="line"></span><br><span class="line">这个是与编译顺序有关，最后编译的分类中对应的信息会在整合在类或元类对应列表的最前边。所以是调用最后编译的分类中的</span><br><span class="line">方法！可以查看Build Phases -&gt;Complie Source 中的编译顺序！</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.jianshu.com/p/dd57c39a5e4c" target="_blank" rel="noopener">Category中的方法为什么会覆盖原来类中的方法？</a></p>
+
           
         
       
@@ -1946,7 +1930,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/iOS 中的 armv7,armv7s,arm64,i386,x86_64 都是什么/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS/Xcode中和symbols有关的几个设置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追梦机器人">
@@ -1965,8 +1949,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/iOS/iOS 中的 armv7,armv7s,arm64,i386,x86_64 都是什么/" itemprop="url">
-                  OS 中的 armv7,armv7s,arm64,i386,x86_64 都是什么
+                <a class="post-title-link" href="/2018/06/11/iOS/Xcode中和symbols有关的几个设置/" itemprop="url">
+                  Xcode中和symbols有关的几个设置
                 </a>
               
             
@@ -2009,7 +1993,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-22 16:29:09" itemprop="dateModified" datetime="2018-10-22T16:29:09+08:00">2018-10-22</time>
+                <time title="修改时间：2019-01-28 17:11:38" itemprop="dateModified" datetime="2019-01-28T17:11:38+08:00">2019-01-28</time>
               
             
           </span>
@@ -2062,17 +2046,10 @@
       
         
           
-            <p>在做静态库的时候以及引用静态库的时候经常会遇到一些关于真机模拟器不通用的情况，会报错找不到相应库导致编译失败，</p>
-<p>这里简单记录一下各种设备支持的架构。</p>
-<h4 id="iOS测试分为模拟器测试和真机测试，处理器分为32位处理器，和64位处理器"><a href="#iOS测试分为模拟器测试和真机测试，处理器分为32位处理器，和64位处理器" class="headerlink" title="iOS测试分为模拟器测试和真机测试，处理器分为32位处理器，和64位处理器"></a>iOS测试分为模拟器测试和真机测试，处理器分为32位处理器，和64位处理器</h4><h5 id="模拟器"><a href="#模拟器" class="headerlink" title="模拟器"></a>模拟器</h5><p>模拟器32位处理器测试需要i386架构，（iphone5,iphone5s以下的模拟器）</p>
-<p>模拟器64位处理器测试需要x86_64架构，(iphone6以上的模拟器)</p>
-<h5 id="真机"><a href="#真机" class="headerlink" title="真机"></a>真机</h5><p>真机32位处理器需要armv7,或者armv7s架构，（iphone4真机/armv7,      ipnone5,iphone5s真机/armv7s）</p>
-<p>真机64位处理器需要arm64架构。(iphone6,iphone6p以上的真机)</p>
-<p>project -&gt; target -&gt; building setting -&gt; Arhitectures 设置</p>
-<h5 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h5><p>debug属性设置为no的时候，会编译支持所有架构的版本，编译的速度会变慢，设置为yes 的时候，只编译当前的architecture版本，编译速度快。</p>
-<p>一般情况下，debug 设置为yes，release为no，这样发行版本能适应不同设备。</p>
-<h5 id="用到的命令行查看或者合并"><a href="#用到的命令行查看或者合并" class="headerlink" title="用到的命令行查看或者合并"></a>用到的命令行查看或者合并</h5><p>静态库.a支持信息：<br>lipo -info .a文件  </p>
-<p>两个静态库合并：<br> lipo -create 文件1  文件2  -output /Users/sunjianfei/Desktop/libPrint.a</p>
+            <p>在iOS开发中 特别是有framework打包的时候  经常遇到包比较大的问题。下面就来开下Xcode中和symbols有关的几个设置。</p>
+<p><a href="https://www.jianshu.com/p/11710e7ab661" target="_blank" rel="noopener">简书地址</a></p>
+<p>Generate Debug Symbols 修改为NO后 能减少包的大小 但是debug功能就不能使用了</p>
+<p>-<br><img src="https://img-blog.csdn.net/20150202124656301" alt=""><br><a href="https://www.cnblogs.com/jasontec/p/9601631.html" target="_blank" rel="noopener">iOS可执行文件瘦身方法</a></p>
 
           
         
@@ -2115,7 +2092,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2162,7 +2139,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">97</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2306,7 +2283,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">46</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
